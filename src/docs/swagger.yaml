@@ -1,0 +1,218 @@
+openapi: 3.0.3
+info:
+  title: eSparkTalentAPI Auth API
+  version: 1.0.0
+  description: API documentation for authentication and employee management routes
+
+servers:
+  - url: http://localhost:3000/api
+    description: Local Development
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+paths:
+  /login:
+    post:
+      summary: User login
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  example: mypassword123
+      responses:
+        "200":
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  role:
+                    type: string
+                    example: user
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid credentials
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /hr_add_emp:
+    post:
+      summary: Add a new employee
+      description: Adds a new employee with form-data, including image and resume file uploads.
+      tags:
+        - HR
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - employee_id
+                - first_name
+                - last_name
+                - gender
+                - dob
+                - email
+                - personal_email
+                - marital_status
+                - emergency_contact
+                - joining_date
+                - role
+                - job_title
+                - company
+                - punch_timings
+                - job_status
+                - phone_number
+                - casual_leaves
+                - sick_leaves
+                - annual_leaves
+                - hajj_leaves
+                - paid_leaves
+                - unpaid_leaves
+                - password
+                - confirm_password
+              properties:
+                employee_id:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                gender:
+                  type: string
+                dob:
+                  type: string
+                  format: date
+                email:
+                  type: string
+                  format: email
+                personal_email:
+                  type: string
+                  format: email
+                marital_status:
+                  type: string
+                emergency_contact:
+                  type: string
+                joining_date:
+                  type: string
+                  format: date
+                starting_date:
+                  type: string
+                  format: date
+                  nullable: true
+                ending_date:
+                  type: string
+                  format: date
+                  nullable: true
+                role:
+                  type: string
+                job_title:
+                  type: string
+                company:
+                  type: string
+                punch_timings:
+                  type: string
+                job_status:
+                  type: string
+                phone_number:
+                  type: string
+                casual_leaves:
+                  type: integer
+                sick_leaves:
+                  type: integer
+                annual_leaves:
+                  type: integer
+                hajj_leaves:
+                  type: integer
+                paid_leaves:
+                  type: integer
+                unpaid_leaves:
+                  type: integer
+                password:
+                  type: string
+                  format: password
+                confirm_password:
+                  type: string
+                  format: password
+                image:
+                  type: string
+                  format: binary
+                resume:
+                  type: string
+                  format: binary
+      responses:
+        "201":
+          description: Employee added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  id:
+                    type: integer
+                  image:
+                    type: string
+        "400":
+          description: Bad Request (Validation or duplicate errors)
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
