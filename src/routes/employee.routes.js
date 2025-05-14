@@ -1,7 +1,7 @@
 import express from "express";
 import addEmployee, { upload } from "../controllers/employee/addEmployee.js";
 import validateSchema from "../middleware/validate.js";
-import { employeeSchema } from "../validations/employeeSchema.js";
+import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 
 const router = express.Router();
@@ -13,7 +13,7 @@ router.post(
     { name: "resume", maxCount: 1 },
   ]),
   authenticateJWT,
-  validateSchema(employeeSchema),
+  validateSchema(addEmployeeSchema),
   addEmployee
 );
 
