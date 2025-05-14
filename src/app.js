@@ -7,7 +7,8 @@
   import YAML from "yamljs";
   import authRoutes from "./routes/auth.routes.js";
   import employeeRoutes from "./routes/employee.routes.js";
-
+  import clientRoutes from "./routes/client.routes.js";
+  import hrRoutes from "./routes/hr.routes.js";
 
   dotenv.config();
 
@@ -30,8 +31,10 @@
 
   // Routes
   app.use("/api", authRoutes);
+  app.use("/api", hrRoutes);
   app.use("/api", employeeRoutes);
-
+  app.use("/api", clientRoutes);
+  
   // Logging
   app.use((req, res, next) => {
     console.log(`Request received: ${req.method} ${req.url}`);
