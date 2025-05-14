@@ -42,6 +42,6 @@ async function uploadToS3(key, body, contentType) {
     return s3.upload(params).promise();
 }
 
-const S3_TEMP_BUCKET = process.env.S3_TEMP_BUCKET;
+const S3_TEMP_BUCKET = "talent-dashboard";
 
 export {s3, getSignedUrl, uploadToS3, S3_TEMP_BUCKET}
