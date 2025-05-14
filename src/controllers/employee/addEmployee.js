@@ -1,31 +1,13 @@
 import pool from "../../config/db.js";
-import multer from "multer";
-import dotenv from "dotenv";
-import path from "path";
-import fs from "fs";
 import bcrypt from "bcrypt";
 import { validateFile } from "../../utils/validateFiles.js";
 import { checkEmployeeDuplicates } from "../../utils/employee.js";
-import {logger} from "../../helpers/logger.js";
+import { logger } from "../../helpers/logger.js";
+import { getFormattedTimestamp } from "../../helpers/utils.js";
+import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3 } from "../../helpers/s3.js";
+import fs from "fs";
+import path from "path";
 
-dotenv.config();
-
-// Configure multer
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const uploadPath = "uploads/";
-    if (!fs.existsSync(uploadPath)) {
-      fs.mkdirSync(uploadPath, { recursive: true });
-    }
-    cb(null, uploadPath);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
-  },
-});
-
-export const upload = multer({ storage });
 
 const addEmployee = async (req, res) => {
   const client = await pool.connect();
@@ -62,9 +44,6 @@ const addEmployee = async (req, res) => {
 
     const imageFile = req.files?.image?.[0];
     const resumeFile = req.files?.resume?.[0];
-
-    const image = imageFile?.filename;
-    const resume = resumeFile?.filename;
 
     const fileErrors = {};
     const imageValidationErrors = validateFile({
@@ -119,6 +98,39 @@ const addEmployee = async (req, res) => {
       });
     }
 
+    let imageS3Key = null;
+    let resumeS3Key = null;
+
+    try {
+      if (imageFile) {
+        const timestamp = getFormattedTimestamp();
+        const fileName = path.basename(imageFile.originalname);
+        const s3ImageKey = `${S3_TEMP_BUCKET}/employees/profiles/${timestamp}_${fileName}`;
+
+        const fileContent = fs.readFileSync(imageFile.path);
+        await uploadToS3(s3ImageKey, fileContent, imageFile.mimetype);
+        fs.unlinkSync(imageFile.path);
+
+        imageS3Key = s3ImageKey;
+      }
+
+      if (resumeFile) {
+        const timestamp = getFormattedTimestamp();
+        const fileName = path.basename(resumeFile.originalname);
+        const s3ResumeKey = `${S3_TEMP_BUCKET}/employees/resumes/${timestamp}_${fileName}`;
+
+        const fileContent = fs.readFileSync(resumeFile.path);
+        await uploadToS3(s3ResumeKey, fileContent, resumeFile.mimetype);
+        fs.unlinkSync(resumeFile.path);
+
+        resumeS3Key = s3ResumeKey;
+      }
+    } catch (uploadError) {
+      await client.query("ROLLBACK");
+      logger.error("S3 upload error:", uploadError);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await client.query(
@@ -147,8 +159,8 @@ const addEmployee = async (req, res) => {
         email,
         personal_email,
         marital_status,
-        image,
-        resume,
+        imageS3Key,
+        resumeS3Key,
         emergency_contact,
         joining_date,
         starting_date,
@@ -164,7 +176,7 @@ const addEmployee = async (req, res) => {
     if (empResult.rows.length === 0) {
       await client.query("ROLLBACK");
       return res.status(400).json({
-        message: "Failed to add employee.",
+        error: "Failed to add employee.",
       });
     }
 
@@ -202,10 +214,10 @@ const addEmployee = async (req, res) => {
     if (clientResult.rows.length === 0) {
       await client.query("ROLLBACK");
       return res.status(400).json({
-        message: "Failed to add employee.",
+        error: "Failed to add employee.",
       });
     }
-    
+
     const clientId = clientResult.rows[0].id;
 
     await client.query(
@@ -216,13 +228,24 @@ const addEmployee = async (req, res) => {
       [clientId, emp.id, job_title, "Pakistan", role, "", joining_date, 0]
     );
 
+    let imageUrl = null;
+    if (imageS3Key) {
+      try {
+        imageUrl = await getSignedUrl(imageS3Key);
+      } catch (error) {
+        logger.warn("Failed to generate signed URL for image:", error);
+        return res.status(500).json({ error: "Internal Server Error" });
+      }
+    }
+
+
     await client.query("COMMIT");
-    
+
     logger.info(`${first_name} ${last_name} is added successfully`);
     return res.status(201).json({
       message: `${first_name} ${last_name} is added successfully`,
       id: emp.id,
-      image: `/uploads/${emp.image}`,
+      image: imageUrl,
     });
   } catch (err) {
     await client.query("ROLLBACK");

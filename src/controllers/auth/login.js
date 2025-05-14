@@ -13,12 +13,12 @@ const login = async (req, res) => {
 
     const user = result.rows[0];
     if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid credentials" });
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid credentials" });
     }
 
     const token = jwt.sign(
@@ -31,7 +31,7 @@ const login = async (req, res) => {
     return res.json({ role: user.role, token });
   } catch (err) {
     logger.error("Login error:", err);
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 

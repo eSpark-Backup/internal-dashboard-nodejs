@@ -1,8 +1,9 @@
 import express from "express";
-import addEmployee, { upload } from "../controllers/employee/addEmployee.js";
+import addEmployee from "../controllers/employee/addEmployee.js";
 import validateSchema from "../middleware/validate.js";
 import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
+import { upload } from "../helpers/multer.js";
 
 const router = express.Router();
 
