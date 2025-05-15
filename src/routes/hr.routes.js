@@ -18,7 +18,7 @@ router.post(
     { name: "image", maxCount: 1 },
     { name: "resume", maxCount: 1 },
   ]),
-  // authenticateJWT,
+  authenticateJWT,
   validateSchema(addEmployeeSchema),
   addEmployee
 );
@@ -49,7 +49,7 @@ router.delete(
 
 router.patch(
   "/emp_salary",
-  // authenticateJWT,
+  authenticateJWT,
   upload.fields([{ name: "pay_slip", maxCount: 1 }]),
   validateSchema(updateSalarySchema),
   updateSalary
