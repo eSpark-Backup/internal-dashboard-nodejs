@@ -1,12 +1,21 @@
+
 const validateSchema = (schema) => async (req, res, next) => {
   try {
-    await schema.validate(req.body, { abortEarly: false });
+    await schema.validate(
+      {
+        body: req.body,
+        query: req.query,
+        params: req.params,
+      },
+      { abortEarly: false }
+    );
     next();
   } catch (err) {
     const formattedErrors = {};
     err.inner.forEach((e) => {
-      if (!formattedErrors[e.path]) {
-        formattedErrors[e.path] = [e.message];
+      const path = e.path?.replace(/^(body|query|params)\./, "");
+      if (path && !formattedErrors[path]) {
+        formattedErrors[path] = [e.message];
       }
     });
     return res.status(400).json(formattedErrors);
@@ -14,3 +23,5 @@ const validateSchema = (schema) => async (req, res, next) => {
 };
 
 export default validateSchema;
+
+

@@ -40,7 +40,7 @@ const addEmployee = async (req, res) => {
       paid_leaves,
       unpaid_leaves,
       password,
-    } = req.body;
+    } = req.body || {};
 
     const imageFile = req.files?.image?.[0];
     const resumeFile = req.files?.resume?.[0];

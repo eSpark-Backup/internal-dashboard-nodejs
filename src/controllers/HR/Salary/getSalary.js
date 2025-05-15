@@ -1,0 +1,89 @@
+import pool from "../../../config/db.js"
+import { MONTHS } from "../../../constants/index.js"
+import { logger } from "../../../helpers/logger.js"
+import { getSignedUrl } from "../../../helpers/s3.js"
+
+const getSalary = async (req, res) => {
+    const { employee_id, month, year } = req.query
+
+    const employee = await pool.query(
+        `SELECT id FROM eSparkTalentAPI_employee WHERE email = $1`,
+        [employee_id]
+    );
+
+    if (!employee.rows[0]?.id) {
+        return res.status(400).json({ error: "Employee does not exist with given employee email" });
+    }
+
+    try {
+        let query = `SELECT * FROM eSparkTalentAPI_salary WHERE employee_id = $1`
+        const params = [employee.rows[0]?.id]
+
+        if (month && year) {
+            let monthNumber
+            if (isNaN(month)) {
+                monthNumber = MONTHS.indexOf(month.toLowerCase()) + 1
+
+                if (monthNumber === 0) {
+                    return res.status(400).json({ error: "Invalid month name" })
+                }
+            } else {
+                monthNumber = Number.parseInt(month)
+                if (monthNumber < 1 || monthNumber > 12) {
+                    return res.status(400).json({ error: "Month must be between 1 and 12" })
+                }
+            }
+
+            query += ` AND EXTRACT(MONTH FROM date) = $2 AND EXTRACT(YEAR FROM date) = $3`
+            params.push(monthNumber, Number.parseInt(year))
+        } else if (month) {
+            let monthNumber
+            if (isNaN(month)) {
+                monthNumber = MONTHS.indexOf(month.toLowerCase()) + 1
+
+                if (monthNumber === 0) {
+                    return res.status(400).json({ error: "Invalid month name" })
+                }
+            } else {
+                monthNumber = Number.parseInt(month)
+                if (monthNumber < 1 || monthNumber > 12) {
+                    return res.status(400).json({ error: "Month must be between 1 and 12" })
+                }
+            }
+
+            query += ` AND EXTRACT(MONTH FROM date) = $2`
+            params.push(monthNumber)
+        } else if (year) {
+            query += ` AND EXTRACT(YEAR FROM date) = $2`
+            params.push(Number.parseInt(year))
+        }
+
+        const salaries = await pool.query(query, params)
+
+        if (salaries.rows.length > 0) {
+            const paySlipsPromises = salaries.rows.map(async (salary) => {
+                const paySlipUrl = salary.pay_slip
+                if (paySlipUrl) {
+                    const paySlip = await getSignedUrl(paySlipUrl)
+                    return paySlip
+                }
+            })
+
+            const paySlips = await Promise.all(paySlipsPromises)
+
+            const salariesWithPaySlips = salaries.rows.map((salary, index) => ({
+                ...salary,
+                pay_slip: paySlips[index]
+            }))
+
+            return res.status(200).json(salariesWithPaySlips)
+        } else {
+            return res.status(200).json([])
+        }
+    } catch (error) {
+        logger.error(error)
+        return res.status(500).json({ error: "Internal server error" })
+    }
+}
+
+export default getSalary
