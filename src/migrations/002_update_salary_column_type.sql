@@ -1,0 +1,3 @@
+ALTER TABLE eSparkTalentAPI_salary
+ALTER COLUMN gross_salary TYPE NUMERIC(10, 2),
+ALTER COLUMN net_salary TYPE NUMERIC(10, 2);

@@ -1,3 +1,4 @@
+
 const validateSchema = (schema) => async (req, res, next) => {
   try {
     await schema.validate(
@@ -17,8 +18,11 @@ const validateSchema = (schema) => async (req, res, next) => {
         formattedErrors[path] = [e.message];
       }
     });
+    
     return res.status(400).json(formattedErrors);
   }
 };
 
 export default validateSchema;
+
+
