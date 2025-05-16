@@ -4,6 +4,16 @@ import validateSchema from "../middleware/validate.js";
 import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
+import { getLettersByEmployeeEmail } from "../controllers/HR/Letter/getEmployeeLetter.js";
+import { createLetter } from "../controllers/HR/Letter/addLetter.js";
+import { updateLetter } from "../controllers/HR/Letter/updateLetter.js";
+import {
+  addLetterSchema,
+  deleteLetterSchema,
+  getLetterSchema,
+  updateLetterSchema,
+} from "../validations/letterSchema.js";
+import { deleteLetter } from "../controllers/HR/Letter/deleteLetter.js";
 
 const router = express.Router();
 
@@ -16,6 +26,37 @@ router.post(
   authenticateJWT,
   validateSchema(addEmployeeSchema),
   addEmployee
+);
+
+// Employee salary CRUD Routes
+router.post(
+  "/emp_letters",
+  upload.fields([{ name: "letter", maxCount: 1 }]),
+  authenticateJWT,
+  validateSchema(addLetterSchema),
+  createLetter
+);
+
+router.patch(
+  "/emp_letters",
+  authenticateJWT,
+  validateSchema(updateLetterSchema),
+  upload.single("letter"),
+  updateLetter
+);
+
+router.delete(
+  "/emp_letters",
+  authenticateJWT,
+  validateSchema(deleteLetterSchema),
+  deleteLetter
+);
+
+router.get(
+  "/emp_letters",
+  authenticateJWT,
+  validateSchema(getLetterSchema),
+  getLettersByEmployeeEmail
 );
 
 export default router;
