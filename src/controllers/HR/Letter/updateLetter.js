@@ -1,14 +1,14 @@
-import { validateFile } from "../../utils/validateFiles.js";
-import pool from "../../config/db.js";
-import { getFormattedTimestamp } from "../../helpers/utils.js";
-import { S3_TEMP_BUCKET, uploadToS3 } from "../../helpers/s3.js";
+import { validateFile } from "../../../utils/validateFiles.js";
+import pool from "../../../config/db.js";
+import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
 
 export const updateLetter = async (req, res) => {
   const client = await pool.connect();
   try {
-    const { reason, objective, issue_date } = req.body;
+    const { reason } = req.body;
     const letterFile = req.file;
 
     const id = parseInt(req.query.id, 10);
@@ -17,8 +17,6 @@ export const updateLetter = async (req, res) => {
     }
 
     await client.query("BEGIN");
-    console.log("id here", id, typeof id);
-    // Check if the letter with given ID exists
     const letterRes = await client.query(
       `SELECT * FROM esparktalentapi_letter WHERE id = $1`,
       [id]
@@ -63,16 +61,6 @@ export const updateLetter = async (req, res) => {
     if (reason) {
       fieldsToUpdate.push(`reason = $${paramIndex++}`);
       values.push(reason);
-    }
-
-    if (objective) {
-      fieldsToUpdate.push(`objective = $${paramIndex++}`);
-      values.push(objective);
-    }
-
-    if (issue_date) {
-      fieldsToUpdate.push(`issue_date = $${paramIndex++}`);
-      values.push(issue_date);
     }
 
     if (updatedLetterPath) {
