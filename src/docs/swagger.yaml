@@ -230,7 +230,7 @@ paths:
         required: true
         schema:
           type: string
-        example: "EMP001"
+        example: "example@gmail.com"
       requestBody:
         required: true
         content:
@@ -240,7 +240,7 @@ paths:
               properties:
                 job_status:
                   type: string
-                  example: "active"
+                  example: "Probation"
                 gross_salary:
                   type: number
                   example: 60000
