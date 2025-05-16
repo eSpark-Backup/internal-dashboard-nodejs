@@ -396,12 +396,12 @@ paths:
                 pay_slip:
                   type: string
                   format: binary
-              required:
-              - job_status
-              - gross_salary
-              - net_salary
-              - date
-              - tax_deduction
+              # required:
+              # - job_status
+              # - gross_salary
+              # - net_salary
+              # - date
+              # - tax_deduction
       responses:
         "200":
           description: Salary record updated successfully

@@ -15,7 +15,7 @@ const getSalary = async (req, res) => {
     }
 
     try {
-        let query = `SELECT id, job_status, gross_salary, tax_deduction, net_salary, date FROM eSparkTalentAPI_salary WHERE employee_id = $1`
+        let query = `SELECT id, job_status, gross_salary, tax_deduction, net_salary, TO_CHAR(date, 'YYYY-MM-DD') as date FROM eSparkTalentAPI_salary WHERE employee_id = $1`
         const params = [employee.rows[0]?.id]
 
         if (month && year) {
