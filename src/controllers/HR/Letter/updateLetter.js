@@ -11,10 +11,7 @@ export const updateLetter = async (req, res) => {
     const { reason } = req.body;
     const letterFile = req.file;
 
-    const id = parseInt(req.query.id, 10);
-    if (isNaN(id)) {
-      return res.status(400).json({ id: ["Invalid ID"] });
-    }
+    const id = req.query.id;
 
     await client.query("BEGIN");
     const letterRes = await client.query(

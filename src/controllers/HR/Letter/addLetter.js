@@ -20,7 +20,7 @@ export const createLetter = async (req, res) => {
         allowedTypes: ["application/pdf"],
         maxSizeMB: 5,
       }) || {};
-    console.log("fileErrors", fileErrors);
+
     if (Object.keys(fileErrors).length > 0) {
       return res.status(400).json(fileErrors);
     }

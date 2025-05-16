@@ -8,7 +8,6 @@ import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3 } from "../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
 
-
 const addEmployee = async (req, res) => {
   const client = await pool.connect();
   const talentEmail = process.env.TALENT_EMAIL;
@@ -237,7 +236,6 @@ const addEmployee = async (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
     }
-
 
     await client.query("COMMIT");
 

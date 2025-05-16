@@ -4,12 +4,16 @@ import validateSchema from "../middleware/validate.js";
 import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
-import { addLetterSchema } from "../validations/addLetterSchema.js";
-import { updateLetterSchema } from "../validations/updateLetterSchema.js";
-import { deleteLetter } from "../controllers/HR/Letter/deleteLetter.js";
 import { getLettersByEmployeeEmail } from "../controllers/HR/Letter/getEmployeeLetter.js";
 import { createLetter } from "../controllers/HR/Letter/addLetter.js";
 import { updateLetter } from "../controllers/HR/Letter/updateLetter.js";
+import {
+  addLetterSchema,
+  deleteLetterSchema,
+  getLetterSchema,
+  updateLetterSchema,
+} from "../validations/letterSchema.js";
+import { deleteLetter } from "../controllers/HR/Letter/deleteLetter.js";
 
 const router = express.Router();
 
@@ -41,8 +45,18 @@ router.patch(
   updateLetter
 );
 
-router.delete("/emp_letters", authenticateJWT, deleteLetter);
+router.delete(
+  "/emp_letters",
+  authenticateJWT,
+  validateSchema(deleteLetterSchema),
+  deleteLetter
+);
 
-router.get("/emp_letters", authenticateJWT, getLettersByEmployeeEmail);
+router.get(
+  "/emp_letters",
+  authenticateJWT,
+  validateSchema(getLetterSchema),
+  getLettersByEmployeeEmail
+);
 
 export default router;
