@@ -20,7 +20,7 @@ const addSalary = async (req, res) => {
         );
 
         if (!employee.rows[0]?.id) {
-            return res.status(400).json({ error: "Employee does not exist with given employee email" });
+            return res.status(400).json({ message: "Employee does not exist with given employee email" });
         }
 
         const fileErrors = {};
@@ -35,7 +35,7 @@ const addSalary = async (req, res) => {
         Object.assign(fileErrors, paySlipValidationErrors || {});
 
         if (Object.keys(fileErrors).length > 0) {
-            return res.status(400).json({ errors: fileErrors });
+            return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
         }
 
 
@@ -55,7 +55,7 @@ const addSalary = async (req, res) => {
             }
         } catch (error) {
             logger.error(`Error uploading pay slip: ${error.message}`);
-            return res.status(500).json({ error: "Internal Server Error" });
+            return res.status(500).json({ message: "Internal Server Error" });
         }
 
         const result = await pool.query(
@@ -67,7 +67,7 @@ const addSalary = async (req, res) => {
 
         if (!result.rows[0].id) {
             return res.status(400).json({
-                error: "Failed to add salary",
+                message: "Failed to add salary",
             });
         }
 

@@ -7,7 +7,7 @@ const deleteSalary = async (req, res) => {
     const salary = await pool.query("DELETE FROM eSparkTalentAPI_salary WHERE id = $1", [id])
 
     if (salary.rowCount === 0) {
-        return res.status(404).json({ error: "Salary record not found" })
+        return res.status(404).json({ message: "Salary record not found" })
     }
      
     logger.info(`Salary deleted successfully: ${id}`)

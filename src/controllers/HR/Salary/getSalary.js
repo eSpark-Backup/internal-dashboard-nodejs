@@ -11,7 +11,7 @@ const getSalary = async (req, res) => {
     );
 
     if (!employee.rows[0]?.id) {
-        return res.status(400).json({ error: "Employee does not exist with given employee email" });
+        return res.status(400).json({ message: "Employee does not exist with given employee email" });
     }
 
     try {
@@ -24,12 +24,12 @@ const getSalary = async (req, res) => {
                 monthNumber = MONTHS.indexOf(month.toLowerCase()) + 1
 
                 if (monthNumber === 0) {
-                    return res.status(400).json({ error: "Invalid month name" })
+                    return res.status(400).json({ message: "Invalid month name" })
                 }
             } else {
                 monthNumber = Number.parseInt(month)
                 if (monthNumber < 1 || monthNumber > 12) {
-                    return res.status(400).json({ error: "Month must be between 1 and 12" })
+                    return res.status(400).json({ message: "Month must be between 1 and 12" })
                 }
             }
 
@@ -41,12 +41,12 @@ const getSalary = async (req, res) => {
                 monthNumber = MONTHS.indexOf(month.toLowerCase()) + 1
 
                 if (monthNumber === 0) {
-                    return res.status(400).json({ error: "Invalid month name" })
+                    return res.status(400).json({ message: "Invalid month name" })
                 }
             } else {
                 monthNumber = Number.parseInt(month)
                 if (monthNumber < 1 || monthNumber > 12) {
-                    return res.status(400).json({ error: "Month must be between 1 and 12" })
+                    return res.status(400).json({ message: "Month must be between 1 and 12" })
                 }
             }
 
@@ -61,8 +61,8 @@ const getSalary = async (req, res) => {
 
         return res.status(200).json(salaries.rows)  
     } catch (error) {
-        logger.error(error)
-        return res.status(500).json({ error: "Internal server error" })
+        logger.error(`Error getting salary: ${error}`)
+        return res.status(500).json({ message: "Internal server error" })
     }
 }
 

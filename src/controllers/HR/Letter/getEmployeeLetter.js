@@ -25,8 +25,8 @@ export const getLettersByEmployeeEmail = async (req, res) => {
 
     return res.status(200).json(letterRes.rows);
   } catch (err) {
-    console.error("Get letters error:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    console.error(`Get letters error: ${err}`);
+    return res.status(500).json({ message: "Internal Server Error" });
   } finally {
     client.release();
   }

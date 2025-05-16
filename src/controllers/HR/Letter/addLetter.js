@@ -1,6 +1,5 @@
 import { validateFile } from "../../../utils/validateFiles.js";
 import { logger } from "../../../helpers/logger.js";
-
 import pool from "../../../config/db.js";
 import { getFormattedTimestamp } from "../../../helpers/utils.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
@@ -50,8 +49,8 @@ export const createLetter = async (req, res) => {
       fs.unlinkSync(letterFile.path);
     } catch (uploadErr) {
       await client.query("ROLLBACK");
-      logger.error("S3 upload error:", uploadErr);
-      return res.status(500).json({ error: "File upload failed" });
+      logger.error(`S3 upload error: ${uploadErr}`);
+      return res.status(500).json({ message: "File upload failed" });
     }
 
     const insertQuery = `
@@ -86,8 +85,8 @@ export const createLetter = async (req, res) => {
       return res.status(400).json(errors);
     }
 
-    logger.error("Letter creation error:", err);
-    return res.status(500).json({ error: "Internal server error" });
+    logger.error(`Letter creation error: ${err}`);
+    return res.status(500).json({ message: "Internal server error" });
   } finally {
     client.release();
   }

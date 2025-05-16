@@ -85,8 +85,8 @@ export const updateLetter = async (req, res) => {
   } catch (err) {
     await client.query("ROLLBACK");
 
-    console.error("Letter update error:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    console.error(`Letter update error: ${err}`);
+    return res.status(500).json({ message: "Internal Server Error" });
   } finally {
     client.release();
   }

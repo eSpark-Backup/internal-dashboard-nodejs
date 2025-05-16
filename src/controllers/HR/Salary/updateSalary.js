@@ -15,7 +15,7 @@ const updateSalary = async (req, res) => {
         const salary = await pool.query("SELECT id, job_status, gross_salary, tax_deduction, net_salary, TO_CHAR(date, 'YYYY-MM-DD') as date FROM eSparkTalentAPI_salary WHERE id = $1", [id]);
 
         if (salary.rowCount === 0) {
-            return res.status(404).json({ error: "Salary not found with given id" });
+            return res.status(404).json({ message: "Salary not found with given id" });
         }
 
         let paySlipUrl = salary.rows[0].pay_slip;
@@ -33,7 +33,7 @@ const updateSalary = async (req, res) => {
             Object.assign(fileErrors, paySlipValidationErrors || {});
 
             if (Object.keys(fileErrors).length > 0) {
-                return res.status(400).json({ errors: fileErrors });
+                return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
             }
 
             const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -61,13 +61,13 @@ const updateSalary = async (req, res) => {
         );
 
         if (updatedSalary.rowCount === 0) {
-            return res.status(400).json({ error: "Failed to update salary" });
+            return res.status(400).json({ message: "Failed to update salary" });
         }
 
         return res.status(200).json({ message: "Salary updated successfully" });
     } catch (error) {
         logger.error(`Error updating salary: ${error}`);
-        return res.status(500).json({ error: "Internal server error" });
+        return res.status(500).json({ message: "Internal server error" });
     }
 };
 

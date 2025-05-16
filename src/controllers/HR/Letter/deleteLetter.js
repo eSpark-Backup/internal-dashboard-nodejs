@@ -18,7 +18,7 @@ export const deleteLetter = async (req, res) => {
     logger.info(`Letter with ID ${id} deleted successfully.`);
     return res.status(200).json({ message: "Letter deleted successfully" });
   } catch (err) {
-    logger.error("Delete letter error:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    logger.error(`Delete letter error: ${err}`);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };

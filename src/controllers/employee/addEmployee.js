@@ -126,8 +126,8 @@ const addEmployee = async (req, res) => {
       }
     } catch (uploadError) {
       await client.query("ROLLBACK");
-      logger.error("S3 upload error:", uploadError);
-      return res.status(500).json({ error: "Internal Server Error" });
+      logger.error(`S3 upload error: ${uploadError}`);
+      return res.status(500).json({ message: "Internal Server Error" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -233,7 +233,7 @@ const addEmployee = async (req, res) => {
         imageUrl = await getSignedUrl(imageS3Key);
       } catch (error) {
         logger.warn("Failed to generate signed URL for image:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        return res.status(500).json({ message: "Internal Server Error" });
       }
     }
 
@@ -248,7 +248,7 @@ const addEmployee = async (req, res) => {
   } catch (err) {
     await client.query("ROLLBACK");
     logger.error("Add employee error:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   } finally {
     client.release();
   }
