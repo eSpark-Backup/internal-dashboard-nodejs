@@ -5,9 +5,8 @@ info:
   description: API documentation for authentication and employee management routes
 
 servers:
-  - url: http://localhost:3000/api
-    description: Local Development
-
+- url: http://localhost:3000/api
+  description: Local Development
 
 components:
   securitySchemes:
@@ -21,7 +20,7 @@ paths:
     post:
       summary: User login
       tags:
-        - Auth
+      - Auth
       requestBody:
         required: true
         content:
@@ -29,8 +28,8 @@ paths:
             schema:
               type: object
               required:
-                - email
-                - password
+              - email
+              - password
               properties:
                 email:
                   type: string
@@ -80,9 +79,9 @@ paths:
       summary: Add a new employee
       description: Adds a new employee with form-data, including image and resume file uploads.
       tags:
-        - HR
+      - HR
       security:
-        - bearerAuth: []
+      - bearerAuth: []
       requestBody:
         required: true
         content:
@@ -90,30 +89,30 @@ paths:
             schema:
               type: object
               required:
-                - employee_id
-                - first_name
-                - last_name
-                - gender
-                - dob
-                - email
-                - personal_email
-                - marital_status
-                - emergency_contact
-                - joining_date
-                - role
-                - job_title
-                - company
-                - punch_timings
-                - job_status
-                - phone_number
-                - casual_leaves
-                - sick_leaves
-                - annual_leaves
-                - hajj_leaves
-                - paid_leaves
-                - unpaid_leaves
-                - password
-                - confirm_password
+              - employee_id
+              - first_name
+              - last_name
+              - gender
+              - dob
+              - email
+              - personal_email
+              - marital_status
+              - emergency_contact
+              - joining_date
+              - role
+              - job_title
+              - company
+              - punch_timings
+              - job_status
+              - phone_number
+              - casual_leaves
+              - sick_leaves
+              - annual_leaves
+              - hajj_leaves
+              - paid_leaves
+              - unpaid_leaves
+              - password
+              - confirm_password
               properties:
                 employee_id:
                   type: string
@@ -216,3 +215,199 @@ paths:
                 properties:
                   error:
                     type: string
+
+  /emp_salary:
+    post:
+      tags:
+      - Employee Salary # ✅ Gives proper heading in Swagger UI
+      summary: Add employee salary
+      description: Add salary details and pay slip for a specific employee.
+      security:
+      - bearerAuth: [] # ✅ Protects with JWT
+      parameters:
+      - in: query
+        name: employee_id
+        required: true
+        schema:
+          type: string
+        example: "EMP001"
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                job_status:
+                  type: string
+                  example: "active"
+                gross_salary:
+                  type: number
+                  example: 60000
+                net_salary:
+                  type: number
+                  example: 54000
+                date:
+                  type: string
+                  format: date # ✅ Will now require "YYYY-MM-DD"
+                  example: "2025-05-15"
+                tax_deduction:
+                  type: number
+                  example: 6000
+                pay_slip:
+                  type: string
+                  format: binary
+              required:
+              - job_status
+              - gross_salary
+              - net_salary
+              - date
+              - tax_deduction
+      responses:
+        "201":
+          description: Salary added successfully
+        "400":
+          description: Validation or file upload error
+        "401":
+          description: Unauthorized – JWT missing or invalid
+        "500":
+          description: Internal server error
+
+    get:
+      tags:
+      - Employee Salary
+      summary: Get employee salary details
+      description: Fetch salary records of a specific employee, optionally filtered by month and/or year.
+      security:
+      - bearerAuth: []
+      parameters:
+      - in: query
+        name: employee_id
+        required: true
+        schema:
+          type: string
+        description: The email of the employee.
+        example: "john.doe@example.com"
+
+      - in: query
+        name: month
+        required: false
+        schema:
+          type: string
+        description: Month to filter by (can be name like "may" or number "5").
+        example: "May"
+
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+        description: Year to filter salary records.
+        example: "2025"
+
+      responses:
+        "200":
+          description: Successfully fetched salary records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    job_status:
+                      type: string
+                    gross_salary:
+                      type: number
+                    tax_deduction:
+                      type: number
+                    net_salary:
+                      type: number
+                    date:
+                      type: string
+                      format: date
+        "400":
+          description: Invalid input (e.g., bad month or year)
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal server error
+
+    delete:
+      tags:
+      - Employee Salary
+      summary: Delete employee salary record
+      description: Delete a specific salary record by its ID.
+      security:
+      - bearerAuth: []
+      parameters:
+      - in: query
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Salary record deleted successfully
+        "400":
+          description: Invalid input
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal server error
+
+    patch:
+      tags:
+      - Employee Salary
+      summary: Update employee salary record
+      description: Update a specific salary record by its ID.
+      security:
+      - bearerAuth: []
+      parameters:
+      - in: query
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                job_status:
+                  type: string
+                gross_salary:
+                  type: number
+                  example: 60000
+                net_salary:
+                  type: number
+                  example: 54000
+                date:
+                  type: string
+                  format: date
+                  example: "2025-05-15"
+                tax_deduction:
+                  type: number
+                  example: 6000
+                pay_slip:
+                  type: string
+                  format: binary
+              required:
+              - job_status
+              - gross_salary
+              - net_salary
+              - date
+              - tax_deduction
+      responses:
+        "200":
+          description: Salary record updated successfully
+        "400":
+          description: Validation or file upload error
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal server error
