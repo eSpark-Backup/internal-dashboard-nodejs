@@ -66,7 +66,7 @@ const updateSalary = async (req, res) => {
 
         return res.status(200).json({ message: "Salary updated successfully" });
     } catch (error) {
-        logger.error(error);
+        logger.error(`Error updating salary: ${error}`);
         return res.status(500).json({ error: "Internal server error" });
     }
 };
