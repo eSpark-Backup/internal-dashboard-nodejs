@@ -12,7 +12,7 @@ const updateSalary = async (req, res) => {
     const pay_slip = req?.files?.pay_slip?.[0];
 
     try {
-        const salary = await pool.query("SELECT * FROM eSparkTalentAPI_salary WHERE id = $1", [id]);
+        const salary = await pool.query("SELECT id, job_status, gross_salary, tax_deduction, net_salary, date FROM eSparkTalentAPI_salary WHERE id = $1", [id]);
 
         if (salary.rowCount === 0) {
             return res.status(404).json({ error: "Salary not found with given id" });

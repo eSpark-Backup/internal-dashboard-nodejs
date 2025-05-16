@@ -1,7 +1,6 @@
 import pool from "../../../config/db.js"
 import { MONTHS } from "../../../constants/index.js"
 import { logger } from "../../../helpers/logger.js"
-import { getSignedUrl } from "../../../helpers/s3.js"
 
 const getSalary = async (req, res) => {
     const { employee_id, month, year } = req.query
@@ -16,7 +15,7 @@ const getSalary = async (req, res) => {
     }
 
     try {
-        let query = `SELECT * FROM eSparkTalentAPI_salary WHERE employee_id = $1`
+        let query = `SELECT id, job_status, gross_salary, tax_deduction, net_salary, date FROM eSparkTalentAPI_salary WHERE employee_id = $1`
         const params = [employee.rows[0]?.id]
 
         if (month && year) {
@@ -60,26 +59,7 @@ const getSalary = async (req, res) => {
 
         const salaries = await pool.query(query, params)
 
-        if (salaries.rows.length > 0) {
-            const paySlipsPromises = salaries.rows.map(async (salary) => {
-                const paySlipUrl = salary.pay_slip
-                if (paySlipUrl) {
-                    const paySlip = await getSignedUrl(paySlipUrl)
-                    return paySlip
-                }
-            })
-
-            const paySlips = await Promise.all(paySlipsPromises)
-
-            const salariesWithPaySlips = salaries.rows.map((salary, index) => ({
-                ...salary,
-                pay_slip: paySlips[index]
-            }))
-
-            return res.status(200).json(salariesWithPaySlips)
-        } else {
-            return res.status(200).json([])
-        }
+        return res.status(200).json(salaries.rows)  
     } catch (error) {
         logger.error(error)
         return res.status(500).json({ error: "Internal server error" })

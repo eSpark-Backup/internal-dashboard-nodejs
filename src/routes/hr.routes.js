@@ -6,7 +6,7 @@ import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
-import getSalary from "../controllers/HR/Salary/GetSalary.js";
+import getSalary from "../controllers/HR/Salary/getSalary.js";
 import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
 import updateSalary from "../controllers/HR/Salary/updateSalary.js";
 
