@@ -34,7 +34,7 @@ router.post(
 );
 
 
-// EMPLOYEE SALARY CRUD ROUTES
+// Employee salary CRUD Routes
 router.post(
   "/emp_salary",
   authenticateJWT,
@@ -66,11 +66,11 @@ router.patch(
 );
 
 
-// EMPLOYEE SALARY PAYMENT ROUTES
-
-
-
 // Employee salary CRUD Routes
+
+
+
+// Employee letter CRUD Routes
 router.post(
   "/emp_letters",
   upload.fields([{ name: "letter", maxCount: 1 }]),
@@ -79,12 +79,11 @@ router.post(
   createLetter
 );
 
-router.patch(
+router.get(
   "/emp_letters",
   authenticateJWT,
-  validateSchema(updateLetterSchema),
-  upload.single("letter"),
-  updateLetter
+  validateSchema(getLetterSchema),
+  getLettersByEmployeeEmail
 );
 
 router.delete(
@@ -94,11 +93,16 @@ router.delete(
   deleteLetter
 );
 
-router.get(
+
+router.patch(
   "/emp_letters",
   authenticateJWT,
-  validateSchema(getLetterSchema),
-  getLettersByEmployeeEmail
+  validateSchema(updateLetterSchema),
+  upload.single("letter"),
+  updateLetter
 );
+
+
+// Employee letter payment routes
 
 export default router;

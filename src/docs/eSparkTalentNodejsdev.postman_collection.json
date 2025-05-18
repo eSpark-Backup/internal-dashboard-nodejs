@@ -1,12 +1,606 @@
 {
 	"info": {
-		"_postman_id": "6dfc833d-4f48-4af7-b5b0-43034e9d4ca9",
+		"_postman_id": "922be1a2-a589-4383-959a-b5e7b07b521c",
 		"name": "eSparkTalentNodejsdev",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "44936885",
-		"_collection_link": "https://muzamilali-8099801.postman.co/workspace/MUZAMIL-ALI's-Workspace~67b24ebb-3369-437f-8700-4ff0eed4112d/collection/44936885-6dfc833d-4f48-4af7-b5b0-43034e9d4ca9?action=share&source=collection_link&creator=44936885"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40461453"
 	},
 	"item": [
+		{
+			"name": "Employee Salaries",
+			"item": [
+				{
+					"name": "Add Salary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzE2MzY1LCJpYXQiOjE3NDcyOTgzNjUsImp0aSI6IjgxOWY1ZDkyZDM3ZDRkZGFiOTZhNmY0ZDlkMWJiOTVlIiwidXNlcl9pZCI6MX0.FduPYX-vE7u2VthhkejZYdXRDJBjVZNTYiVqUSSd0aQ"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "net_salary",
+									"value": "232",
+									"type": "text"
+								},
+								{
+									"key": "gross_salary",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "tax_deduction",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-14",
+									"type": "text"
+								},
+								{
+									"key": "pay_slip",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "job_status",
+									"value": "Probation",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/emp_salary/?employee_id=muzemp2@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_salary",
+								""
+							],
+							"query": [
+								{
+									"key": "employee_id",
+									"value": "muzemp2@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Salaries",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzM3NTU0LCJpYXQiOjE3NDczMTk1NTQsImp0aSI6IjE3MjM0ZjdjMjI2YzQ3NTI4YmE2Yjc0NDAyMzAyYzZiIiwidXNlcl9pZCI6MX0.-A74MzZTTRg9evaUbLmEk53LyK-XHTvgNchctEDDi7M"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/emp_salary/?month=May&year=2025&employee_id=muzemp2@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_salary",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "May"
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								},
+								{
+									"key": "employee_id",
+									"value": "muzemp2@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Salary",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzM3NTU0LCJpYXQiOjE3NDczMTk1NTQsImp0aSI6IjE3MjM0ZjdjMjI2YzQ3NTI4YmE2Yjc0NDAyMzAyYzZiIiwidXNlcl9pZCI6MX0.-A74MzZTTRg9evaUbLmEk53LyK-XHTvgNchctEDDi7M"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/emp_salary/?id=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_salary",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Salary",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzM3NTU0LCJpYXQiOjE3NDczMTk1NTQsImp0aSI6IjE3MjM0ZjdjMjI2YzQ3NTI4YmE2Yjc0NDAyMzAyYzZiIiwidXNlcl9pZCI6MX0.-A74MzZTTRg9evaUbLmEk53LyK-XHTvgNchctEDDi7M"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "net_salary",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "job_status",
+									"value": "Internship",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "tax_deduction",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-15",
+									"type": "text"
+								},
+								{
+									"key": "pay_slip",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/blank.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/emp_salary/?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_salary",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee letters",
+			"item": [
+				{
+					"name": "Add Letter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InN1cGVyYWRtaW5AZXNwYXJrY29uc3VsdGFudHMuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzQ3Mzc3MTc1LCJleHAiOjE3NDczOTUxNzV9.6nbn9Qrl31WU2Z7GDM6jA90PJDcXJH1hNrdG_VFRnkw"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzEyMzE3LCJpYXQiOjE3NDcyOTQzMTcsImp0aSI6IjQ3OTkxMzMxNWJiNzRlYjZiMWZkZjk2MmFhMGY0Y2Y4IiwidXNlcl9pZCI6MX0.dD_DABMXzPrR4NzKeLDFgJJB-DQjhEshxI377PDzHMc"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "objective",
+									"value": "letter 2",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "muzemp2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "issue_date",
+									"value": "2025-05-07",
+									"type": "text"
+								},
+								{
+									"key": "letter",
+									"type": "file",
+									"src": "postman-cloud:///1f0307bf-abce-4740-9bcf-3b09e1ce1e50"
+								},
+								{
+									"key": "reason",
+									"value": "reason 2",
+									"type": "text"
+								},
+								{
+									"key": "employee_id",
+									"value": "test2@gmail.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:3000/api/emp_letters/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Letter",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InN1cGVyYWRtaW5AZXNwYXJrY29uc3VsdGFudHMuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzQ3Mjk2MDYzLCJleHAiOjE3NDczMTQwNjN9.NPsdVphhroUzH6z7aIjcLbcdGoA43JPAp-h7EEP7bCM"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "objective",
+									"value": "letter obj 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "muzemp2@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "issue_date",
+									"value": "2025-05-08",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "letter",
+									"type": "file",
+									"src": "postman-cloud:///1f0307bf-abce-4740-9bcf-3b09e1ce1e50"
+								},
+								{
+									"key": "reason",
+									"value": "updated new muz 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/emp_letters/?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_letters",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Letter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InN1cGVyYWRtaW5AZXNwYXJrY29uc3VsdGFudHMuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzQ3MzgxNTMzLCJleHAiOjE3NDczOTk1MzN9.gzJ7SK9l7J2R2mLo8jVarfguvdpI3c2PkH2mnf13r1w"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InN1cGVyYWRtaW5AZXNwYXJrY29uc3VsdGFudHMuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzQ3Mjk2MDYzLCJleHAiOjE3NDczMTQwNjN9.NPsdVphhroUzH6z7aIjcLbcdGoA43JPAp-h7EEP7bCM"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/emp_letters/?email=muzemp2@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_letters",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "muzemp2@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Letter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InN1cGVyYWRtaW5AZXNwYXJrY29uc3VsdGFudHMuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzQ3Mzc3MTc1LCJleHAiOjE3NDczOTUxNzV9.6nbn9Qrl31WU2Z7GDM6jA90PJDcXJH1hNrdG_VFRnkw"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InN1cGVyYWRtaW5AZXNwYXJrY29uc3VsdGFudHMuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzQ3Mjk2MDYzLCJleHAiOjE3NDczMTQwNjN9.NPsdVphhroUzH6z7aIjcLbcdGoA43JPAp-h7EEP7bCM"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/emp_letters/?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_letters",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "hr_add_emp",
 			"request": {
@@ -152,7 +746,7 @@
 						},
 						{
 							"key": "casual_leaves",
-							"value": "8",
+							"value": "",
 							"type": "text"
 						},
 						{
@@ -182,24 +776,12 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "http://localhost:3000/api/hr_add_emp/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"hr_add_emp",
-						""
-					]
-				}
+				"url": "http://localhost:3000/api/hr_add_emp/"
 			},
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "login",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -230,28 +812,23 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"superadmin@esparkconsultants.com\",\"password\":\"super@espark\"}",
+					"raw": "{\"email\":\"muzemp2@gmail.com\",\"password\":\"Test1234@\"}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3000/api/login/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"login",
-						""
-					]
-				}
+				"url": "http://localhost:3000/api/login/"
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
 		}
 	]
 }

@@ -5,8 +5,8 @@ info:
   description: API documentation for authentication and employee management routes
 
 servers:
-- url: http://localhost:3000/api
-  description: Local Development
+  - url: http://localhost:3000/api
+    description: Local Development
 
 components:
   securitySchemes:
@@ -20,7 +20,7 @@ paths:
     post:
       summary: User login
       tags:
-      - Auth
+        - Auth
       requestBody:
         required: true
         content:
@@ -28,8 +28,8 @@ paths:
             schema:
               type: object
               required:
-              - email
-              - password
+                - email
+                - password
               properties:
                 email:
                   type: string
@@ -79,9 +79,9 @@ paths:
       summary: Add a new employee
       description: Adds a new employee with form-data, including image and resume file uploads.
       tags:
-      - HR
+        - HR
       security:
-      - bearerAuth: []
+        - bearerAuth: []
       requestBody:
         required: true
         content:
@@ -89,30 +89,30 @@ paths:
             schema:
               type: object
               required:
-              - employee_id
-              - first_name
-              - last_name
-              - gender
-              - dob
-              - email
-              - personal_email
-              - marital_status
-              - emergency_contact
-              - joining_date
-              - role
-              - job_title
-              - company
-              - punch_timings
-              - job_status
-              - phone_number
-              - casual_leaves
-              - sick_leaves
-              - annual_leaves
-              - hajj_leaves
-              - paid_leaves
-              - unpaid_leaves
-              - password
-              - confirm_password
+                - employee_id
+                - first_name
+                - last_name
+                - gender
+                - dob
+                - email
+                - personal_email
+                - marital_status
+                - emergency_contact
+                - joining_date
+                - role
+                - job_title
+                - company
+                - punch_timings
+                - job_status
+                - phone_number
+                - casual_leaves
+                - sick_leaves
+                - annual_leaves
+                - hajj_leaves
+                - paid_leaves
+                - unpaid_leaves
+                - password
+                - confirm_password
               properties:
                 employee_id:
                   type: string
@@ -219,18 +219,18 @@ paths:
   /emp_salary:
     post:
       tags:
-      - Employee Salary # ✅ Gives proper heading in Swagger UI
+        - Employee Salary # ✅ Gives proper heading in Swagger UI
       summary: Add employee salary
       description: Add salary details and pay slip for a specific employee.
       security:
-      - bearerAuth: [] # ✅ Protects with JWT
+        - bearerAuth: [] # ✅ Protects with JWT
       parameters:
-      - in: query
-        name: employee_id
-        required: true
-        schema:
-          type: string
-        example: "example@gmail.com"
+        - in: query
+          name: employee_id
+          required: true
+          schema:
+            type: string
+          example: "example@gmail.com"
       requestBody:
         required: true
         content:
@@ -258,11 +258,11 @@ paths:
                   type: string
                   format: binary
               required:
-              - job_status
-              - gross_salary
-              - net_salary
-              - date
-              - tax_deduction
+                - job_status
+                - gross_salary
+                - net_salary
+                - date
+                - tax_deduction
       responses:
         "201":
           description: Salary added successfully
@@ -275,35 +275,35 @@ paths:
 
     get:
       tags:
-      - Employee Salary
+        - Employee Salary
       summary: Get employee salary details
       description: Fetch salary records of a specific employee, optionally filtered by month and/or year.
       security:
-      - bearerAuth: []
+        - bearerAuth: []
       parameters:
-      - in: query
-        name: employee_id
-        required: true
-        schema:
-          type: string
-        description: The email of the employee.
-        example: "john.doe@example.com"
+        - in: query
+          name: employee_id
+          required: true
+          schema:
+            type: string
+          description: The email of the employee.
+          example: "john.doe@example.com"
 
-      - in: query
-        name: month
-        required: false
-        schema:
-          type: string
-        description: Month to filter by (can be name like "may" or number "5").
-        example: "May"
+        - in: query
+          name: month
+          required: false
+          schema:
+            type: string
+          description: Month to filter by (can be name like "may" or number "5").
+          example: "May"
 
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-        description: Year to filter salary records.
-        example: "2025"
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+          description: Year to filter salary records.
+          example: "2025"
 
       responses:
         "200":
@@ -337,17 +337,17 @@ paths:
 
     delete:
       tags:
-      - Employee Salary
+        - Employee Salary
       summary: Delete employee salary record
       description: Delete a specific salary record by its ID.
       security:
-      - bearerAuth: []
+        - bearerAuth: []
       parameters:
-      - in: query
-        name: id
-        required: true
-        schema:
-          type: string
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Salary record deleted successfully
@@ -360,17 +360,17 @@ paths:
 
     patch:
       tags:
-      - Employee Salary
+        - Employee Salary
       summary: Update employee salary record
       description: Update a specific salary record by its ID.
       security:
-      - bearerAuth: []
+        - bearerAuth: []
       parameters:
-      - in: query
-        name: id
-        required: true
-        schema:
-          type: string
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
       requestBody:
         required: false
         content:
@@ -411,3 +411,248 @@ paths:
           description: Unauthorized
         "500":
           description: Internal server error
+
+  /emp_letters:
+    post:
+      tags:
+        - Employee Letters
+      summary: Create a new employee letter
+      description: Create a new employee letter with the given details.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - email
+                - objective
+                - issue_date
+                - letter
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: "john.doe@example.com"
+                objective:
+                  type: string
+                  example: "Resignation"
+                issue_date:
+                  type: string
+                  format: date
+                  example: "2025-05-15"
+                reason:
+                  type: string
+                  example: "Requested by employee for visa application"
+                letter:
+                  type: string
+                  format: binary
+      responses:
+        "201":
+          description: Letter successfully added
+          content:
+            application/json:
+              schema:
+                type: object
+              properties:
+                message:
+                  type: string
+                  example: One new letter has been added
+                id:
+                  type: string
+                  example: "42"
+        "400":
+          description: Validation error or file issue
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  email: ["Email is required"]
+                  letter: ["Invalid file type"]
+        "401":
+          description: Unauthorized
+        "404":
+          description: Employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  email: ["Employee does not exist"]
+        "500":
+          description: Internal server error
+
+    get:
+     tags:
+       - Employee Letters
+     summary: Get letters for an employee by email
+     description: Retrieves all letters associated with a given employee's email.
+     security:
+       - bearerAuth: []
+     parameters:
+       - name: email
+         in: query
+         required: true
+         schema:
+          type: string
+          format: email
+         description: The email of the employee.
+         example: john.doe@example.com
+     responses:
+      "200":
+        description: List of letters for the employee
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  objective:
+                    type: string
+                    example: Employment Verification
+                  email:
+                    type: string
+                    format: email
+                    example: john.doe@example.com
+                  issue_date:
+                    type: string
+                    format: date
+                    example: 2025-05-01
+                  reason:
+                    type: string
+                    example: For visa processing
+      "400":
+        description: Validation error (e.g. invalid email format)
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: ["Invalid email format"]
+      "404":
+        description: Employee not found
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                message: Employee with this email not found
+      "500":
+        description: Internal server error
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                message: Internal Server Error
+
+    delete:
+     tags:
+      - Employee Letters
+     summary: Delete a letter by ID
+     description: Deletes a specific letter from the database using its ID.
+     security:
+      - bearerAuth: []
+     parameters:
+      - name: id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The ID of the letter to be deleted
+        example: "23"
+     responses:
+      "200":
+        description: Letter deleted successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                message: Letter deleted successfully
+      "404":
+        description: Letter not found
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                message: Letter not found
+      "500":
+        description: Internal server error
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                message: Internal Server Error
+
+    patch:
+      tags:
+        - Employee Letters
+      summary: Update an existing letter
+      description: Updates a letter by its ID. Allows updating the reason, objective, issue date, or the letter file (PDF only).
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+          type: string
+          description: ID of the letter to update
+          example: "23"
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: string
+                  example: "Updated reason"
+                letter:
+                  type: string
+                  format: binary
+                  description: Upload a new letter file (PDF, max 5MB)
+      responses:
+        "200":
+          description: Letter updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Letter updated successfully
+        "400":
+          description: Bad request (e.g., no fields provided or file validation failed)
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: No fields to update
+        "404":
+          description: Letter not found
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Letter not found
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Internal Server Error
