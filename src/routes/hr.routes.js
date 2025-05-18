@@ -24,11 +24,11 @@ const router = express.Router();
 
 router.post(
   "/hr_add_emp",
+  authenticateJWT,
   upload.fields([
     { name: "image", maxCount: 1 },
     { name: "resume", maxCount: 1 },
   ]),
-  authenticateJWT,
   validateSchema(addEmployeeSchema),
   addEmployee
 );
@@ -73,8 +73,8 @@ router.patch(
 // Employee letter CRUD Routes
 router.post(
   "/emp_letters",
-  upload.fields([{ name: "letter", maxCount: 1 }]),
   authenticateJWT,
+  upload.fields([{ name: "letter", maxCount: 1 }]),
   validateSchema(addLetterSchema),
   createLetter
 );
@@ -97,8 +97,8 @@ router.delete(
 router.patch(
   "/emp_letters",
   authenticateJWT,
-  validateSchema(updateLetterSchema),
   upload.single("letter"),
+  validateSchema(updateLetterSchema),
   updateLetter
 );
 
