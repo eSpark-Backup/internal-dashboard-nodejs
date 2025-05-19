@@ -2,7 +2,7 @@ import express from "express";
 import addEmployee from "../controllers/employee/addEmployee.js";
 import validateSchema from "../middleware/validate.js";
 import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
-import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
+import { addEmployeeSchema, getEmployeeDetailsSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
@@ -19,9 +19,12 @@ import {
   updateLetterSchema,
 } from "../validations/letterSchema.js";
 import { deleteLetter } from "../controllers/HR/Letter/deleteLetter.js";
+import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
 
 const router = express.Router();
 
+
+// Add Employee Route
 router.post(
   "/hr_add_emp",
   authenticateJWT,
@@ -32,6 +35,14 @@ router.post(
   validateSchema(addEmployeeSchema),
   addEmployee
 );
+
+// Get Specific Employee Details
+router.get(
+  "/hr_emp_prof",
+  authenticateJWT,
+  validateSchema(getEmployeeDetailsSchema),
+  getEmployeeDetails
+)
 
 
 // Employee salary CRUD Routes
