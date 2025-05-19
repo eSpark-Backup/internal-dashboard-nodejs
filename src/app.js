@@ -3,6 +3,7 @@
   import {dirname, join} from 'path'
   import {fileURLToPath} from 'url';
   import swaggerUi from 'swagger-ui-express';
+  import cors from 'cors';
   import { logger } from './helpers/logger.js'
   import YAML from "yamljs";
   import authRoutes from "./routes/auth.routes.js";
@@ -26,6 +27,7 @@
   }
 
   // Middleware
+  app.use(cors());
   app.use(express.json());
   app.use("/uploads", express.static("uploads"));
 
