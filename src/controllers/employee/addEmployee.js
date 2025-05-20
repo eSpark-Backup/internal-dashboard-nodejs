@@ -233,7 +233,6 @@ const addEmployee = async (req, res) => {
         imageUrl = await getSignedUrl(imageS3Key);
       } catch (error) {
         logger.warn("Failed to generate signed URL for image:", error);
-        return res.status(500).json({ message: "Internal Server Error" });
       }
     }
 

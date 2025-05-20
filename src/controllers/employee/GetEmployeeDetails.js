@@ -82,7 +82,6 @@ const getEmployeeDetails = async (req, res) => {
                 image_path = await getSignedUrl(emp_record.image)
             } catch (error) {
                 logger.error(`Error getting signed url: ${error}`)
-                return res.status(500).json({ message: "Internal server error" })
             }
 
             const response = {
