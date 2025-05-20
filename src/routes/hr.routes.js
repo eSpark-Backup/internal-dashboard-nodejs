@@ -3,6 +3,13 @@ import addEmployee from "../controllers/employee/addEmployee.js";
 import validateSchema from "../middleware/validate.js";
 import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
 import { addEmployeeSchema, getEmployeeDetailsSchema } from "../validations/addEmployeeSchema.js";
+import {
+  addSalarySchema,
+  deleteSalarySchema,
+  getSalarySchema,
+  updateSalarySchema,
+} from "../validations/SalarySchema.js";
+import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
@@ -20,6 +27,10 @@ import {
 } from "../validations/letterSchema.js";
 import { deleteLetter } from "../controllers/HR/Letter/deleteLetter.js";
 import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
+import { hrHome } from "../controllers/HR/Home/hrHome.js";
+import { getHrEmployees } from "../controllers/HR/Home/hrEmployees.js";
+import { deleteEmployeeSchema } from "../validations/hrEmployeeSchema.js";
+import { deleteHrEmployee } from "../controllers/HR/Home/deleteHrEmployee.js";
 
 const router = express.Router();
 
@@ -76,10 +87,7 @@ router.patch(
   updateSalary
 );
 
-
 // Employee salary CRUD Routes
-
-
 
 // Employee letter CRUD Routes
 router.post(
@@ -104,7 +112,6 @@ router.delete(
   deleteLetter
 );
 
-
 router.patch(
   "/emp_letters",
   authenticateJWT,
@@ -113,6 +120,15 @@ router.patch(
   updateLetter
 );
 
+router.get("/hr_home", authenticateJWT, hrHome);
+
+router.get("/hr_emps", authenticateJWT, getHrEmployees);
+router.delete(
+  "/hr_emps",
+  authenticateJWT,
+  validateSchema(deleteEmployeeSchema),
+  deleteHrEmployee
+);
 
 // Employee letter payment routes
 
