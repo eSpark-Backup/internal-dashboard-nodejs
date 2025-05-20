@@ -9,8 +9,7 @@ import {
   getLetterSchema,
   updateLetterSchema,
 } from "../validations/letterSchema.js";
-import { deleteEmployeeSchema } from "../validations/hrEmployeeSchema.js";
-import { addEmployeeSchema, getEmployeeDetailsSchema } from "../validations/addEmployeeSchema.js";
+import { addEmployeeSchema, getEmployeeDetailsSchema, deleteEmployeeSchema } from "../validations/employeeSchema.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
 import getSalary from "../controllers/HR/Salary/getSalary.js";
 import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
@@ -28,8 +27,11 @@ import hrHome from "../controllers/HR/Home/hrHome.js";
 const router = express.Router();
 
 
-//Employee CRUD Routes 
+//HR Home Page
+router.get("/hr_home", authenticateJWT, hrHome);
 
+
+//Employee CRUD Routes 
 router.get("/hr_emps", authenticateJWT, getEmployees);
 
 
@@ -44,7 +46,6 @@ router.post(
   addEmployee
 );
 
-// Get Specific Employee Details
 router.get(
   "/hr_emp_prof",
   authenticateJWT,
@@ -59,7 +60,8 @@ router.delete(
   deleteEmployee
 );
 
-//Salary CRUD Routes 
+//Employee CRUD Routes
+
 
 
 // Employee salary CRUD Routes
@@ -95,6 +97,8 @@ router.patch(
 
 // Employee salary CRUD Routes
 
+
+
 // Employee letter CRUD Routes
 router.post(
   "/emp_letters",
@@ -126,10 +130,8 @@ router.patch(
   updateLetter
 );
 
-router.get("/hr_home", authenticateJWT, hrHome);
-
-
-
 // Employee letter payment routes
+
+
 
 export default router;

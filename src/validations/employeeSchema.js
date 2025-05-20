@@ -59,3 +59,10 @@ export const getEmployeeDetailsSchema = yup.object({
     tab: yup.string().optional(),
   }),
 });
+
+export const deleteEmployeeSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Employee ID is required"),
+  }),
+});
+

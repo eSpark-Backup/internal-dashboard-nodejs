@@ -74,12 +74,85 @@ paths:
                     type: string
                     example: Internal server error
 
+  /hr_home:
+    get:
+      tags:
+        - Home Page
+      summary: Get HR dashboard summary data
+      description: |
+        Retrieves company image, employee/client/hiring/interview stats, and user-specific permission details.
+        - For `super_admin`, only the user and common counts are returned.
+        - For other users, permission data and user image are also included.
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dashboard summary fetched successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: string
+                    example: admin_user
+                  company_image:
+                    type: string
+                    example: company/image/path.png
+                  user_image:
+                    type: string
+                    example: user/image/path.png
+                  employee_perms:
+                    type: object
+                    additionalProperties: true
+                    example: { view: true, edit: false }
+                  client_perms:
+                    type: object
+                    additionalProperties: true
+                    example: { view: true }
+                  leaves_perms:
+                    type: object
+                    additionalProperties: true
+                    example: { view: false }
+                  invoices_perms:
+                    type: object
+                    additionalProperties: true
+                  policies_perms:
+                    type: object
+                    additionalProperties: true
+                  guides_perms:
+                    type: object
+                    additionalProperties: true
+                  employees:
+                    type: integer
+                    example: 10
+                  clients:
+                    type: integer
+                    example: 5
+                  hiring_requests:
+                    type: integer
+                    example: 3
+                  interview_schedules:
+                    type: integer
+                    example: 4
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
   /hr_add_emp:
     post:
       summary: Add a new employee
       description: Adds a new employee with form-data, including image and resume file uploads.
       tags:
-        - HR
+        - Add Employee
       security:
         - bearerAuth: []
       requestBody:
@@ -362,6 +435,112 @@ paths:
                 type: object
                 example:
                   message: Internal server error
+    
+  /hr_emps:
+    get:
+      tags:
+        - Employees list
+      summary: Get all employees for HR dashboard
+      description: |
+        Retrieves a list of employees along with their image, designation, and associated company.
+        Excludes employees associated with the `TALENT_EMAIL` client.
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: List of employee records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "1"
+                    employee_id:
+                      type: string
+                      example: "EMP001"
+                    name:
+                      type: string
+                      example: "John Doe"
+                    image_path:
+                      type: string
+                      format: uri
+                      example: "https://bucket-name.s3.region.amazonaws.com/image.jpg?..."
+                    designation:
+                      type: string
+                      example: "Software Engineer"
+                    company:
+                      type: string
+                      example: "Acme Corp"
+                    active:
+                      type: boolean
+                      description: Whether the employee is actively outsourced to a client
+                      example: true
+        "204":
+          description: No employees found
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Internal server error
+  
+    delete:
+      tags:
+        - Employees list
+      summary: Delete a specific employee
+      description: |
+        Deletes an employee by ID. This includes:
+        - Deleting associated records (e.g., end users, letters)
+        - Removing resume and image files from S3
+        - Deleting the main employee record
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: ID of the employee to delete
+          example: "1"
+      responses:
+        "200":
+          description: Employee deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: John Doe is removed successfully
+        "404":
+          description: Employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found
+        "500":
+          description: Internal server error or deletion failure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
 
   /emp_salary:
     post:
