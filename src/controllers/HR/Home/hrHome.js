@@ -4,9 +4,10 @@ const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
 export const hrHome = async (req, res) => {
   const { email, role, username } = req.user;
-  const client = await pool.connect();
+  let client;
 
   try {
+    client = await pool.connect();
     const companyRes = await client.query(
       "SELECT image FROM eSparkTalentAPI_company_data LIMIT 1"
     );
