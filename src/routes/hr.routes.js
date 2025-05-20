@@ -1,41 +1,38 @@
 import express from "express";
-import addEmployee from "../controllers/employee/addEmployee.js";
 import validateSchema from "../middleware/validate.js";
-import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
-import { addEmployeeSchema, getEmployeeDetailsSchema } from "../validations/addEmployeeSchema.js";
-import {
-  addSalarySchema,
-  deleteSalarySchema,
-  getSalarySchema,
-  updateSalarySchema,
-} from "../validations/SalarySchema.js";
-import { addEmployeeSchema } from "../validations/addEmployeeSchema.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
-import addSalary from "../controllers/HR/Salary/addSalary.js";
-import getSalary from "../controllers/HR/Salary/getSalary.js";
-import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
-import updateSalary from "../controllers/HR/Salary/updateSalary.js";
-import { getLettersByEmployeeEmail } from "../controllers/HR/Letter/getEmployeeLetter.js";
-import { createLetter } from "../controllers/HR/Letter/addLetter.js";
-import { updateLetter } from "../controllers/HR/Letter/updateLetter.js";
+import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
 import {
   addLetterSchema,
   deleteLetterSchema,
   getLetterSchema,
   updateLetterSchema,
 } from "../validations/letterSchema.js";
-import { deleteLetter } from "../controllers/HR/Letter/deleteLetter.js";
-import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
-import { hrHome } from "../controllers/HR/Home/hrHome.js";
-import { getHrEmployees } from "../controllers/HR/Home/hrEmployees.js";
 import { deleteEmployeeSchema } from "../validations/hrEmployeeSchema.js";
-import { deleteHrEmployee } from "../controllers/HR/Home/deleteHrEmployee.js";
+import { addEmployeeSchema, getEmployeeDetailsSchema } from "../validations/addEmployeeSchema.js";
+import addSalary from "../controllers/HR/Salary/addSalary.js";
+import getSalary from "../controllers/HR/Salary/getSalary.js";
+import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
+import updateSalary from "../controllers/HR/Salary/updateSalary.js";
+import getLettersByEmployeeEmail from "../controllers/HR/Letter/getEmployeeLetter.js";
+import createLetter from "../controllers/HR/Letter/addLetter.js";
+import updateLetter from "../controllers/HR/Letter/updateLetter.js";
+import deleteLetter from "../controllers/HR/Letter/deleteLetter.js";
+import addEmployee from "../controllers/employee/addEmployee.js";
+import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
+import getEmployees from "../controllers/employee/GetEmployees.js";
+import deleteEmployee from "../controllers/employee/deleteEmployee.js";
+import hrHome from "../controllers/HR/Home/hrHome.js";
 
 const router = express.Router();
 
 
-// Add Employee Route
+//Employee CRUD Routes 
+
+router.get("/hr_emps", authenticateJWT, getEmployees);
+
+
 router.post(
   "/hr_add_emp",
   authenticateJWT,
@@ -54,6 +51,15 @@ router.get(
   validateSchema(getEmployeeDetailsSchema),
   getEmployeeDetails
 )
+
+router.delete(
+  "/hr_emps",
+  authenticateJWT,
+  validateSchema(deleteEmployeeSchema),
+  deleteEmployee
+);
+
+//Salary CRUD Routes 
 
 
 // Employee salary CRUD Routes
@@ -122,13 +128,7 @@ router.patch(
 
 router.get("/hr_home", authenticateJWT, hrHome);
 
-router.get("/hr_emps", authenticateJWT, getHrEmployees);
-router.delete(
-  "/hr_emps",
-  authenticateJWT,
-  validateSchema(deleteEmployeeSchema),
-  deleteHrEmployee
-);
+
 
 // Employee letter payment routes
 

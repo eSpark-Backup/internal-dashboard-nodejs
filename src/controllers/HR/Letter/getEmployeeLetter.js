@@ -1,6 +1,6 @@
 import pool from "../../../config/db.js";
 
-export const getLettersByEmployeeEmail = async (req, res) => {
+const getLettersByEmployeeEmail = async (req, res) => {
   const client = await pool.connect();
   try {
     const email = req.query.email;
@@ -31,3 +31,5 @@ export const getLettersByEmployeeEmail = async (req, res) => {
     client.release();
   }
 };
+
+export default getLettersByEmployeeEmail;

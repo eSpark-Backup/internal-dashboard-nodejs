@@ -5,7 +5,7 @@ import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
 
-export const updateLetter = async (req, res) => {
+const updateLetter = async (req, res) => {
   const client = await pool.connect();
   try {
     const { reason } = req.body;
@@ -91,3 +91,5 @@ export const updateLetter = async (req, res) => {
     client.release();
   }
 };
+
+export default updateLetter;

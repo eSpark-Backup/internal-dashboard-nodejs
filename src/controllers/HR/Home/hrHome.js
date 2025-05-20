@@ -2,7 +2,7 @@ import pool from "../../../config/db.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
-export const hrHome = async (req, res) => {
+const hrHome = async (req, res) => {
   const { email, role, username } = req.user;
   let client;
 
@@ -67,3 +67,5 @@ export const hrHome = async (req, res) => {
     client.release();
   }
 };
+
+export default hrHome;

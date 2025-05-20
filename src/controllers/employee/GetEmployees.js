@@ -1,10 +1,10 @@
-import pool from "../../../config/db.js";
-import { getSignedUrl } from "../../../helpers/s3.js";
-import { logger } from "../../../helpers/logger.js";
+import pool from "../../config/db.js";
+import { getSignedUrl } from "../../helpers/s3.js";
+import { logger } from "../../helpers/logger.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
-export const getHrEmployees = async (req, res) => {
+const getEmployees = async (req, res) => {
   try {
     logger.info("Fetching talent ID using TALENT_EMAIL...");
 
@@ -88,3 +88,5 @@ export const getHrEmployees = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export default getEmployees;

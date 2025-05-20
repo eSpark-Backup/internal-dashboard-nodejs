@@ -1,7 +1,7 @@
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
-export const deleteLetter = async (req, res) => {
+const deleteLetter = async (req, res) => {
   try {
     const id = req.query.id;
 
@@ -22,3 +22,5 @@ export const deleteLetter = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+export default deleteLetter;

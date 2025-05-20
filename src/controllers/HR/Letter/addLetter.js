@@ -6,7 +6,7 @@ import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
 
-export const createLetter = async (req, res) => {
+const createLetter = async (req, res) => {
   const client = await pool.connect();
   try {
     const { email, objective, issue_date, reason } = req.body;
@@ -91,3 +91,5 @@ export const createLetter = async (req, res) => {
     client.release();
   }
 };
+
+export default createLetter;

@@ -5,14 +5,14 @@ import { getSignedUrl } from "../../helpers/s3.js"
 const getEmployeeDetails = async (req, res) => {
     const talentEmail = process.env.TALENT_EMAIL;
     const { id, tab } = req.query
-
-    const employee = await pool.query(
+    try {
+        const employee = await pool.query(
         `SELECT id, employee_id, first_name, last_name, gender, TO_CHAR(dob, 'YYYY-MM-DD') as dob, phone_number, email, personal_email, marital_status, emergency_contact, TO_CHAR(joining_date, 'YYYY-MM-DD') as joining_date, job_title, role, job_status, TO_CHAR(starting_date, 'YYYY-MM-DD') as starting_date, TO_CHAR(ending_date, 'YYYY-MM-DD') as ending_date, image FROM eSparkTalentAPI_employee WHERE id = $1`,
         [id]
     )
 
     if (!employee.rows[0]?.id) {
-        return res.status(400).json({ message: "Employee does not exist with given employee email" });
+        return res.status(404).json({ message: "Employee does not exist with given employee email" });
     }
 
     const emp_record = employee.rows[0];
@@ -25,7 +25,7 @@ const getEmployeeDetails = async (req, res) => {
             );
 
             if (!clientResult.rows[0]?.id) {
-                return res.status(400).json({ message: "Client does not exist" });
+                return res.status(404).json({ message: "Client does not exist" });
             }
 
             const clientsData = await pool.query(
@@ -107,6 +107,10 @@ const getEmployeeDetails = async (req, res) => {
 
             return res.status(200).json(response);
     }
+} catch (error) {
+    logger.error(`Error in getEmployeeDetails: ${error}`);
+    return res.status(500).json({ message: "Internal server error" });
+}
 }
 
 export default getEmployeeDetails

@@ -1,8 +1,8 @@
-import { removeFromS3 } from "../../../helpers/s3.js";
-import pool from "../../../config/db.js";
-import { logger } from "../../../helpers/logger.js";
+import { removeFromS3 } from "../../helpers/s3.js";
+import pool from "../../config/db.js";
+import { logger } from "../../helpers/logger.js";
 
-export const deleteHrEmployee = async (req, res) => {
+const deleteEmployee = async (req, res) => {
   const employeeId = req.query.id;
   let client;
 
@@ -83,9 +83,11 @@ export const deleteHrEmployee = async (req, res) => {
       .json({ message: `${fullName} is removed successfully` });
   } catch (error) {
     await client.query("ROLLBACK");
-    logger.error(`deleteHrEmployee error: ${error.stack || error.message}`);
+    logger.error(`delete employee error: ${error.stack || error.message}`);
     return res.status(500).json({ message: "Internal server error" });
   } finally {
     client.release();
   }
 };
+
+export default deleteEmployee;
