@@ -215,6 +215,153 @@ paths:
                 properties:
                   error:
                     type: string
+  
+  /hr_emp_prof:
+    get:
+      tags:
+        - Employee Profile, Client, Assets
+      summary: Get employee profile details
+      description: |
+        Fetches employee details by ID. Optionally fetches tab-specific data:
+      
+        - `tab=client` returns client assignments (active and terminated)
+        - `tab=assets` returns assigned asset records
+        - If `tab` is omitted, returns full employee profile including a signed image URL
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the employee
+          example: "1"
+        - name: tab
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [client, assets]
+          description: Optional tab to fetch specific details
+          example: "client"
+      responses:
+        "200":
+          description: Successful response with employee data
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                      employee_id:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      gender:
+                        type: string
+                      dob:
+                        type: string
+                        format: date
+                      phone_number:
+                        type: string
+                      email:
+                        type: string
+                      personal_email:
+                        type: string
+                      marital_status:
+                        type: string
+                      emergency_contact:
+                        type: string
+                      joining_date:
+                        type: string
+                        format: date
+                      job_title:
+                        type: string
+                      role:
+                        type: string
+                      status:
+                        type: string
+                      probation_started:
+                        type: string
+                        format: date
+                      probation_ended:
+                        type: string
+                        format: date
+                      image_path:
+                        type: string
+                        format: uri
+                  - type: object
+                    properties:
+                      active_clients:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            client_name:
+                              type: string
+                            client_id:
+                              type: string
+                            job_title:
+                              type: string
+                            employeement_term:
+                              type: string
+                            join_date:
+                              type: string
+                      terminated_clients:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            client_name:
+                              type: string
+                            client_id:
+                              type: string
+                            job_title:
+                              type: string
+                            employeement_term:
+                              type: string
+                            join_date:
+                              type: string
+                  - type: object
+                    properties:
+                      assets:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            gadget:
+                              type: string
+                            asset_id:
+                              type: string
+                            assigned_date:
+                              type: string
+                            assignee_name:
+                              type: string
+                            assignee_email:
+                              type: string
+        "400":
+          description: Invalid employee ID or employee/client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Employee does not exist with given employee email
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Internal server error
 
   /emp_salary:
     post:

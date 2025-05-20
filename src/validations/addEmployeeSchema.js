@@ -52,3 +52,10 @@ export const addEmployeeSchema = yup.object({
       .required("Confirm password is required"),
   }),
 });
+
+export const getEmployeeDetailsSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Employee ID is required"),
+    tab: yup.string().optional(),
+  }),
+});
