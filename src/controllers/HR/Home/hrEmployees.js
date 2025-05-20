@@ -16,9 +16,7 @@ export const getHrEmployees = async (req, res) => {
 
     if (talentUserRes.rows.length === 0) {
       logger.error(`TALENT_EMAIL (${TALENT_EMAIL}) not found in clients table`);
-      return res
-        .status(500)
-        .json({ error: "TALENT_EMAIL not found in clients" });
+      return res.status(500).json({ message: "Client not found" });
     }
 
     const talentId = talentUserRes.rows[0].id;
@@ -87,6 +85,6 @@ export const getHrEmployees = async (req, res) => {
   } catch (err) {
     logger.error(`Error in getHrEmployees: ${err.message}`);
 
-    return res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };

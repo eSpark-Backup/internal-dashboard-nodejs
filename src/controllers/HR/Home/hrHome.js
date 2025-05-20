@@ -61,7 +61,7 @@ export const hrHome = async (req, res) => {
     });
   } catch (err) {
     console.error("Error in hr_home:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal server error" });
   } finally {
     client.release();
   }

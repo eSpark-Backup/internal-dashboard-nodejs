@@ -4,10 +4,11 @@ import { logger } from "../../../helpers/logger.js";
 
 export const deleteHrEmployee = async (req, res) => {
   const employeeId = req.query.id;
-
-  const client = await pool.connect();
+  let client;
 
   try {
+    client = await pool.connect();
+
     await client.query("BEGIN");
     logger.info(`Started deletion for employee ID: ${employeeId}`);
 
@@ -19,7 +20,7 @@ export const deleteHrEmployee = async (req, res) => {
 
     if (empRes.rows.length === 0) {
       logger.warn(`No employee found with ID: ${employeeId}`);
-      return res.status(404).json({ error: "Employee not found" });
+      return res.status(404).json({ message: "Employee not found" });
     }
 
     const { email, first_name, last_name, image, resume } = empRes.rows[0];
@@ -46,7 +47,9 @@ export const deleteHrEmployee = async (req, res) => {
     } catch (manualDeleteErr) {
       logger.error(`Manual delete failed: ${manualDeleteErr.message}`);
       await client.query("ROLLBACK");
-      return res.status(500).json({ error: "Error deleting related records" });
+      return res
+        .status(500)
+        .json({ message: "Error deleting related records" });
     }
 
     // Step 3: Delete S3 files (image + resume)
@@ -61,7 +64,9 @@ export const deleteHrEmployee = async (req, res) => {
           `Failed to delete S3 file: ${key}, reason: ${removed.error}`
         );
         await client.query("ROLLBACK");
-        return res.status(500).json({ error: `Failed to delete file: ${key}` });
+        return res
+          .status(500)
+          .json({ message: `Failed to delete file: ${key}` });
       }
       logger.info(`Deleted file from S3: ${key}`);
     }
@@ -79,7 +84,7 @@ export const deleteHrEmployee = async (req, res) => {
   } catch (error) {
     await client.query("ROLLBACK");
     logger.error(`deleteHrEmployee error: ${error.stack || error.message}`);
-    return res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   } finally {
     client.release();
   }
