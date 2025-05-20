@@ -847,6 +847,65 @@
 						"header": []
 					},
 					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3NzU3NzMyLCJpYXQiOjE3NDc3Mzk3MzIsImp0aSI6ImJhYjNhNGZjNDkxMjQ4YjFiYjYwZmQ5Njg0OTQ5MTFhIiwidXNlcl9pZCI6MX0.r8yrlmaJgZJ-D4-dxQY1kPd4EbLSAqC8DLd7mWwmIE8",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hr_emps/?id=15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_emps",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

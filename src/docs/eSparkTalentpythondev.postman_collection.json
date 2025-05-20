@@ -589,7 +589,7 @@
 			"name": "Employee",
 			"item": [
 				{
-					"name": "hr_add_emp",
+					"name": "Add Employee",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -777,6 +777,14 @@
 				},
 				{
 					"name": "Employee List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
 					"request": {
 						"method": "GET",
 						"header": []
