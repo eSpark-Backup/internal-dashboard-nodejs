@@ -602,183 +602,253 @@
 			]
 		},
 		{
-			"name": "hr_add_emp",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Add Emolyee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjE1MDQzLCJpYXQiOjE3NDcxOTcwNDMsImp0aSI6IjczODA2ZjEyMmY0NzQxY2M4OWRmMjVjMDJlMTQ4MWUyIiwidXNlcl9pZCI6MX0.mnRWf_hOiPyZ2GfyUh0G-IVqoxhvuMXmQS11DXvviyk"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "d",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "ff",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Male",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "2016-05-12",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "+923001234567",
+									"type": "text"
+								},
+								{
+									"key": "personal_email",
+									"value": "muzemppersonal2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "muzemp2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "marital_status",
+									"value": "Single",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1f0307be-68a0-4140-ad95-3a0574d25175"
+								},
+								{
+									"key": "resume",
+									"type": "file",
+									"src": "postman-cloud:///1f0307bf-abce-4740-9bcf-3b09e1ce1e50"
+								},
+								{
+									"key": "emergency_contact",
+									"value": "{\"primary\":{\"name\":\"sss\",\"relation\":\"sss\",\"phone_number\":\"+92232243242\"},\"secondary\":{\"name\":\"ddd\",\"relation\":\"ddd\",\"phone_number\":\"+92232243242\"}}",
+									"type": "text"
+								},
+								{
+									"key": "joining_date",
+									"value": "2025-05-01",
+									"type": "text"
+								},
+								{
+									"key": "ending_date",
+									"value": "2025-05-31",
+									"type": "text"
+								},
+								{
+									"key": "starting_date",
+									"value": "2025-05-11",
+									"type": "text"
+								},
+								{
+									"key": "job_status",
+									"value": "Internship",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Senior",
+									"type": "text"
+								},
+								{
+									"key": "job_title",
+									"value": "Angular JS Developer",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "dd",
+									"type": "text"
+								},
+								{
+									"key": "employee_id",
+									"value": "es12",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test1234@",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "Test1234@",
+									"type": "text"
+								},
+								{
+									"key": "punch_timings",
+									"value": "{\"check_in\":\"11:22 AM\",\"check_out\":\"08:22 PM\"}",
+									"type": "text"
+								},
+								{
+									"key": "casual_leaves",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "sick_leaves",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "annual_leaves",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "hajj_leaves",
+									"value": "33",
+									"type": "text"
+								},
+								{
+									"key": "paid_leaves",
+									"value": "33",
+									"type": "text"
+								},
+								{
+									"key": "unpaid_leaves",
+									"value": "13",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3000/api/hr_add_emp/"
 					},
-					{
-						"key": "Accept-Language",
-						"value": "en-US,en;q=0.9"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MjE1MDQzLCJpYXQiOjE3NDcxOTcwNDMsImp0aSI6IjczODA2ZjEyMmY0NzQxY2M4OWRmMjVjMDJlMTQ4MWUyIiwidXNlcl9pZCI6MX0.mnRWf_hOiPyZ2GfyUh0G-IVqoxhvuMXmQS11DXvviyk"
-					},
-					{
-						"key": "Connection",
-						"value": "keep-alive"
-					},
-					{
-						"key": "Origin",
-						"value": "https://dashboard-dev.esparktalent.com"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "first_name",
-							"value": "d",
-							"type": "text"
-						},
-						{
-							"key": "last_name",
-							"value": "ff",
-							"type": "text"
-						},
-						{
-							"key": "gender",
-							"value": "Male",
-							"type": "text"
-						},
-						{
-							"key": "dob",
-							"value": "2016-05-12",
-							"type": "text"
-						},
-						{
-							"key": "phone_number",
-							"value": "+923001234567",
-							"type": "text"
-						},
-						{
-							"key": "personal_email",
-							"value": "muzemppersonal2@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "muzemp2@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "marital_status",
-							"value": "Single",
-							"type": "text"
-						},
-						{
-							"key": "image",
-							"type": "file",
-							"src": "postman-cloud:///1f0307be-68a0-4140-ad95-3a0574d25175"
-						},
-						{
-							"key": "resume",
-							"type": "file",
-							"src": "postman-cloud:///1f0307bf-abce-4740-9bcf-3b09e1ce1e50"
-						},
-						{
-							"key": "emergency_contact",
-							"value": "{\"primary\":{\"name\":\"sss\",\"relation\":\"sss\",\"phone_number\":\"+92232243242\"},\"secondary\":{\"name\":\"ddd\",\"relation\":\"ddd\",\"phone_number\":\"+92232243242\"}}",
-							"type": "text"
-						},
-						{
-							"key": "joining_date",
-							"value": "2025-05-01",
-							"type": "text"
-						},
-						{
-							"key": "ending_date",
-							"value": "2025-05-31",
-							"type": "text"
-						},
-						{
-							"key": "starting_date",
-							"value": "2025-05-11",
-							"type": "text"
-						},
-						{
-							"key": "job_status",
-							"value": "Internship",
-							"type": "text"
-						},
-						{
-							"key": "role",
-							"value": "Senior",
-							"type": "text"
-						},
-						{
-							"key": "job_title",
-							"value": "Angular JS Developer",
-							"type": "text"
-						},
-						{
-							"key": "company",
-							"value": "dd",
-							"type": "text"
-						},
-						{
-							"key": "employee_id",
-							"value": "es12",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "Test1234@",
-							"type": "text"
-						},
-						{
-							"key": "confirm_password",
-							"value": "Test1234@",
-							"type": "text"
-						},
-						{
-							"key": "punch_timings",
-							"value": "{\"check_in\":\"11:22 AM\",\"check_out\":\"08:22 PM\"}",
-							"type": "text"
-						},
-						{
-							"key": "casual_leaves",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "sick_leaves",
-							"value": "12",
-							"type": "text"
-						},
-						{
-							"key": "annual_leaves",
-							"value": "20",
-							"type": "text"
-						},
-						{
-							"key": "hajj_leaves",
-							"value": "33",
-							"type": "text"
-						},
-						{
-							"key": "paid_leaves",
-							"value": "33",
-							"type": "text"
-						},
-						{
-							"key": "unpaid_leaves",
-							"value": "13",
-							"type": "text"
-						}
-					]
+					"response": []
 				},
-				"url": "http://localhost:3000/api/hr_add_emp/"
-			},
-			"response": []
+				{
+					"name": "Get Employee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Njc1MzA5LCJpYXQiOjE3NDc2NTczMDksImp0aSI6IjA4NDUzODdhNDFhYTRmMTg4NWI0NDA4ZGEzZjRhYWNhIiwidXNlcl9pZCI6MX0.JAh8XDjinSGI97okr1lNtVJUlZxK16ExA6kMWdoKxkY"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hr_emp_prof/?id=16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_emp_prof",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16"
+								},
+								{
+									"key": "tab",
+									"value": "client",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "login",
@@ -820,6 +890,14 @@
 					}
 				},
 				"url": "http://localhost:3000/api/login/"
+			},
+			"response": []
+		},
+		{
+			"name": "HR Home",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
