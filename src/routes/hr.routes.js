@@ -2,14 +2,23 @@ import express from "express";
 import validateSchema from "../middleware/validate.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
-import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
+import {
+  addSalarySchema,
+  deleteSalarySchema,
+  getSalarySchema,
+  updateSalarySchema,
+} from "../validations/SalarySchema.js";
 import {
   addLetterSchema,
   deleteLetterSchema,
   getLetterSchema,
   updateLetterSchema,
 } from "../validations/letterSchema.js";
-import { addEmployeeSchema, getEmployeeDetailsSchema, deleteEmployeeSchema } from "../validations/employeeSchema.js";
+import {
+  addEmployeeSchema,
+  getEmployeeDetailsSchema,
+  deleteEmployeeSchema,
+} from "../validations/employeeSchema.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
 import getSalary from "../controllers/HR/Salary/getSalary.js";
 import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
@@ -23,17 +32,22 @@ import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
 import getEmployees from "../controllers/employee/GetEmployees.js";
 import deleteEmployee from "../controllers/employee/deleteEmployee.js";
 import hrHome from "../controllers/HR/Home/hrHome.js";
+import addAsset from "../controllers/HR/Asset/addAsset.js";
+import {
+  addAssetSchema,
+  deleteAssetSchema,
+  updateAssetSchema,
+} from "../validations/assetSchema.js";
+import updateAsset from "../controllers/HR/Asset/updateAsset.js";
+import deleteAsset from "../controllers/HR/Asset/deleteAsset.js";
 
 const router = express.Router();
-
 
 //HR Home Page
 router.get("/hr_home", authenticateJWT, hrHome);
 
-
-//Employee CRUD Routes 
+//Employee CRUD Routes
 router.get("/hr_emps", authenticateJWT, getEmployees);
-
 
 router.post(
   "/hr_add_emp",
@@ -51,7 +65,7 @@ router.get(
   authenticateJWT,
   validateSchema(getEmployeeDetailsSchema),
   getEmployeeDetails
-)
+);
 
 router.delete(
   "/hr_emps",
@@ -61,8 +75,6 @@ router.delete(
 );
 
 //Employee CRUD Routes
-
-
 
 // Employee salary CRUD Routes
 router.post(
@@ -97,8 +109,6 @@ router.patch(
 
 // Employee salary CRUD Routes
 
-
-
 // Employee letter CRUD Routes
 router.post(
   "/emp_letters",
@@ -132,6 +142,27 @@ router.patch(
 
 // Employee letter payment routes
 
+// Employee Asset CRUD Routes
+router.post(
+  "/hr_add_asset",
+  authenticateJWT,
+  validateSchema(addAssetSchema),
+  addAsset
+);
 
+router.patch(
+  "/hr_add_asset",
+  upload.none(),
+  authenticateJWT,
+  validateSchema(updateAssetSchema),
+  updateAsset
+);
+
+router.delete(
+  "/hr_add_asset",
+  authenticateJWT,
+  validateSchema(deleteAssetSchema),
+  deleteAsset
+);
 
 export default router;
