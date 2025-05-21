@@ -3,13 +3,9 @@ import validateSchema from "../middleware/validate.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
 import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
-import {
-  addLetterSchema,
-  deleteLetterSchema,
-  getLetterSchema,
-  updateLetterSchema,
-} from "../validations/letterSchema.js";
+import { addLetterSchema, deleteLetterSchema, getLetterSchema, updateLetterSchema } from "../validations/letterSchema.js";
 import { addEmployeeSchema, getEmployeeDetailsSchema, deleteEmployeeSchema } from "../validations/employeeSchema.js";
+import { addAccountSchema, deleteAccountSchema, updateAccountSchema } from "../validations/accountSchema.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
 import getSalary from "../controllers/HR/Salary/getSalary.js";
 import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
@@ -23,6 +19,10 @@ import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
 import getEmployees from "../controllers/employee/GetEmployees.js";
 import deleteEmployee from "../controllers/employee/deleteEmployee.js";
 import hrHome from "../controllers/HR/Home/hrHome.js";
+import addAccount from "../controllers/HR/Account/addAccount.js";
+import getAccounts from "../controllers/HR/Account/getAccounts.js";
+import deleteAccount from "../controllers/HR/Account/deleteAccount.js";
+import updateAccount from "../controllers/HR/Account/updateAccount.js";
 
 const router = express.Router();
 
@@ -132,6 +132,36 @@ router.patch(
 
 // Employee letter payment routes
 
+
+// Account CRUD Routes
+router.post(
+  "/hr_accounts",
+  authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(addAccountSchema),
+  addAccount
+);
+
+router.get(
+  "/hr_accounts",
+  // authenticateJWT,
+  getAccounts
+);
+
+router.delete(
+  "/hr_accounts",
+  // authenticateJWT,
+  validateSchema(deleteAccountSchema),
+  deleteAccount
+);
+
+router.patch(
+  "/hr_accounts",
+  // authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(updateAccountSchema),
+  updateAccount
+);
 
 
 export default router;
