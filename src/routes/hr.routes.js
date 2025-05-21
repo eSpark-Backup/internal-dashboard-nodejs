@@ -144,20 +144,20 @@ router.post(
 
 router.get(
   "/hr_accounts",
-  // authenticateJWT,
+  authenticateJWT,
   getAccounts
 );
 
 router.delete(
   "/hr_accounts",
-  // authenticateJWT,
+  authenticateJWT,
   validateSchema(deleteAccountSchema),
   deleteAccount
 );
 
 router.patch(
   "/hr_accounts",
-  // authenticateJWT,
+  authenticateJWT,
   upload.fields([{ name: "image", maxCount: 1 }]),
   validateSchema(updateAccountSchema),
   updateAccount
