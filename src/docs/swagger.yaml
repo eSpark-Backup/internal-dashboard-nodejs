@@ -982,3 +982,273 @@ paths:
                 type: object
                 example:
                   message: Internal Server Error
+
+  /hr_emp_benefit:
+    post:
+      tags:
+        - Employee Benefits
+      summary: Add a new employee benefit
+      description: |
+        Adds a benefit record for an employee and creates a corresponding notification entry.
+        The employee is identified via their email (used as `employee_id`).
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - card_id
+                - employee_id
+                - benefit
+                - issue_date
+                - description
+              properties:
+                card_id:
+                  type: string
+                  example: card_12345
+                employee_id:
+                  type: string
+                  description: Employee email used to identify the employee
+                  example: john.doe@example.com
+                benefit:
+                  type: string
+                  example: Health Insurance
+                issue_date:
+                  type: string
+                  format: date
+                  example: 2025-05-22
+                description:
+                  type: string
+                  example: Provided comprehensive medical coverage for 2025
+      responses:
+        "200":
+          description: Benefit added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: One new benefit has been added
+                  id:
+                    type: string
+                    example: benefit_67890
+        "400":
+          description: Bad request, either benefit or notification insertion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to add benefit
+        "404":
+          description: Employee not found by the provided email
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee does not exist with given employee email
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      tags:
+        - Employee Benefits
+      summary: Get benefits of an employee
+      description: |
+        Retrieves all benefit records for a given employee, identified by their email.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: emp_email
+          required: true
+          schema:
+            type: string
+          description: Email address of the employee
+          example: john.doe@example.com
+      responses:
+        "200":
+          description: Successfully retrieved benefit records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    card_id:
+                      type: string
+                      example: card_12345
+                    benefit:
+                      type: string
+                      example: Health Insurance
+                    issue_date:
+                      type: string
+                      format: date
+                      example: 2025-05-22
+                    description:
+                      type: string
+                      example: Provided full medical coverage for 2025
+        "404":
+          description: Employee not found by the provided email
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee does not exist with given employee email
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      tags:
+        - Employee Benefits
+      summary: Delete an employee benefit
+      description: |
+        Deletes a benefit record by its ID. If a related notification exists, it will be deleted as well.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the benefit to be deleted
+          example: "123"
+      responses:
+        "200":
+          description: Benefit successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Benefit has been deleted
+        "404":
+          description: Benefit not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Benefit does not exist with given id
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+  
+    patch:
+      tags:
+        - Employee Benefits
+      summary: Update a benefit
+      description: |
+        Updates the `card_id` and `description` fields of a benefit entry by its ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the benefit to update
+          example: "123"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - card_id
+                - description
+              properties:
+                card_id:
+                  type: string
+                  example: "CARD-456"
+                description:
+                  type: string
+                  example: "Updated benefit description for the employee"
+      responses:
+        "200":
+          description: Benefit successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Benefit has been updated
+        "400":
+          description: Failed to update benefit
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to update benefit
+        "404":
+          description: Benefit not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Benefit does not exist with given id
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
