@@ -13,7 +13,10 @@
 					"name": "Add Salary",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -48,16 +51,17 @@
 								{
 									"key": "net_salary",
 									"value": "232",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "gross_salary",
-									"value": "10",
+									"value": "10.2",
 									"type": "text"
 								},
 								{
 									"key": "tax_deduction",
-									"value": "100",
+									"value": "100.3",
 									"type": "text"
 								},
 								{
@@ -68,7 +72,7 @@
 								{
 									"key": "pay_slip",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/HP/Downloads/blank.pdf"
 								},
 								{
 									"key": "job_status",
@@ -607,6 +611,12 @@
 				{
 					"name": "Add Emolyee",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -901,6 +911,246 @@
 								{
 									"key": "id",
 									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Add Account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMjI1LCJpYXQiOjE3NDc4MTUyMjUsImp0aSI6ImRiMTU2NzRlYTNkNzRmNmZhZjg4MDZkYTMyMWM2YTIxIiwidXNlcl9pZCI6MX0.plPecdnJaRyYMy5bMQTw4xX6e1pLr39yZ1cC5TOJh9o",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_name",
+									"value": "Gretchen Middleton",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hyjisyvup@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test123!",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "test123!",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/goku-dragon-ball-best-profile-picture.png"
+								}
+							]
+						},
+						"url": "http://localhost:3000/api/hr_accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMjI1LCJpYXQiOjE3NDc4MTUyMjUsImp0aSI6ImRiMTU2NzRlYTNkNzRmNmZhZjg4MDZkYTMyMWM2YTIxIiwidXNlcl9pZCI6MX0.plPecdnJaRyYMy5bMQTw4xX6e1pLr39yZ1cC5TOJh9o"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": "http://localhost:3000/api/hr_accounts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMjI1LCJpYXQiOjE3NDc4MTUyMjUsImp0aSI6ImRiMTU2NzRlYTNkNzRmNmZhZjg4MDZkYTMyMWM2YTIxIiwidXNlcl9pZCI6MX0.plPecdnJaRyYMy5bMQTw4xX6e1pLr39yZ1cC5TOJh9o"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hr_accounts/?id=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_accounts",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODUyNjE4LCJpYXQiOjE3NDc4MzQ2MTgsImp0aSI6IjUxYTk2NGRmMWUzOTRkMjM5M2E1MzUwY2NjMTNlOTNlIiwidXNlcl9pZCI6MX0.uDCnx3ml5RpE861HLEVNcqjr9Bb1kmDGP2zsYHOxfU8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_name",
+									"value": "Stephen Small",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "muzemp2@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Pa$$w0rd!",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/hr_accounts/?id=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_accounts",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9"
 								}
 							]
 						}
