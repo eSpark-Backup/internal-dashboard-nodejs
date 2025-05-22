@@ -16,7 +16,7 @@ const getEmployees = async (req, res) => {
 
     if (talentUserRes.rows.length === 0) {
       logger.error(`TALENT_EMAIL (${TALENT_EMAIL}) not found in clients table`);
-      return res.status(500).json({ message: "Client not found" });
+      return res.status(404).json({ message: "Client not found" });
     }
 
     const talentId = talentUserRes.rows[0].id;
