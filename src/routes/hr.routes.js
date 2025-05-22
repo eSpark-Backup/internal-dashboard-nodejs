@@ -2,14 +2,28 @@ import express from "express";
 import validateSchema from "../middleware/validate.js";
 import { authenticateJWT } from "../middleware/auth.js";
 import { upload } from "../helpers/multer.js";
-import { addSalarySchema, deleteSalarySchema, getSalarySchema, updateSalarySchema } from "../validations/SalarySchema.js";
+import {
+  addSalarySchema,
+  deleteSalarySchema,
+  getSalarySchema,
+  updateSalarySchema,
+} from "../validations/SalarySchema.js";
 import {
   addLetterSchema,
   deleteLetterSchema,
   getLetterSchema,
   updateLetterSchema,
 } from "../validations/letterSchema.js";
-import { addEmployeeSchema, getEmployeeDetailsSchema, deleteEmployeeSchema } from "../validations/employeeSchema.js";
+import {
+  addEmployeeSchema,
+  getEmployeeDetailsSchema,
+  deleteEmployeeSchema,
+} from "../validations/employeeSchema.js";
+import {
+  addAccountSchema,
+  deleteAccountSchema,
+  updateAccountSchema,
+} from "../validations/accountSchema.js";
 import addSalary from "../controllers/HR/Salary/addSalary.js";
 import getSalary from "../controllers/HR/Salary/getSalary.js";
 import deleteSalary from "../controllers/HR/Salary/deleteSalary.js";
@@ -28,17 +42,26 @@ import addBenefit from "../controllers/HR/Benefit/addBenefit.js";
 import getBenefit from "../controllers/HR/Benefit/getBenefit.js";
 import deleteBenefit from "../controllers/HR/Benefit/deleteBenefit.js";
 import updateBenefit from "../controllers/HR/Benefit/updateBenefit.js";
+import addAsset from "../controllers/HR/Asset/addAsset.js";
+import {
+  addAssetSchema,
+  deleteAssetSchema,
+  updateAssetSchema,
+} from "../validations/assetSchema.js";
+import updateAsset from "../controllers/HR/Asset/updateAsset.js";
+import deleteAsset from "../controllers/HR/Asset/deleteAsset.js";
+import addAccount from "../controllers/HR/Account/addAccount.js";
+import getAccounts from "../controllers/HR/Account/getAccounts.js";
+import deleteAccount from "../controllers/HR/Account/deleteAccount.js";
+import updateAccount from "../controllers/HR/Account/updateAccount.js";
 
 const router = express.Router();
-
 
 //HR Home Page
 router.get("/hr_home", authenticateJWT, hrHome);
 
-
-//Employee CRUD Routes 
+//Employee CRUD Routes
 router.get("/hr_emps", authenticateJWT, getEmployees);
-
 
 router.post(
   "/hr_add_emp",
@@ -56,7 +79,7 @@ router.get(
   authenticateJWT,
   validateSchema(getEmployeeDetailsSchema),
   getEmployeeDetails
-)
+);
 
 router.delete(
   "/hr_emps",
@@ -66,8 +89,6 @@ router.delete(
 );
 
 //Employee CRUD Routes
-
-
 
 // Employee salary CRUD Routes
 router.post(
@@ -102,8 +123,6 @@ router.patch(
 
 // Employee salary CRUD Routes
 
-
-
 // Employee letter CRUD Routes
 router.post(
   "/emp_letters",
@@ -137,6 +156,13 @@ router.patch(
 
 // Employee letter payment routes
 
+// Employee Asset CRUD Routes
+router.post(
+  "/hr_add_asset",
+  authenticateJWT,
+  validateSchema(addAssetSchema),
+  addAsset
+);
 
 // Employee Benefits Routes
 router.post("/hr_emp_benefit",
@@ -165,5 +191,44 @@ router.patch("/hr_emp_benefit",
 
 
 
+router.patch(
+  "/hr_add_asset",
+  upload.none(),
+  authenticateJWT,
+  validateSchema(updateAssetSchema),
+  updateAsset
+);
+
+router.delete(
+  "/hr_add_asset",
+  authenticateJWT,
+  validateSchema(deleteAssetSchema),
+  deleteAsset
+);
+// Account CRUD Routes
+router.post(
+  "/hr_accounts",
+  authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(addAccountSchema),
+  addAccount
+);
+
+router.get("/hr_accounts", authenticateJWT, getAccounts);
+
+router.delete(
+  "/hr_accounts",
+  authenticateJWT,
+  validateSchema(deleteAccountSchema),
+  deleteAccount
+);
+
+router.patch(
+  "/hr_accounts",
+  authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(updateAccountSchema),
+  updateAccount
+);
 
 export default router;

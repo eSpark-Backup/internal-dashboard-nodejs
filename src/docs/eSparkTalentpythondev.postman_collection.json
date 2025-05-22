@@ -368,7 +368,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3000/api/emp_letters/"
+						"url": "http://54.162.147.127:8000/api/emp_letters/"
 					},
 					"response": []
 				},
@@ -436,12 +436,15 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/emp_letters/?id=1",
+							"raw": "http://54.162.147.127:8000/api/emp_letters/?id=1",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"54",
+								"162",
+								"147",
+								"127"
 							],
-							"port": "3000",
+							"port": "8000",
 							"path": [
 								"api",
 								"emp_letters",
@@ -788,6 +791,244 @@
 					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Add Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODUyNjE4LCJpYXQiOjE3NDc4MzQ2MTgsImp0aSI6IjUxYTk2NGRmMWUzOTRkMjM5M2E1MzUwY2NjMTNlOTNlIiwidXNlcl9pZCI6MX0.uDCnx3ml5RpE861HLEVNcqjr9Bb1kmDGP2zsYHOxfU8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_name",
+									"value": "Stephen Small",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "wemi@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Pa$$0rd!",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "Pa$$0rd!",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "WhatsApp Image 2024-10-25 at 5.18.33 PM.jpeg"
+								}
+							]
+						},
+						"url": "http://54.162.147.127:8000/api/hr_accounts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMjI1LCJpYXQiOjE3NDc4MTUyMjUsImp0aSI6ImRiMTU2NzRlYTNkNzRmNmZhZjg4MDZkYTMyMWM2YTIxIiwidXNlcl9pZCI6MX0.plPecdnJaRyYMy5bMQTw4xX6e1pLr39yZ1cC5TOJh9o"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": "http://54.162.147.127:8000/api/hr_accounts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODMzMjI1LCJpYXQiOjE3NDc4MTUyMjUsImp0aSI6ImRiMTU2NzRlYTNkNzRmNmZhZjg4MDZkYTMyMWM2YTIxIiwidXNlcl9pZCI6MX0.plPecdnJaRyYMy5bMQTw4xX6e1pLr39yZ1cC5TOJh9o"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://54.162.147.127:8000/api/hr_accounts/?id=24",
+							"protocol": "http",
+							"host": [
+								"54",
+								"162",
+								"147",
+								"127"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hr_accounts",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODUyNjE4LCJpYXQiOjE3NDc4MzQ2MTgsImp0aSI6IjUxYTk2NGRmMWUzOTRkMjM5M2E1MzUwY2NjMTNlOTNlIiwidXNlcl9pZCI6MX0.uDCnx3ml5RpE861HLEVNcqjr9Bb1kmDGP2zsYHOxfU8"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_name",
+									"value": "Dominique Lopez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "bifudubo@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Pa$$w0rd!",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://54.162.147.127:8000/api/hr_accounts/?id=23",
+							"protocol": "http",
+							"host": [
+								"54",
+								"162",
+								"147",
+								"127"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hr_accounts",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "23"
+								}
+							]
+						}
 					},
 					"response": []
 				}
