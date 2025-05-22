@@ -123,6 +123,8 @@ router.patch(
 
 // Employee salary CRUD Routes
 
+
+
 // Employee letter CRUD Routes
 router.post(
   "/emp_letters",
@@ -156,39 +158,41 @@ router.patch(
 
 // Employee letter payment routes
 
+
+
+// Employee Benefits Routes
+router.post("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(addBenefitSchema),
+  addBenefit
+);
+
+router.get("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(getBenefitSchema),
+  getBenefit
+);
+
+router.delete("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(deleteBenefitSchema),
+  deleteBenefit
+);
+
+router.patch("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(updateBenefitSchema),
+  updateBenefit
+);
+
 // Employee Asset CRUD Routes
+
 router.post(
   "/hr_add_asset",
   authenticateJWT,
   validateSchema(addAssetSchema),
   addAsset
 );
-
-// Employee Benefits Routes
-router.post("/hr_emp_benefit",
-  // authenticateJWT,
-  validateSchema(addBenefitSchema),
-  addBenefit
-);
-
-router.get("/hr_emp_benefit",
-  // authenticateJWT,
-  validateSchema(getBenefitSchema),
-  getBenefit
-);
-
-router.delete("/hr_emp_benefit",
-  // authenticateJWT,
-  validateSchema(deleteBenefitSchema),
-  deleteBenefit
-);
-
-router.patch("/hr_emp_benefit",
-  // authenticateJWT,
-  validateSchema(updateBenefitSchema),
-  updateBenefit
-);
-
 
 
 router.patch(
@@ -205,6 +209,11 @@ router.delete(
   validateSchema(deleteAssetSchema),
   deleteAsset
 );
+
+// Employee Asset CRUD Routes
+
+
+
 // Account CRUD Routes
 router.post(
   "/hr_accounts",
@@ -214,7 +223,10 @@ router.post(
   addAccount
 );
 
-router.get("/hr_accounts", authenticateJWT, getAccounts);
+router.get("/hr_accounts",
+  authenticateJWT,
+  getAccounts
+);
 
 router.delete(
   "/hr_accounts",
