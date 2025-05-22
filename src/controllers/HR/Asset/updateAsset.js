@@ -38,40 +38,36 @@ const updateAsset = async (req, res) => {
       });
     }
 
-    const fields = [];
-    const values = [];
-    let paramIdx = 1;
+    const {
+      asset_id,
+      employee_id,
+      gadget,
+      assigned_date,
+      assignee_name,
+      assignee_email,
+    } = updates || {};
 
-    const allowedFields = [
-      "asset_id",
-      "employee_id",
-      "gadget",
-      "assigned_date",
-      "assignee_name",
-      "assignee_email",
-    ];
-
-    for (const key in updates) {
-      if (!allowedFields.includes(key)) {
-        logger.warn(`Unrecognized update field: ${key}`);
-        return res
-          .status(400)
-          .json({ message: `Field ${key} is not allowed for update` });
-      }
-      fields.push(`${key} = $${paramIdx++}`);
-      values.push(updates[key]);
-    }
-    if (fields.length === 0) {
-      logger.warn("No fields provided for update");
-      return res.status(400).json({ message: "No fields to update" });
-    }
-
-    values.push(id);
     const updateQuery = `
-      UPDATE esparktalentapi_asset
-      SET ${fields.join(", ")}
-      WHERE id = $${paramIdx}
-    `;
+  UPDATE esparktalentapi_asset
+  SET
+    asset_id = COALESCE($1, asset_id),
+    employee_id = COALESCE($2, employee_id),
+    gadget = COALESCE($3, gadget),
+    assigned_date = COALESCE($4, assigned_date),
+    assignee_name = COALESCE($5, assignee_name),
+    assignee_email = COALESCE($6, assignee_email)
+  WHERE id = $7
+`;
+
+    const values = [
+      asset_id ?? null,
+      employee_id ?? null,
+      gadget ?? null,
+      assigned_date ?? null,
+      assignee_name ?? null,
+      assignee_email ?? null,
+      id,
+    ];
 
     await client.query(updateQuery, values);
 
