@@ -824,7 +824,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/hr_emp_prof/?id=16",
+							"raw": "http://localhost:3000/api/hr_emp_prof/?id=10&tab=assets",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -838,12 +838,11 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "16"
+									"value": "10"
 								},
 								{
 									"key": "tab",
-									"value": "client",
-									"disabled": true
+									"value": "assets"
 								}
 							]
 						}
@@ -853,8 +852,41 @@
 				{
 					"name": "Employee List",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTM4NDI0LCJpYXQiOjE3NDc5MjA0MjQsImp0aSI6ImQwMzE4MTI4YTExMzQzZDNiYTQwNmRjMWQ3OTdmNzc4IiwidXNlcl9pZCI6MX0.mNLLCXZpY5pLMAgaytrgolClfGpY6UoNXJSUqDWqa0g",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": "http://localhost:3000/api/hr_emps/"
 					},
 					"response": []
 				},
@@ -1151,6 +1183,457 @@
 								{
 									"key": "id",
 									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee Assets",
+			"item": [
+				{
+					"name": "Add Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTM4NDI0LCJpYXQiOjE3NDc5MjA0MjQsImp0aSI6ImQwMzE4MTI4YTExMzQzZDNiYTQwNmRjMWQ3OTdmNzc4IiwidXNlcl9pZCI6MX0.mNLLCXZpY5pLMAgaytrgolClfGpY6UoNXJSUqDWqa0g",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"gadget\":\"Allistair Cameron\",\"asset_id\":\"Esse quis id magna \",\"assigned_date\":\"2025-05-08T00:00:00.000Z\",\"assignee_name\":\"Kenyon Duncan\",\"assignee_email\":\"xylahocur@mailinator.com\",\"employee_id\":\"bacyw@mailinator.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/hr_add_asset/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTM4NDI0LCJpYXQiOjE3NDc5MjA0MjQsImp0aSI6ImQwMzE4MTI4YTExMzQzZDNiYTQwNmRjMWQ3OTdmNzc4IiwidXNlcl9pZCI6MX0.mNLLCXZpY5pLMAgaytrgolClfGpY6UoNXJSUqDWqa0g"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gadget",
+									"value": "Allistair Cameron",
+									"type": "text"
+								},
+								{
+									"key": "asset_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "assigned_date",
+									"value": "2025-05-08",
+									"type": "text"
+								},
+								{
+									"key": "assignee_name",
+									"value": "Kenyon Duncan",
+									"type": "text"
+								},
+								{
+									"key": "assignee_email",
+									"value": "xylahocur@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "employee_id",
+									"value": "bacyw@mailinator.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/hr_add_asset/?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_add_asset",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTM4NDI0LCJpYXQiOjE3NDc5MjA0MjQsImp0aSI6ImQwMzE4MTI4YTExMzQzZDNiYTQwNmRjMWQ3OTdmNzc4IiwidXNlcl9pZCI6MX0.mNLLCXZpY5pLMAgaytrgolClfGpY6UoNXJSUqDWqa0g"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hr_add_asset/?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_add_asset",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee Benefits",
+			"item": [
+				{
+					"name": "Add Benefit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTE5MTA5LCJpYXQiOjE3NDc5MDExMDksImp0aSI6ImEzMDg0MzgxMDhlMDQ0OWU4OTIxYWFmYzVjNWIzOWE0IiwidXNlcl9pZCI6MX0.gntRmLCdKh5Q_k-8vPCML-o59V_6YZsXDETqYLRTuzk",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"benefit\":\"Dolores eos nostrum\",\"card_id\":\"Ut fuga Illo ex quo\",\"issue_date\":\"2025-05-01\",\"description\":\"Consequatur Excepte\",\"employee_id\":\"bacyw@mailinator.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/hr_emp_benefit"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Benefit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTE5MTA5LCJpYXQiOjE3NDc5MDExMDksImp0aSI6ImEzMDg0MzgxMDhlMDQ0OWU4OTIxYWFmYzVjNWIzOWE0IiwidXNlcl9pZCI6MX0.gntRmLCdKh5Q_k-8vPCML-o59V_6YZsXDETqYLRTuzk",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"card_id\":\"Ut fuga Illo ex quo\",\"description\":\"Consequatur Excepte123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/hr_emp_benefit?id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_emp_benefit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Benefit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTE5MTA5LCJpYXQiOjE3NDc5MDExMDksImp0aSI6ImEzMDg0MzgxMDhlMDQ0OWU4OTIxYWFmYzVjNWIzOWE0IiwidXNlcl9pZCI6MX0.gntRmLCdKh5Q_k-8vPCML-o59V_6YZsXDETqYLRTuzk",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hr_emp_benefit/?emp_email=bacyw@mailinator.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_emp_benefit",
+								""
+							],
+							"query": [
+								{
+									"key": "emp_email",
+									"value": "bacyw@mailinator.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Benefit",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3OTE5MTA5LCJpYXQiOjE3NDc5MDExMDksImp0aSI6ImEzMDg0MzgxMDhlMDQ0OWU4OTIxYWFmYzVjNWIzOWE0IiwidXNlcl9pZCI6MX0.gntRmLCdKh5Q_k-8vPCML-o59V_6YZsXDETqYLRTuzk"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hr_emp_benefit/?id=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_emp_benefit",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
 								}
 							]
 						}
