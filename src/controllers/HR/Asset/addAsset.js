@@ -9,7 +9,7 @@ const addAsset = async (req, res) => {
     assigned_date,
     assignee_name,
     employee_id: employee_email,
-  } = req.body;
+  } = req.body || {};
 
   try {
     logger.info("Add asset request received", { asset_id, employee_email });
@@ -22,7 +22,7 @@ const addAsset = async (req, res) => {
     if (employeeQuery.rowCount === 0) {
       return res
         .status(404)
-        .json({ message: "Invalid employee email provided" });
+        .json({ message: "employee with this email not found" });
     }
 
     const numericEmployeeId = employeeQuery.rows[0].id;

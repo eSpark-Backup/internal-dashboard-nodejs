@@ -194,6 +194,12 @@ router.post(
   addAsset
 );
 
+router.delete(
+  "/hr_add_asset",
+  authenticateJWT,
+  validateSchema(deleteAssetSchema),
+  deleteAsset
+);
 
 router.patch(
   "/hr_add_asset",
@@ -201,13 +207,6 @@ router.patch(
   authenticateJWT,
   validateSchema(updateAssetSchema),
   updateAsset
-);
-
-router.delete(
-  "/hr_add_asset",
-  authenticateJWT,
-  validateSchema(deleteAssetSchema),
-  deleteAsset
 );
 
 // Employee Asset CRUD Routes
