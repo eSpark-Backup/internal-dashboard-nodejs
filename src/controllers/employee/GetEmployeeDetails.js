@@ -70,7 +70,7 @@ const getEmployeeDetails = async (req, res) => {
             });
         case "assets":
             const assets = await pool.query(
-                `SELECT id, gadget, asset_id, assigned_date, assignee_name, assignee_email FROM eSparkTalentAPI_asset WHERE employee_id = $1`,
+                `SELECT id, gadget, asset_id, TO_CHAR(assigned_date, 'YYYY-MM-DD') as assigned_date, assignee_name, assignee_email FROM eSparkTalentAPI_asset WHERE employee_id = $1`,
                 [id]
             )
 

@@ -37,6 +37,11 @@ import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
 import getEmployees from "../controllers/employee/GetEmployees.js";
 import deleteEmployee from "../controllers/employee/deleteEmployee.js";
 import hrHome from "../controllers/HR/Home/hrHome.js";
+import { addBenefitSchema, deleteBenefitSchema, getBenefitSchema, updateBenefitSchema } from "../validations/benefitSchema.js";
+import addBenefit from "../controllers/HR/Benefit/addBenefit.js";
+import getBenefit from "../controllers/HR/Benefit/getBenefit.js";
+import deleteBenefit from "../controllers/HR/Benefit/deleteBenefit.js";
+import updateBenefit from "../controllers/HR/Benefit/updateBenefit.js";
 import addAsset from "../controllers/HR/Asset/addAsset.js";
 import {
   addAssetSchema,
@@ -118,6 +123,8 @@ router.patch(
 
 // Employee salary CRUD Routes
 
+
+
 // Employee letter CRUD Routes
 router.post(
   "/emp_letters",
@@ -151,12 +158,47 @@ router.patch(
 
 // Employee letter payment routes
 
+
+
+// Employee Benefits Routes
+router.post("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(addBenefitSchema),
+  addBenefit
+);
+
+router.get("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(getBenefitSchema),
+  getBenefit
+);
+
+router.delete("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(deleteBenefitSchema),
+  deleteBenefit
+);
+
+router.patch("/hr_emp_benefit",
+  authenticateJWT,
+  validateSchema(updateBenefitSchema),
+  updateBenefit
+);
+
 // Employee Asset CRUD Routes
+
 router.post(
   "/hr_add_asset",
   authenticateJWT,
   validateSchema(addAssetSchema),
   addAsset
+);
+
+router.delete(
+  "/hr_add_asset",
+  authenticateJWT,
+  validateSchema(deleteAssetSchema),
+  deleteAsset
 );
 
 router.patch(
@@ -167,12 +209,10 @@ router.patch(
   updateAsset
 );
 
-router.delete(
-  "/hr_add_asset",
-  authenticateJWT,
-  validateSchema(deleteAssetSchema),
-  deleteAsset
-);
+// Employee Asset CRUD Routes
+
+
+
 // Account CRUD Routes
 router.post(
   "/hr_accounts",
@@ -182,7 +222,10 @@ router.post(
   addAccount
 );
 
-router.get("/hr_accounts", authenticateJWT, getAccounts);
+router.get("/hr_accounts",
+  authenticateJWT,
+  getAccounts
+);
 
 router.delete(
   "/hr_accounts",

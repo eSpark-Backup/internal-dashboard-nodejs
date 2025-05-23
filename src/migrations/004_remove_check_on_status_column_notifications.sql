@@ -1,0 +1,2 @@
+ALTER TABLE eSparkTalentAPI_notifications
+DROP CONSTRAINT eSparkTalentAPI_notifications_status_check;
