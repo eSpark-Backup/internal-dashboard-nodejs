@@ -1457,3 +1457,471 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+
+  /hr_accounts:
+    post:
+      tags:
+        - Setting Accounts
+      summary: Create a new custom account
+      description: |
+        Creates a new custom account with profile image upload and initializes default permissions. 
+        Also ensures the provided email does not already exist in the system.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - account_name
+                - email
+                - password
+                - confirm_password
+              properties:
+                account_name:
+                  type: string
+                  example: "HR Manager"
+                email:
+                  type: string
+                  format: email
+                  example: "hr@example.com"
+                password:
+                  type: string
+                  format: password
+                  example: "StrongPassword123!"
+                confirm_password:
+                  type: string
+                  format: password
+                  example: "StrongPassword123!"
+                image:
+                  type: string
+                  format: binary
+                  description: Optional profile image (JPEG/PNG, max 5MB)
+      responses:
+        "200":
+          description: Account successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Account created successfully
+                  id:
+                    type: integer
+                    example: 123
+                  image:
+                    type: string
+                    format: uri
+                    nullable: true
+                    example: "https://s3.amazonaws.com/bucketname/accounts/profiles/2025-05-22_AccountImage.jpg"
+        "400":
+          description: Validation or email conflict error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User with this email already exists
+        "500":
+          description: Internal server error (S3, DB, etc.)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+   
+    get:
+      tags:
+        - Setting Accounts
+      summary: Get all custom accounts
+      description: |
+        Retrieves a list of all custom accounts with decrypted passwords and signed image URLs.
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: A list of custom accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    account_name:
+                      type: string
+                      example: "HR Manager"
+                    email:
+                      type: string
+                      format: email
+                      example: "hr@example.com"
+                    image:
+                      type: string
+                      format: uri
+                      nullable: true
+                      example: "https://s3.amazonaws.com/bucketname/accounts/profiles/2025-05-22_AccountImage.jpg"
+                    password:
+                      type: string
+                      description: Decrypted password (used for admin display only)
+                      example: "StrongPassword123!"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    delete:
+      tags:
+        - Setting Accounts
+      summary: Delete an custom account
+      description: |
+        Deletes an custom account by ID. Also removes the corresponding end user and image from S3, if present.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The ID of the account to delete
+          example: "5"
+      responses:
+        "200":
+          description: Account deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Account deleted successfully
+        "404":
+          description: Account or corresponding end user not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Account not found with this id
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+   
+    patch:
+      tags:
+        - Setting Accounts
+      summary: Update an custom account
+      description: |
+        Updates an existing custom account by ID. Allows optional updates to account name, password, and profile image.
+        Also updates the end user password in a separate table if provided.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The ID of the account to update
+          example: "3"
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                account_name:
+                  type: string
+                  example: Jane Smith
+                email:
+                  type: string
+                  example: jane@example.com
+                password:
+                  type: string
+                  example: newpassword123
+                image:
+                  type: string
+                  format: binary
+                  description: JPEG or PNG image (max 5MB)
+      responses:
+        "200":
+          description: Account updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Account updated successfully
+        "400":
+          description: Invalid input (e.g., file validation error or update failure)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        "404":
+          description: Account not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Account not found with this id
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+  /hr_emp_t&l:
+    get:
+      tags:
+        - Employee Time & Leave
+      summary: Get employee time or leave details
+      description: |
+        Retrieves either punch timing data (check-in/check-out) or leave balances for a specific employee.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The ID of the employee
+          example: "emp123"
+        - name: tab
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [time, leaves]
+          description: Whether to fetch "time" or "leaves" data
+          example: time
+      responses:
+        "200":
+          description: |
+            Successfully retrieved either punch timing or leave balance data
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        example: emp123
+                      check_in:
+                        type: string
+                        format: date-time
+                        nullable: true
+                        example: "2025-05-01T09:00:00Z"
+                      check_out:
+                        type: string
+                        format: date-time
+                        nullable: true
+                        example: "2025-05-01T18:00:00Z"
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        example: emp123
+                      casual_leaves:
+                        type: integer
+                        example: 2
+                      sick_leaves:
+                        type: integer
+                        example: 1
+                      annual_leaves:
+                        type: integer
+                        example: 5
+                      unpaid_leaves:
+                        type: integer
+                        example: 0
+                      paid_leaves:
+                        type: integer
+                        example: 3
+                      hajj_leaves:
+                        type: integer
+                        example: 0
+        "400":
+          description: Invalid tab value
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid tab value
+        "404":
+          description: Employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: employee matching query does not exist.
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Something went wrong while fetching data
+
+    patch:
+      tags:
+        - Employee Time & Leave
+      summary: Update employee punch timings or leave balances
+      description: |
+        Updates either punch timings (`check_in`, `check_out`) or leave balances for a specific employee based on the `tab` query parameter.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the employee
+          example: "emp123"
+        - name: tab
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [time, leaves]
+          description: Determines whether the update is for punch timings or leave balances
+          example: time
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  description: Update punch timings
+                  properties:
+                    check_in:
+                      type: string
+                      pattern: "^(0[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$"
+                      example: "09:00 AM"
+                    check_out:
+                      type: string
+                      pattern: "^(0[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$"
+                      example: "05:00 PM"
+                - type: object
+                  description: Update leave balances (values should be JSON objects)
+                  properties:
+                    casual_leaves:
+                      type: object
+                      example: { "total": 5, "used": 2 }
+                    sick_leaves:
+                      type: object
+                      example: { "total": 3, "used": 1 }
+                    annual_leaves:
+                      type: object
+                      example: { "total": 10, "used": 4 }
+                    unpaid_leaves:
+                      type: object
+                      example: { "total": 0, "used": 0 }
+                    paid_leaves:
+                      type: object
+                      example: { "total": 6, "used": 2 }
+                    hajj_leaves:
+                      type: object
+                      example: { "total": 1, "used": 0 }
+      responses:
+        "200":
+          description: Successfully updated employee data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Timings updated successfully
+        "400":
+          description: Bad request or validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No timing fields provided to update
+        "404":
+          description: Employee or leave balance record not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee record not found
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unexpected server error occurred
+                  
+            

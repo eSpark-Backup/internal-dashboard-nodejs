@@ -246,7 +246,11 @@ router.patch(
   updateAccount
 );
 
-// HR EMP Time and leaves
+// Account CRUD Routes
+
+
+
+// HR EMP Time and leaves Routes
 router.get(
   "/hr_emp_t&l",
   authenticateJWT,
@@ -260,5 +264,7 @@ router.patch(
   validateEmpLeavesPatchSchema,
   updateTimeAndLeave
 );
+
+// HR EMP Time and leaves Routes
 
 export default router;
