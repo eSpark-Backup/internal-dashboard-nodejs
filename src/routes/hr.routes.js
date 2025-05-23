@@ -49,6 +49,10 @@ import addAccount from "../controllers/HR/Account/addAccount.js";
 import getAccounts from "../controllers/HR/Account/getAccounts.js";
 import deleteAccount from "../controllers/HR/Account/deleteAccount.js";
 import updateAccount from "../controllers/HR/Account/updateAccount.js";
+import getTimeAndLeave from "../controllers/HR/TimeAndLeave/getTimeAndLeave.js";
+import updateTimeAndLeave from "../controllers/HR/TimeAndLeave/updateTimeAndLeave.js";
+import { getTimeAndLeaveSchema } from "../validations/timeAndLeavesSchema.js";
+import { validateEmpLeavesPatchSchema } from "../helpers/utils.js";
 
 const router = express.Router();
 
@@ -197,6 +201,21 @@ router.patch(
   upload.fields([{ name: "image", maxCount: 1 }]),
   validateSchema(updateAccountSchema),
   updateAccount
+);
+
+// HR EMP Time and leaves
+router.get(
+  "/hr_emp_t&l",
+  authenticateJWT,
+  validateSchema(getTimeAndLeaveSchema),
+  getTimeAndLeave
+);
+
+router.patch(
+  "/hr_emp_t&l",
+  authenticateJWT,
+  validateEmpLeavesPatchSchema,
+  updateTimeAndLeave
 );
 
 export default router;
