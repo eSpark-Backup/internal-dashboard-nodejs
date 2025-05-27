@@ -1840,6 +1840,212 @@
 			]
 		},
 		{
+			"name": "Employee Punch Requests",
+			"item": [
+				{
+					"name": "Add Punch Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MzQ4Mzg0LCJpYXQiOjE3NDgzMzAzODQsImp0aSI6ImY5MWEyZTQ2OWJlYjQ2MjdhODhmMGQ1NWMzNjkwMzk4IiwidXNlcl9pZCI6MTA0fQ.3hCeA6xqKS83L6clKH5JyN1UxYwRDHOSHbvBnjWNKJE",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2025-05-01",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "talent@esparkconsultants.com",
+									"type": "text"
+								},
+								{
+									"key": "punch_type",
+									"value": "check_in",
+									"type": "text"
+								},
+								{
+									"key": "punch_time",
+									"value": "10:00 PM",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Sit aut quos sequi ",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3000/api/emp_pr/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Punch Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MzQ4Mzg0LCJpYXQiOjE3NDgzMzAzODQsImp0aSI6ImY5MWEyZTQ2OWJlYjQ2MjdhODhmMGQ1NWMzNjkwMzk4IiwidXNlcl9pZCI6MTA0fQ.3hCeA6xqKS83L6clKH5JyN1UxYwRDHOSHbvBnjWNKJE",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/emp_pr/?workspace=talent@esparkconsultants.com&tab=pending&from=2025-05-01&to=2025-05-20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_pr",
+								""
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "talent@esparkconsultants.com"
+								},
+								{
+									"key": "tab",
+									"value": "pending"
+								},
+								{
+									"key": "from",
+									"value": "2025-05-01"
+								},
+								{
+									"key": "to",
+									"value": "2025-05-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Punch Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ur;q=0.8"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MzcxMzk3LCJpYXQiOjE3NDgzNTMzOTcsImp0aSI6IjQwZTlkMjIxYTdmYjQxOWJiNjM4ODczZDNiMDA2OWZkIiwidXNlcl9pZCI6MTA0fQ.kuc6SB2HAsKzO1KT8rUQtwJQWjQCAq1PVT36LjLKZlc",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/emp_pr/?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"emp_pr",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "login",
 			"request": {
 				"method": "POST",
