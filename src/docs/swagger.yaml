@@ -2403,3 +2403,203 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+  /hr_update_empimg:
+    patch:
+      tags:
+        - Update Employee
+      summary: Update employee profile picture
+      description: Updates the profile picture of an employee. Accepts a single image file and stores it in S3.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the employee
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: Image file (JPEG, PNG, JPG, SVG). Max size 5MB.
+      responses:
+        "200":
+          description: Profile picture updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Profile picture updated successfully
+                  image:
+                    type: string
+                    format: uri
+                    example: https://example-bucket.s3.amazonaws.com/employees/profiles/image123.jpg
+        "400":
+          description: Validation error (e.g., invalid file type or size)
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  image: "Only JPEG, PNG, JPG, and SVG files are allowed"
+        "404":
+          description: Employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found
+        "500":
+          description: Internal server error (e.g., S3 upload failure)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+  /hr_update_empcred:
+    patch:
+      tags:
+        - Update Employee
+      summary: Update employee login credentials
+      description: Updates the employee's password after verifying the current password.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - employee_id
+                - current_password
+                - new_password
+                - confirm_password
+              properties:
+                employee_id:
+                  type: string
+                  example: EMP12345
+                current_password:
+                  type: string
+                  format: password
+                  example: OldPassword123!
+                new_password:
+                  type: string
+                  format: password
+                  example: NewPassword456!
+                confirm_password:
+                  type: string
+                  format: password
+                  example: NewPassword456!
+      responses:
+        "200":
+          description: Password successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Credentials have been updated
+        "401":
+          description: Current password is incorrect
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Current password is incorrect
+        "404":
+          description: Employee or associated email not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee with this id does not exist
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  confirm_password: Passwords do not match
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+  /down_resume:
+    get:
+      tags:
+        - Download Employee Resume
+      summary: Download employee resume
+      description: Downloads the resume PDF of a specific employee from S3.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the employee
+          example: 12
+      responses:
+        "200":
+          description: Resume file retrieved successfully
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Resume or employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee resume not found
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
