@@ -1,6 +1,6 @@
-import { removeFromS3 } from "../../helpers/s3.js";
-import pool from "../../config/db.js";
-import { logger } from "../../helpers/logger.js";
+import { removeFromS3 } from "../../../helpers/s3.js";
+import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const deleteEmployee = async (req, res) => {
   const employeeId = req.query.id;

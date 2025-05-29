@@ -32,10 +32,10 @@ import getLettersByEmployeeEmail from "../controllers/HR/Letter/getEmployeeLette
 import createLetter from "../controllers/HR/Letter/addLetter.js";
 import updateLetter from "../controllers/HR/Letter/updateLetter.js";
 import deleteLetter from "../controllers/HR/Letter/deleteLetter.js";
-import addEmployee from "../controllers/employee/addEmployee.js";
-import getEmployeeDetails from "../controllers/employee/GetEmployeeDetails.js";
-import getEmployees from "../controllers/employee/GetEmployees.js";
-import deleteEmployee from "../controllers/employee/deleteEmployee.js";
+import addEmployee from "../controllers/HR/employee/addEmployee.js";
+import getEmployeeDetails from "../controllers/HR/employee/GetEmployeeDetails.js";
+import getEmployees from "../controllers/HR/employee/GetEmployees.js";
+import deleteEmployee from "../controllers/HR/employee/deleteEmployee.js";
 import hrHome from "../controllers/HR/Home/hrHome.js";
 import { addBenefitSchema, deleteBenefitSchema, getBenefitSchema, updateBenefitSchema } from "../validations/benefitSchema.js";
 import addBenefit from "../controllers/HR/Benefit/addBenefit.js";
