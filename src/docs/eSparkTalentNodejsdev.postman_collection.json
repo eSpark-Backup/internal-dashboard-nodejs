@@ -948,6 +948,188 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update Profile Picture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NTI1ODczLCJpYXQiOjE3NDg1MDc4NzMsImp0aSI6IjQxNjcxOTU3ZjhkZTRhYmViYTBkMWI2ZDUyZDM1NDk2IiwidXNlcl9pZCI6MX0.CoBGTDzD13ALJkksFAr2vaT7bxTx1LOUQkxmPtPkfrk",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/HP/Downloads/Gemini_Generated_Image_biw1c6biw1c6biw1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/hr_update_empimg/?id=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hr_update_empimg",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NTI1ODczLCJpYXQiOjE3NDg1MDc4NzMsImp0aSI6IjQxNjcxOTU3ZjhkZTRhYmViYTBkMWI2ZDUyZDM1NDk2IiwidXNlcl9pZCI6MX0.CoBGTDzD13ALJkksFAr2vaT7bxTx1LOUQkxmPtPkfrk",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"employee_id\":\"es123\",\"current_password\":\"faraz123@\",\"new_password\":\"Test1234@\",\"confirm_password\":\"Test1234@\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/hr_update_empcred/"
+					},
+					"response": []
+				},
+				{
+					"name": "Download Resume",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NTQzOTE3LCJpYXQiOjE3NDg1MjU5MTcsImp0aSI6IjI2MWI0YjliYmQxNTQ2ZTI4OGE0MjNhMjY2NGY3YzRiIiwidXNlcl9pZCI6MX0.9yjaB27ytioHVBBA2ee9q2E_PU7j1SVyHsSLY0eCOFw",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Origin",
+								"value": "https://dashboard-dev.esparktalent.com"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/down_resume/?id=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"down_resume",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1909,7 +2091,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:3000/api/emp_pr/"
+						"url": "http://localhost:3000/api/emp_pr"
 					},
 					"response": []
 				},
