@@ -1,10 +1,10 @@
-import pool from "../../config/db.js";
+import pool from "../../../config/db.js";
 import bcrypt from "bcrypt";
-import { validateFile } from "../../utils/validateFiles.js";
-import { checkEmployeeDuplicates } from "../../utils/employee.js";
-import { logger } from "../../helpers/logger.js";
-import { getFormattedTimestamp } from "../../helpers/utils.js";
-import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3 } from "../../helpers/s3.js";
+import { validateFile } from "../../../utils/validateFiles.js";
+import { checkEmployeeDuplicates } from "../../../utils/employee.js";
+import { logger } from "../../../helpers/logger.js";
+import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
 

@@ -1,6 +1,6 @@
-import pool from "../../config/db.js";
-import { logger } from "../../helpers/logger.js";
-import { getSignedUrl } from "../../helpers/s3.js";
+import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getEmployeeDetails = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL;

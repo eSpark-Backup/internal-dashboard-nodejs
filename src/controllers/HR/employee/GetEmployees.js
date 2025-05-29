@@ -1,6 +1,6 @@
-import pool from "../../config/db.js";
-import { getSignedUrl } from "../../helpers/s3.js";
-import { logger } from "../../helpers/logger.js";
+import pool from "../../../config/db.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
+import { logger } from "../../../helpers/logger.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
