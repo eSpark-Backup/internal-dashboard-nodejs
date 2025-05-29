@@ -2157,3 +2157,249 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+  /emp_pr:
+    post:
+      tags:
+        - Punch Requests
+      summary: Create a punch request
+      description: Submits a punch (check-in/check-out) request for the authenticated employee.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - date
+                - client_id
+                - punch_type
+                - punch_time
+                - description
+              properties:
+                date:
+                  type: string
+                  format: date
+                  example: "2025-05-21"
+                client_id:
+                  type: string
+                  format: email
+                  example: client@example.com
+                punch_type:
+                  type: string
+                  enum: [check_in, check_out]
+                  example: check_in
+                punch_time:
+                  type: string
+                  example: 09:00 AM
+                description:
+                  type: string
+                  example: Forgot to check in on time
+      responses:
+        "200":
+          description: Punch request successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: check_in request is pending
+                  id:
+                    type: string
+                    example: "uuid-or-db-id"
+        "400":
+          description: Bad request (validation or insert failure)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Bad request
+        "404":
+          description: Employee or client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      tags:
+        - Punch Requests
+      summary: Get punch requests
+      description: Retrieves punch requests for the authenticated employee with optional filters.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: workspace
+          required: true
+          schema:
+            type: string
+          description: Client email acting as the workspace ID
+          example: client@example.com
+        - in: query
+          name: tab
+          required: false
+          schema:
+            type: string
+            enum: [pending, completed, rejected]
+          description: Filter requests by status
+          example: pending
+        - in: query
+          name: from
+          required: false
+          schema:
+            type: string
+            format: date
+          description: Filter requests created on or after this date
+          example: "2025-05-01"
+        - in: query
+          name: to
+          required: false
+          schema:
+            type: string
+            format: date
+          description: Filter requests created on or before this date
+          example: "2025-05-21"
+      responses:
+        "200":
+          description: List of punch requests with status counts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requests:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: "uuid-or-db-id"
+                        employee_id:
+                          type: string
+                          format: email
+                          example: "john.doe@example.com"
+                        employee_name:
+                          type: string
+                          example: "John Doe"
+                        date:
+                          type: string
+                          format: date
+                          example: "2025-05-21"
+                        punch_type:
+                          type: string
+                          example: "check_in"
+                        punch_time:
+                          type: string
+                          example: "09:00:00"
+                        description:
+                          type: string
+                          example: "Forgot to check in on time"
+                        status:
+                          type: string
+                          example: "pending"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2025-05-21T09:00:00Z"
+                  pending:
+                    type: integer
+                    example: 2
+                  rejected:
+                    type: integer
+                    example: 1
+                  completed:
+                    type: integer
+                    example: 5
+                  all:
+                    type: integer
+                    example: 8
+        "404":
+          description: Employee or workspace not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      tags:
+        - Punch Requests
+      summary: Delete punch request
+      description: Deletes a specific punch request and its associated notification (if exists) by ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the punch request to delete
+          example: 42
+      responses:
+        "200":
+          description: Punch request deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Punch request has been deleted
+        "404":
+          description: Punch request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Punch request does not exist with given id
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error

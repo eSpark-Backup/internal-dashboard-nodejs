@@ -37,8 +37,8 @@ const getWFHRequests = async (req, res) => {
                 COUNT(*) FILTER (WHERE status = 'rejected') as rejected,
                 COUNT(*) FILTER (WHERE status = 'completed') as completed,
                 COUNT(*) as all
-            FROM eSparkTalentAPI_wfh_request 
-            WHERE employee_id = $1
+            FROM eSparkTalentAPI_wfh_request wr
+            WHERE wr.employee_id = $1
         `
 
         const requestQueryParams = [employeeId]
@@ -46,21 +46,23 @@ const getWFHRequests = async (req, res) => {
 
         if (tab) {
             requestQueryParams.push(tab)
+            countQueryParams.push(tab)
             requestQuery += ` AND wr.status = $${requestQueryParams.length}`
+            countQuery += ` AND wr.status = $${countQueryParams.length}`
         }
 
         if (from) {
             requestQueryParams.push(from)
             countQueryParams.push(from)
             requestQuery += ` AND DATE(wr.created_at) >= $${requestQueryParams.length}`
-            countQuery += ` AND DATE(created_at) >= $${countQueryParams.length}`
+            countQuery += ` AND DATE(wr.created_at) >= $${countQueryParams.length}`
         }
 
         if (to) {
             requestQueryParams.push(to)
             countQueryParams.push(to)
             requestQuery += ` AND DATE(wr.created_at) <= $${requestQueryParams.length}`
-            countQuery += ` AND DATE(created_at) <= $${countQueryParams.length}`
+            countQuery += ` AND DATE(wr.created_at) <= $${countQueryParams.length}`
         }
 
         requestQuery += ` ORDER BY wr.created_at DESC`
