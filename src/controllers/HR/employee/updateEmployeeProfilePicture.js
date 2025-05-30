@@ -56,6 +56,7 @@ const updateEmployeeProfilePicture = async (req, res) => {
 
         } catch (uploadError) {
             await client.query("ROLLBACK");
+            fs.unlinkSync(imageFile.path);
             logger.error(`S3 upload error: ${uploadError}`);
             return res.status(500).json({ message: "Internal Server Error" });
         }
@@ -87,7 +88,7 @@ const updateEmployeeProfilePicture = async (req, res) => {
         logger.error(`Error updating employee profile picture: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 }
 

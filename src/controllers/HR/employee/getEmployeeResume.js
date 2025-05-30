@@ -5,12 +5,9 @@ import { downloadFileFromS3 } from "../../../helpers/s3.js";
 
 const getEmployeeResume = async (req, res) => {
     const { id } = req.query;
-    let client;
 
     try {
-        client = await pool.connect();
-
-        const employee = await client.query("SELECT * FROM eSparkTalentAPI_employee WHERE id = $1", [id]);
+        const employee = await pool.query("SELECT * FROM eSparkTalentAPI_employee WHERE id = $1", [id]);
 
         if (!employee.rows[0]) {
             return res.status(404).json({ message: "Employee with this id does not exist" });
@@ -27,9 +24,7 @@ const getEmployeeResume = async (req, res) => {
     } catch (error) {
         logger.error(`Error getting employee resume: ${error}`);
         return res.status(500).json({ message: "Internal Server Error" });
-    } finally {
-        client.release();
-    }
+    } 
 }
 
 export default getEmployeeResume;
