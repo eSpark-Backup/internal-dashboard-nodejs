@@ -18,24 +18,16 @@ const getClientIdByEmail = async (email) => {
   return res.rows[0]?.id;
 };
 
-const getCountByStatus = async (employeeId, clientId, status, dateFilter) => {
-  let query = `SELECT COUNT(*) FROM eSparkTalentAPI_leave_request WHERE employee_id = $1 AND client_id = $2`;
-  const params = [employeeId, clientId];
-
-  if (dateFilter.length) {
-    query += ` AND created_at::date BETWEEN $3 AND $4 AND status = $5`;
-    params.push(...dateFilter, status);
-  } else {
-    query += ` AND status = $3`;
-    params.push(status);
-  }
-
-  const res = await pool.query(query, params);
-  return parseInt(res.rows[0].count);
-};
-
-const getTotalCount = async (employeeId, clientId, dateFilter) => {
-  let query = `SELECT COUNT(*) FROM eSparkTalentAPI_leave_request WHERE employee_id = $1 AND client_id = $2`;
+const getLeaveStats = async (employeeId, clientId, dateFilter) => {
+  let query = `
+    SELECT 
+      COUNT(*) FILTER (WHERE status = 'pending') as pending,
+      COUNT(*) FILTER (WHERE status = 'rejected') as rejected,
+      COUNT(*) FILTER (WHERE status = 'completed') as completed,
+      COUNT(*) as all
+    FROM eSparkTalentAPI_leave_request
+    WHERE employee_id = $1 AND client_id = $2
+  `;
   const params = [employeeId, clientId];
 
   if (dateFilter.length) {
@@ -44,7 +36,12 @@ const getTotalCount = async (employeeId, clientId, dateFilter) => {
   }
 
   const res = await pool.query(query, params);
-  return parseInt(res.rows[0].count);
+  return {
+    pending: parseInt(res.rows[0].pending),
+    rejected: parseInt(res.rows[0].rejected),
+    completed: parseInt(res.rows[0].completed),
+    all: parseInt(res.rows[0].all),
+  };
 };
 
 const getLeaveRequests = async (employeeId, clientId, tab, dateFilter) => {
@@ -128,27 +125,7 @@ const getLeaveRequest = async (req, res) => {
     const employeeCode = employee.employee_id;
     const dateFilter = from && to ? [parseISO(from), parseISO(to)] : [];
 
-    const stats = {
-      pending: await getCountByStatus(
-        employeeId,
-        clientId,
-        "pending",
-        dateFilter
-      ),
-      rejected: await getCountByStatus(
-        employeeId,
-        clientId,
-        "rejected",
-        dateFilter
-      ),
-      completed: await getCountByStatus(
-        employeeId,
-        clientId,
-        "completed",
-        dateFilter
-      ),
-      all: await getTotalCount(employeeId, clientId, dateFilter),
-    };
+    const stats = await getLeaveStats(employeeId, clientId, dateFilter);
 
     const leaveRequests = await getLeaveRequests(
       employeeId,

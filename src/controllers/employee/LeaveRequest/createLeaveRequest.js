@@ -9,6 +9,7 @@ const createLeaveRequest = async (req, res) => {
   let client;
   try {
     client = await pool.connect();
+    await client.query("BEGIN");
     const {
       client_id: clientEmail,
       leave_type,
@@ -34,7 +35,7 @@ const createLeaveRequest = async (req, res) => {
         .json({ message: "Forbidden: user is not an employee" });
     }
 
-    const result = await pool.query(
+    const result = await client.query(
       "SELECT id FROM eSparkTalentAPI_employee WHERE email = $1",
       [employeeEmail]
     );
@@ -73,8 +74,6 @@ const createLeaveRequest = async (req, res) => {
     const attachmentFile = req.files?.attachment?.[0];
     let attachmentS3Key = null;
 
-    await client.query("BEGIN");
-
     if (attachmentFile) {
       try {
         const timestamp = getFormattedTimestamp();
@@ -87,6 +86,9 @@ const createLeaveRequest = async (req, res) => {
 
         attachmentS3Key = s3Key;
       } catch (uploadErr) {
+        if (fs.existsSync(attachmentFile.path)) {
+          fs.unlinkSync(attachmentFile.path);
+        }
         await client.query("ROLLBACK");
         logger.error("Attachment upload failed:", uploadErr);
         return res.status(500).json({ message: "Failed to upload attachment" });
@@ -126,7 +128,9 @@ const createLeaveRequest = async (req, res) => {
     logger.error("Leave request error:", err);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    client.release();
+    if (client) {
+      client.release();
+    }
   }
 };
 
