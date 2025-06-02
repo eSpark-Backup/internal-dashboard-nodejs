@@ -1,4 +1,4 @@
-import { parseISO } from "date-fns";
+import { format, parseISO } from "date-fns";
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
@@ -143,8 +143,8 @@ const getLeaveRequest = async (req, res) => {
       requested_at: req.created_at,
       count: req.count,
       status: req.status,
-      start_date: req.start_date,
-      end_date: req.end_date,
+      start_date: format(new Date(req.start_date), "yyyy-MM-dd"),
+      end_date: format(new Date(req.end_date), "yyyy-MM-dd"),
       reason: req.reason,
     }));
 

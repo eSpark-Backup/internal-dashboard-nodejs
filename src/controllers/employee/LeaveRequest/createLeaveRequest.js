@@ -117,6 +117,18 @@ const createLeaveRequest = async (req, res) => {
       "pending",
     ]);
 
+    const notificationInsertQuery = `
+  INSERT INTO eSparkTalentAPI_notifications (email, ref_id, notification_type, description, status)
+  VALUES ($1, $2, $3, $4, $5)
+`;
+    await client.query(notificationInsertQuery, [
+      clientId,
+      rows[0].id,
+      "leave_request",
+      `New leave request from ${employeeEmail} for ${leave_type} leave from ${start_date} to ${end_date}`,
+      "added",
+    ]);
+
     await client.query("COMMIT");
 
     return res.status(201).json({
