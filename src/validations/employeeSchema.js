@@ -66,3 +66,25 @@ export const deleteEmployeeSchema = yup.object({
   }),
 });
 
+export const updateEmployeeProfilePictureSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Employee ID is required"),
+  }),
+});
+
+export const updateEmployeeCredentialsSchema = yup.object({
+   body: yup.object({
+    employee_id: yup.string().required("Employee ID is required"),
+    current_password: yup.string().required("Current password is required"),
+    new_password: yup.string().required("New password is required"),
+    confirm_password: yup.string().required("Confirm password is required")
+    .oneOf([yup.ref("new_password")], "Passwords do not match")
+   })
+});
+
+export const downloadEmployeeResumeSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Employee ID is required"),
+  }),
+});
+

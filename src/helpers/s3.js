@@ -1,6 +1,7 @@
 // Configure the S3 client using AWS SDK v2
 import AWS from "aws-sdk";
 import dotenv from "dotenv";
+import { logger } from "../helpers/logger.js";
 
 dotenv.config();
 
@@ -58,6 +59,28 @@ async function removeFromS3(key) {
   }
 }
 
+const downloadFileFromS3 = (res, s3Key, fileName, contentType = "application/octet-stream") => {
+  const params = {
+    Bucket: S3_BUCKET,
+    Key: s3Key,
+  };
+
+  // Set headers before starting the stream
+  res.setHeader("Content-Type", contentType);
+  res.setHeader("Content-Disposition", `attachment; filename="${fileName}"`);
+
+  const stream = s3.getObject(params).createReadStream();
+
+  stream.on("error", (err) => {
+    logger.error(`S3 stream error: ${err}`);
+    if (!res.headersSent) {
+      res.status(500).json({ message: "Error downloading file from S3" });
+    }
+  });
+
+  stream.pipe(res);
+};
+
 const S3_TEMP_BUCKET = "talent-dashboard";
 
-export { s3, getSignedUrl, uploadToS3, S3_TEMP_BUCKET, removeFromS3 };
+export { s3, getSignedUrl, uploadToS3, S3_TEMP_BUCKET, removeFromS3, downloadFileFromS3 };
