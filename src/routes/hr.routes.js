@@ -69,6 +69,8 @@ import updateEmployeeWFHRequest from "../controllers/HR/WFHRequests/updateEmploy
 import updateEmployeeProfilePicture from "../controllers/HR/employee/updateEmployeeProfilePicture.js";
 import updateEmployeeCredentials from "../controllers/HR/employee/updateEmployeeCredentials.js";
 import getEmployeeResume from "../controllers/HR/employee/getEmployeeResume.js";
+import { getEmployeeLeaveRequestsSchema } from "../validations/leaveRequestSchema.js";
+import getEmployeeLeaveRequests from "../controllers/HR/LeaveRequests/getEmployeeLeaveRequests.js";
 
 const router = express.Router();
 
@@ -330,6 +332,20 @@ router.patch(
 )
 
 // Employee WFH Request Routes
+
+
+
+// Employee Leave Request Routes
+
+router.get(
+  "/hr_emp_lr",
+  authenticateJWT,
+  validateSchema(getEmployeeLeaveRequestsSchema),
+  getEmployeeLeaveRequests
+)
+
+
+// Employee Leave Request Routes
 
 
 export default router;
