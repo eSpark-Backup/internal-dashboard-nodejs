@@ -26,4 +26,9 @@ export const deletePunchRequestSchema = yup.object({
     }),
 });
 
+export const getEmployeePunchRequestsSchema = yup.object({
+    query: yup.object({
+        emp_email: yup.string().email("Invalid email").required("Employee email is required"),
+    }),
+});
 

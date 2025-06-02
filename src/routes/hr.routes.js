@@ -58,6 +58,11 @@ import getTimeAndLeave from "../controllers/HR/TimeAndLeave/getTimeAndLeave.js";
 import updateTimeAndLeave from "../controllers/HR/TimeAndLeave/updateTimeAndLeave.js";
 import { getTimeAndLeaveSchema } from "../validations/timeAndLeavesSchema.js";
 import { validateEmpLeavesPatchSchema } from "../helpers/utils.js";
+import { getEmployeePunchRequestsSchema } from "../validations/punchRequestsSchema.js";
+import getEmployeePunchRequests from "../controllers/HR/PunchRequests/GetEmployeePunchRequests.js";
+import { getEmployeeWFHRequestsSchema, updateEmployeeWFHRequestSchema } from "../validations/wfhRequestsSchema.js";
+import getEmployeeWFHRequests from "../controllers/HR/WFHRequests/getEmployeeWFHRequests.js";
+import updateEmployeeWFHRequest from "../controllers/HR/WFHRequests/updateEmployeeWFHRequest.js";
 
 const router = express.Router();
 
@@ -207,8 +212,8 @@ router.delete(
 
 router.patch(
   "/hr_add_asset",
-  upload.none(),
   authenticateJWT,
+  upload.none(),
   validateSchema(updateAssetSchema),
   updateAsset
 );
@@ -266,5 +271,38 @@ router.patch(
 );
 
 // HR EMP Time and leaves Routes
+
+
+// HR Employee Punch Requests Routes
+
+router.get(
+  "/hr_emp_pr",
+  authenticateJWT,
+  validateSchema(getEmployeePunchRequestsSchema),
+  getEmployeePunchRequests
+);
+
+// HR Employee Punch Requests Routes
+
+
+
+// Employee WFH Request Routes
+router.get(
+  "/hr_wfhr",
+  authenticateJWT,
+  validateSchema(getEmployeeWFHRequestsSchema),
+  getEmployeeWFHRequests
+)
+
+router.patch(
+  "/hr_wfhr",
+  authenticateJWT,
+  upload.none(),
+  validateSchema(updateEmployeeWFHRequestSchema),
+  updateEmployeeWFHRequest
+)
+
+// Employee WFH Request Routes
+
 
 export default router;
