@@ -18,6 +18,9 @@ import {
   addEmployeeSchema,
   getEmployeeDetailsSchema,
   deleteEmployeeSchema,
+  updateEmployeeProfilePictureSchema,
+  updateEmployeeCredentialsSchema,
+  downloadEmployeeResumeSchema,
 } from "../validations/employeeSchema.js";
 import {
   addAccountSchema,
@@ -63,6 +66,9 @@ import getEmployeePunchRequests from "../controllers/HR/PunchRequests/GetEmploye
 import { getEmployeeWFHRequestsSchema, updateEmployeeWFHRequestSchema } from "../validations/wfhRequestsSchema.js";
 import getEmployeeWFHRequests from "../controllers/HR/WFHRequests/getEmployeeWFHRequests.js";
 import updateEmployeeWFHRequest from "../controllers/HR/WFHRequests/updateEmployeeWFHRequest.js";
+import updateEmployeeProfilePicture from "../controllers/HR/employee/updateEmployeeProfilePicture.js";
+import updateEmployeeCredentials from "../controllers/HR/employee/updateEmployeeCredentials.js";
+import getEmployeeResume from "../controllers/HR/employee/getEmployeeResume.js";
 
 const router = express.Router();
 
@@ -95,6 +101,27 @@ router.delete(
   authenticateJWT,
   validateSchema(deleteEmployeeSchema),
   deleteEmployee
+);
+
+router.patch(
+  "/hr_update_empimg",
+  authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(updateEmployeeProfilePictureSchema),
+  updateEmployeeProfilePicture
+);
+
+router.patch(
+  "/hr_update_empcred",
+  authenticateJWT,
+  validateSchema(updateEmployeeCredentialsSchema),
+  updateEmployeeCredentials
+);
+
+router.get("/down_resume",
+  authenticateJWT,
+  validateSchema(downloadEmployeeResumeSchema),
+  getEmployeeResume
 );
 
 //Employee CRUD Routes
