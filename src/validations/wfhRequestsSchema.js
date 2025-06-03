@@ -38,3 +38,27 @@ export const deleteWFHRequestSchema = yup.object({
         id: yup.string().required("ID is required"),
     }),
 });
+
+
+
+// HR Employee WFH Requests Schema
+
+export const getEmployeeWFHRequestsSchema = yup.object({
+    query: yup.object({
+        e_email: yup.string().email("Invalid email").required("Employee email is required"),
+    }),
+});
+
+export const updateEmployeeWFHRequestSchema = yup.object({
+    query: yup.object({
+        id: yup.string().required("ID is required"),
+    }),
+    body: yup.object({
+        status: yup.string().oneOf(["completed", "rejected"], "Invalid status value").required("Status is required"),
+    }),
+});
+
+
+
+
+

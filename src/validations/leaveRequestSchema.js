@@ -38,3 +38,10 @@ export const getLeaveRequestSchema = yup.object({
       .notRequired(),
   }),
 });
+
+
+export const getEmployeeLeaveRequestsSchema = yup.object({
+  query: yup.object({
+    emp_email: yup.string().email("Invalid email").required("Employee email is required"),
+  }),
+});

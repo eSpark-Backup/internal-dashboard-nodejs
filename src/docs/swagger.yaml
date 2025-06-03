@@ -2158,6 +2158,152 @@ paths:
                     type: string
                     example: Internal server error
 
+  /hr_wfhr:
+    get:
+      tags:
+        - WFH Requests
+      summary: Get employee WFH requests
+      description: |
+        Retrieves all work-from-home (WFH) requests submitted by an employee for the current month.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: e_email
+          in: query
+          required: true
+          schema:
+            type: string
+            format: email
+          description: Email of the employee
+          example: jane.doe@example.com
+      responses:
+        "200":
+          description: List of WFH requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 45
+                    employee_id:
+                      type: string
+                      example: EMP00145
+                    employee_name:
+                      type: string
+                      example: Jane Doe
+                    department:
+                      type: string
+                      example: Software Engineering
+                    start_date:
+                      type: string
+                      format: date
+                      example: "2025-05-10"
+                    end_date:
+                      type: string
+                      format: date
+                      example: "2025-05-12"
+                    count:
+                      type: integer
+                      example: 3
+                    status:
+                      type: string
+                      example: Approved
+                    reason:
+                      type: string
+                      example: Personal reasons
+                    created_at:
+                      type: string
+                      format: date-time
+                      example: "2025-05-01T08:15:00Z"
+        "404":
+          description: Employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      tags:
+        - WFH Requests
+      summary: Update WFH request status
+      description: |
+        Updates the status of a specific Work-From-Home (WFH) request by ID. Only `"completed"` or `"rejected"` are allowed as new status values.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the WFH request to update
+          example: "101"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [completed, rejected]
+                  description: The new status of the WFH request
+                  example: completed
+              required:
+                - status
+      responses:
+        "200":
+          description: WFH request updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: WFH request updated as completed
+        "404":
+          description: WFH request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: WFH request not found
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
+
   /emp_pr:
     post:
       tags:
@@ -2395,6 +2541,84 @@ paths:
                     example: Punch request does not exist with given id
         "500":
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /hr_emp_pr:
+    get:
+      tags:
+        - Punch Requests
+      summary: Get HR Employee Punch Requests
+      description: |
+        Returns all punch requests for the current month made by an employee, identified by their email.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: emp_email
+          in: query
+          required: true
+          schema:
+            type: string
+            format: email
+          description: Employee's email address
+          example: john.doe@example.com
+      responses:
+        "200":
+          description: List of punch requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 101
+                    employee_id:
+                      type: string
+                      example: EMP00123
+                    employee_name:
+                      type: string
+                      example: John Doe
+                    date:
+                      type: string
+                      format: date
+                      example: "2025-05-01"
+                    punch_type:
+                      type: string
+                      example: IN
+                    punch_time:
+                      type: string
+                      example: "09:00"
+                    description:
+                      type: string
+                      example: Forgot to punch in
+                    status:
+                      type: string
+                      example: Pending
+                    created_at:
+                      type: string
+                      format: date-time
+                      example: "2025-05-01T08:00:00Z"
+        "404":
+          description: Employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found
+        "500":
+          description: Internal Server Error
           content:
             application/json:
               schema:
