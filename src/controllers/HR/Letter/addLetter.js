@@ -7,8 +7,9 @@ import fs from "fs";
 import path from "path";
 
 const createLetter = async (req, res) => {
-  const client = await pool.connect();
+  let client;
   try {
+    client = await pool.connect();
     const { email, objective, issue_date, reason } = req.body;
     const letterFile = req.files?.letter?.[0];
 
@@ -63,8 +64,25 @@ const createLetter = async (req, res) => {
       email,
       objective,
       issue_date,
-      letter,
+      letterS3Key,
       reason || null,
+    ]);
+
+    const letterId = rows[0].id;
+    const notificationInsert = `
+      INSERT INTO eSparkTalentAPI_notifications 
+      (email, ref_id, notification_type, status, description)
+      VALUES ($1, $2, $3, $4, $5)
+    `;
+
+    const notificationDesc = `New ${objective} is uploaded for you`;
+
+    await client.query(notificationInsert, [
+      email,
+      letterId,
+      "letter",
+      "added",
+      notificationDesc,
     ]);
 
     await client.query("COMMIT");
@@ -88,7 +106,9 @@ const createLetter = async (req, res) => {
     logger.error(`Letter creation error: ${err}`);
     return res.status(500).json({ message: "Internal server error" });
   } finally {
-    client.release();
+    if (client) {
+      client.release();
+    }
   }
 };
 

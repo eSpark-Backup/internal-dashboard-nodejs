@@ -23,6 +23,12 @@ const deleteLeaveRequest = async (req, res) => {
 
     await client.query("BEGIN");
 
+    await client.query(
+      `DELETE FROM eSparkTalentAPI_notifications 
+       WHERE ref_id = $1 AND notification_type = 'leave_request'`,
+      [requestId]
+    );
+
     if (attachment) {
       const removed = await removeFromS3(attachment);
       if (!removed.success) {
