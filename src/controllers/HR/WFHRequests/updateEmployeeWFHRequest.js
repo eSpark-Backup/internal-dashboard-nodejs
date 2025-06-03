@@ -5,9 +5,11 @@ const updateEmployeeWFHRequest = async (req, res) => {
     const { id } = req.query
     const { status } = req.body
 
-    const client = await pool.connect()
+    let client;
 
     try {
+        client = await pool.connect()
+
         await client.query('BEGIN')
 
         const wfhRequest = await client.query(
@@ -16,7 +18,6 @@ const updateEmployeeWFHRequest = async (req, res) => {
         )
 
         if (wfhRequest.rows.length === 0) {
-            await client.query('ROLLBACK')
             return res.status(404).json({ message: "WFH request not found" })
         }
 

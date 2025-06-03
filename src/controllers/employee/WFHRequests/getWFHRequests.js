@@ -88,9 +88,7 @@ const getWFHRequests = async (req, res) => {
         logger.error(`Error fetching WFH requests: ${error.message}`)
         return res.status(500).json({ error: "Internal server error" })
     } finally {
-        if (client) {
-            client.release()
-        }
+        if (client) client.release()
     }
 }
 

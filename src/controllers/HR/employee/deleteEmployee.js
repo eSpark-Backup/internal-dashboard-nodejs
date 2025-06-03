@@ -86,7 +86,7 @@ const deleteEmployee = async (req, res) => {
     logger.error(`delete employee error: ${error.stack || error.message}`);
     return res.status(500).json({ message: "Internal server error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

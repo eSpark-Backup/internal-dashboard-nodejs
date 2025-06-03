@@ -20,31 +20,39 @@ const updateSalary = async (req, res) => {
 
         let paySlipUrl = salary.rows[0].pay_slip;
 
-        if (pay_slip) {
-            const fileErrors = {};
-            const paySlipValidationErrors = validateFile({
-                file: pay_slip,
-                name: "pay_slip",
-                required: true,
-                allowedTypes: ["application/pdf"],
-                maxSizeMB: 5,
-            });
+        try {
+            if (pay_slip) {
+                const fileErrors = {};
+                const paySlipValidationErrors = validateFile({
+                    file: pay_slip,
+                    name: "pay_slip",
+                    required: true,
+                    allowedTypes: ["application/pdf"],
+                    maxSizeMB: 5,
+                });
 
-            Object.assign(fileErrors, paySlipValidationErrors || {});
+                Object.assign(fileErrors, paySlipValidationErrors || {});
 
-            if (Object.keys(fileErrors).length > 0) {
-                return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
+                if (Object.keys(fileErrors).length > 0) {
+                    return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
+                }
+
+                const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+                const fileName = path.basename(pay_slip.originalname);
+                const s3ImageKey = `${S3_TEMP_BUCKET}/employees/pay_slips/${timestamp}_${fileName}`;
+
+                const fileContent = fs.readFileSync(pay_slip.path);
+                await uploadToS3(s3ImageKey, fileContent, pay_slip.mimetype);
+                fs.unlinkSync(pay_slip.path);
+
+                paySlipUrl = s3ImageKey;
             }
-
-            const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-            const fileName = path.basename(pay_slip.originalname);
-            const s3ImageKey = `${S3_TEMP_BUCKET}/employees/pay_slips/${timestamp}_${fileName}`;
-
-            const fileContent = fs.readFileSync(pay_slip.path);
-            await uploadToS3(s3ImageKey, fileContent, pay_slip.mimetype);
-            fs.unlinkSync(pay_slip.path);
-
-            paySlipUrl = s3ImageKey;
+        } catch (error) {
+            logger.error(`Error uploading pay slip: ${error.message}`);
+            if (pay_slip && fs.existsSync(pay_slip.path)) {
+                fs.unlinkSync(pay_slip.path);
+            }
+            return res.status(500).json({ message: "Internal server error" });
         }
 
         const updatedSalary = await pool.query(

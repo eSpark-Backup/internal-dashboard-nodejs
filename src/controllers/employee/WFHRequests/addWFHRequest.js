@@ -26,6 +26,7 @@ const addWFHRequest = async (req, res) => {
         );
 
         if (!WfhRequest.rows[0]) {
+            await client.query("ROLLBACK");
             logger.error("Failed to add WFH request");
             return res.status(400).json({ message: "Failed to add WFH request" });
         }
@@ -50,7 +51,7 @@ const addWFHRequest = async (req, res) => {
         logger.error(`Error adding WFH request: ${error.message}`);
         return res.status(500).json({ error: "Internal server error" });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 }
 

@@ -90,7 +90,7 @@ const updateTimeAndLeave = async (req, res) => {
     return res.status(400).json({ message: "Invalid tab value" });
   } catch (err) {
     logger.error(`PATCH /hr_emp_t&l failed: ${err.message}`);
-    return res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: "Invalid tab value" });
   }
 };
 

@@ -58,7 +58,7 @@ const deleteLeaveRequest = async (req, res) => {
     logger.error("Delete leave request error:", err);
     return res.status(400).json({ message: "Something went wrong" });
   } finally {
-    client?.release();
+    if (client) client.release();
   }
 };
 

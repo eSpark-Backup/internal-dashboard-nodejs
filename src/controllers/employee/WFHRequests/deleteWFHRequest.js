@@ -43,7 +43,7 @@ const deleteWFHRequest = async (req, res) => {
         return res.status(200).json({ message: "WFH request has been deleted" });
 
     } catch (error) {
-        if (client) await client.query("ROLLBACK");
+        await client.query("ROLLBACK");
         logger.error(`Error deleting wfh request: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {

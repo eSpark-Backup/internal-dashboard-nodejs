@@ -2628,6 +2628,412 @@ paths:
                     type: string
                     example: Internal server error
 
+
+  /emp_lr/:
+    post:
+      tags:
+        - Leave Requests
+      summary: Create leave request
+      description: |
+        Allows an authenticated employee to create a leave request for a given client. Supports optional file attachment upload.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  description: Email of the client
+                  example: client@example.com
+                leave_type:
+                  type: string
+                  description: Type of leave (e.g., "sick", "casual", "annual")
+                  example: sick
+                start_date:
+                  type: string
+                  format: date
+                  description: Start date of the leave
+                  example: "2025-06-10"
+                end_date:
+                  type: string
+                  format: date
+                  description: End date of the leave
+                  example: "2025-06-12"
+                requested_at:
+                  type: string
+                  format: date
+                  description: Date when the leave was requested
+                  example: "2025-06-01"
+                reason:
+                  type: string
+                  description: Reason for the leave
+                  example: Medical appointment
+                count:
+                  type: number
+                  minimum: 1
+                  description: Number of leave days
+                  example: 2
+                attachment:
+                  type: string
+                  format: binary
+                  description: Optional file attachment (e.g., medical certificate)
+      responses:
+        "201":
+          description: Leave request created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: sick leave request is pending
+                  id:
+                    type: integer
+                    example: 101
+        "400":
+          description: Bad Request – such as invalid client email or overlapping leave
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Leave request already present
+        "401":
+          description: Unauthorized – JWT missing or invalid
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized - no employee email in token
+        "403":
+          description: Forbidden – only employees can submit leave requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: user is not an employee
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    
+    get:
+      tags:
+        - Leave Requests
+      summary: Get leave requests
+      description: |
+        Retrieves leave requests for the logged-in employee filtered by workspace (client email), status tab, and optional date range.
+        Returns statistics and leave balance if no date filter is applied.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: workspace
+          in: query
+          required: true
+          description: Email of the client/workspace
+          schema:
+            type: string
+            format: email
+            example: client@example.com
+        - name: tab
+          in: query
+          required: false
+          description: Filter by leave request status
+          schema:
+            type: string
+            enum: [pending, completed, rejected]
+            example: pending
+        - name: from
+          in: query
+          required: false
+          description: Filter leave requests from this date (yyyy-MM-dd)
+          schema:
+            type: string
+            pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+            example: "2025-01-01"
+        - name: to
+          in: query
+          required: false
+          description: Filter leave requests up to this date (yyyy-MM-dd)
+          schema:
+            type: string
+            pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+            example: "2025-01-31"
+      responses:
+        "200":
+          description: List of leave requests with statistics (and balance if no date range provided)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balance:
+                    type: object
+                    nullable: true
+                    description: Leave balance details (if no from/to)
+                  requests:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        employee_id:
+                          type: string
+                        employee_name:
+                          type: string
+                        department:
+                          type: string
+                        leave_type:
+                          type: string
+                        requested_at:
+                          type: string
+                          format: date-time
+                        count:
+                          type: number
+                        status:
+                          type: string
+                        start_date:
+                          type: string
+                          format: date
+                        end_date:
+                          type: string
+                          format: date
+                        reason:
+                          type: string
+                  total_count:
+                    type: number
+                    example: 10
+                  pending_count:
+                    type: number
+                    example: 2
+                  approved_count:
+                    type: number
+                    example: 5
+                  rejected_count:
+                    type: number
+                    example: 3
+        "204":
+          description: No leave requests found for the specified filter
+        "400":
+          description: Client or balance not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Leave balance not found.
+        "404":
+          description: Employee or client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found.
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+
+    delete:
+      tags:
+        - Leave Requests
+      summary: Delete leave request
+      description: |
+        Allows an authenticated user to delete a leave request by ID.
+        Also removes any associated S3 attachment and related notification.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the leave request to delete
+          example: "101"
+      responses:
+        "200":
+          description: Leave request deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Leave request is successfully deleted
+        "400":
+          description: Bad Request – something went wrong during deletion
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Something went wrong
+        "404":
+          description: Leave request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Leave request not found
+        "500":
+          description: Server error during file deletion
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: employees/leave_attachments/20250522_medical.pdf
+
+      /hr_emp_lr:
+  
+  /hr_emp_lr:
+    get:
+      tags:
+        - Leave Requests
+      summary: Get HR Employee Leave Requests
+      description: |
+        Retrieves all leave requests for a specific employee, accessible only by authorized HR/admin users.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: emp_email
+          in: query
+          required: true
+          description: Email of the employee whose leave data is being requested
+          schema:
+            type: string
+            format: email
+            example: employee@example.com
+      responses:
+        "200":
+          description: Leave requests and stats for the employee (and balance if no date filter is applied)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balance:
+                    type: object
+                    nullable: true
+                    description: Leave balance details (included only if no date filter)
+                  requests:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        employee_id:
+                          type: string
+                        employee_name:
+                          type: string
+                        department:
+                          type: string
+                        leave_type:
+                          type: string
+                        requested_at:
+                          type: string
+                          format: date-time
+                        count:
+                          type: number
+                        status:
+                          type: string
+                        start_date:
+                          type: string
+                          format: date
+                        end_date:
+                          type: string
+                          format: date
+                        reason:
+                          type: string
+                  total_count:
+                    type: number
+                    example: 12
+                  pending_count:
+                    type: number
+                    example: 4
+                  approved_count:
+                    type: number
+                    example: 6
+                  rejected_count:
+                    type: number
+                    example: 2
+        "204":
+          description: No leave requests found for this employee
+        "400":
+          description: Missing or invalid client or leave balance not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Leave balance not found.
+        "404":
+          description: Employee or client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee not found.
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+
   /hr_update_empimg:
     patch:
       tags:

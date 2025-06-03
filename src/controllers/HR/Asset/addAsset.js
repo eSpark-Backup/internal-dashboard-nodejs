@@ -47,6 +47,10 @@ const addAsset = async (req, res) => {
 
     const result = await pool.query(insertQuery, insertValues);
 
+    if (!result.rows[0].id) {
+      return res.status(400).json({ message: "Failed to add asset" });
+    }
+
     logger.info("Asset added successfully", { id: result.rows[0].id });
 
     return res.status(201).json({

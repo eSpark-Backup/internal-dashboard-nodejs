@@ -6,8 +6,10 @@ import fs from "fs";
 import path from "path";
 
 const updateLetter = async (req, res) => {
-  const client = await pool.connect();
+  
+  let client;
   try {
+    client = await pool.connect();
     const { reason } = req.body;
     const letterFile = req.file;
 
@@ -25,10 +27,11 @@ const updateLetter = async (req, res) => {
     }
 
     let updatedLetterPath = null;
-
-    if (letterFile) {
-      const fileErrors =
-        validateFile({
+    
+    try {
+      if (letterFile) {
+        const fileErrors =
+          validateFile({
           file: letterFile,
           name: "letter",
           allowedTypes: ["application/pdf"],
@@ -48,7 +51,14 @@ const updateLetter = async (req, res) => {
       await uploadToS3(s3Key, fileContent, letterFile.mimetype);
       fs.unlinkSync(letterFile.path);
 
-      updatedLetterPath = s3Key;
+        updatedLetterPath = s3Key;
+      }
+    } catch (error) {
+      logger.error(`Error uploading letter: ${error.message}`);
+      if (letterFile && fs.existsSync(letterFile.path)) {
+        fs.unlinkSync(letterFile.path);
+      }
+      return res.status(500).json({ message: "Internal server error" });
     }
 
     const fieldsToUpdate = [];
@@ -84,11 +94,10 @@ const updateLetter = async (req, res) => {
     return res.status(200).json({ message: "Letter updated successfully" });
   } catch (err) {
     await client.query("ROLLBACK");
-
     console.error(`Letter update error: ${err}`);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

@@ -37,8 +37,6 @@ const createLetter = async (req, res) => {
       return res.status(404).json({ email: ["Employee does not exist"] });
     }
 
-    const letter = letterFile.filename;
-
     let letterS3Key;
     try {
       const timestamp = getFormattedTimestamp();
@@ -50,6 +48,9 @@ const createLetter = async (req, res) => {
       fs.unlinkSync(letterFile.path);
     } catch (uploadErr) {
       await client.query("ROLLBACK");
+      if (letterFile && fs.existsSync(letterFile.path)) {
+        fs.unlinkSync(letterFile.path);
+      }
       logger.error(`S3 upload error: ${uploadErr}`);
       return res.status(500).json({ message: "File upload failed" });
     }
@@ -106,9 +107,7 @@ const createLetter = async (req, res) => {
     logger.error(`Letter creation error: ${err}`);
     return res.status(500).json({ message: "Internal server error" });
   } finally {
-    if (client) {
-      client.release();
-    }
+    if (client) client.release();
   }
 };
 

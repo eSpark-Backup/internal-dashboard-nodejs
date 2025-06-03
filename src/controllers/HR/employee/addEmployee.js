@@ -9,10 +9,13 @@ import fs from "fs";
 import path from "path";
 
 const addEmployee = async (req, res) => {
-  const client = await pool.connect();
   const talentEmail = process.env.TALENT_EMAIL;
 
+  let client;
+
   try {
+    client = await pool.connect();
+
     const {
       employee_id,
       first_name,
@@ -249,7 +252,7 @@ const addEmployee = async (req, res) => {
     logger.error("Add employee error:", err);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 export default addEmployee;

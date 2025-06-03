@@ -43,7 +43,7 @@ const deletePunchRequest = async (req, res) => {
         return res.status(200).json({ message: "Punch request has been deleted" });
 
     } catch (error) {
-        if (client) await client.query("ROLLBACK");
+        await client.query("ROLLBACK");
         logger.error(`Error deleting punch request: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {

@@ -32,7 +32,8 @@ const updateAccount = async (req, res) => {
         }
 
         let imageUrl = userRows[0].image;
-
+        
+        try {
         if (imageFile) {
             const fileErrors = {};
             const imageValidationErrors = validateFile({
@@ -57,8 +58,16 @@ const updateAccount = async (req, res) => {
             await uploadToS3(s3ImageKey, fileContent, imageFile.mimetype);
             fs.unlinkSync(imageFile.path);
 
-            imageUrl = s3ImageKey;
+                imageUrl = s3ImageKey;
+            }
+        } catch (error) {
+            logger.error(`Error uploading image: ${error.message}`);
+            if (imageFile && fs.existsSync(imageFile.path)) {
+                fs.unlinkSync(imageFile.path);
+            }
+            return res.status(500).json({ message: "Internal server error" });
         }
+
 
         let hashedPassword = userRows[0].password;
         if (password) {
@@ -108,7 +117,7 @@ const updateAccount = async (req, res) => {
         return res.status(500).json({ message: "Internal Server Error" });
     }
     finally {
-        client.release();
+        if (client) client.release();
     }
 }
 

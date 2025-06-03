@@ -18,6 +18,7 @@ const deleteAsset = async (req, res) => {
       logger.warn(`Attempted to delete non-existent asset with id: ${id}`);
       return res.status(404).json({ message: "Asset not found" });
     }
+    
     logger.info(`Deleting asset with id ${id}`);
     await client.query(`DELETE FROM esparktalentapi_asset WHERE id = $1`, [id]);
 

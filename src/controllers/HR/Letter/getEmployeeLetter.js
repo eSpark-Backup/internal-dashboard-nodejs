@@ -1,12 +1,9 @@
 import pool from "../../../config/db.js";
 
 const getLettersByEmployeeEmail = async (req, res) => {
-  let client;
   try {
-    client = await pool.connect();
     const email = req.query.email;
-
-    const employeeRes = await client.query(
+    const employeeRes = await pool.query(
       `SELECT id FROM esparktalentapi_employee WHERE email = $1`,
       [email]
     );
@@ -17,7 +14,7 @@ const getLettersByEmployeeEmail = async (req, res) => {
         .json({ message: "Employee with this email not found" });
     }
 
-    const letterRes = await client.query(
+    const letterRes = await pool.query(
       `SELECT id, objective, email, TO_CHAR(issue_date, 'YYYY-MM-DD') AS issue_date, reason
    FROM esparktalentapi_letter
    WHERE email = $1`,
@@ -28,10 +25,6 @@ const getLettersByEmployeeEmail = async (req, res) => {
   } catch (err) {
     console.error(`Get letters error: ${err}`);
     return res.status(500).json({ message: "Internal Server Error" });
-  } finally {
-    if (client) {
-      client.release();
-    }
   }
 };
 

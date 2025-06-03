@@ -80,7 +80,7 @@ const updateAsset = async (req, res) => {
     logger.error("Update asset error:", err);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

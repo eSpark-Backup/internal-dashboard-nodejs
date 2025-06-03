@@ -43,7 +43,7 @@ const deleteBenefit = async (req, res) => {
         return res.status(200).json({ message: "Benefit has been deleted" });
 
     } catch (error) {
-        if (client) await client.query("ROLLBACK");
+        await client.query("ROLLBACK");
         logger.error(`Error deleting benefit: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {

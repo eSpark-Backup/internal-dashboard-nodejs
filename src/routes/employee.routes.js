@@ -75,6 +75,9 @@ router.delete(
   deletePunchRequest
 );
 
+
+// Employee Leave Request Routes
+
 router.post(
   "/emp_lr/",
   authenticateJWT,
@@ -96,5 +99,7 @@ router.get(
   validateSchema(getLeaveRequestSchema),
   getLeaveRequest
 );
+
+
 
 export default router;

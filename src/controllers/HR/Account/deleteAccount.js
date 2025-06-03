@@ -47,7 +47,7 @@ const deleteAccount = async (req, res) => {
         return res.status(200).json({ message: "Account deleted successfully" });
 
     } catch (error) {
-        if (client) await client.query("ROLLBACK");
+        client.query("ROLLBACK");
         logger.error(`Delete account error: ${error}`);
         return res.status(500).json({ message: "Internal Server Error" });
     } finally {

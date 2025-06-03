@@ -33,9 +33,7 @@ const deleteLetter = async (req, res) => {
     logger.error(`Delete letter error: ${err}`);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    if (client) {
-      client.release();
-    }
+    if (client) client.release();
   }
 };
 

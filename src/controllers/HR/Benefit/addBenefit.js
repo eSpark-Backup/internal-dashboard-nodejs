@@ -48,7 +48,7 @@ const addBenefit = async (req, res) => {
         logger.error(`Error adding benefit: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 
 

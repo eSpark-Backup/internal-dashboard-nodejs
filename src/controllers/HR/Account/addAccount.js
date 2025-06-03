@@ -62,6 +62,9 @@ const addAccount = async (req, res) => {
             }
         } catch (uploadError) {
             await client.query("ROLLBACK");
+            if (imageFile && fs.existsSync(imageFile.path)) {
+                fs.unlinkSync(imageFile.path);
+            }
             logger.error(`S3 upload error: ${uploadError}`);
             return res.status(500).json({ message: "Internal server error" });
         }
@@ -132,7 +135,7 @@ const addAccount = async (req, res) => {
         logger.error(`Error adding account: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 }
 

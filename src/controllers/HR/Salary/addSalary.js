@@ -55,6 +55,9 @@ const addSalary = async (req, res) => {
             }
         } catch (error) {
             logger.error(`Error uploading pay slip: ${error.message}`);
+            if (pay_slip && fs.existsSync(pay_slip.path)) {
+                fs.unlinkSync(pay_slip.path);
+            }
             return res.status(500).json({ message: "Internal Server Error" });
         }
 

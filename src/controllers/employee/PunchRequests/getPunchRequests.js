@@ -5,12 +5,8 @@ const getPunchRequests = async (req, res) => {
     const { email } = req.user
     const { workspace, tab, from, to } = req.query || {}
 
-    let client
-
     try {
-        client = await pool.connect()
-
-        const employee = await client.query(
+        const employee = await pool.query(
             `SELECT id, email, first_name, last_name, job_title FROM eSparkTalentAPI_employee WHERE email = $1`,
             [email],
         )
@@ -22,7 +18,7 @@ const getPunchRequests = async (req, res) => {
 
         const employeeId = employee.rows[0].id
 
-        const clientResult = await client.query(
+        const clientResult = await pool.query(
             `SELECT id, email FROM eSparkTalentAPI_client WHERE email = $1`,
             [workspace],
         )
@@ -80,8 +76,8 @@ const getPunchRequests = async (req, res) => {
         requestQuery += ` ORDER BY pr.created_at DESC`
 
         const [requests, counts] = await Promise.all([
-            client.query(requestQuery, requestQueryParams),
-            client.query(countQuery, countQueryParams),
+            pool.query(requestQuery, requestQueryParams),
+            pool.query(countQuery, countQueryParams),
         ])
 
         const countsData = counts.rows[0]
@@ -99,10 +95,6 @@ const getPunchRequests = async (req, res) => {
     } catch (error) {
         logger.error(`Error fetching WFH requests: ${error.message}`)
         return res.status(500).json({ error: "Internal server error" })
-    } finally {
-        if (client) {
-            client.release()
-        }
     }
 }
 

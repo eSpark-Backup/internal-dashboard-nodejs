@@ -36,10 +36,10 @@ const getAccounts = async (req, res) => {
       })
     );
 
-    res.status(200).json(accounts);
+    return res.status(200).json(accounts);
   } catch (err) {
     logger.error(`Error fetching accounts: ${err}`);
-    res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };
 

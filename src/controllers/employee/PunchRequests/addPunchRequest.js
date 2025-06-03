@@ -57,7 +57,7 @@ const addPunchRequest = async (req, res) => {
         await client.query("ROLLBACK");
         return res.status(500).json({ error: "Internal server error" });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 }
 
