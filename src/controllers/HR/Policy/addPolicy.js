@@ -48,6 +48,7 @@ const addPolicy = async (req, res) => {
             if (policy_doc && fs.existsSync(policy_doc.path)) {
                 fs.unlinkSync(policy_doc.path);
             }
+            return res.status(500).json({ message: "Internal server error" });
         }
 
         const policyResult = await pool.query(

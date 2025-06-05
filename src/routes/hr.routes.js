@@ -78,6 +78,13 @@ import deletePolicy from "../controllers/HR/Policy/deletePolicy.js";
 import updatePolicy from "../controllers/HR/Policy/updatePolicy.js";
 import downloadPolicy from "../controllers/HR/Policy/downloadPolicy.js";
 import updatePolicyAssignment from "../controllers/HR/Policy/updatePolicyAssignment.js";
+import { addGuideSchema, deleteGuideSchema, downloadGuideSchema, updateGuideAssignmentSchema, updateGuideSchema } from "../validations/addGuideSchema.js";
+import addGuide from "../controllers/HR/Guide/addGuide.js";
+import getGuide from "../controllers/HR/Guide/getGuide.js";
+import deleteGuide from "../controllers/HR/Guide/deleteGuide.js";
+import updateGuide from "../controllers/HR/Guide/updateGuide.js";
+import downloadGuide from "../controllers/HR/Guide/downloadGuide.js";
+import updateGuideAssignment from "../controllers/HR/Guide/updateGuideAssignment.js";
 
 const router = express.Router();
 
@@ -400,9 +407,54 @@ router.patch(
   updatePolicyAssignment
 )
 
-
-
 // Policies CRUD Routes
+
+
+// Guides CRUD Routes
+
+router.post(
+  "/hr_guide",
+  authenticateJWT,
+  upload.fields([{ name: "guide_doc", maxCount: 1 }]),
+  validateSchema(addGuideSchema),
+  addGuide
+)
+
+router.get(
+  "/hr_guide",
+  authenticateJWT,
+  getGuide
+)
+
+router.delete(
+  "/hr_guide",
+  authenticateJWT,
+  validateSchema(deleteGuideSchema),
+  deleteGuide
+)
+
+router.patch(
+  "/hr_guide",
+  authenticateJWT,
+  upload.fields([{ name: "guide_doc", maxCount: 1 }]),
+  validateSchema(updateGuideSchema),
+  updateGuide
+)
+
+router.get(
+  "/down_guide",
+  authenticateJWT,
+  validateSchema(downloadGuideSchema),
+  downloadGuide
+)
+
+router.patch(
+  "/hr_guide_edit",
+  authenticateJWT,
+  validateSchema(updateGuideAssignmentSchema),
+  updateGuideAssignment
+)
+
 
 
 export default router;
