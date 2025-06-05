@@ -3111,6 +3111,374 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Guides",
+					"item": [
+						{
+							"name": "Add Guide",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "guide_name",
+											"value": "Guide 1",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "English",
+											"type": "text"
+										},
+										{
+											"key": "guide_doc",
+											"type": "file",
+											"src": "/C:/Users/HP/Downloads/guide (1).pdf"
+										},
+										{
+											"key": "description",
+											"value": "abc",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://localhost:3000/api/hr_guide/"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Guides",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/hr_guide/"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Guide",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/hr_guide/?id=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"hr_guide",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Guide",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "guide_name",
+											"value": "Guide",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "English",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "xyz",
+											"type": "text"
+										},
+										{
+											"key": "guide_doc",
+											"type": "file",
+											"src": "/C:/Users/HP/Downloads/policy (4).pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/hr_guide/?id=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"hr_guide",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Guide",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/down_guide/?id=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"down_guide",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Guide Assignment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\":[{\"id\":4,\"employee\":true,\"client\":true},{\"id\":6,\"employee\":true,\"client\":false}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/hr_guide_edit/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},

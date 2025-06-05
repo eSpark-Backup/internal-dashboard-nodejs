@@ -2817,6 +2817,341 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Guides",
+					"item": [
+						{
+							"name": "Add Guide",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "guide_name",
+											"value": "sadsadsa",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "Arabic",
+											"type": "text"
+										},
+										{
+											"key": "guide_doc",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://54.162.147.127:8000/api/hr_guide/"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Guides",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/hr_guide/"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Guide",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_guide/?id=20",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_guide",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "20"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Guide",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "guide_name",
+											"value": "sadsadsa",
+											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "Arabic",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "guide_doc",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_guide/?id=22",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_guide",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "22"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Guide",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/down_guide/?id=22",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"down_guide",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "22"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Guide Assignment",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\":[{\"id\":2,\"employee\":true,\"client\":true},{\"id\":3,\"employee\":true,\"client\":true},{\"id\":10,\"employee\":true,\"client\":true},{\"id\":11,\"employee\":true,\"client\":true},{\"id\":12,\"employee\":true,\"client\":true},{\"id\":18,\"employee\":false,\"client\":false},{\"id\":21,\"employee\":false,\"client\":false},{\"id\":22,\"employee\":true,\"client\":false}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://54.162.147.127:8000/api/hr_guide_edit/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
