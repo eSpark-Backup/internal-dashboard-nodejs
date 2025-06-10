@@ -606,7 +606,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDQyODY3LCJpYXQiOjE3NDkwMjQ4NjcsImp0aSI6IjQwZGIzYWM2YjBlOTQ1MDhiNjQ0ZDExZWQyYzA1OTA0IiwidXNlcl9pZCI6MTA0fQ.OhDcLqYyy95kDmWEqgMmsmcfejehaJz0ndD_XVohjKQ"
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NTU4NTgzLCJpYXQiOjE3NDk1NDA1ODMsImp0aSI6IjkwZDM3MDI0MTkyZDRiNTE4MGUwYTM5ZWFiMDg5ZTY0IiwidXNlcl9pZCI6MTA0fQ.htVkAQdhDXm-cT5RVaRaKEp2VglUdSSEX2nx7TpOaqw"
 									},
 									{
 										"key": "Connection",
@@ -622,6 +622,61 @@
 									}
 								],
 								"url": "http://54.162.147.127:8000/api/emp_policies/"
+							},
+							"response": []
+						},
+						{
+							"name": "Download Policy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NTc0MzgwLCJpYXQiOjE3NDk1NTYzODAsImp0aSI6ImNjMzhlMTc0NjA5YjQ3YzFiMmFjOGUxMzFhNjYzNmYyIiwidXNlcl9pZCI6MTA0fQ.eVDHIUoa4vZJKT3wP54TNGo_smPQKeiw6fT1DRRZjZ8"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/down_policy/?id=4",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"down_policy",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
 							},
 							"response": []
 						}
