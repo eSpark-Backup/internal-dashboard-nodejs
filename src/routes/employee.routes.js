@@ -26,7 +26,6 @@ import {
 import addPunchRequest from "../controllers/employee/PunchRequests/AddPunchRequest.js";
 import getPunchRequests from "../controllers/employee/PunchRequests/getPunchRequests.js";
 import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunchRequest.js";
-import getPolicies from "../controllers/employee/policy/getPolicies.js";
 
 const router = express.Router();
 
@@ -101,12 +100,6 @@ router.get(
   getLeaveRequest
 );
 
-// Employee Policy Routes
 
-router.get(
-  "/emp_policies",
-  authenticateJWT,
-  getPolicies
-);
 
 export default router;
