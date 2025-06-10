@@ -3505,8 +3505,46 @@ paths:
                   message:
                     type: string
 
-    paths:
-  
+
+  /emp_policies:
+    get:
+      tags:
+        - Policies
+      summary: Get employee policies
+      description: Fetches all policy documents that are marked for employees.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A list of employee policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    policy_name:
+                      type: string
+                      example: Work From Home Policy
+                    description:
+                      type: string
+                      example: This policy outlines the rules and guidelines for remote work.
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
   /hr_policy_edit:
     patch:
       tags:
