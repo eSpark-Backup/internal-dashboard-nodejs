@@ -332,12 +332,12 @@
 										},
 										{
 											"key": "start_date",
-											"value": "2025-06-03",
+											"value": "2025-06-10",
 											"type": "text"
 										},
 										{
 											"key": "end_date",
-											"value": "2025-06-03",
+											"value": "2025-06-20",
 											"type": "text"
 										},
 										{
@@ -621,6 +621,52 @@
 										}
 									]
 								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Policy",
+					"item": [
+						{
+							"name": "Get Policies",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDQyODY3LCJpYXQiOjE3NDkwMjQ4NjcsImp0aSI6IjQwZGIzYWM2YjBlOTQ1MDhiNjQ0ZDExZWQyYzA1OTA0IiwidXNlcl9pZCI6MTA0fQ.OhDcLqYyy95kDmWEqgMmsmcfejehaJz0ndD_XVohjKQ",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/emp_policies/"
 							},
 							"response": []
 						}
@@ -1304,7 +1350,7 @@
 										},
 										{
 											"key": "email",
-											"value": "abc@gmail.com",
+											"value": "abc222@gmail.com",
 											"type": "text"
 										},
 										{
@@ -2714,6 +2760,357 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "Policies",
+					"item": [
+						{
+							"name": "Add Policy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDUwNjU5LCJpYXQiOjE3NDkwMzI2NTksImp0aSI6Ijg3ZTdlOTVhODRkOTRiOWQ4ZWU5ZTU0MjRmNmM2ZjMyIiwidXNlcl9pZCI6MX0.llDnS6Kq1oA0eiFESsOJqg0Sjl4UqbROdcNMwYoJnuI",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "policy_name",
+											"value": "Thor Banks",
+											"type": "text"
+										},
+										{
+											"key": "policy_doc",
+											"type": "file",
+											"src": "/C:/Users/HP/Downloads/blank.pdf"
+										}
+									]
+								},
+								"url": "http://localhost:3000/api/hr_policy/"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Policies",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDUwNjU5LCJpYXQiOjE3NDkwMzI2NTksImp0aSI6Ijg3ZTdlOTVhODRkOTRiOWQ4ZWU5ZTU0MjRmNmM2ZjMyIiwidXNlcl9pZCI6MX0.llDnS6Kq1oA0eiFESsOJqg0Sjl4UqbROdcNMwYoJnuI",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/hr_policy/"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Policy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDUwNjU5LCJpYXQiOjE3NDkwMzI2NTksImp0aSI6Ijg3ZTdlOTVhODRkOTRiOWQ4ZWU5ZTU0MjRmNmM2ZjMyIiwidXNlcl9pZCI6MX0.llDnS6Kq1oA0eiFESsOJqg0Sjl4UqbROdcNMwYoJnuI",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/hr_policy/?id=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"hr_policy",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Policy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDUwNjU5LCJpYXQiOjE3NDkwMzI2NTksImp0aSI6Ijg3ZTdlOTVhODRkOTRiOWQ4ZWU5ZTU0MjRmNmM2ZjMyIiwidXNlcl9pZCI6MX0.llDnS6Kq1oA0eiFESsOJqg0Sjl4UqbROdcNMwYoJnuI",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "policy_name",
+											"value": "Dashboard policysdsdsdsdasdsadas",
+											"type": "text"
+										},
+										{
+											"key": "policy_doc",
+											"type": "file",
+											"src": "/C:/Users/HP/Downloads/policy.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/hr_policy/?id=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"hr_policy",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Policy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MDUwNjU5LCJpYXQiOjE3NDkwMzI2NTksImp0aSI6Ijg3ZTdlOTVhODRkOTRiOWQ4ZWU5ZTU0MjRmNmM2ZjMyIiwidXNlcl9pZCI6MX0.llDnS6Kq1oA0eiFESsOJqg0Sjl4UqbROdcNMwYoJnuI"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/down_policy/?id=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"down_policy",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Policy Assignment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MTI5NTc2LCJpYXQiOjE3NDkxMTE1NzYsImp0aSI6IjM2NGU1MjQ1NGVlYjRjNTJhY2Y2ZWUxZGY5Y2JlNWFhIiwidXNlcl9pZCI6MX0.4tUSH26K3SklEBggnmNZTxYrcM2mUsWRdJVffLp0XPU",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\":[{\"id\":4,\"employee\":false,\"client\":false}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/api/hr_policy_edit/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -2749,7 +3146,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"abc@gmail.com\",\"password\":\"Test1234@\"}",
+					"raw": "{\"email\":\"muzemp2@gmail.com\",\"password\":\"Test1234@\"}",
 					"options": {
 						"raw": {
 							"language": "json"

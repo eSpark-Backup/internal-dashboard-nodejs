@@ -3233,3 +3233,343 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+
+  /hr_policy:
+    post:
+      tags:
+        - Policies
+      summary: Add a new policy
+      description: Adds a new HR policy document. The document must be a PDF and under 5MB.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                policy_name:
+                  type: string
+                  description: Name of the policy
+                  example: Leave Policy
+                policy_doc:
+                  type: string
+                  format: binary
+                  description: PDF file of the policy document
+            required:
+              - policy_name
+              - policy_doc
+      responses:
+        '200':
+          description: Policy added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: New policy has been added successfully
+                  id:
+                    type: string
+                    example: "123e4567-e89b-12d3-a456-426614174000"
+        '400':
+          description: Invalid input or file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      tags:
+        - Policies
+      summary: Get all policies
+      description: Fetches a list of all policies including their names, descriptions, and visibility (employee/client).
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of policies retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    policy_name:
+                      type: string
+                      example: Leave Policy
+                    description:
+                      type: string
+                      nullable: true
+                      example: This policy outlines the leave structure.
+                    employee:
+                      type: boolean
+                      example: true
+                    client:
+                      type: boolean
+                      example: false
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      tags:
+        - Policies
+      summary: Delete a policy
+      description: Deletes a policy by ID and removes the associated document from S3 if present.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the policy to delete
+      responses:
+        '200':
+          description: Policy deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Policy deleted successfully
+        '404':
+          description: Policy with the given ID not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Policy with the given ID not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      tags:
+        - Policies
+      summary: Update a policy
+      description: Updates a policy name and/or replaces its document. Accepts multipart/form-data.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the policy to update
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                policy_name:
+                  type: string
+                  description: New name of the policy (optional)
+                policy_doc:
+                  type: string
+                  format: binary
+                  description: New policy document (PDF only, max 5MB)
+      responses:
+        '200':
+          description: Policy updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Policy updated successfully
+        '400':
+          description: Bad request (e.g. missing data, invalid file format/size)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '404':
+          description: Policy with given ID not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Policy with given id not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /down_policy:
+    get:
+      tags:
+        - Policies
+      summary: Download a policy document
+      description: Downloads a policy document (PDF) from S3 using the policy ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of the policy to download
+      responses:
+        '200':
+          description: Policy document downloaded successfully
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Policy not found or document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+    paths:
+  
+  /hr_policy_edit:
+    patch:
+      tags:
+        - Policies
+      summary: Update policy assignment visibility
+      description: Updates whether a policy is assigned to employees and/or clients.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - employee
+                      - client
+                    properties:
+                      id:
+                        type: integer
+                        description: Policy ID
+                      employee:
+                        type: boolean
+                        description: Whether the policy is assigned to employees
+                      client:
+                        type: boolean
+                        description: Whether the policy is assigned to clients
+              required:
+                - data
+      responses:
+        '200':
+          description: Policy assignment updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Policy assignment updated successfully
+        '400':
+          description: Invalid policy IDs or bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid policy IDs
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error

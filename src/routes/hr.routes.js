@@ -71,6 +71,13 @@ import updateEmployeeCredentials from "../controllers/HR/employee/updateEmployee
 import getEmployeeResume from "../controllers/HR/employee/getEmployeeResume.js";
 import { getEmployeeLeaveRequestsSchema } from "../validations/leaveRequestSchema.js";
 import getEmployeeLeaveRequests from "../controllers/HR/LeaveRequests/getEmployeeLeaveRequests.js";
+import { addPolicySchema, deletePolicySchema, downloadPolicySchema, updatePolicyAssignmentSchema, updatePolicySchema } from "../validations/policySchema.js";
+import addPolicy from "../controllers/HR/Policy/addPolicy.js";
+import getPolicy from "../controllers/HR/Policy/getPolicy.js";
+import deletePolicy from "../controllers/HR/Policy/deletePolicy.js";
+import updatePolicy from "../controllers/HR/Policy/updatePolicy.js";
+import downloadPolicy from "../controllers/HR/Policy/downloadPolicy.js";
+import updatePolicyAssignment from "../controllers/HR/Policy/updatePolicyAssignment.js";
 
 const router = express.Router();
 
@@ -346,6 +353,56 @@ router.get(
 
 
 // Employee Leave Request Routes
+
+
+// Policies CRUD Routes
+
+router.post(
+  "/hr_policy",
+  authenticateJWT,
+  upload.fields([{ name: "policy_doc", maxCount: 1 }]),
+  validateSchema(addPolicySchema),
+  addPolicy
+)
+
+router.get(
+  "/hr_policy",
+  authenticateJWT,
+  getPolicy
+)
+
+router.delete(
+  "/hr_policy",
+  authenticateJWT,
+  validateSchema(deletePolicySchema),
+  deletePolicy
+)
+
+router.patch(
+  "/hr_policy",
+  authenticateJWT,
+  upload.fields([{ name: "policy_doc", maxCount: 1 }]),
+  validateSchema(updatePolicySchema),
+  updatePolicy
+)
+
+router.get(
+  "/down_policy",
+  authenticateJWT,
+  validateSchema(downloadPolicySchema),
+  downloadPolicy
+)
+
+router.patch(
+  "/hr_policy_edit",
+  authenticateJWT,
+  validateSchema(updatePolicyAssignmentSchema),
+  updatePolicyAssignment
+)
+
+
+
+// Policies CRUD Routes
 
 
 export default router;
