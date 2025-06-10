@@ -3573,3 +3573,362 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+
+    paths:
+  
+  /hr_guide:
+    post:
+      tags:
+        - Guides
+      summary: Add a new guide
+      description: Adds a new guide with metadata and a PDF document.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - guide_name
+                - language
+                - guide_doc
+              properties:
+                guide_name:
+                  type: string
+                  description: Name of the guide
+                language:
+                  type: string
+                  enum: [English, Arabic]
+                  description: Language of the guide
+                description:
+                  type: string
+                  description: Optional description of the guide
+                guide_doc:
+                  type: string
+                  format: binary
+                  description: PDF file (max 5MB)
+      responses:
+        '200':
+          description: New guide added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: New guide has been added successfully
+                  id:
+                    type: integer
+                    example: 42
+        '400':
+          description: Invalid input or file error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+                  errors:
+                    type: object
+                    additionalProperties: true
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      tags:
+        - Guides
+      summary: Get all guides
+      description: Retrieves a list of all guides with basic metadata (excluding the document URL).
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved list of guides
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    guide_name:
+                      type: string
+                      example: Company Policy Handbook
+                    description:
+                      type: string
+                      example: This guide outlines company policies.
+                    language:
+                      type: string
+                      example: English
+                    employee:
+                      type: boolean
+                      example: true
+                    client:
+                      type: boolean
+                      example: false
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      tags:
+        - Guides
+      summary: Delete a guide
+      description: Deletes a guide by its ID and removes the associated document from S3 if it exists.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: The ID of the guide to delete
+      responses:
+        '200':
+          description: Guide deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Guide deleted successfully
+        '404':
+          description: Guide not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Guide with the given ID not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      tags:
+        - Guides
+      summary: Update a guide
+      description: Updates an existing guide's name, language, description, or document. Accepts multipart/form-data.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: Guide ID to update
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                guide_name:
+                  type: string
+                  example: Updated Employee Handbook
+                language:
+                  type: string
+                  enum: [English, Arabic]
+                  example: Arabic
+                description:
+                  type: string
+                  example: Updated HR policy guidelines
+                guide_doc:
+                  type: string
+                  format: binary
+                  description: PDF file to replace the existing document
+      responses:
+        '200':
+          description: Guide updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Guide updated successfully
+        '400':
+          description: Missing input or invalid file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Missing guide name or language or description or guide document
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '404':
+          description: Guide not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Guide with given id not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /down_guide:
+    get:
+      tags:
+        - Guides
+      summary: Download a guide document
+      description: Downloads the PDF document of a guide from S3 storage.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: ID of the guide to download
+      responses:
+        '200':
+          description: Guide document successfully returned as a PDF
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Guide or document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Guide document not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    paths:
+ 
+  /hr_guide_edit:
+    patch:
+      tags:
+        - Guides
+      summary: Update guide assignment
+      description: Updates the employee and client assignment flags for multiple HR guides.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - data
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - employee
+                      - client
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      employee:
+                        type: boolean
+                        example: true
+                      client:
+                        type: boolean
+                        example: false
+      responses:
+        '200':
+          description: Guide assignment updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Guide assignment updated successfully
+        '400':
+          description: Invalid guide IDs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid guide IDs
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
