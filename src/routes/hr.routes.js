@@ -85,6 +85,8 @@ import deleteGuide from "../controllers/HR/Guide/deleteGuide.js";
 import updateGuide from "../controllers/HR/Guide/updateGuide.js";
 import downloadGuide from "../controllers/HR/Guide/downloadGuide.js";
 import updateGuideAssignment from "../controllers/HR/Guide/updateGuideAssignment.js";
+import { updateEmployeeInfoSchema } from "../validations/updateEmployeeInfoSchema.js";
+import updateEmployeeInfo from "../controllers/HR/employee/updateEmployeeInfo.js";
 
 const router = express.Router();
 
@@ -454,6 +456,13 @@ router.patch(
   validateSchema(updateGuideAssignmentSchema),
   updateGuideAssignment
 )
+
+router.patch(
+  "/hr_update_empinfo",
+  authenticateJWT,
+  validateSchema(updateEmployeeInfoSchema),
+  updateEmployeeInfo
+);
 
 
 
