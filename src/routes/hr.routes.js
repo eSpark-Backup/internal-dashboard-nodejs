@@ -91,6 +91,8 @@ import getCompanyContracts from "../controllers/HR/CompanyContract/getCompanyCon
 import deleteCompanyContract from "../controllers/HR/CompanyContract/deleteCompanyContract.js";
 import updateCompanyContract from "../controllers/HR/CompanyContract/updateCompanyContract.js";
 import downloadCompanyContract from "../controllers/HR/CompanyContract/downloadCompanyContract.js";
+import { updateEmployeeInfoSchema } from "../validations/updateEmployeeInfoSchema.js";
+import updateEmployeeInfo from "../controllers/HR/employee/updateEmployeeInfo.js";
 
 const router = express.Router();
 
@@ -460,6 +462,13 @@ router.patch(
   validateSchema(updateGuideAssignmentSchema),
   updateGuideAssignment
 )
+
+router.patch(
+  "/hr_update_empinfo",
+  authenticateJWT,
+  validateSchema(updateEmployeeInfoSchema),
+  updateEmployeeInfo
+);
 
 
 // Company Contracts Routes
