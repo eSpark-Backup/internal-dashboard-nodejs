@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 
 
 const updateEmployeeCredentials = async (req, res) => {
-    const { employee_id, current_password, new_password } = req.body;
+    const { employee_id, current_password, new_password } = req.body || {};
 
     try {
         const employee = await pool.query("SELECT * FROM eSparkTalentAPI_employee WHERE employee_id = $1", [employee_id]);

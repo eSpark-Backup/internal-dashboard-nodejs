@@ -10,7 +10,7 @@ import { getFormattedTimestamp } from "../../../helpers/utils.js";
 
 const updateGuide = async (req, res) => {
     const { id } = req.query;
-    const { guide_name, language, description } = req.body;
+    const { guide_name, language, description } = req.body || {};
     const guide_doc = req.files?.guide_doc?.[0];
 
     if (!guide_name && !language && !description && !guide_doc) {

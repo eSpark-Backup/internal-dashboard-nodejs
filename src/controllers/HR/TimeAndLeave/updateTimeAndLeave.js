@@ -6,7 +6,7 @@ const updateTimeAndLeave = async (req, res) => {
 
   try {
     if (tab === "time") {
-      const { check_in, check_out } = req.body;
+      const { check_in, check_out } = req.body || {};
 
       const obj = {};
       if (check_in) obj.check_in = check_in;

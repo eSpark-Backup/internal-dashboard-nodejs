@@ -85,6 +85,12 @@ import deleteGuide from "../controllers/HR/Guide/deleteGuide.js";
 import updateGuide from "../controllers/HR/Guide/updateGuide.js";
 import downloadGuide from "../controllers/HR/Guide/downloadGuide.js";
 import updateGuideAssignment from "../controllers/HR/Guide/updateGuideAssignment.js";
+import { addCompanyContractSchema, deleteCompanyContractSchema, downloadCompanyContractSchema, getCompanyContractSchema, updateCompanyContractSchema } from "../validations/companyContractSchema.js";
+import addCompanyContract from "../controllers/HR/CompanyContract/addCompanyContract.js";
+import getCompanyContracts from "../controllers/HR/CompanyContract/getCompanyContracts.js";
+import deleteCompanyContract from "../controllers/HR/CompanyContract/deleteCompanyContract.js";
+import updateCompanyContract from "../controllers/HR/CompanyContract/updateCompanyContract.js";
+import downloadCompanyContract from "../controllers/HR/CompanyContract/downloadCompanyContract.js";
 
 const router = express.Router();
 
@@ -455,6 +461,45 @@ router.patch(
   updateGuideAssignment
 )
 
+
+// Company Contracts Routes
+
+router.post(
+  "/hr_compcontract",
+  authenticateJWT,
+  upload.fields([{ name: "contract_doc", maxCount: 1 }]),
+  validateSchema(addCompanyContractSchema),
+  addCompanyContract
+)
+
+router.get(
+  "/hr_compcontract",
+  authenticateJWT,
+  validateSchema(getCompanyContractSchema),
+  getCompanyContracts
+)
+
+router.delete(
+  "/hr_compcontract",
+  authenticateJWT,
+  validateSchema(deleteCompanyContractSchema),
+  deleteCompanyContract
+)
+
+router.patch(
+  "/hr_compcontract",
+  authenticateJWT,
+  upload.fields([{ name: "contract_doc", maxCount: 1 }]),
+  validateSchema(updateCompanyContractSchema),
+  updateCompanyContract
+)
+
+router.get(
+  "/down_comp_cont",
+  authenticateJWT,
+  validateSchema(downloadCompanyContractSchema),
+  downloadCompanyContract
+)
 
 
 export default router;
