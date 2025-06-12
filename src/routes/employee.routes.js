@@ -28,6 +28,7 @@ import getPunchRequests from "../controllers/employee/PunchRequests/getPunchRequ
 import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunchRequest.js";
 import getPolicies from "../controllers/employee/Policy/getPolicies.js";
 import getGuides from "../controllers/employee/Guide/getGuides.js";
+import getBenefits from "../controllers/employee/Benefit/getBenefits.js";
 
 const router = express.Router();
 
@@ -116,6 +117,14 @@ router.get(
   "/emp_guide",
   authenticateJWT,
   getGuides
+);
+
+// Employee Benefits Routes
+
+router.get(
+  "/emp_benefits",
+  authenticateJWT,
+  getBenefits
 );
 
 export default router;
