@@ -4377,3 +4377,59 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+
+ 
+  /emp_compcontract:
+    get:
+      tags:
+        - Company Contracts
+      summary: Get all company contracts for an employee
+      description: Returns a list of employee contract records associated with the logged-in user's email.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved employee contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "123"
+                    email:
+                      type: string
+                      example: "john.doe@example.com"
+                    employee_id:
+                      type: string
+                      example: "EMP-001"
+                    contract_name:
+                      type: string
+                      example: "NDA Contract"
+                    date:
+                      type: string
+                      format: date
+                      example: "2025-06-04"
+        '401':
+          description: Unauthorized – JWT token missing or invalid
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
