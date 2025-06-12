@@ -11,6 +11,7 @@ import {
 import {
   addLetterSchema,
   deleteLetterSchema,
+  downloadLetterSchema,
   getLetterSchema,
   updateLetterSchema,
 } from "../validations/letterSchema.js";
@@ -87,6 +88,7 @@ import downloadGuide from "../controllers/HR/Guide/downloadGuide.js";
 import updateGuideAssignment from "../controllers/HR/Guide/updateGuideAssignment.js";
 import { updateEmployeeInfoSchema } from "../validations/updateEmployeeInfoSchema.js";
 import updateEmployeeInfo from "../controllers/HR/employee/updateEmployeeInfo.js";
+import downloadLetter from "../controllers/HR/Letter/downloadLetter.js";
 
 const router = express.Router();
 
@@ -208,6 +210,13 @@ router.patch(
   upload.single("letter"),
   validateSchema(updateLetterSchema),
   updateLetter
+);
+
+router.get(
+  "/down_letter",
+  authenticateJWT,
+  validateSchema(downloadLetterSchema),
+  downloadLetter
 );
 
 // Employee letter payment routes
