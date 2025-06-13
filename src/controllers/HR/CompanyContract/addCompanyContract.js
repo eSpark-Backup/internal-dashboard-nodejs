@@ -93,6 +93,7 @@ const addCompanyContract = async (req, res) => {
             }
             catch (error) {
                 logger.error(error);
+                 if (client) await client.query("ROLLBACK")
                 return res.status(500).json({ message: "Internal server error" });
             } finally {
                 if (client) client.release();
@@ -179,6 +180,7 @@ const addCompanyContract = async (req, res) => {
             }
             catch (error) {
                 logger.error(error);
+                if (client) await client.query("ROLLBACK")
                 return res.status(500).json({ message: "Internal server error" });
             } finally {
                 if (client) client.release();
