@@ -23,14 +23,8 @@ const deleteCompanyContract = async (req, res) => {
 
                 const { contract_doc } = clientContract.rows[0];
 
-                try {
-                    if (contract_doc) await removeFromS3(contract_doc);
-                } catch (err) {
-                    logger.warn(`Failed to remove contract document from S3: ${err}`);
-                }
-
                 await client.query("BEGIN");
- 
+
                 const contractResult = await client.query(
                     `DELETE FROM eSparkTalentAPI_client_contract WHERE id = $1 RETURNING id`,
                     [id]
@@ -48,6 +42,12 @@ const deleteCompanyContract = async (req, res) => {
                 );
 
                 await client.query("COMMIT");
+
+                try {
+                    if (contract_doc) await removeFromS3(contract_doc);
+                } catch (err) {
+                    logger.warn(`Failed to remove contract document from S3: ${err}`);
+                }
 
                 return res.status(200).json({ message: "Client contract deleted successfully" });
             }
@@ -80,7 +80,7 @@ const deleteCompanyContract = async (req, res) => {
                 }
 
                 await client.query("BEGIN");
- 
+
                 const contractResult = await client.query(
                     `DELETE FROM eSparkTalentAPI_employee_contract WHERE id = $1 RETURNING id`,
                     [id]
