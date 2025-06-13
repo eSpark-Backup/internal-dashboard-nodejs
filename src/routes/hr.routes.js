@@ -93,6 +93,8 @@ import updateCompanyContract from "../controllers/HR/CompanyContract/updateCompa
 import downloadCompanyContract from "../controllers/HR/CompanyContract/downloadCompanyContract.js";
 import { updateEmployeeInfoSchema } from "../validations/updateEmployeeInfoSchema.js";
 import updateEmployeeInfo from "../controllers/HR/employee/updateEmployeeInfo.js";
+import addOffshoreContractSchema from "../validations/addOffshoreContractSchema.js";
+import addOffshoreContract from "../controllers/HR/OffShoreContract/addOffshoreContract.js";
 
 const router = express.Router();
 
@@ -509,6 +511,13 @@ router.get(
   validateSchema(downloadCompanyContractSchema),
   downloadCompanyContract
 )
+router.post(
+  "/hr_offscontract",
+  authenticateJWT,
+  upload.fields([{ name: "contract_doc", maxCount: 1 }]),
+  validateSchema(addOffshoreContractSchema),
+  addOffshoreContract
+);
 
 
 export default router;
