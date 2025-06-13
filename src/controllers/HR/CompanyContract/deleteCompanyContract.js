@@ -41,13 +41,15 @@ const deleteCompanyContract = async (req, res) => {
                     [id]
                 );
 
-                await client.query("COMMIT");
-
                 try {
                     if (contract_doc) await removeFromS3(contract_doc);
                 } catch (err) {
                     logger.warn(`Failed to remove contract document from S3: ${err}`);
                 }
+
+
+                await client.query("COMMIT");
+
 
                 return res.status(200).json({ message: "Client contract deleted successfully" });
             }
@@ -73,12 +75,6 @@ const deleteCompanyContract = async (req, res) => {
 
                 const { contract_doc } = employeeContract.rows[0];
 
-                try {
-                    if (contract_doc) await removeFromS3(contract_doc);
-                } catch (err) {
-                    logger.warn(`Failed to remove contract document from S3: ${err}`);
-                }
-
                 await client.query("BEGIN");
 
                 const contractResult = await client.query(
@@ -96,6 +92,12 @@ const deleteCompanyContract = async (req, res) => {
                          WHERE ref_id = $1 AND notification_type = 'employee_contract'`,
                     [id]
                 );
+
+                try {
+                    if (contract_doc) await removeFromS3(contract_doc);
+                } catch (err) {
+                    logger.warn(`Failed to remove contract document from S3: ${err}`);
+                }
 
                 await client.query("COMMIT");
 
