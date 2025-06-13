@@ -11,17 +11,9 @@ import fs from "fs";
 import { getFormattedTimestamp } from "../../../helpers/utils.js";
 
 const updateOffshoreContract = async (req, res) => {
-  console.log("req ,,", req);
   const { id } = req.query;
   const { contract_name, date, employee_id, client_id } = req.body || {};
   const contract_doc = req.files?.contract_doc?.[0];
-  console.log(
-    "contract_name, date, employee_id, client_id",
-    contract_name,
-    date,
-    employee_id,
-    client_id
-  );
 
   if (!contract_name && !date && !contract_doc && !employee_id && !client_id) {
     return res.status(400).json({ message: "Nothing to update" });
