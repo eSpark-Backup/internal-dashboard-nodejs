@@ -775,6 +775,104 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Company Contracts",
+					"item": [
+						{
+							"name": "Get Company Contracts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM1NzUxLCJpYXQiOjE3NDk3MTc3NTEsImp0aSI6ImQ1MjMxYjhkNmIwZDQ1N2Y4Yjk5Zjg5MjcyYjI2YTQ2IiwidXNlcl9pZCI6MTA0fQ.Q7VUmEZKDYUNB722BfI8x1hUS2svHcKQSkFFUgMXgNw"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/emp_compcontract/"
+							},
+							"response": []
+						},
+						{
+							"name": "Download Company Contract",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM1NzUxLCJpYXQiOjE3NDk3MTc3NTEsImp0aSI6ImQ1MjMxYjhkNmIwZDQ1N2Y4Yjk5Zjg5MjcyYjI2YTQ2IiwidXNlcl9pZCI6MTA0fQ.Q7VUmEZKDYUNB722BfI8x1hUS2svHcKQSkFFUgMXgNw"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/down_comp_cont/?id=28&tab=employee",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"down_comp_cont",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "28"
+										},
+										{
+											"key": "tab",
+											"value": "employee"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
