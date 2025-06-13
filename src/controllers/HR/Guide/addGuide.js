@@ -10,7 +10,7 @@ import { getFormattedTimestamp } from "../../../helpers/utils.js";
 const addGuide = async (req, res) => {
 
     try {
-        const { guide_name, language, description } = req.body;
+        const { guide_name, language, description } = req.body || {};
         const guide_doc = req.files?.guide_doc?.[0];
 
         const fileErrors = {};

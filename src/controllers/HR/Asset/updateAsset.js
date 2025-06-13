@@ -6,7 +6,7 @@ const updateAsset = async (req, res) => {
   try {
     client = await pool.connect();
     const { id } = req.query;
-    const updates = req.body;
+    const updates = req.body || {};
 
     logger.info("Update asset request received", { assetId: id, updates });
 

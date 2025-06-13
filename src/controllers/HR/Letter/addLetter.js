@@ -10,7 +10,7 @@ const createLetter = async (req, res) => {
   let client;
   try {
     client = await pool.connect();
-    const { email, objective, issue_date, reason } = req.body;
+    const { email, objective, issue_date, reason } = req.body || {};
     const letterFile = req.files?.letter?.[0];
 
     const fileErrors =

@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import pool from "../../config/db.js";
 import { logger } from "../../helpers/logger.js";
 const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body || {};
 
   try {
     const result = await pool.query(

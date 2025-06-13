@@ -10,7 +10,7 @@ import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js
 
 
 const addAccount = async (req, res) => {
-    const { account_name, email, password } = req.body;
+    const { account_name, email, password } = req.body || {};
     const imageFile = req.files?.image?.[0];
 
     let client;

@@ -3301,6 +3301,348 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Company Contracts",
+					"item": [
+						{
+							"name": "Get Company Contracts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjQ2MzA3LCJpYXQiOjE3NDk2MjgzMDcsImp0aSI6IjZmZjI3MTc0ZjgzNzQ0NTdhMTE4Yzc3OTdiMjJmYTUzIiwidXNlcl9pZCI6MX0.MA5pSAQueLyeJZ2FarZG093hkeOv6n7bCj8b0lwv3IM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_compcontract/?status=employees",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_compcontract",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "employees"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Company Contract",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjQ2MzA3LCJpYXQiOjE3NDk2MjgzMDcsImp0aSI6IjZmZjI3MTc0ZjgzNzQ0NTdhMTE4Yzc3OTdiMjJmYTUzIiwidXNlcl9pZCI6MX0.MA5pSAQueLyeJZ2FarZG093hkeOv6n7bCj8b0lwv3IM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "date",
+											"value": "2025-06-03",
+											"type": "text"
+										},
+										{
+											"key": "contract_name",
+											"value": "Griffith Petty",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "Laborum enim vitae l",
+											"type": "text"
+										},
+										{
+											"key": "contract_doc",
+											"type": "file",
+											"src": "guide (1).pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_compcontract/?status=client",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_compcontract",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "client"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Company Contract",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjQ2MzA3LCJpYXQiOjE3NDk2MjgzMDcsImp0aSI6IjZmZjI3MTc0ZjgzNzQ0NTdhMTE4Yzc3OTdiMjJmYTUzIiwidXNlcl9pZCI6MX0.MA5pSAQueLyeJZ2FarZG093hkeOv6n7bCj8b0lwv3IM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "contract_name",
+											"value": "Sed ut perspiciatis unde omnis iste natus ",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "qwer",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "2025-03-20",
+											"type": "text"
+										},
+										{
+											"key": "contract_doc",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_compcontract/?id=21&tab=client",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_compcontract",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "21"
+										},
+										{
+											"key": "tab",
+											"value": "client"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Company Contract",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjQ2MzA3LCJpYXQiOjE3NDk2MjgzMDcsImp0aSI6IjZmZjI3MTc0ZjgzNzQ0NTdhMTE4Yzc3OTdiMjJmYTUzIiwidXNlcl9pZCI6MX0.MA5pSAQueLyeJZ2FarZG093hkeOv6n7bCj8b0lwv3IM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_compcontract/?status=clients&id=21",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_compcontract",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "clients"
+										},
+										{
+											"key": "id",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Company Contract",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NjY2ODk4LCJpYXQiOjE3NDk2NDg4OTgsImp0aSI6IjRiYTFmNWU2YTBhNjQ2MDU5OTYxZGMzNzk3MTdjMTQ0IiwidXNlcl9pZCI6MX0.VjwpiYNFKE0nTMdKvuRT53Lwkr4HpSRZnzTLnXWIwtE"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/down_comp_cont/?id=20&tab=client",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"down_comp_cont",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "20"
+										},
+										{
+											"key": "tab",
+											"value": "client"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
