@@ -22,6 +22,7 @@ const updateOffshoreContract = async (req, res) => {
   let client;
   try {
     client = await pool.connect();
+    await client.query("BEGIN");
     const existingRes = await client.query(
       `SELECT contract_doc FROM eSparkTalentAPI_offshore_contracts WHERE id = $1`,
       [id]
@@ -32,8 +33,6 @@ const updateOffshoreContract = async (req, res) => {
     }
 
     let contract_doc_url = existingRes.rows[0].contract_doc;
-
-    await client.query("BEGIN");
 
     if (contract_doc) {
       const fileErrors =

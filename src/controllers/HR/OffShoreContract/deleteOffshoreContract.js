@@ -8,7 +8,8 @@ const deleteOffshoreContract = async (req, res) => {
   let client;
   try {
     client = await pool.connect();
-
+    await client.query("BEGIN");
+    
     const contractRes = await client.query(
       `SELECT id, contract_doc, employee_id, client_id 
        FROM eSparkTalentAPI_offshore_contracts 
@@ -23,8 +24,6 @@ const deleteOffshoreContract = async (req, res) => {
     }
 
     const { contract_doc, employee_id, client_id } = contractRes.rows[0];
-
-    await client.query("BEGIN");
 
     const deleteContractRes = await client.query(
       `DELETE FROM eSparkTalentAPI_offshore_contracts 

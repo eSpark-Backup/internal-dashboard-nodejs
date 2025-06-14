@@ -14,7 +14,7 @@ const addOffshoreContract = async (req, res) => {
 
   try {
     client = await pool.connect();
-
+    await client.query("BEGIN");
     // Fetch client email using client_id
     const clientResult = await client.query(
       `SELECT id, email FROM eSparkTalentAPI_client WHERE client_id = $1`,
@@ -36,7 +36,7 @@ const addOffshoreContract = async (req, res) => {
         .status(404)
         .json({ message: "employee matching query does not exist." });
     }
-    
+
     const employeeEmail = empResult.rows[0].email;
     const clientEmail = clientResult.rows[0].email;
     const empId = empResult.rows[0].id;
@@ -46,7 +46,7 @@ const addOffshoreContract = async (req, res) => {
       `SELECT status FROM eSparkTalentAPI_outsource_employees WHERE employee_id = $1 AND client_id = $2`,
       [empId, clientId]
     );
-    
+
     if (!outsrcResult.rows.length || outsrcResult.rows[0].status !== "active") {
       return res
         .status(400)
@@ -88,7 +88,6 @@ const addOffshoreContract = async (req, res) => {
     }
 
     // Insert contract + notifications
-    await client.query("BEGIN");
 
     const contractInsert = await client.query(
       `INSERT INTO eSparkTalentAPI_offshore_contracts (employee_id, client_id, contract_name, date, contract_doc)
