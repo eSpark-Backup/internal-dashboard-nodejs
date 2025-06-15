@@ -2,7 +2,7 @@ import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
 const updateGuideAssignment = async (req, res) => {
-    const { data } = req.body
+    const { data } = req.body || {};
 
     try {
         const guideIds = data.map((item) => item.id)

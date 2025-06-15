@@ -10,7 +10,7 @@ import { getFormattedTimestamp } from "../../../helpers/utils.js";
 const addPolicy = async (req, res) => {
 
     try {
-        const { policy_name } = req.body;
+        const { policy_name } = req.body || {};
         const policy_doc = req.files?.policy_doc?.[0];
 
         const fileErrors = {};
