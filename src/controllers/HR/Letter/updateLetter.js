@@ -10,7 +10,7 @@ const updateLetter = async (req, res) => {
   let client;
   try {
     client = await pool.connect();
-    const { reason } = req.body;
+    const { reason } = req.body || {};
     const letterFile = req.file;
 
     const id = req.query.id;

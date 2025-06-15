@@ -18,7 +18,7 @@ const createLeaveRequest = async (req, res) => {
       requested_at,
       reason,
       count,
-    } = req.body;
+    } = req.body || {};
 
     const employeeEmail = req.user?.email;
     const userRole = req.user?.role;

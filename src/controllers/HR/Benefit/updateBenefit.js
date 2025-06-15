@@ -4,7 +4,7 @@ import pool from "../../../config/db.js";
 
 const updateBenefit = async (req, res) => {
     const { id } = req.query;
-    const { card_id, description } = req.body;
+    const { card_id, description } = req.body || {};
 
     try {
         const benefit = await pool.query(

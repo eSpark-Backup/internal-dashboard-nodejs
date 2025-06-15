@@ -4000,7 +4000,6 @@ paths:
                     type: string
                     example: Internal server error
 
-
   /hr_guide_edit:
     patch:
       tags:
@@ -4067,3 +4066,427 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+
+  /hr_compcontract:
+    post:
+      tags:
+        - Company Contracts
+      summary: Upload a company contract
+      description: Uploads a new contract document for a client or an employee, depending on the `status` query parameter.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [client, employee]
+          required: true
+          description: Determines whether the contract is for a client or employee.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date
+                  example: "2025-06-04"
+                contract_name:
+                  type: string
+                  example: NDA Agreement
+                employee_id:
+                  type: string
+                  example: EMP1234
+                  description: Required if status is "employee"
+                client_id:
+                  type: string
+                  example: CLT5678
+                  description: Required if status is "client"
+                contract_doc:
+                  type: string
+                  format: binary
+                  description: PDF document (max 5MB)
+              required:
+                - date
+                - contract_name
+                - contract_doc
+      responses:
+        '200':
+          description: Contract uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: New contract has been added successfully
+                  id:
+                    type: integer
+                    example: 123
+        '400':
+          description: Bad request or validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+                  errors:
+                    type: object
+                    example: { contract_doc: "Only PDF files are allowed" }
+        '404':
+          description: Client or employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client with this ID does not exist
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      tags:
+        - Company Contracts
+      summary: Get company contracts
+      description: Retrieves a list of contracts for either clients or employees depending on the `status` query parameter.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [clients, employees]
+          required: true
+          description: Specifies whether to fetch client or employee contracts.
+      responses:
+        '200':
+          description: List of company contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    contract_name:
+                      type: string
+                      example: NDA Agreement
+                    email:
+                      type: string
+                      example: john@example.com
+                    client_id:
+                      type: string
+                      example: CLT5678
+                    employee_id:
+                      type: string
+                      example: EMP1234
+                    date:
+                      type: string
+                      format: date
+                      example: 2025-06-04
+        '400':
+          description: Invalid status provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid status
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      tags:
+        - Company Contracts
+      summary: Delete a company contract
+      description: Deletes a specific client or employee contract and removes the associated document from S3 if it exists.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The ID of the contract to delete.
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [clients, employees]
+          required: true
+          description: Type of the contract to delete (client or employee).
+      responses:
+        '200':
+          description: Contract deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client contract deleted successfully
+        '400':
+          description: Failed to delete contract or invalid status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid status
+        '404':
+          description: Contract not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client contract with the given ID not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      tags:
+        - Company Contracts
+      summary: Update a company contract
+      description: Updates contract name, date, or document for a client or employee contract.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The ID of the contract to update.
+        - in: query
+          name: tab
+          schema:
+            type: string
+            enum: [client, employee]
+          required: true
+          description: Specify the type of contract (client or employee).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                contract_name:
+                  type: string
+                  description: New contract name.
+                date:
+                  type: string
+                  format: date
+                  description: New contract date.
+                contract_doc:
+                  type: string
+                  format: binary
+                  description: Optional new contract document (PDF, max 5MB).
+      responses:
+        '200':
+          description: Contract updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee contract updated successfully
+        '400':
+          description: Bad request (e.g., missing data or invalid file)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Missing contract name or date or contract document
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '404':
+          description: Contract not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee contract with given id not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /down_comp_cont:
+    get:
+      tags: 
+        - Company Contracts
+      summary: Download a company contract document
+      description: Downloads a contract document (PDF) for either a client or an employee based on the `tab` value.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The ID of the contract to download.
+        - in: query
+          name: tab
+          schema:
+            type: string
+            enum: [client, employee]
+          required: true
+          description: Type of contract (client or employee).
+      responses:
+        '200':
+          description: PDF contract file successfully downloaded
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid tab or bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid tab
+        '404':
+          description: Contract or document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client contract with this id does not exist
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+ 
+  /emp_compcontract:
+    get:
+      tags:
+        - Company Contracts
+      summary: Get all company contracts for an employee
+      description: Returns a list of employee contract records associated with the logged-in user's email.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved employee contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "123"
+                    email:
+                      type: string
+                      example: "john.doe@example.com"
+                    employee_id:
+                      type: string
+                      example: "EMP-001"
+                    contract_name:
+                      type: string
+                      example: "NDA Contract"
+                    date:
+                      type: string
+                      format: date
+                      example: "2025-06-04"
+        '401':
+          description: Unauthorized – JWT token missing or invalid
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error

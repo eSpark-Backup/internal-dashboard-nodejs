@@ -29,6 +29,7 @@ import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunc
 import getPolicies from "../controllers/employee/Policy/getPolicies.js";
 import getGuides from "../controllers/employee/Guide/getGuides.js";
 import getBenefits from "../controllers/employee/Benefit/getBenefits.js";
+import getCompanyContracts from "../controllers/employee/CompanyContracts/getCompanyContracts.js";
 
 const router = express.Router();
 
@@ -126,5 +127,16 @@ router.get(
   authenticateJWT,
   getBenefits
 );
+
+//Employee Company Contracts Routes
+
+router.get(
+  "/emp_compcontract",
+  authenticateJWT,
+  getCompanyContracts
+);
+
+
+
 
 export default router;
