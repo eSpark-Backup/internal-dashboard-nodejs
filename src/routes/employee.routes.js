@@ -29,6 +29,9 @@ import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunc
 import getPolicies from "../controllers/employee/Policy/getPolicies.js";
 import getGuides from "../controllers/employee/Guide/getGuides.js";
 import getCompanyContracts from "../controllers/employee/CompanyContracts/getCompanyContracts.js";
+import { getHomeDetailsSchema, updateMarkAttendanceSchema } from "../validations/employeeSchema.js";
+import getHomeDetails from "../controllers/employee/Home/getHomeDetails.js";
+import updateMarkAttendance from "../controllers/employee/Home/updateMarkAttendance.js";
 
 const router = express.Router();
 
@@ -125,6 +128,22 @@ router.get(
   "/emp_compcontract",
   authenticateJWT,
   getCompanyContracts
+);
+
+//Employee Home Routes
+router.get(
+  "/emp_home",
+ authenticateJWT, 
+ validateSchema(getHomeDetailsSchema),
+ getHomeDetails
+);
+
+
+router.patch(
+  "/emp_home",
+  authenticateJWT,
+  validateSchema(updateMarkAttendanceSchema),
+  updateMarkAttendance
 );
 
 
