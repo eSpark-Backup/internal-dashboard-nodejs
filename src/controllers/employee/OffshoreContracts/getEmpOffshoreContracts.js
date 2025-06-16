@@ -34,9 +34,9 @@ const getEmpOffshoreContracts = async (req, res) => {
     const offshoreQuery = `
   SELECT 
     oc.id,
-    $1::text AS client_email,
+    $1 AS client_email,
     c.client_id,
-    $2::text AS employee_email,
+    $2 AS employee_email,
     e.employee_id,
     oc.contract_name,
     TO_CHAR(oc.date, 'YYYY-MM-DD') AS date
