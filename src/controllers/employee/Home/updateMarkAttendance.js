@@ -201,6 +201,8 @@ const handleCheckOut = async (employee, client, checkOut, todayKey, currentMonth
 };
 
 const handleBreakResume = async (employee, client, action, time, todayKey, currentMonth, currentYear) => {
+    const validatedTime = validateAndCleanTime(time);
+
     const timesheetResult = await pool.query(
         `SELECT id, record FROM eSparkTalentAPI_time_sheet 
          WHERE employee_id = $1 AND client_id = $2 AND month = $3 AND year = $4`,
@@ -232,7 +234,7 @@ const handleBreakResume = async (employee, client, action, time, todayKey, curre
         ...record,
         [todayKey]: {
             ...todayRecord,
-            [action]: time,
+            [action]: validatedTime,
         },
     };
 
