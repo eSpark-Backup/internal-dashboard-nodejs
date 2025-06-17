@@ -28,6 +28,7 @@ import getPunchRequests from "../controllers/employee/PunchRequests/getPunchRequ
 import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunchRequest.js";
 import getPolicies from "../controllers/employee/Policy/getPolicies.js";
 import getGuides from "../controllers/employee/Guide/getGuides.js";
+import getLetters from "../controllers/employee/Letter/getLetters.js";
 import getBenefits from "../controllers/employee/Benefit/getBenefits.js";
 import getCompanyContracts from "../controllers/employee/CompanyContracts/getCompanyContracts.js";
 import getEmpOffshoreContracts from "../controllers/employee/OffshoreContracts/getEmpOffshoreContracts.js";
@@ -119,6 +120,13 @@ router.get(
   "/emp_benefits",
   authenticateJWT,
   getBenefits
+);
+
+// Employee Letters Routes
+router.get(
+  "/letters",
+  authenticateJWT,
+  getLetters
 );
 
 //Employee Company Contracts Routes

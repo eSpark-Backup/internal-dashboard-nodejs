@@ -912,6 +912,45 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Letters",
+					"item": [
+						{
+							"name": "Get Letters",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM5MDQ3LCJpYXQiOjE3NDk3MjEwNDcsImp0aSI6IjgxYmQ5NjdiN2QwMjQzYzk5NjU4Mjc5M2Q5MmUxOWI1IiwidXNlcl9pZCI6MTA0fQ.0ijkOToOipS0TlFVOSKxT6OtRE_2Ld8h0rRVnpjy7xA"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/letters/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -1492,6 +1531,61 @@
 										{
 											"key": "id",
 											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Letter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzQ3NDUwLCJpYXQiOjE3NDk3Mjk0NTAsImp0aSI6Ijc5ZDY3ZTQ2OTg2NjQ5NGJhYTZmOTU3ZjM5NGViYjY0IiwidXNlcl9pZCI6MX0.NyFboWhGjSOdFkyxpsdojUgOqvDpHnPzR-6s4OxwuBU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/down_letter/?id=38",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"down_letter",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "38"
 										}
 									]
 								}

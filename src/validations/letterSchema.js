@@ -34,3 +34,9 @@ export const getLetterSchema = yup.object({
       .required("Email is required 2"),
   }),
 });
+
+export const downloadLetterSchema = yup.object({
+  query: yup.object({
+      id: yup.string().required("Letter ID is required"),
+  })
+})
