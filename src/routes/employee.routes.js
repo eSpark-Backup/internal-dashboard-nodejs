@@ -28,10 +28,14 @@ import getPunchRequests from "../controllers/employee/PunchRequests/getPunchRequ
 import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunchRequest.js";
 import getPolicies from "../controllers/employee/Policy/getPolicies.js";
 import getGuides from "../controllers/employee/Guide/getGuides.js";
+import getLetters from "../controllers/employee/Letter/getLetters.js";
+import getBenefits from "../controllers/employee/Benefit/getBenefits.js";
 import getCompanyContracts from "../controllers/employee/CompanyContracts/getCompanyContracts.js";
 import { getHomeDetailsSchema, updateMarkAttendanceSchema } from "../validations/employeeSchema.js";
 import getHomeDetails from "../controllers/employee/Home/getHomeDetails.js";
 import updateMarkAttendance from "../controllers/employee/Home/updateMarkAttendance.js";
+import getEmpOffshoreContracts from "../controllers/employee/OffshoreContracts/getEmpOffshoreContracts.js";
+import { getEmpOffshoreContractsSchema } from "../validations/addOffshoreContractSchema.js";
 
 const router = express.Router();
 
@@ -81,7 +85,6 @@ router.delete(
   deletePunchRequest
 );
 
-
 // Employee Leave Request Routes
 
 router.post(
@@ -108,26 +111,37 @@ router.get(
 
 // Employee Policy Routes
 
-router.get(
-  "/emp_policies",
-  authenticateJWT,
-  getPolicies
-);
+router.get("/emp_policies", authenticateJWT, getPolicies);
 
 // Employee Guide Routes
 
+router.get("/emp_guide", authenticateJWT, getGuides);
+
+// Employee Benefits Routes
+
 router.get(
-  "/emp_guide",
+  "/emp_benefits",
   authenticateJWT,
-  getGuides
+  getBenefits
+);
+
+// Employee Letters Routes
+router.get(
+  "/letters",
+  authenticateJWT,
+  getLetters
 );
 
 //Employee Company Contracts Routes
 
+router.get("/emp_compcontract", authenticateJWT, getCompanyContracts);
+
+//Employee offshore contracts route
 router.get(
-  "/emp_compcontract",
+  "/emp_offshcontract",
   authenticateJWT,
-  getCompanyContracts
+  validateSchema(getEmpOffshoreContractsSchema),
+  getEmpOffshoreContracts
 );
 
 //Employee Home Routes

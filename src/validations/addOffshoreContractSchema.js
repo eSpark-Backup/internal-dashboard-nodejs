@@ -39,3 +39,12 @@ export const downloadOffshoreContractSchema = yup.object({
     id: yup.string().required("ID is required"),
   }),
 });
+
+export const getEmpOffshoreContractsSchema = yup.object({
+  query: yup.object({
+    workspace: yup
+      .string()
+      .email("Invalid workspace email format")
+      .required("workspace (client email) is required"),
+  }),
+});

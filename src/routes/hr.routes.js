@@ -11,6 +11,7 @@ import {
 import {
   addLetterSchema,
   deleteLetterSchema,
+  downloadLetterSchema,
   getLetterSchema,
   updateLetterSchema,
 } from "../validations/letterSchema.js";
@@ -119,6 +120,7 @@ import updateCompanyContract from "../controllers/HR/CompanyContract/updateCompa
 import downloadCompanyContract from "../controllers/HR/CompanyContract/downloadCompanyContract.js";
 import { updateEmployeeInfoSchema } from "../validations/updateEmployeeInfoSchema.js";
 import updateEmployeeInfo from "../controllers/HR/employee/updateEmployeeInfo.js";
+import downloadLetter from "../controllers/HR/Letter/downloadLetter.js";
 import {
   addOffshoreContractSchema,
   deleteOffshoreContractSchema,
@@ -250,6 +252,13 @@ router.patch(
   upload.single("letter"),
   validateSchema(updateLetterSchema),
   updateLetter
+);
+
+router.get(
+  "/down_letter",
+  authenticateJWT,
+  validateSchema(downloadLetterSchema),
+  downloadLetter
 );
 
 // Employee letter payment routes
