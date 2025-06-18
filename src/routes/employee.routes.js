@@ -33,6 +33,7 @@ import getBenefits from "../controllers/employee/Benefit/getBenefits.js";
 import getCompanyContracts from "../controllers/employee/CompanyContracts/getCompanyContracts.js";
 import getEmpOffshoreContracts from "../controllers/employee/OffshoreContracts/getEmpOffshoreContracts.js";
 import { getEmpOffshoreContractsSchema } from "../validations/addOffshoreContractSchema.js";
+import getNotifications from "../controllers/employee/Notifications/getNotifications.js";
 
 const router = express.Router();
 
@@ -140,5 +141,13 @@ router.get(
   validateSchema(getEmpOffshoreContractsSchema),
   getEmpOffshoreContracts
 );
+
+router.get(
+  "/notify",
+  authenticateJWT,
+  getNotifications
+);
+
+
 
 export default router;
