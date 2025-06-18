@@ -31,6 +31,9 @@ import getGuides from "../controllers/employee/Guide/getGuides.js";
 import getLetters from "../controllers/employee/Letter/getLetters.js";
 import getBenefits from "../controllers/employee/Benefit/getBenefits.js";
 import getCompanyContracts from "../controllers/employee/CompanyContracts/getCompanyContracts.js";
+import { getHomeDetailsSchema, updateMarkAttendanceSchema } from "../validations/employeeSchema.js";
+import getHomeDetails from "../controllers/employee/Home/getHomeDetails.js";
+import updateMarkAttendance from "../controllers/employee/Home/updateMarkAttendance.js";
 import getEmpOffshoreContracts from "../controllers/employee/OffshoreContracts/getEmpOffshoreContracts.js";
 import { getEmpOffshoreContractsSchema } from "../validations/addOffshoreContractSchema.js";
 import getNotifications from "../controllers/employee/Notifications/getNotifications.js";
@@ -142,11 +145,27 @@ router.get(
   getEmpOffshoreContracts
 );
 
+// Notification Route
 router.get(
   "/notify",
   authenticateJWT,
   getNotifications
+)
+//Employee Home Routes
+router.get(
+  "/emp_home",
+ authenticateJWT, 
+ validateSchema(getHomeDetailsSchema),
+ getHomeDetails
 );
+
+router.patch(
+  "/emp_home",
+  authenticateJWT,
+  validateSchema(updateMarkAttendanceSchema),
+  updateMarkAttendance
+);
+
 
 
 

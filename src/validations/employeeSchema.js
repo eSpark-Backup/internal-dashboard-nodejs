@@ -88,3 +88,31 @@ export const downloadEmployeeResumeSchema = yup.object({
   }),
 });
 
+export const getHomeDetailsSchema = yup.object({
+  query: yup.object({
+    workspace: yup.string().optional(),
+  }),
+});
+
+export const updateMarkAttendanceSchema = yup.object({
+  query: yup
+    .object({
+      workspace: yup.string().required("Workspace is required"),
+      check_in: yup.string(),
+      check_out: yup.string(),
+      break: yup.string(),
+      resume: yup.string(),
+    })
+    .test(
+      'at-least-one',
+      'At least one of check_in, check_out, break, or resume is required',
+      (value) => {
+        return (
+          !!value.check_in ||
+          !!value.check_out ||
+          !!value.break ||
+          !!value.resume
+        );
+      }
+    ),
+});

@@ -53,9 +53,70 @@ const validateEmpLeavesPatchSchema = (req, res, next) => {
   return validateSchema(schema)(req, res, next);
 };
 
+const validateAndCleanTime = (timeStr) => {
+  if (!timeStr?.trim()) {
+      throw new Error('Time is required');
+  }
+
+  const cleanTime = decodeURIComponent(timeStr).trim();
+
+  if (!cleanTime.match(/\s*(AM|PM|am|pm)\s*$/)) {
+      throw new Error('Time must include AM or PM');
+  }
+
+  if (!cleanTime.match(/^\d{1,2}:\d{2}(:\d{2})?\s*(AM|PM|am|pm)$/)) {
+      throw new Error('Invalid time format. Use HH:mm AM/PM or HH:mm:ss AM/PM');
+  }
+
+  return cleanTime;
+};
+
+const parseTimeToMinutes = (timeStr) => {
+  if (!timeStr || timeStr === "-") {
+      throw new Error("Invalid time string");
+  }
+
+  timeStr = timeStr.trim();
+  let hours, minutes;
+
+  if (timeStr.toUpperCase().includes('AM') || timeStr.toUpperCase().includes('PM')) {
+      const isPM = timeStr.toUpperCase().includes('PM');
+      const timeOnly = timeStr.replace(/\s*(AM|PM|am|pm)\s*/gi, '').trim();
+      const parts = timeOnly.split(':');
+
+      hours = parseInt(parts[0], 10);
+      minutes = parseInt(parts[1], 10);
+
+      if (isNaN(hours) || isNaN(minutes)) {
+          throw new Error("Failed to parse AM/PM time components");
+      }
+
+      if (isPM && hours !== 12) {
+          hours += 12;
+      } else if (!isPM && hours === 12) {
+          hours = 0;
+      }
+  } else if (timeStr.includes(':')) {
+      const parts = timeStr.split(':');
+      hours = parseInt(parts[0], 10);
+      minutes = parseInt(parts[1], 10);
+  } else {
+      throw new Error("Unrecognized time format");
+  }
+
+  if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+      throw new Error(`Invalid time values: hours=${hours}, minutes=${minutes}`);
+  }
+
+  return hours * 60 + minutes;
+};
+
+
 export {
   getFormattedTimestamp,
   encrypt,
   decrypt,
   validateEmpLeavesPatchSchema,
+  validateAndCleanTime,
+  parseTimeToMinutes,
 };
