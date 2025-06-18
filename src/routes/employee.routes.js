@@ -36,6 +36,7 @@ import getHomeDetails from "../controllers/employee/Home/getHomeDetails.js";
 import updateMarkAttendance from "../controllers/employee/Home/updateMarkAttendance.js";
 import getEmpOffshoreContracts from "../controllers/employee/OffshoreContracts/getEmpOffshoreContracts.js";
 import { getEmpOffshoreContractsSchema } from "../validations/addOffshoreContractSchema.js";
+import getNotifications from "../controllers/employee/Notifications/getNotifications.js";
 
 const router = express.Router();
 
@@ -144,6 +145,12 @@ router.get(
   getEmpOffshoreContracts
 );
 
+// Notification Route
+router.get(
+  "/notify",
+  authenticateJWT,
+  getNotifications
+)
 //Employee Home Routes
 router.get(
   "/emp_home",
@@ -151,7 +158,6 @@ router.get(
  validateSchema(getHomeDetailsSchema),
  getHomeDetails
 );
-
 
 router.patch(
   "/emp_home",
