@@ -4606,3 +4606,424 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+
+  /hr_offscontract:
+    post:
+      tags:
+        - Offshore Contracts
+      summary: Add a new offshore contract
+      description: Adds a new offshore contract between a client and an employee. Requires a valid PDF document upload.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  example: CLNT12345
+                employee_id:
+                  type: string
+                  example: EMP12345
+                contract_name:
+                  type: string
+                  example: NDA Contract
+                date:
+                  type: string
+                  format: date
+                  example: "2024-12-01"
+                contract_doc:
+                  type: string
+                  format: binary
+              required:
+                - client_id
+                - employee_id
+                - contract_name
+                - date
+                - contract_doc
+      responses:
+        '201':
+          description: Offshore contract created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: One new contract has been added to offshore contracts
+                  id:
+                    type: string
+                    example: "409"
+                  client_email:
+                    type: string
+                    example: client@example.com
+                  employee_email:
+                    type: string
+                    example: employee@example.com
+        '400':
+          description: Bad request – validation or file error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '404':
+          description: Client or employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: client matching query does not exist.
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+                  error:
+                    type: string
+                    example: Some database or file operation failed
+
+    get:
+      tags:
+        - Offshore Contracts
+      summary: Get all offshore contracts
+      description: Retrieves a list of all offshore contracts along with client and employee emails and IDs.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A list of offshore contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 101
+                    contract_name:
+                      type: string
+                      example: NDA Contract
+                    client_email:
+                      type: string
+                      example: client@example.com
+                    employee_email:
+                      type: string
+                      example: employee@example.com
+                    client_id:
+                      type: string
+                      example: CLNT12345
+                    employee_id:
+                      type: string
+                      example: EMP12345
+                    date:
+                      type: string
+                      format: date
+                      example: 2024-12-01
+        '204':
+          description: No offshore contracts available
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No offshore contracts available
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      tags:
+        - Offshore Contracts
+      summary: Delete an offshore contract
+      description: Deletes an offshore contract by ID and removes related notifications and contract document from S3.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the offshore contract to be deleted
+          example: "101"
+      responses:
+        '200':
+          description: Offshore contract successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: One contract has been removed from offshore contracts
+        '400':
+          description: Failed to delete contract
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to delete contract
+        '404':
+          description: Offshore contract not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Offshore contract with the given ID not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      tags:
+        - Offshore Contracts
+      summary: Update an offshore contract
+      description: Updates the offshore contract information including optional fields such as contract name, date, employee/client ID, or the contract document.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Offshore contract ID to be updated
+          example: "123"
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                contract_name:
+                  type: string
+                  example: Updated NDA Contract
+                date:
+                  type: string
+                  format: date
+                  example: "2025-01-01"
+                employee_id:
+                  type: string
+                  example: EMP1234
+                client_id:
+                  type: string
+                  example: CLNT5678
+                contract_doc:
+                  type: string
+                  format: binary
+                  description: PDF file (max 5MB)
+      responses:
+        '200':
+          description: Offshore contract updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Offshore contract updated successfully
+        '400':
+          description: Validation error or update failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Nothing to update
+        '404':
+          description: Contract, employee or client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Offshore contract not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /down_offshore:
+    get:
+      tags:
+        - Offshore Contracts
+      summary: Download offshore contract document
+      description: Downloads the offshore contract PDF file from S3 by contract ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Offshore contract ID
+          example: "123"
+      responses:
+        '200':
+          description: Offshore contract PDF file
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Contract or contract document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Offshore contract not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /emp_offshcontract:
+    get:
+      tags:
+        - Offshore Contracts
+      summary: Get offshore contracts for an employee in a workspace
+      description: Retrieves offshore contracts for the logged-in employee under a specified client workspace.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: workspace
+          in: query
+          required: true
+          schema:
+            type: string
+            format: email
+          description: Client email (workspace)
+          example: workspace@company.com
+      responses:
+        '200':
+          description: Offshore contracts for employee
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 12
+                    client_email:
+                      type: string
+                      format: email
+                      example: workspace@company.com
+                    client_id:
+                      type: string
+                      example: CLIENT123
+                    employee_email:
+                      type: string
+                      format: email
+                      example: employee@company.com
+                    employee_id:
+                      type: string
+                      example: EMP456
+                    contract_name:
+                      type: string
+                      example: "Remote Working Contract"
+                    date:
+                      type: string
+                      format: date
+                      example: "2024-12-01"
+        '400':
+          description: Missing or invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Missing employee email or workspace in request
+        '404':
+          description: Client or employee not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error

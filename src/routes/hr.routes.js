@@ -532,6 +532,9 @@ router.get(
   validateSchema(downloadCompanyContractSchema),
   downloadCompanyContract
 );
+
+// Employee Offshore Contracts Routes
+
 router.post(
   "/hr_offscontract",
   authenticateJWT,
@@ -540,7 +543,11 @@ router.post(
   addOffshoreContract
 );
 
-router.get("/hr_offscontract", authenticateJWT, getOffshoreContracts);
+router.get(
+  "/hr_offscontract",
+  authenticateJWT,
+  getOffshoreContracts
+);
 
 router.delete(
   "/hr_offscontract",
