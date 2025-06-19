@@ -5027,3 +5027,296 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+  /notify:
+    get:
+      tags:
+        - Notifications
+      summary: Get user notifications
+      description: |
+        Retrieves a list of personalized notifications for the authenticated user. Notifications vary based on user roles (employee, client, admin).
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of notifications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: Interview Shortlist
+                    description:
+                      type: string
+                      example: John Doe has been shortlisted by Acme Corp
+                    date:
+                      type: string
+                      format: date
+                      example: "2024-12-01"
+                    time:
+                      type: string
+                      example: "14:30:00"
+                    client_email:
+                      type: string
+                      format: email
+                      example: client@example.com
+                    client_record_id:
+                      type: integer
+                      example: 21
+                    employee_email:
+                      type: string
+                      format: email
+                      example: employee@example.com
+                    employee_record_id:
+                      type: integer
+                      example: 42
+        '400':
+          description: Missing user email
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Missing user email.
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User not found.
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error.
+
+
+  /emp_home:
+    get:
+      summary: Get Employee Home Dashboard
+      description: Returns employee details, workspaces, attendance summary, statistics, leave summary, and today's activity.
+      tags:
+        - Employee
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: workspace
+          schema:
+            type: string
+          required: false
+          description: Email of the client workspace
+      responses:
+        '200':
+          description: Successfully fetched home dashboard
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  employee_details:
+                    type: object
+                    properties:
+                      employee_id:
+                        type: integer
+                      employee_name:
+                        type: string
+                      employee_email:
+                        type: string
+                      image:
+                        type: string
+                        format: uri
+                      job_title:
+                        type: string
+                  company_image:
+                    type: string
+                  workspaces:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                        client_name:
+                          type: string
+                        company_name:
+                          type: string
+                  attendance_summary:
+                    type: object
+                    properties:
+                      shifts: { type: integer }
+                      expected_minutes: { type: integer }
+                      worked_minutes: { type: integer }
+                      short_minutes: { type: integer }
+                      leaves: { type: integer }
+                      absents: { type: integer }
+                      presents: { type: integer }
+                      missings: { type: integer }
+                      days_off: { type: integer }
+                      overtimes: { type: integer }
+                      short_durations: { type: integer }
+                      late_arrivals: { type: integer }
+                      break_minutes: { type: number, format: float }
+                  punch_timings:
+                    type: object
+                    properties:
+                      check_in: { type: string, nullable: true }
+                      check_out: { type: string, nullable: true }
+                  leave_summary:
+                    type: object
+                    properties:
+                      id: { type: integer }
+                      casual_leaves:
+                        type: object
+                        properties:
+                          granted: { type: integer }
+                          used: { type: integer }
+                          pending: { type: integer }
+                      sick_leaves:
+                        type: object
+                        properties:
+                          granted: { type: integer }
+                          used: { type: integer }
+                          pending: { type: integer }
+                      annual_leaves:
+                        type: object
+                        properties:
+                          granted: { type: integer }
+                          used: { type: integer }
+                          pending: { type: integer }
+                      unpaid_leaves:
+                        type: object
+                        properties:
+                          granted: { type: integer }
+                          used: { type: integer }
+                          pending: { type: integer }
+                      hajj_leaves:
+                        type: object
+                        properties:
+                          granted: { type: integer }
+                          used: { type: integer }
+                          pending: { type: integer }
+                      paid_leaves:
+                        type: object
+                        properties:
+                          granted: { type: integer }
+                          used: { type: integer }
+                          pending: { type: integer }
+                  statistics:
+                    type: object
+                    properties:
+                      today: { type: string }
+                      this_week: { type: string }
+                      this_month: { type: string }
+                      remaining: { type: string }
+                      overtime: { type: string }
+                  today_activity:
+                    type: object
+                    properties:
+                      check_in: { type: string }
+                      check_out: { type: string }
+                      break: { type: string }
+                      resume: { type: string }
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+
+    patch:
+      summary: Mark Employee Attendance
+      description: >
+        Allows employees to punch one of the following actions: check-in, check-out, break, or resume.
+        Only one of these actions should be provided at a time via query parameters.
+        The `workspace` parameter is required.
+      tags:
+        - Attendance
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: workspace
+          required: true
+          schema:
+            type: string
+          description: Email of the client workspace
+        - in: query
+          name: check_in
+          required: false
+          schema:
+            type: string
+            example: "09:00 AM"
+          description: "Time of check-in (format: hh:mm AM/PM)"
+        - in: query
+          name: check_out
+          required: false
+          schema:
+            type: string
+            example: "06:00 PM"
+          description: "Time of check-out (format: hh:mm AM/PM)"
+        - in: query
+          name: break
+          required: false
+          schema:
+            type: string
+            example: "01:00 PM"
+          description: "Time break started (format: hh:mm AM/PM)"
+        - in: query
+          name: resume
+          required: false
+          schema:
+            type: string
+            example: "01:30 PM"
+          description: "Time break ended / resume time (format: hh:mm AM/PM)"
+      responses:
+        '200':
+          description: Attendance action successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Check in punched
+        '400':
+          description: Invalid input or multiple actions provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Only one attendance action is allowed at a time.
+        '401':
+          description: Unauthorized – missing or invalid token
+        '404':
+          description: Employee or workspace not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
