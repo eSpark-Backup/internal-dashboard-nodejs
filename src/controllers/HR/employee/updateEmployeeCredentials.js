@@ -22,7 +22,7 @@ const updateEmployeeCredentials = async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(current_password, userExists.rows[0].password);
 
         if (!isPasswordCorrect) {
-            return res.status(401).json({ message: "Current password is incorrect" });
+            return res.status(400).json({ message: "Current password is incorrect" });
         }
 
         const hashedNewPassword = await bcrypt.hash(new_password, 10);
