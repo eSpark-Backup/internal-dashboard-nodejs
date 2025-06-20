@@ -132,6 +132,8 @@ import getOffshoreContracts from "../controllers/HR/OffShoreContract/getOffshore
 import deleteOffshoreContract from "../controllers/HR/OffShoreContract/deleteOffshoreContract.js";
 import updateOffshoreContract from "../controllers/HR/OffShoreContract/updateOffshoreContract.js";
 import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloadOffshoreContract.js";
+import { getEmpAttendanceSchema } from "../validations/hrEmpAttendanceSchema.js";
+import { getHrEmpAttendance } from "../controllers/HR/attendnaceReport/getHrEmpAttendance.js";
 
 const router = express.Router();
 
@@ -562,6 +564,13 @@ router.get(
   authenticateJWT,
   validateSchema(downloadOffshoreContractSchema),
   downloadOffshoreContract
+);
+
+router.get(
+  "/hr_empattendance",
+  authenticateJWT,
+  validateSchema(getEmpAttendanceSchema),
+  getHrEmpAttendance
 );
 
 export default router;
