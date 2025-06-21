@@ -59,7 +59,7 @@ const handleCheckIn = async (employee, client, checkIn, now, todayKey, currentMo
         Absent: false,
         Day_Off: false,
         Full_Leave: false,
-        Short_Duration: false,
+        "Short Duration": false,
         WFH: wfhResult.rowCount > 0,
     };
 
