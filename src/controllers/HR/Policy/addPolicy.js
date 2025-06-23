@@ -4,7 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 const addPolicy = async (req, res) => {
@@ -25,6 +25,7 @@ const addPolicy = async (req, res) => {
         Object.assign(fileErrors, policyDocValidationErrors || {});
 
         if (Object.keys(fileErrors).length > 0) {
+            await cleanupFiles([{ localPath: policy_doc?.path }]);
             return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
         }
 

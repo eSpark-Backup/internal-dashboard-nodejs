@@ -1,4 +1,7 @@
 import { format } from "date-fns";
+import fs from "fs";
+import { removeFromS3 } from "./s3.js";
+import { logger } from "./logger.js";
 import crypto from "crypto";
 import validateSchema from "../middleware/validate.js";
 import {
@@ -111,6 +114,32 @@ const parseTimeToMinutes = (timeStr) => {
   return hours * 60 + minutes;
 };
 
+const cleanupFiles = async (files = []) => {
+  for (const file of files) {
+    const { localPath, s3Key } = file;
+
+    // Remove local file
+    if (localPath) {
+      try {
+        if (fs.existsSync(localPath)) {
+          fs.unlinkSync(localPath);
+        }
+      } catch (err) {
+        logger.warn(`Failed to delete local file (${localPath}):`, err);
+      }
+    }
+
+    // Remove from S3
+    if (s3Key) {
+      try {
+        await removeFromS3(s3Key);
+      } catch (err) {
+        logger.warn(`Failed to delete S3 file (${s3Key}):`, err);
+      }
+    }
+  }
+};
+
 
 export {
   getFormattedTimestamp,
@@ -119,4 +148,5 @@ export {
   validateEmpLeavesPatchSchema,
   validateAndCleanTime,
   parseTimeToMinutes,
+  cleanupFiles,
 };

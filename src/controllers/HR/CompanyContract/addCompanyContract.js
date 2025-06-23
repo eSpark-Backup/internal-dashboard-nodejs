@@ -4,7 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 const addCompanyContract = async (req, res) => {
@@ -25,6 +25,7 @@ const addCompanyContract = async (req, res) => {
                 );
 
                 if (!clientResult.rows[0]) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(404).json({ message: "Client with this ID does not exist" });
                 }
 
@@ -40,6 +41,7 @@ const addCompanyContract = async (req, res) => {
                 Object.assign(fileErrors, contractDocValidationErrors || {});
 
                 if (Object.keys(fileErrors).length > 0) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
                 }
 
@@ -53,16 +55,14 @@ const addCompanyContract = async (req, res) => {
 
                         const fileContent = fs.readFileSync(contract_doc.path);
                         await uploadToS3(s3ImageKey, fileContent, contract_doc.mimetype);
-                        fs.unlinkSync(contract_doc.path);
+                        await cleanupFiles([{ localPath: contract_doc?.path }]);
 
                         contractDocUrl = s3ImageKey;
                     }
                 }
                 catch (error) {
                     logger.error(`Error uploading guide document: ${error.message}`);
-                    if (contract_doc && fs.existsSync(contract_doc.path)) {
-                        fs.unlinkSync(contract_doc.path);
-                    }
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(500).json({ message: "Internal server error" });
                 }
 
@@ -74,6 +74,7 @@ const addCompanyContract = async (req, res) => {
                 );
 
                 if (!contractResult.rows[0].id) {
+                    await cleanupFiles([{ localPath: contract_doc?.path, s3Key: contractDocUrl }]);
                     await client.query("ROLLBACK");
                     return res.status(400).json({ message: "Failed to add contract" });
                 }
@@ -85,6 +86,7 @@ const addCompanyContract = async (req, res) => {
 
                 if (!notification.rows[0]?.id) {
                     await client.query("ROLLBACK");
+                    await cleanupFiles([{ localPath: contract_doc?.path, s3Key: contractDocUrl }]);
                     return res.status(400).json({ message: "Failed to add notification" });
                 }
 
@@ -111,6 +113,7 @@ const addCompanyContract = async (req, res) => {
                 );
 
                 if (!employeeResult.rows[0]) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(404).json({ message: "Employee with this ID does not exist" });
                 }
 
@@ -126,6 +129,7 @@ const addCompanyContract = async (req, res) => {
                 Object.assign(fileErrors, contractDocValidationErrors || {});
 
                 if (Object.keys(fileErrors).length > 0) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
                 }
 
@@ -139,16 +143,14 @@ const addCompanyContract = async (req, res) => {
 
                         const fileContent = fs.readFileSync(contract_doc.path);
                         await uploadToS3(s3ImageKey, fileContent, contract_doc.mimetype);
-                        fs.unlinkSync(contract_doc.path);
+                        await cleanupFiles([{ localPath: contract_doc?.path }]);
 
                         contractDocUrl = s3ImageKey;
                     }
                 }
                 catch (error) {
                     logger.error(`Error uploading guide document: ${error.message}`);
-                    if (contract_doc && fs.existsSync(contract_doc.path)) {
-                        fs.unlinkSync(contract_doc.path);
-                    }
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(500).json({ message: "Internal server error" });
                 }
 
@@ -161,6 +163,7 @@ const addCompanyContract = async (req, res) => {
 
                 if (!contractResult.rows[0].id) {
                     await client.query("ROLLBACK");
+                    await cleanupFiles([{ localPath: contract_doc?.path, s3Key: contractDocUrl }]);
                     return res.status(400).json({ message: "Failed to add contract" });
                 }
 
@@ -171,6 +174,7 @@ const addCompanyContract = async (req, res) => {
 
                 if (!notification.rows[0]?.id) {
                     await client.query("ROLLBACK");
+                    await cleanupFiles([{ localPath: contract_doc?.path, s3Key: contractDocUrl }]);
                     return res.status(400).json({ message: "Failed to add notification" });
                 }
 

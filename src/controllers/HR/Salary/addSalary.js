@@ -4,7 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 const addSalary = async (req, res) => {
@@ -35,6 +35,7 @@ const addSalary = async (req, res) => {
         Object.assign(fileErrors, paySlipValidationErrors || {});
 
         if (Object.keys(fileErrors).length > 0) {
+            await cleanupFiles([{ localPath: pay_slip?.path }]);
             return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
         }
 
@@ -49,15 +50,13 @@ const addSalary = async (req, res) => {
 
                 const fileContent = fs.readFileSync(pay_slip.path);
                 await uploadToS3(s3ImageKey, fileContent, pay_slip.mimetype);
-                fs.unlinkSync(pay_slip.path);
+                await cleanupFiles([{ localPath: pay_slip?.path }]);
 
                 paySlipUrl = s3ImageKey;
             }
         } catch (error) {
             logger.error(`Error uploading pay slip: ${error.message}`);
-            if (pay_slip && fs.existsSync(pay_slip.path)) {
-                fs.unlinkSync(pay_slip.path);
-            }
+            await cleanupFiles([{ localPath: pay_slip?.path }]);
             return res.status(500).json({ message: "Internal Server Error" });
         }
 
@@ -69,6 +68,7 @@ const addSalary = async (req, res) => {
         );
 
         if (!result.rows[0].id) {
+            await cleanupFiles([{ localPath: pay_slip?.path, s3Key: paySlipUrl }]);
             return res.status(400).json({
                 message: "Failed to add salary",
             });

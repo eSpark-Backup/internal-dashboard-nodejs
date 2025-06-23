@@ -1,6 +1,6 @@
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 import { uploadToS3, S3_TEMP_BUCKET } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
@@ -22,14 +22,17 @@ const createLeaveRequest = async (req, res) => {
 
     const employeeEmail = req.user?.email;
     const userRole = req.user?.role;
+    const attachmentFile = req.files?.attachment?.[0];
 
     if (!employeeEmail) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
       return res
         .status(401)
         .json({ message: "Unauthorized: no employee email in token" });
     }
 
     if (userRole !== "employee") {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
       return res
         .status(403)
         .json({ message: "Forbidden: user is not an employee" });
@@ -41,6 +44,7 @@ const createLeaveRequest = async (req, res) => {
     );
 
     if (result.rows.length === 0) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
       return res.status(404).json({ message: "Employee not found" });
     }
     const employeeId = result.rows[0].id;
@@ -51,6 +55,7 @@ const createLeaveRequest = async (req, res) => {
     );
 
     if (clientResult.rows.length === 0) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
       return res.status(400).json({ message: "Invalid client email" });
     }
 
@@ -69,9 +74,10 @@ const createLeaveRequest = async (req, res) => {
     ]);
 
     if (overlappingResult.rows.length > 0) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
       return res.status(400).json({ message: "Leave request already present" });
     }
-    const attachmentFile = req.files?.attachment?.[0];
+    
     let attachmentS3Key = null;
 
     if (attachmentFile) {
@@ -82,13 +88,11 @@ const createLeaveRequest = async (req, res) => {
 
         const fileContent = fs.readFileSync(attachmentFile.path);
         await uploadToS3(s3Key, fileContent, attachmentFile.mimetype);
-        fs.unlinkSync(attachmentFile.path);
+        await cleanupFiles([{ localPath: attachmentFile?.path }]);
 
         attachmentS3Key = s3Key;
       } catch (uploadErr) {
-        if (fs.existsSync(attachmentFile.path)) {
-          fs.unlinkSync(attachmentFile.path);
-        }
+        await cleanupFiles([{ localPath: attachmentFile?.path }]);
         await client.query("ROLLBACK");
         logger.error("Attachment upload failed:", uploadErr);
         return res.status(500).json({ message: "Failed to upload attachment" });

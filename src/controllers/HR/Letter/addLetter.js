@@ -1,17 +1,18 @@
 import { validateFile } from "../../../utils/validateFiles.js";
 import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
 
 const createLetter = async (req, res) => {
   let client;
+  const { email, objective, issue_date, reason } = req.body || {};
+  const letterFile = req.files?.letter?.[0];
+  
   try {
     client = await pool.connect();
-    const { email, objective, issue_date, reason } = req.body || {};
-    const letterFile = req.files?.letter?.[0];
 
     const fileErrors =
       validateFile({
@@ -45,12 +46,10 @@ const createLetter = async (req, res) => {
 
       const fileContent = fs.readFileSync(letterFile.path);
       await uploadToS3(letterS3Key, fileContent, letterFile.mimetype);
-      fs.unlinkSync(letterFile.path);
+      await cleanupFiles([{ localPath: letterFile?.path }]);
     } catch (uploadErr) {
       await client.query("ROLLBACK");
-      if (letterFile && fs.existsSync(letterFile.path)) {
-        fs.unlinkSync(letterFile.path);
-      }
+      await cleanupFiles([{ localPath: letterFile?.path }]);
       logger.error(`S3 upload error: ${uploadErr}`);
       return res.status(500).json({ message: "File upload failed" });
     }
@@ -95,6 +94,7 @@ const createLetter = async (req, res) => {
     });
   } catch (err) {
     await client.query("ROLLBACK");
+    await cleanupFiles([{ localPath: letterFile?.path, s3Key: letterS3Key }]);
 
     if (err.name === "ValidationError") {
       const errors = {};
