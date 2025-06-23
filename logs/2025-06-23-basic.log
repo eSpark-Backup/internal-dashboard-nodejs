@@ -3190,3 +3190,379 @@
 {"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:41:33.703Z"}
 {"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:41:33.708Z"}
 {"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:41:33.708Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:43:05.411Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:43:05.412Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:43:05.413Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:43:05.413Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:43:05.414Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:43:05.415Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:43:22.460Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:43:22.461Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:43:22.461Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:43:22.462Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:43:22.463Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:43:22.463Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:43:23.703Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:43:23.706Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:43:23.720Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:43:23.720Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:43:23.721Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:43:23.721Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:43:35.156Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:43:35.156Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:43:35.157Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:43:35.157Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:43:35.157Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:43:35.158Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:43:36.081Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:43:36.081Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:43:36.082Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:43:36.082Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:43:36.082Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:43:36.083Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:43:40.536Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:43:40.536Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:43:40.537Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:43:40.537Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:43:40.538Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:43:40.538Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:44:11.095Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:44:11.096Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:44:11.096Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:44:11.096Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:44:11.097Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:44:11.097Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:44:21.932Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:44:21.933Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:44:21.934Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:44:21.935Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:44:21.935Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:44:21.935Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:44:53.547Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:44:53.547Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:44:53.547Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:44:53.548Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:44:53.548Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:44:53.549Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:45:15.893Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:45:15.894Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:45:15.894Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:45:15.895Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:45:15.895Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:45:15.895Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:45:22.625Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:45:22.626Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:45:22.626Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:45:22.627Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:45:22.627Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:45:22.627Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:47:32.698Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:47:32.706Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:47:32.791Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:47:32.792Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:47:32.795Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:47:32.796Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:47:32.801Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:47:32.803Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:47:35.223Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:47:35.224Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:47:35.225Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:47:35.225Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:47:35.226Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:47:35.227Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:47:38.210Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:47:38.211Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:47:38.211Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:47:38.212Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:47:38.212Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:47:38.213Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:48:30.452Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:48:30.459Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:48:30.985Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:48:30.986Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:48:30.989Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:48:30.991Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:48:30.998Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:48:30.999Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:48:31.478Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:48:31.479Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:48:31.480Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:48:31.481Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:48:31.481Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:48:31.482Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:48:32.067Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:48:32.072Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:48:32.073Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:48:32.073Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:48:32.074Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:48:32.074Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:48:37.897Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:48:37.899Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:48:37.900Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:48:37.901Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:48:37.902Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:48:37.902Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:49:13.815Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:49:13.824Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:49:13.933Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:49:13.934Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:49:13.937Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:49:13.938Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:49:13.942Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:49:13.943Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:49:17.708Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:49:17.714Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:49:17.717Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:49:17.718Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:49:17.725Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:49:17.727Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:49:22.929Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:49:22.930Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:49:22.931Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:49:22.931Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:49:22.932Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:49:22.932Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:50:10.012Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:50:10.021Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:50:10.136Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:50:10.139Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:50:10.142Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:50:10.143Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:50:10.148Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:50:10.150Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:50:16.205Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:50:16.206Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:50:16.206Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:50:16.207Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:50:16.208Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:50:16.208Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:50:38.689Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:50:38.698Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:50:38.794Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:50:38.796Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:50:38.799Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:50:38.801Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:50:38.804Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:50:38.805Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:50:42.060Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:50:42.073Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:50:42.183Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:50:42.184Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:50:42.186Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:50:42.187Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:50:42.191Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:50:42.191Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:50:46.722Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:50:46.722Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:50:46.723Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:50:46.723Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:50:46.724Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:50:46.724Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:51:08.807Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:51:08.816Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:51:08.916Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:51:08.917Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:51:08.920Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:51:08.921Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:51:08.925Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:51:08.926Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:51:54.866Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:51:54.867Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:51:54.867Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:51:54.874Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:51:54.875Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:51:54.876Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:51:56.866Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:51:56.866Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:51:56.867Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:51:56.867Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:51:56.867Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:51:56.868Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T13:51:59.080Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T13:51:59.088Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T13:51:59.166Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T13:51:59.167Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T13:51:59.169Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T13:51:59.171Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T13:51:59.175Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T13:51:59.177Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:52:02.137Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:52:02.137Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:52:02.138Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:52:02.139Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:52:02.139Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:52:02.140Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:52:05.160Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:52:05.160Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:52:05.161Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:52:05.161Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:52:05.162Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:52:05.162Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:52:33.539Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:52:33.540Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:52:33.540Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:52:33.541Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:52:33.541Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:52:33.541Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:52:48.755Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:52:48.755Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:52:48.756Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:52:48.756Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:52:48.757Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:52:48.757Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:26.149Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:26.150Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:26.150Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:26.150Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:26.151Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:26.151Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:28.899Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:28.901Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:28.902Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:28.902Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:28.902Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:28.903Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:30.406Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:30.412Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:30.412Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:30.412Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:30.414Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:30.414Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:31.496Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:31.515Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:31.516Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:31.516Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:31.517Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:31.517Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:34.818Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:34.819Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:34.820Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:34.821Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:34.821Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:34.821Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:37.236Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:37.237Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:37.238Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:37.238Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:37.239Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:37.242Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:49.297Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:49.298Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:49.298Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:49.299Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:49.299Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:49.299Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:53:59.373Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:53:59.379Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:53:59.380Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:53:59.380Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:53:59.381Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:53:59.381Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:54:05.201Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:54:05.203Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:54:05.209Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:54:05.209Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:54:05.209Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:54:05.210Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:56:05.382Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:56:05.382Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:56:05.383Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:56:05.383Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:56:05.383Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:56:05.384Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:56:06.251Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:56:06.252Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:56:06.252Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:56:06.253Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:56:06.253Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:56:06.253Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:56:07.239Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:56:07.239Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:56:07.239Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:56:07.240Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:56:07.240Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:56:07.242Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:56:37.693Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:56:37.694Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:56:37.694Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:56:37.695Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:56:37.695Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:56:37.695Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:56:40.148Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:56:40.159Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:56:40.160Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:56:40.160Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:56:40.160Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:56:40.161Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:56:43.379Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:56:43.379Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:56:43.380Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:56:43.381Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:56:43.382Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:56:43.382Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:58:25.930Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:58:25.937Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:58:25.937Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:58:25.938Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:58:25.938Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:58:25.940Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:59:39.270Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:59:39.270Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:59:39.271Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:59:39.271Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:59:39.271Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:59:39.272Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:59:40.096Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:59:40.097Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:59:40.097Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:59:40.098Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:59:40.098Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:59:40.098Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T13:59:42.158Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T13:59:42.159Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T13:59:42.159Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T13:59:42.159Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T13:59:42.160Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T13:59:42.160Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T14:00:13.283Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T14:00:13.283Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T14:00:13.284Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T14:00:13.284Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T14:00:13.284Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T14:00:13.285Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T14:00:19.123Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T14:00:19.124Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T14:00:19.125Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T14:00:19.125Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T14:00:19.126Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T14:00:19.126Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T14:00:42.000Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T14:00:42.009Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T14:00:42.102Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T14:00:42.103Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T14:00:42.108Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T14:00:42.111Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T14:00:42.118Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T14:00:42.119Z"}
+{"level":"info","message":"Fetched general notifications: 0","timestamp":"2025-06-23T14:00:49.199Z"}
+{"level":"info","message":"Fetched company contracts: 0","timestamp":"2025-06-23T14:00:49.200Z"}
+{"level":"info","message":"Fetched client contracts: 0","timestamp":"2025-06-23T14:00:49.200Z"}
+{"level":"info","message":"Fetched employee policies: 0","timestamp":"2025-06-23T14:00:49.200Z"}
+{"level":"info","message":"Fetched employee guides: 0","timestamp":"2025-06-23T14:00:49.201Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2025-06-23T14:00:49.202Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T14:01:00.301Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T14:01:00.311Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T14:01:00.407Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T14:01:00.410Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T14:01:00.413Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T14:01:00.414Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T14:01:00.420Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T14:01:00.420Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-06-23T14:01:07.568Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-06-23T14:01:07.684Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-06-23T14:01:07.845Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-06-23T14:01:07.846Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-06-23T14:01:07.848Z"}
+{"count":7,"level":"info","message":"Found migration files","timestamp":"2025-06-23T14:01:07.849Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-06-23T14:01:07.853Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-06-23T14:01:07.854Z"}
