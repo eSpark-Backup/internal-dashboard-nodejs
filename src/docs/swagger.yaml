@@ -735,6 +735,64 @@ paths:
           description: Unauthorized
         "500":
           description: Internal server error
+   
+  /down_payslip:
+    get:
+      tags:
+        - Employee Salary
+      summary: Download Employee Salary Pay Slip
+      description: Retrieves and downloads the employee’s salary pay slip PDF by salary ID.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 123
+          description: Salary ID (from eSparkTalentAPI_salary table)
+      responses:
+        '200':
+          description: Pay slip PDF file
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Validation error or missing parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Salary ID is required
+        '404':
+          description: Pay slip or salary record not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Pay slip not found
+        '401':
+          description: Unauthorized – missing or invalid token
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
 
   /emp_letters:
     post:

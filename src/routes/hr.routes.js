@@ -5,6 +5,7 @@ import { upload } from "../helpers/multer.js";
 import {
   addSalarySchema,
   deleteSalarySchema,
+  downloadSalarySchema,
   getSalarySchema,
   updateSalarySchema,
 } from "../validations/SalarySchema.js";
@@ -132,6 +133,7 @@ import getOffshoreContracts from "../controllers/HR/OffShoreContract/getOffshore
 import deleteOffshoreContract from "../controllers/HR/OffShoreContract/deleteOffshoreContract.js";
 import updateOffshoreContract from "../controllers/HR/OffShoreContract/updateOffshoreContract.js";
 import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloadOffshoreContract.js";
+import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
 
 const router = express.Router();
 
@@ -219,6 +221,13 @@ router.patch(
   upload.fields([{ name: "pay_slip", maxCount: 1 }]),
   validateSchema(updateSalarySchema),
   updateSalary
+);
+
+router.get(
+  "/down_payslip",
+  authenticateJWT,
+  validateSchema(downloadSalarySchema),
+  downloadSalary
 );
 
 // Employee salary CRUD Routes
