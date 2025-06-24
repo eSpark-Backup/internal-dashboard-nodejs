@@ -1247,6 +1247,299 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Offshore Contracts",
+					"item": [
+						{
+							"name": "Add Offshore Contracts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMjU2ODA2LCJpYXQiOjE3NTAyMzg4MDYsImp0aSI6IjliMTA3M2VjNTdiMDQzZWU4N2U1YTg1OWQ4Y2NkNjY5IiwidXNlcl9pZCI6MX0.SK9yqozj3AtcnYagEdQun_seXBPVjivLGpROTjtYA0U"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "date",
+											"value": "2025-06-05",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "44",
+											"type": "text"
+										},
+										{
+											"key": "contract_name",
+											"value": "Hedy Calderon",
+											"type": "text"
+										},
+										{
+											"key": "employee_id",
+											"value": "870",
+											"type": "text"
+										},
+										{
+											"key": "contract_doc",
+											"type": "file",
+											"src": "contract (1).pdf"
+										}
+									]
+								},
+								"url": "http://54.162.147.127:8000/api/hr_offscontract/"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Offshore Contracts",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMjU2ODA2LCJpYXQiOjE3NTAyMzg4MDYsImp0aSI6IjliMTA3M2VjNTdiMDQzZWU4N2U1YTg1OWQ4Y2NkNjY5IiwidXNlcl9pZCI6MX0.SK9yqozj3AtcnYagEdQun_seXBPVjivLGpROTjtYA0U"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "contract_name",
+											"value": "hi offshore muzsdasd",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "44",
+											"type": "text"
+										},
+										{
+											"key": "employee_id",
+											"value": "870",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "2025-06-12",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_offscontract/?id=22",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_offscontract",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "22"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Offshore Contracts",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMjU2ODA2LCJpYXQiOjE3NTAyMzg4MDYsImp0aSI6IjliMTA3M2VjNTdiMDQzZWU4N2U1YTg1OWQ4Y2NkNjY5IiwidXNlcl9pZCI6MX0.SK9yqozj3AtcnYagEdQun_seXBPVjivLGpROTjtYA0U"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_offscontract/?id=22",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_offscontract",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "22"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Offshore Contract",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMjU2ODA2LCJpYXQiOjE3NTAyMzg4MDYsImp0aSI6IjliMTA3M2VjNTdiMDQzZWU4N2U1YTg1OWQ4Y2NkNjY5IiwidXNlcl9pZCI6MX0.SK9yqozj3AtcnYagEdQun_seXBPVjivLGpROTjtYA0U"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/down_offshore/?id=23",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"down_offshore",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "23"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Offshore Contracts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMjU2ODA2LCJpYXQiOjE3NTAyMzg4MDYsImp0aSI6IjliMTA3M2VjNTdiMDQzZWU4N2U1YTg1OWQ4Y2NkNjY5IiwidXNlcl9pZCI6MX0.SK9yqozj3AtcnYagEdQun_seXBPVjivLGpROTjtYA0U"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/hr_offscontract/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
