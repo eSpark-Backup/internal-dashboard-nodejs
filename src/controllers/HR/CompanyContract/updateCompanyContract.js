@@ -4,7 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 
@@ -27,6 +27,7 @@ const updateCompanyContract = async (req, res) => {
                 );
 
                 if (clientContract.rowCount === 0) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(404).json({ message: "Client contract with given id not found" });
                 }
 
@@ -46,6 +47,7 @@ const updateCompanyContract = async (req, res) => {
                         Object.assign(fileErrors, contractDocValidationErrors || {});
 
                         if (Object.keys(fileErrors).length > 0) {
+                            await cleanupFiles([{ localPath: contract_doc?.path }]);
                             return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
                         }
 
@@ -55,16 +57,14 @@ const updateCompanyContract = async (req, res) => {
 
                         const fileContent = fs.readFileSync(contract_doc.path);
                         await uploadToS3(s3ImageKey, fileContent, contract_doc.mimetype);
-                        fs.unlinkSync(contract_doc.path);
+                        await cleanupFiles([{ localPath: contract_doc?.path }]);
 
                         contract_doc_url = s3ImageKey;
                     }
                 }
                 catch (error) {
                     logger.error(error);
-                    if (contract_doc && fs.existsSync(contract_doc.path)) {
-                        fs.unlinkSync(contract_doc.path);
-                    }
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(500).json({ message: "Internal server error" });
                 }
 
@@ -79,6 +79,7 @@ const updateCompanyContract = async (req, res) => {
                 );
 
                 if (updatedClientContract.rowCount === 0) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(400).json({ message: "Failed to update client contract" });
                 }
 
@@ -98,6 +99,7 @@ const updateCompanyContract = async (req, res) => {
                 );
 
                 if (employeeContract.rowCount === 0) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(404).json({ message: "Employee contract with given id not found" });
                 }
 
@@ -117,6 +119,7 @@ const updateCompanyContract = async (req, res) => {
                         Object.assign(fileErrors, contractDocValidationErrors || {});
 
                         if (Object.keys(fileErrors).length > 0) {
+                            await cleanupFiles([{ localPath: contract_doc?.path }]);
                             return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
                         }
 
@@ -126,16 +129,14 @@ const updateCompanyContract = async (req, res) => {
 
                         const fileContent = fs.readFileSync(contract_doc.path);
                         await uploadToS3(s3ImageKey, fileContent, contract_doc.mimetype);
-                        fs.unlinkSync(contract_doc.path);
+                        await cleanupFiles([{ localPath: contract_doc?.path }]);
 
                         contract_doc_url = s3ImageKey;
                     }
                 }
                 catch (error) {
                     logger.error(error);
-                    if (contract_doc && fs.existsSync(contract_doc.path)) {
-                        fs.unlinkSync(contract_doc.path);
-                    }
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(500).json({ message: "Internal server error" });
                 }
 
@@ -150,6 +151,7 @@ const updateCompanyContract = async (req, res) => {
                 );
 
                 if (updatedEmployeeContract.rowCount === 0) {
+                    await cleanupFiles([{ localPath: contract_doc?.path }]);
                     return res.status(400).json({ message: "Failed to update employee contract" });
                 }
 

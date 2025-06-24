@@ -4,6 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
+import { cleanupFiles } from "../../../helpers/utils.js";
 
 
 const updateSalary = async (req, res) => {
@@ -43,15 +44,13 @@ const updateSalary = async (req, res) => {
 
                 const fileContent = fs.readFileSync(pay_slip.path);
                 await uploadToS3(s3ImageKey, fileContent, pay_slip.mimetype);
-                fs.unlinkSync(pay_slip.path);
+                await cleanupFiles([{ localPath: pay_slip?.path }]);
 
                 paySlipUrl = s3ImageKey;
             }
         } catch (error) {
             logger.error(`Error uploading pay slip: ${error.message}`);
-            if (pay_slip && fs.existsSync(pay_slip.path)) {
-                fs.unlinkSync(pay_slip.path);
-            }
+            await cleanupFiles([{ localPath: pay_slip?.path }]);
             return res.status(500).json({ message: "Internal server error" });
         }
 
@@ -69,6 +68,7 @@ const updateSalary = async (req, res) => {
         );
 
         if (updatedSalary.rowCount === 0) {
+            await cleanupFiles([{ localPath: pay_slip?.path, s3Key: paySlipUrl }]);
             return res.status(400).json({ message: "Failed to update salary" });
         }
 

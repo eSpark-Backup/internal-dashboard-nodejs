@@ -5,7 +5,7 @@ import pool from "../../../config/db.js";
 import { validateFile } from "../../../utils/validateFiles.js";
 import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
-import { encrypt } from "../../../helpers/utils.js";
+import { cleanupFiles, encrypt } from "../../../helpers/utils.js";
 
 
 const updateAccount = async (req, res) => {
@@ -28,6 +28,7 @@ const updateAccount = async (req, res) => {
 
         if (userRows.length === 0) {
             await client.query("ROLLBACK");
+            await cleanupFiles([{ localPath: imageFile?.path }]);
             return res.status(404).json({ message: "Account not found with this id" });
         }
 
@@ -47,6 +48,7 @@ const updateAccount = async (req, res) => {
             Object.assign(fileErrors, imageValidationErrors || {});
 
             if (Object.keys(fileErrors).length > 0) {
+                await cleanupFiles([{ localPath: imageFile?.path }]);
                 return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
             }
 
@@ -56,15 +58,13 @@ const updateAccount = async (req, res) => {
 
             const fileContent = fs.readFileSync(imageFile.path);
             await uploadToS3(s3ImageKey, fileContent, imageFile.mimetype);
-            fs.unlinkSync(imageFile.path);
+            await cleanupFiles([{ localPath: imageFile?.path }]);
 
                 imageUrl = s3ImageKey;
             }
         } catch (error) {
             logger.error(`Error uploading image: ${error.message}`);
-            if (imageFile && fs.existsSync(imageFile.path)) {
-                fs.unlinkSync(imageFile.path);
-            }
+            await cleanupFiles([{ localPath: imageFile?.path }]);
             return res.status(500).json({ message: "Internal server error" });
         }
 
@@ -87,6 +87,7 @@ const updateAccount = async (req, res) => {
 
         if (updatedAccount.rowCount === 0) {
             await client.query("ROLLBACK");
+            await cleanupFiles([{ localPath: imageFile?.path }]);
             return res.status(400).json({ message: "Failed to update account" });
         }
 
@@ -102,6 +103,7 @@ const updateAccount = async (req, res) => {
 
             if (updatedPassword.rowCount === 0) {
                 await client.query("ROLLBACK");
+                await cleanupFiles([{ localPath: imageFile?.path }]);
                 logger.error(`Failed to update password: ${updatedPassword.error}`);
                 return res.status(400).json({ message: "Failed to update password" });
             }
