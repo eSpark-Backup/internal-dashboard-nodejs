@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import { validateFile } from "../../../utils/validateFiles.js";
 import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
-import { encrypt, getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, encrypt, getFormattedTimestamp } from "../../../helpers/utils.js";
 import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 
 
@@ -24,6 +24,7 @@ const addAccount = async (req, res) => {
         }) || {};
 
     if (Object.keys(fileErrors).length > 0) {
+        await cleanupFiles([{ localPath: imageFile?.path }]);
         return res.status(400).json(fileErrors);
     }
 
@@ -43,6 +44,7 @@ const addAccount = async (req, res) => {
         const result = await client.query(emailCheckQuery, [email]);
 
         if (result.rows.length > 0) {
+            await cleanupFiles([{ localPath: imageFile?.path }]);
             return res.status(400).json({ message: "User with this email already exists" });
         }
 
@@ -56,15 +58,13 @@ const addAccount = async (req, res) => {
 
                 const fileContent = fs.readFileSync(imageFile.path);
                 await uploadToS3(s3ImageKey, fileContent, imageFile.mimetype);
-                fs.unlinkSync(imageFile.path);
+                await cleanupFiles([{ localPath: imageFile?.path }]);
 
                 imageS3Key = s3ImageKey;
             }
         } catch (uploadError) {
             await client.query("ROLLBACK");
-            if (imageFile && fs.existsSync(imageFile.path)) {
-                fs.unlinkSync(imageFile.path);
-            }
+            await cleanupFiles([{ localPath: imageFile?.path }]);
             logger.error(`S3 upload error: ${uploadError}`);
             return res.status(500).json({ message: "Internal server error" });
         }
@@ -79,6 +79,7 @@ const addAccount = async (req, res) => {
 
         if (endUserResult.rows.length === 0) {
             await client.query("ROLLBACK");
+            await cleanupFiles([{ localPath: imageFile?.path, s3Key: imageS3Key }]);
             return res.status(500).json({ message: "Failed to create account" });
         }
 
@@ -107,6 +108,7 @@ const addAccount = async (req, res) => {
 
         if (accountResult.rows.length === 0) {
             await client.query("ROLLBACK");
+            await cleanupFiles([{ localPath: imageFile?.path, s3Key: imageS3Key }]);
             logger.error(`Failed to create account`);
             return res.status(500).json({ message: "Failed to create account" });
         }

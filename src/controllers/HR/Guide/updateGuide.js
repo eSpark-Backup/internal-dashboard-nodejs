@@ -4,7 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 
@@ -24,6 +24,7 @@ const updateGuide = async (req, res) => {
         );
 
         if (guide.rowCount === 0) {
+            await cleanupFiles([{ localPath: guide_doc?.path }]);
             return res.status(404).json({ message: "Guide with given id not found" });
         }
 
@@ -43,6 +44,7 @@ const updateGuide = async (req, res) => {
                 Object.assign(fileErrors, guideDocValidationErrors || {});
 
                 if (Object.keys(fileErrors).length > 0) {
+                    await cleanupFiles([{ localPath: guide_doc?.path }]);
                     return res.status(400).json({ message: "Invalid file format or size", errors: fileErrors });
                 }
 
@@ -52,16 +54,14 @@ const updateGuide = async (req, res) => {
 
                 const fileContent = fs.readFileSync(guide_doc.path);
                 await uploadToS3(s3ImageKey, fileContent, guide_doc.mimetype);
-                fs.unlinkSync(guide_doc.path);
+                await cleanupFiles([{ localPath: guide_doc?.path }]);
 
                 guide_doc_url = s3ImageKey;
             }
         }
         catch (error) {
             logger.error(error);
-            if (guide_doc && fs.existsSync(guide_doc.path)) {
-                fs.unlinkSync(guide_doc.path);
-            }
+            await cleanupFiles([{ localPath: guide_doc?.path }]);
             return res.status(500).json({ message: "Internal server error" });
         }
 
@@ -77,6 +77,7 @@ const updateGuide = async (req, res) => {
         );
 
         if (updatedGuide.rowCount === 0) {
+            await cleanupFiles([{ localPath: guide_doc?.path }]);
             return res.status(400).json({ message: "Failed to update guide" });
         }
 
