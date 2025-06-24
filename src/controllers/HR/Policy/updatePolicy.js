@@ -4,7 +4,7 @@ import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 
@@ -14,6 +14,7 @@ const updatePolicy = async (req, res) => {
     const policy_doc = req.files?.policy_doc?.[0];
 
     if (!policy_name && !policy_doc) {
+        await cleanupFiles([{ localPath: policy_doc?.path }]);
         return res.status(400).json({ message: "Missing policy name or policy document" });
     }
 
@@ -24,6 +25,7 @@ const updatePolicy = async (req, res) => {
         );
 
         if (policy.rowCount === 0) {
+            await cleanupFiles([{ localPath: policy_doc?.path }]);
             return res.status(404).json({ message: "Policy with given id not found" });
         }
 
@@ -52,16 +54,14 @@ const updatePolicy = async (req, res) => {
 
                 const fileContent = fs.readFileSync(policy_doc.path);
                 await uploadToS3(s3ImageKey, fileContent, policy_doc.mimetype);
-                fs.unlinkSync(policy_doc.path);
+                await cleanupFiles([{ localPath: policy_doc?.path }]);
 
                 policy_doc_url = s3ImageKey;
             }
         }
         catch (error) {
             logger.error(error);
-            if (policy_doc && fs.existsSync(policy_doc.path)) {
-                fs.unlinkSync(policy_doc.path);
-            }
+            await cleanupFiles([{ localPath: policy_doc?.path }]);
             return res.status(500).json({ message: "Internal server error" });
         }
 
@@ -75,6 +75,7 @@ const updatePolicy = async (req, res) => {
         );
 
         if (updatedPolicy.rowCount === 0) {
+            await cleanupFiles([{ localPath: policy_doc?.path }]);
             return res.status(400).json({ message: "Failed to update policy" });
         }
 

@@ -250,7 +250,7 @@ const getAttendanceSummary = async (employeeId, workspace) => {
 
         const timeSheetRecord = timeSheetResult.rows[0].record
 
-        // Get employee punch timings for comparison
+
         const empResult = await pool.query(`SELECT punch_timings FROM eSparkTalentAPI_employee WHERE id = $1`, [
             employeeId,
         ])
@@ -491,7 +491,7 @@ const getHomeDetails = async (req, res) => {
 
         const currentCompany = await pool.query(`SELECT * FROM eSparkTalentAPI_outsource_employees WHERE employee_id = $1 AND client_id = $2`, [employee.id, workspaceClientId]);
 
-        employeeDetails["job_title"] = currentCompany.rows[0].job_title || employee.job_title;
+        employeeDetails["job_title"] = currentCompany.rows[0]?.job_title || employee?.job_title;
 
         return res.status(200).json({
             employee_details: employeeDetails,

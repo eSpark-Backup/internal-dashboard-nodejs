@@ -5,7 +5,7 @@ import pool from "../../../config/db.js";
 import { validateFile } from "../../../utils/validateFiles.js";
 import { logger } from "../../../helpers/logger.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 const addOffshoreContract = async (req, res) => {
   const { client_id, employee_id, contract_name, date } = req.body;
@@ -21,6 +21,7 @@ const addOffshoreContract = async (req, res) => {
       [client_id]
     );
     if (!clientResult.rows.length) {
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res
         .status(404)
         .json({ message: "client matching query does not exist." });
@@ -32,6 +33,7 @@ const addOffshoreContract = async (req, res) => {
       [employee_id]
     );
     if (!empResult.rows.length) {
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res
         .status(404)
         .json({ message: "employee matching query does not exist." });
@@ -48,6 +50,7 @@ const addOffshoreContract = async (req, res) => {
     );
 
     if (!outsrcResult.rows.length || outsrcResult.rows[0].status !== "active") {
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res
         .status(400)
         .json({ message: "Cannot create contract for terminated employee" });
@@ -64,6 +67,7 @@ const addOffshoreContract = async (req, res) => {
     });
     Object.assign(fileErrors, contractDocValidationErrors || {});
     if (Object.keys(fileErrors).length > 0) {
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res
         .status(400)
         .json({ message: "Invalid file", errors: fileErrors });
@@ -77,13 +81,11 @@ const addOffshoreContract = async (req, res) => {
       const s3Key = `${S3_TEMP_BUCKET}/contracts/${timestamp}_${fileName}`;
       const fileContent = fs.readFileSync(contract_doc.path);
       await uploadToS3(s3Key, fileContent, contract_doc.mimetype);
-      fs.unlinkSync(contract_doc.path);
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       contractDocUrl = s3Key;
     } catch (error) {
       logger.error(`Error uploading contract_doc: ${error.message}`);
-      if (contract_doc && fs.existsSync(contract_doc.path)) {
-        fs.unlinkSync(contract_doc.path);
-      }
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res.status(500).json({ message: "File upload failed" });
     }
 

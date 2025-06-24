@@ -8,7 +8,7 @@ import {
 } from "../../../helpers/s3.js";
 import path from "path";
 import fs from "fs";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 const updateOffshoreContract = async (req, res) => {
   const { id } = req.query;
@@ -16,6 +16,7 @@ const updateOffshoreContract = async (req, res) => {
   const contract_doc = req.files?.contract_doc?.[0];
 
   if (!contract_name && !date && !contract_doc && !employee_id && !client_id) {
+    await cleanupFiles([{ localPath: contract_doc?.path }]);
     return res.status(400).json({ message: "Nothing to update" });
   }
 
@@ -29,6 +30,7 @@ const updateOffshoreContract = async (req, res) => {
     );
 
     if (existingRes.rowCount === 0) {
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res.status(404).json({ message: "Offshore contract not found" });
     }
 
@@ -45,6 +47,7 @@ const updateOffshoreContract = async (req, res) => {
         }) || {};
 
       if (Object.keys(fileErrors).length > 0) {
+        await cleanupFiles([{ localPath: contract_doc?.path }]);
         return res
           .status(400)
           .json({ message: "Invalid contract_doc", errors: fileErrors });
@@ -62,7 +65,7 @@ const updateOffshoreContract = async (req, res) => {
       const fileContent = fs.readFileSync(contract_doc.path);
 
       await uploadToS3(s3Key, fileContent, contract_doc.mimetype);
-      fs.unlinkSync(contract_doc.path);
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       contract_doc_url = s3Key;
     }
 
@@ -76,6 +79,7 @@ const updateOffshoreContract = async (req, res) => {
       );
       if (empRes.rowCount === 0) {
         await client.query("ROLLBACK");
+        await cleanupFiles([{ localPath: contract_doc?.path }]);
         return res.status(404).json({ message: "Employee not found" });
       }
       resolvedEmployeeId = empRes.rows[0].id;
@@ -88,6 +92,7 @@ const updateOffshoreContract = async (req, res) => {
       );
       if (clRes.rowCount === 0) {
         await client.query("ROLLBACK");
+        await cleanupFiles([{ localPath: contract_doc?.path }]);
         return res.status(404).json({ message: "Client not found" });
       }
       resolvedClientId = clRes.rows[0].id;
@@ -117,6 +122,7 @@ const updateOffshoreContract = async (req, res) => {
 
     if (result.rowCount === 0) {
       await client.query("ROLLBACK");
+      await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res
         .status(400)
         .json({ message: "Failed to update offshore contract" });
