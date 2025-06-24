@@ -250,6 +250,7 @@ const getAttendanceSummary = async (employeeId, workspace) => {
 
         const timeSheetRecord = timeSheetResult.rows[0].record
 
+
         const empResult = await pool.query(`SELECT punch_timings FROM eSparkTalentAPI_employee WHERE id = $1`, [
             employeeId,
         ])

@@ -37,6 +37,7 @@ import updateMarkAttendance from "../controllers/employee/Home/updateMarkAttenda
 import getEmpOffshoreContracts from "../controllers/employee/OffshoreContracts/getEmpOffshoreContracts.js";
 import { getEmpOffshoreContractsSchema } from "../validations/addOffshoreContractSchema.js";
 import getNotifications from "../controllers/employee/Notifications/getNotifications.js";
+import getTimeSheetDetails from "../controllers/employee/AttendanceSheet/getAttendanceSheet.js"
 
 const router = express.Router();
 
@@ -154,9 +155,9 @@ router.get(
 //Employee Home Routes
 router.get(
   "/emp_home",
- authenticateJWT, 
- validateSchema(getHomeDetailsSchema),
- getHomeDetails
+  authenticateJWT,
+  validateSchema(getHomeDetailsSchema),
+  getHomeDetails
 );
 
 router.patch(
@@ -166,6 +167,11 @@ router.patch(
   updateMarkAttendance
 );
 
+router.get(
+  "/emp_timesheet",
+  authenticateJWT,
+  getTimeSheetDetails
+);
 
 
 

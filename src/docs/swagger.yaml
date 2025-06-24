@@ -1056,14 +1056,14 @@ paths:
           description: Unique ID of the letter
           example: "123"
       responses:
-        '200':
+        "200":
           description: Letter PDF file successfully downloaded
           content:
             application/pdf:
               schema:
                 type: string
                 format: binary
-        '400':
+        "400":
           description: Bad request due to validation error
           content:
             application/json:
@@ -1073,7 +1073,7 @@ paths:
                   message:
                     type: string
                     example: Letter ID is required
-        '401':
+        "401":
           description: Unauthorized – JWT token missing or invalid
           content:
             application/json:
@@ -1083,7 +1083,7 @@ paths:
                   message:
                     type: string
                     example: Unauthorized
-        '404':
+        "404":
           description: Letter not found
           content:
             application/json:
@@ -1093,7 +1093,7 @@ paths:
                   message:
                     type: string
                     example: Letter with this id does not exist
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -1113,7 +1113,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: A list of letters associated with the user
           content:
             application/json:
@@ -1132,7 +1132,7 @@ paths:
                       type: string
                       format: date
                       example: "2024-11-12"
-        '401':
+        "401":
           description: Unauthorized – JWT token missing or invalid
           content:
             application/json:
@@ -1142,7 +1142,7 @@ paths:
                   message:
                     type: string
                     example: Unauthorized
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -1152,8 +1152,6 @@ paths:
                   message:
                     type: string
                     example: Internal server error
-
-
 
   /hr_emp_benefit:
     post:
@@ -1434,7 +1432,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: Successfully retrieved employee benefits
           content:
             application/json:
@@ -1459,7 +1457,7 @@ paths:
                     description:
                       type: string
                       example: "Covers outpatient and inpatient treatment."
-        '401':
+        "401":
           description: Unauthorized – JWT token missing or invalid
           content:
             application/json:
@@ -1469,7 +1467,7 @@ paths:
                   message:
                     type: string
                     example: Unauthorized
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -1479,8 +1477,6 @@ paths:
                   message:
                     type: string
                     example: Internal server error
-
-
 
   /hr_add_asset:
     post:
@@ -2533,8 +2529,6 @@ paths:
                     type: string
                     example: Internal server error
 
-
-
   /emp_pr:
     post:
       tags:
@@ -2859,7 +2853,6 @@ paths:
                     type: string
                     example: Internal server error
 
-
   /emp_lr/:
     post:
       tags:
@@ -2967,7 +2960,6 @@ paths:
                     type: string
                     example: Internal Server Error
 
-    
     get:
       tags:
         - Leave Requests
@@ -3097,7 +3089,6 @@ paths:
                     type: string
                     example: Internal Server Error
 
-
     delete:
       tags:
         - Leave Requests
@@ -3158,7 +3149,7 @@ paths:
                     example: employees/leave_attachments/20250522_medical.pdf
 
       /hr_emp_lr:
-  
+
   /hr_emp_lr:
     get:
       tags:
@@ -3263,7 +3254,6 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
-
 
   /hr_update_empimg:
     patch:
@@ -3492,7 +3482,7 @@ paths:
               - policy_name
               - policy_doc
       responses:
-        '200':
+        "200":
           description: Policy added successfully
           content:
             application/json:
@@ -3505,7 +3495,7 @@ paths:
                   id:
                     type: string
                     example: "123e4567-e89b-12d3-a456-426614174000"
-        '400':
+        "400":
           description: Invalid input or file
           content:
             application/json:
@@ -3519,7 +3509,7 @@ paths:
                     type: object
                     additionalProperties:
                       type: string
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3538,7 +3528,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: List of policies retrieved successfully
           content:
             application/json:
@@ -3563,7 +3553,7 @@ paths:
                     client:
                       type: boolean
                       example: false
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3589,7 +3579,7 @@ paths:
             type: integer
           description: The ID of the policy to delete
       responses:
-        '200':
+        "200":
           description: Policy deleted successfully
           content:
             application/json:
@@ -3599,7 +3589,7 @@ paths:
                   message:
                     type: string
                     example: Policy deleted successfully
-        '404':
+        "404":
           description: Policy with the given ID not found
           content:
             application/json:
@@ -3609,7 +3599,7 @@ paths:
                   message:
                     type: string
                     example: Policy with the given ID not found
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3649,7 +3639,7 @@ paths:
                   format: binary
                   description: New policy document (PDF only, max 5MB)
       responses:
-        '200':
+        "200":
           description: Policy updated successfully
           content:
             application/json:
@@ -3659,7 +3649,7 @@ paths:
                   message:
                     type: string
                     example: Policy updated successfully
-        '400':
+        "400":
           description: Bad request (e.g. missing data, invalid file format/size)
           content:
             application/json:
@@ -3673,7 +3663,7 @@ paths:
                     type: object
                     additionalProperties:
                       type: string
-        '404':
+        "404":
           description: Policy with given ID not found
           content:
             application/json:
@@ -3683,7 +3673,7 @@ paths:
                   message:
                     type: string
                     example: Policy with given id not found
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3710,14 +3700,14 @@ paths:
             type: integer
           description: ID of the policy to download
       responses:
-        '200':
+        "200":
           description: Policy document downloaded successfully
           content:
             application/pdf:
               schema:
                 type: string
                 format: binary
-        '404':
+        "404":
           description: Policy not found or document not found
           content:
             application/json:
@@ -3726,7 +3716,7 @@ paths:
                 properties:
                   message:
                     type: string
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3735,7 +3725,6 @@ paths:
                 properties:
                   message:
                     type: string
-
 
   /emp_policies:
     get:
@@ -3746,7 +3735,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: A list of employee policies
           content:
             application/json:
@@ -3764,7 +3753,7 @@ paths:
                     description:
                       type: string
                       example: This policy outlines the rules and guidelines for remote work.
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3774,7 +3763,6 @@ paths:
                   message:
                     type: string
                     example: Internal server error
-
 
   /hr_policy_edit:
     patch:
@@ -3812,7 +3800,7 @@ paths:
               required:
                 - data
       responses:
-        '200':
+        "200":
           description: Policy assignment updated successfully
           content:
             application/json:
@@ -3822,7 +3810,7 @@ paths:
                   message:
                     type: string
                     example: Policy assignment updated successfully
-        '400':
+        "400":
           description: Invalid policy IDs or bad request
           content:
             application/json:
@@ -3832,7 +3820,7 @@ paths:
                   message:
                     type: string
                     example: Invalid policy IDs
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3844,7 +3832,7 @@ paths:
                     example: Internal Server Error
 
     paths:
-  
+
   /hr_guide:
     post:
       tags:
@@ -3879,7 +3867,7 @@ paths:
                   format: binary
                   description: PDF file (max 5MB)
       responses:
-        '200':
+        "200":
           description: New guide added successfully
           content:
             application/json:
@@ -3892,7 +3880,7 @@ paths:
                   id:
                     type: integer
                     example: 42
-        '400':
+        "400":
           description: Invalid input or file error
           content:
             application/json:
@@ -3905,7 +3893,7 @@ paths:
                   errors:
                     type: object
                     additionalProperties: true
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3924,7 +3912,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: Successfully retrieved list of guides
           content:
             application/json:
@@ -3951,7 +3939,7 @@ paths:
                     client:
                       type: boolean
                       example: false
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -3977,7 +3965,7 @@ paths:
             type: integer
           description: The ID of the guide to delete
       responses:
-        '200':
+        "200":
           description: Guide deleted successfully
           content:
             application/json:
@@ -3987,7 +3975,7 @@ paths:
                   message:
                     type: string
                     example: Guide deleted successfully
-        '404':
+        "404":
           description: Guide not found
           content:
             application/json:
@@ -3997,7 +3985,7 @@ paths:
                   message:
                     type: string
                     example: Guide with the given ID not found
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4044,7 +4032,7 @@ paths:
                   format: binary
                   description: PDF file to replace the existing document
       responses:
-        '200':
+        "200":
           description: Guide updated successfully
           content:
             application/json:
@@ -4054,7 +4042,7 @@ paths:
                   message:
                     type: string
                     example: Guide updated successfully
-        '400':
+        "400":
           description: Missing input or invalid file
           content:
             application/json:
@@ -4068,7 +4056,7 @@ paths:
                     type: object
                     additionalProperties:
                       type: string
-        '404':
+        "404":
           description: Guide not found
           content:
             application/json:
@@ -4078,7 +4066,7 @@ paths:
                   message:
                     type: string
                     example: Guide with given id not found
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4105,14 +4093,14 @@ paths:
             type: integer
           description: ID of the guide to download
       responses:
-        '200':
+        "200":
           description: Guide document successfully returned as a PDF
           content:
             application/pdf:
               schema:
                 type: string
                 format: binary
-        '404':
+        "404":
           description: Guide or document not found
           content:
             application/json:
@@ -4122,7 +4110,7 @@ paths:
                   message:
                     type: string
                     example: Guide document not found
-        '500':
+        "500":
           description: Internal Server Error
           content:
             application/json:
@@ -4142,7 +4130,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: A list of employee guides
           content:
             application/json:
@@ -4163,7 +4151,7 @@ paths:
                     language:
                       type: string
                       example: English
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4210,7 +4198,7 @@ paths:
                         type: boolean
                         example: false
       responses:
-        '200':
+        "200":
           description: Guide assignment updated successfully
           content:
             application/json:
@@ -4220,7 +4208,7 @@ paths:
                   message:
                     type: string
                     example: Guide assignment updated successfully
-        '400':
+        "400":
           description: Invalid guide IDs
           content:
             application/json:
@@ -4230,7 +4218,7 @@ paths:
                   message:
                     type: string
                     example: Invalid guide IDs
-        '500':
+        "500":
           description: Internal Server Error
           content:
             application/json:
@@ -4288,7 +4276,7 @@ paths:
                 - contract_name
                 - contract_doc
       responses:
-        '200':
+        "200":
           description: Contract uploaded successfully
           content:
             application/json:
@@ -4301,7 +4289,7 @@ paths:
                   id:
                     type: integer
                     example: 123
-        '400':
+        "400":
           description: Bad request or validation error
           content:
             application/json:
@@ -4314,7 +4302,7 @@ paths:
                   errors:
                     type: object
                     example: { contract_doc: "Only PDF files are allowed" }
-        '404':
+        "404":
           description: Client or employee not found
           content:
             application/json:
@@ -4324,7 +4312,7 @@ paths:
                   message:
                     type: string
                     example: Client with this ID does not exist
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4351,7 +4339,7 @@ paths:
           required: true
           description: Specifies whether to fetch client or employee contracts.
       responses:
-        '200':
+        "200":
           description: List of company contracts
           content:
             application/json:
@@ -4379,7 +4367,7 @@ paths:
                       type: string
                       format: date
                       example: 2025-06-04
-        '400':
+        "400":
           description: Invalid status provided
           content:
             application/json:
@@ -4389,7 +4377,7 @@ paths:
                   message:
                     type: string
                     example: Invalid status
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4422,7 +4410,7 @@ paths:
           required: true
           description: Type of the contract to delete (client or employee).
       responses:
-        '200':
+        "200":
           description: Contract deleted successfully
           content:
             application/json:
@@ -4432,7 +4420,7 @@ paths:
                   message:
                     type: string
                     example: Client contract deleted successfully
-        '400':
+        "400":
           description: Failed to delete contract or invalid status
           content:
             application/json:
@@ -4442,7 +4430,7 @@ paths:
                   message:
                     type: string
                     example: Invalid status
-        '404':
+        "404":
           description: Contract not found
           content:
             application/json:
@@ -4452,7 +4440,7 @@ paths:
                   message:
                     type: string
                     example: Client contract with the given ID not found
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4503,7 +4491,7 @@ paths:
                   format: binary
                   description: Optional new contract document (PDF, max 5MB).
       responses:
-        '200':
+        "200":
           description: Contract updated successfully
           content:
             application/json:
@@ -4513,7 +4501,7 @@ paths:
                   message:
                     type: string
                     example: Employee contract updated successfully
-        '400':
+        "400":
           description: Bad request (e.g., missing data or invalid file)
           content:
             application/json:
@@ -4527,7 +4515,7 @@ paths:
                     type: object
                     additionalProperties:
                       type: string
-        '404':
+        "404":
           description: Contract not found
           content:
             application/json:
@@ -4537,7 +4525,7 @@ paths:
                   message:
                     type: string
                     example: Employee contract with given id not found
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4550,7 +4538,7 @@ paths:
 
   /down_comp_cont:
     get:
-      tags: 
+      tags:
         - Company Contracts
       summary: Download a company contract document
       description: Downloads a contract document (PDF) for either a client or an employee based on the `tab` value.
@@ -4571,14 +4559,14 @@ paths:
           required: true
           description: Type of contract (client or employee).
       responses:
-        '200':
+        "200":
           description: PDF contract file successfully downloaded
           content:
             application/pdf:
               schema:
                 type: string
                 format: binary
-        '400':
+        "400":
           description: Invalid tab or bad request
           content:
             application/json:
@@ -4588,7 +4576,7 @@ paths:
                   message:
                     type: string
                     example: Invalid tab
-        '404':
+        "404":
           description: Contract or document not found
           content:
             application/json:
@@ -4598,7 +4586,7 @@ paths:
                   message:
                     type: string
                     example: Client contract with this id does not exist
-        '500':
+        "500":
           description: Internal Server Error
           content:
             application/json:
@@ -4609,7 +4597,6 @@ paths:
                     type: string
                     example: Internal Server Error
 
- 
   /emp_compcontract:
     get:
       tags:
@@ -4619,7 +4606,7 @@ paths:
       security:
         - bearerAuth: []
       responses:
-        '200':
+        "200":
           description: Successfully retrieved employee contracts
           content:
             application/json:
@@ -4644,7 +4631,7 @@ paths:
                       type: string
                       format: date
                       example: "2025-06-04"
-        '401':
+        "401":
           description: Unauthorized – JWT token missing or invalid
           content:
             application/json:
@@ -4654,7 +4641,7 @@ paths:
                   message:
                     type: string
                     example: Unauthorized
-        '500':
+        "500":
           description: Internal server error
           content:
             application/json:
@@ -4665,6 +4652,43 @@ paths:
                     type: string
                     example: Internal server error
 
+
+  /emp_timesheet:
+    get:
+      tags:
+        - Attendance: Time sheet
+      summary: Endpoint to retrieve timesheet data.
+      description: Retrieves time sheet, summary, and employee details for the given employee and client within the specified date range. Defaults to 1st of current month to today if not provided.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: workspace
+          required: true
+          description: Specify current client email
+          schema:
+            type: string
+            format: email
+        - in: query
+          name: from
+          required: false
+          description: Start date (defaults to 1st of current month)
+          schema:
+            type: string
+            format: date
+            example: "2024-06-01"
+        - in: query
+          name: to
+          required: false
+          description: End date (defaults to today)
+          schema:
+            type: string
+            format: date
+            example: "2024-06-12"
+      responses:
+        "200":
+          description: Successful response
+=======
 
   /hr_offscontract:
     post:
@@ -5187,10 +5211,94 @@ paths:
               schema:
                 type: object
                 properties:
+                  time_sheet:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        check_in:
+                          type: string
+                          example: "10:00 AM"
+                        check_out:
+                          type: string
+                          example: "07:00 PM"
+                        break:
+                          type: string
+                          example: "01:00 PM"
+                        resume:
+                          type: string
+                          example: "02:00 PM"
+                        hours_worked:
+                          type: string
+                        overtime:
+                          type: string
+                        status:
+                          type: object
+                          properties:
+                            Present:
+                              type: boolean
+                            Missing:
+                              type: boolean
+                            Absent:
+                              type: boolean
+                            Short Duration:
+                              type: boolean
+                            Day Off:
+                              type: boolean
+                            Full Leave:
+                              type: boolean
+                  time_sheet_summary:
+                    type: object
+                    properties:
+                      workable_shifts:
+                        type: integer
+                      workable_hours:
+                        type: string
+                      worked_hours:
+                        type: string
+                      short_hours:
+                        type: string
+                      overtime_hours:
+                        type: string
+                      short_duration:
+                        type: integer
+                      present:
+                        type: integer
+                      absent:
+                        type: integer
+                      day_off:
+                        type: integer
+                      missing_punch:
+                        type: integer
+                      leaves:
+                        type: integer
                   employee_details:
                     type: object
                     properties:
                       employee_id:
+                        type: string
+                      employee_name:
+                        type: string
+                      company:
+                        type: string
+                      location:
+                        type: string
+                      role_type:
+                        type: string
+                      job_title:
+                        type: string
+                      joining_date:
+                        type: string
+                        format: date
+        "204":
+          description: No content – no timesheet entries found
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized – Bearer token missing or invalid
+        "500":
+          description: Internal server error
+
                         type: integer
                       employee_name:
                         type: string
@@ -5377,4 +5485,5 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
 
