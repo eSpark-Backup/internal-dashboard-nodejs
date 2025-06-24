@@ -8,24 +8,55 @@ import {
   parse,
 } from "date-fns";
 import { logger } from "../../../helpers/logger.js";
+import { validateAndCleanTime } from "../../../helpers/utils.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL || "talent@esparkconsultants.com";
 
 const MONTH_MAP = {
-  January: 1, February: 2, March: 3, April: 4,
-  May: 5, June: 6, July: 7, August: 8,
-  September: 9, October: 10, November: 11, December: 12
+  January: 1,
+  February: 2,
+  March: 3,
+  April: 4,
+  May: 5,
+  June: 6,
+  July: 7,
+  August: 8,
+  September: 9,
+  October: 10,
+  November: 11,
+  December: 12,
 };
 
 export const getHrEmpAttendance = async (req, res) => {
-  const { e_email, from, to } = req.query;
-  logger.info(`Received getHrEmpAttendance request for employee email: ${e_email}`);
+  const {
+    e_email,
+    from,
+    to,
+    status,
+    checkInFrom,
+    checkInTo,
+    checkOutFrom,
+    checkOutTo,
+  } = req.query;
+
+  let checkInStartTime, checkInEndTime, checkOutStartTime, checkOutEndTime;
+
+  if (checkInFrom) checkInStartTime = validateAndCleanTime(checkInFrom);
+  if (checkInTo) checkInEndTime = validateAndCleanTime(checkInTo);
+  if (checkOutFrom) checkOutStartTime = validateAndCleanTime(checkOutFrom);
+  if (checkOutTo) checkOutEndTime = validateAndCleanTime(checkOutTo);
+
+  logger.info(
+    `Received getHrEmpAttendance request for employee email: ${e_email}`
+  );
 
   try {
     const fromDate = from ? parseISO(from) : startOfMonth(new Date());
     const toDate = to ? parseISO(to) : endOfMonth(new Date());
 
-    logger.info(`Using date range from ${fromDate.toISOString()} to ${toDate.toISOString()}`);
+    logger.info(
+      `Using date range from ${fromDate.toISOString()} to ${toDate.toISOString()}`
+    );
 
     const empQuery = await pool.query(
       "SELECT * FROM eSparkTalentAPI_employee WHERE email = $1",
@@ -54,19 +85,23 @@ export const getHrEmpAttendance = async (req, res) => {
       return res.sendStatus(204);
     }
 
-    const clientIds = [...new Set(timeSheets.map(ts => ts.client_id))];
+    const clientIds = [...new Set(timeSheets.map((ts) => ts.client_id))];
     const clientQuery = await pool.query(
       "SELECT * FROM eSparkTalentAPI_client WHERE id = ANY($1::bigint[])",
       [clientIds]
     );
-    const clientMap = Object.fromEntries(clientQuery.rows.map(c => [c.id, c]));
+    const clientMap = Object.fromEntries(
+      clientQuery.rows.map((c) => [c.id, c])
+    );
 
     const outsrcQuery = await pool.query(
       `SELECT * FROM eSparkTalentAPI_outsource_employees
        WHERE employee_id = $1 AND client_id = ANY($2::bigint[])`,
       [employeeId, clientIds]
     );
-    const outsrcMap = Object.fromEntries(outsrcQuery.rows.map(o => [o.client_id, o]));
+    const outsrcMap = Object.fromEntries(
+      outsrcQuery.rows.map((o) => [o.client_id, o])
+    );
 
     const records = [];
 
@@ -78,10 +113,10 @@ export const getHrEmpAttendance = async (req, res) => {
       }
 
       if (
-        (ts.year < fromYear) ||
-        (ts.year === fromYear && monthNum < (fromDate.getMonth() + 1)) ||
-        (ts.year > toYear) ||
-        (ts.year === toYear && monthNum > (toDate.getMonth() + 1))
+        ts.year < fromYear ||
+        (ts.year === fromYear && monthNum < fromDate.getMonth() + 1) ||
+        ts.year > toYear ||
+        (ts.year === toYear && monthNum > toDate.getMonth() + 1)
       ) {
         continue;
       }
@@ -89,18 +124,66 @@ export const getHrEmpAttendance = async (req, res) => {
       const record = ts.record || {};
       const filteredRecord = {};
 
-      for (const [dateStr, status] of Object.entries(record)) {
+      for (const [dateStr, value] of Object.entries(record)) {
         if (!dateStr || !dateStr.includes("-")) continue;
 
         const date = parse(dateStr, "dd-MM-yyyy", new Date());
         if (!isValid(date)) continue;
+        if (!isWithinInterval(date, { start: fromDate, end: toDate })) continue;
 
-        if (isWithinInterval(date, { start: fromDate, end: toDate })) {
-          filteredRecord[dateStr] = status;
+        const dailyStatus = value.status || {};
+        const checkIn = value.check_in;
+        const checkOut = value.check_out;
+
+        logger.info(
+          `Evaluating ${dateStr} | Status: ${JSON.stringify(
+            dailyStatus
+          )} | CheckIn: ${checkIn}, CheckOut: ${checkOut}`
+        );
+
+        if (status && !dailyStatus?.[status]) {
+          logger.info(`Skipping ${dateStr}: status '${status}' not matched.`);
+          continue;
         }
+
+        if (checkInStartTime && checkIn && checkIn < checkInStartTime) {
+          logger.info(
+            `Skipping ${dateStr}: checkIn ${checkIn} < ${checkInStartTime}`
+          );
+          continue;
+        }
+
+        if (checkInEndTime && checkIn && checkIn > checkInEndTime) {
+          logger.info(
+            `Skipping ${dateStr}: checkIn ${checkIn} > ${checkInEndTime}`
+          );
+          continue;
+        }
+
+        if (checkOutStartTime && checkOut && checkOut < checkOutStartTime) {
+          logger.info(
+            `Skipping ${dateStr}: checkOut ${checkOut} < ${checkOutStartTime}`
+          );
+          continue;
+        }
+
+        if (checkOutEndTime && checkOut && checkOut > checkOutEndTime) {
+          logger.info(
+            `Skipping ${dateStr}: checkOut ${checkOut} > ${checkOutEndTime}`
+          );
+          continue;
+        }
+
+        logger.info(`Included ${dateStr}`);
+        filteredRecord[dateStr] = value;
       }
 
       if (Object.keys(filteredRecord).length === 0) continue;
+      logger.info(
+        `Total filtered days for this sheet: ${
+          Object.keys(filteredRecord).length
+        }`
+      );
 
       const client = clientMap[ts.client_id];
       const outsrcEmp = outsrcMap[ts.client_id];
@@ -155,9 +238,10 @@ export const getHrEmpAttendance = async (req, res) => {
       return nameA.localeCompare(nameB);
     });
 
-    logger.info(`Returning ${records.length} attendance record(s) for employee id: ${employeeId}`);
+    logger.info(
+      `Returning ${records.length} attendance record(s) for employee id: ${employeeId}`
+    );
     return res.status(200).json(records);
-
   } catch (error) {
     logger.error("Error in getHrEmpAttendance:", error);
     return res.status(500).json({ message: "Internal server error." });
