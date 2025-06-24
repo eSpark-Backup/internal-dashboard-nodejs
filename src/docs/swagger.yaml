@@ -4688,7 +4688,7 @@ paths:
       responses:
         "200":
           description: Successful response
-=======
+
 
   /hr_offscontract:
     post:
@@ -5290,25 +5290,6 @@ paths:
                       joining_date:
                         type: string
                         format: date
-        "204":
-          description: No content – no timesheet entries found
-        "400":
-          description: Bad Request
-        "401":
-          description: Unauthorized – Bearer token missing or invalid
-        "500":
-          description: Internal server error
-
-                        type: integer
-                      employee_name:
-                        type: string
-                      employee_email:
-                        type: string
-                      image:
-                        type: string
-                        format: uri
-                      job_title:
-                        type: string
                   company_image:
                     type: string
                   workspaces:
@@ -5325,81 +5306,131 @@ paths:
                   attendance_summary:
                     type: object
                     properties:
-                      shifts: { type: integer }
-                      expected_minutes: { type: integer }
-                      worked_minutes: { type: integer }
-                      short_minutes: { type: integer }
-                      leaves: { type: integer }
-                      absents: { type: integer }
-                      presents: { type: integer }
-                      missings: { type: integer }
-                      days_off: { type: integer }
-                      overtimes: { type: integer }
-                      short_durations: { type: integer }
-                      late_arrivals: { type: integer }
-                      break_minutes: { type: number, format: float }
+                      shifts:
+                        type: integer
+                      expected_minutes:
+                        type: integer
+                      worked_minutes:
+                        type: integer
+                      short_minutes:
+                        type: integer
+                      leaves:
+                        type: integer
+                      absents:
+                        type: integer
+                      presents:
+                        type: integer
+                      missings:
+                        type: integer
+                      days_off:
+                        type: integer
+                      overtimes:
+                        type: integer
+                      short_durations:
+                        type: integer
+                      late_arrivals:
+                        type: integer
+                      break_minutes:
+                        type: number
+                        format: float
                   punch_timings:
                     type: object
                     properties:
-                      check_in: { type: string, nullable: true }
-                      check_out: { type: string, nullable: true }
+                      check_in:
+                        type: string
+                        nullable: true
+                      check_out:
+                        type: string
+                        nullable: true
                   leave_summary:
                     type: object
                     properties:
-                      id: { type: integer }
+                      id:
+                        type: integer
                       casual_leaves:
                         type: object
                         properties:
-                          granted: { type: integer }
-                          used: { type: integer }
-                          pending: { type: integer }
+                          granted:
+                            type: integer
+                          used:
+                            type: integer
+                          pending:
+                            type: integer
                       sick_leaves:
                         type: object
                         properties:
-                          granted: { type: integer }
-                          used: { type: integer }
-                          pending: { type: integer }
+                          granted:
+                            type: integer
+                          used:
+                            type: integer
+                          pending:
+                            type: integer
                       annual_leaves:
                         type: object
                         properties:
-                          granted: { type: integer }
-                          used: { type: integer }
-                          pending: { type: integer }
+                          granted:
+                            type: integer
+                          used:
+                            type: integer
+                          pending:
+                            type: integer
                       unpaid_leaves:
                         type: object
                         properties:
-                          granted: { type: integer }
-                          used: { type: integer }
-                          pending: { type: integer }
+                          granted:
+                            type: integer
+                          used:
+                            type: integer
+                          pending:
+                            type: integer
                       hajj_leaves:
                         type: object
                         properties:
-                          granted: { type: integer }
-                          used: { type: integer }
-                          pending: { type: integer }
+                          granted:
+                            type: integer
+                          used:
+                            type: integer
+                          pending:
+                            type: integer
                       paid_leaves:
                         type: object
                         properties:
-                          granted: { type: integer }
-                          used: { type: integer }
-                          pending: { type: integer }
+                          granted:
+                            type: integer
+                          used:
+                            type: integer
+                          pending:
+                            type: integer
                   statistics:
                     type: object
                     properties:
-                      today: { type: string }
-                      this_week: { type: string }
-                      this_month: { type: string }
-                      remaining: { type: string }
-                      overtime: { type: string }
+                      today:
+                        type: string
+                      this_week:
+                        type: string
+                      this_month:
+                        type: string
+                      remaining:
+                        type: string
+                      overtime:
+                        type: string
                   today_activity:
                     type: object
                     properties:
-                      check_in: { type: string }
-                      check_out: { type: string }
-                      break: { type: string }
-                      resume: { type: string }
+                      check_in:
+                        type: string
+                      check_out:
+                        type: string
+                      break:
+                        type: string
+                      resume:
+                        type: string
+        '204':
+          description: No content – no timesheet entries found
+        '400':
+          description: Bad Request
         '401':
-          description: Unauthorized
+          description: Unauthorized – Bearer token missing or invalid
         '404':
           description: Not Found
         '500':
