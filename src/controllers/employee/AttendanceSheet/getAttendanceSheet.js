@@ -13,6 +13,9 @@ import {
     startOfDay
 } from "date-fns";
 
+import { getWeekdaysCount } from "../../../helpers/utils.js";
+
+
 import pool from "../../../config/db.js";
 
 const getTimeSheetDetails = async (req, res) => {
@@ -112,8 +115,10 @@ const getTimeSheetDetails = async (req, res) => {
             if (rec.status['Full Leave']) leaves++;
             if (rec.status['Day Off']) dayOff++;
             if (rec.status['Absent']) absent++;
-            if (!rec.status['Day Off'] && !rec.status['Full Leave']) actualShifts++;
+            // if (!rec.status['Day Off'] && !rec.status['Full Leave']) actualShifts++;
         }
+        actualShifts = getWeekdaysCount(startOfDay(fromDate), startOfDay(toDate));
+
 
         let workedHours = hoursWorked || minutesWorked ? `${hoursWorked}h ${minutesWorked}m` : '0h';
         const workableMinutes = actualShifts * workingHours * 60;
@@ -159,11 +164,11 @@ const getTimeSheetDetails = async (req, res) => {
 
         return res.status(200).json({
             time_sheet: {
-                id:timeSheets[0].id,
+                id: timeSheets[0].id,
                 record: filteredRecord,
                 month: fromMonth,
                 year: fromYear,
-                expected_check_in:employee.punch_timings.check_in,
+                expected_check_in: employee.punch_timings.check_in,
                 expected_check_out: employee.punch_timings.check_out,
             },
             time_sheet_summary: summary,

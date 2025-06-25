@@ -20,6 +20,20 @@ const getFormattedTimestamp = () => {
   return format(new Date(), "MM-dd-yyyy_HH-mm-ss");
 };
 
+const getWeekdaysCount = (startDate, endDate) => {
+  let count = 0;
+  let current = new Date(startDate);
+
+  while (current <= endDate) {
+    const day = current.getDay();
+    if (day !== 0 && day !== 6) count++; 
+    current.setDate(current.getDate() + 1);
+  }
+
+  return count;
+};
+
+
 function encrypt(plaintext) {
   const cipher = crypto.createCipheriv(
     AES_ALGORITHM,
@@ -149,4 +163,5 @@ export {
   validateAndCleanTime,
   parseTimeToMinutes,
   cleanupFiles,
+  getWeekdaysCount
 };
