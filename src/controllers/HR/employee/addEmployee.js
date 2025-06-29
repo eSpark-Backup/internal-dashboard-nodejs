@@ -256,7 +256,7 @@ const addEmployee = async (req, res) => {
     await client.query("ROLLBACK");
     await cleanupFiles([{ localPath: imageFile?.path, s3Key: imageS3Key }, { localPath: resumeFile?.path, s3Key: resumeS3Key }]);
     logger.error("Add employee error:", err);
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Failed to add employee" });
   } finally {
     if (client) client.release();
   }

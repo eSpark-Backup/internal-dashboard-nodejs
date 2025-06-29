@@ -136,6 +136,9 @@ import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloa
 import { getEmpAttendanceSchema } from "../validations/hrEmpAttendanceSchema.js";
 import { getHrEmpAttendance } from "../controllers/HR/attendnaceReport/getHrEmpAttendance.js";
 import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
+import { addClientSchema } from "../validations/clientSchema.js";
+import addClient from "../controllers/HR/client/addClient.js";
+import getClients from "../controllers/HR/client/getClients.js";
 
 const router = express.Router();
 
@@ -588,5 +591,22 @@ router.get(
   validateSchema(getEmpAttendanceSchema),
   getHrEmpAttendance
 );
+
+//Client CRUD Routes
+
+router.post(
+  "/hr_add_client",
+  authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(addClientSchema),
+  addClient
+);
+
+router.get(
+  "/hr_clients", 
+  authenticateJWT, 
+  getClients
+);
+
 
 export default router;

@@ -5193,7 +5193,7 @@ paths:
       summary: Get Employee Home Dashboard
       description: Returns employee details, workspaces, attendance summary, statistics, leave summary, and today's activity.
       tags:
-        - Employee
+        - Employee Home
       security:
         - bearerAuth: []
       parameters:
@@ -5517,4 +5517,161 @@ paths:
                     type: string
                     example: Internal server error
 
+  /hr_add_client:
+    post:
+      summary: Add New Client
+      description: HR can add a new client by providing personal and company details, along with an optional profile image.
+      tags:
+        - Client
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - first_name
+                - last_name
+                - address
+                - client_id
+                - join_date
+                - phone_number
+                - email
+                - company_name
+                - country
+                - password
+                - confirm_password
+              properties:
+                first_name:
+                  type: string
+                  example: John
+                last_name:
+                  type: string
+                  example: Doe
+                address:
+                  type: string
+                  example: 123 Main Street
+                client_id:
+                  type: string
+                  example: CL123
+                join_date:
+                  type: string
+                  format: date
+                  example: "2024-01-01"
+                phone_number:
+                  type: string
+                  example: "+12345678901"
+                email:
+                  type: string
+                  format: email
+                  example: john.doe@example.com
+                company_name:
+                  type: string
+                  example: Acme Inc.
+                country:
+                  type: string
+                  example: USA
+                password:
+                  type: string
+                  format: password
+                  example: Password123!
+                confirm_password:
+                  type: string
+                  format: password
+                  example: Password123!
+                image:
+                  type: string
+                  format: binary
+                  description: Optional profile image file (JPEG, PNG, JPG, SVG, max 5MB)
+      responses:
+        '201':
+          description: Client created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: John Doe is added successfully
+                  id:
+                    type: integer
+                    example: 123
+                  image:
+                    type: string
+                    example: https://s3.example.com/temp/clients/profiles/xyz.jpg
+        '400':
+          description: Validation error or duplicate entry
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+        '401':
+          description: Unauthorized – missing or invalid token
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to add client
+
+  /hr_clients:
+    get:
+      summary: Get All HR Clients
+      description: Returns a list of all clients with their ID, name, company, status, and profile image URL.
+      tags:
+        - Client
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully fetched client list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 101
+                    client_id:
+                      type: string
+                      example: "CL123"
+                    name:
+                      type: string
+                      example: "John Doe"
+                    image_path:
+                      type: string
+                      format: uri
+                      example: "https://s3.example.com/temp/clients/profiles/xyz.jpg"
+                    company_name:
+                      type: string
+                      example: "Acme Inc."
+                    active:
+                      type: boolean
+                      example: true
+        '401':
+          description: Unauthorized – missing or invalid token
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
 
