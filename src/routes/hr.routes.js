@@ -141,6 +141,8 @@ import addClient from "../controllers/HR/client/addClient.js";
 import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
 import deleteClient from "../controllers/HR/client/deleteClient.js";
+import { updateClientProfileSchema } from "../validations/clientSchema.js";
+import updateClientProfile from "../controllers/HR/client/updateClientProfile.js";
 
 const router = express.Router();
 
@@ -624,5 +626,13 @@ router.patch(
   updateClientStatus
 );
 
+
+router.patch(
+  "/hr_client_prof",
+  authenticateJWT,
+  upload.single("image"),
+  validateSchema(updateClientProfileSchema),
+  updateClientProfile
+);
 
 export default router;
