@@ -43,7 +43,7 @@ export const deleteClientSchema = yup.object({
       id: yup.string().required("Client ID is required"),
     }),
   });
-  
+
 export const updateClientProfileSchema = yup.object({
   query: yup.object({
     id: yup.string().required("Client ID is required"),
@@ -70,3 +70,9 @@ export const updateClientProfileSchema = yup.object({
     })
     .noUnknown(true, "Unknown fields are not allowed in the request body"),
 });
+
+export const getClientSchema = yup.object({
+    query: yup.object({
+      id: yup.string().required("Client ID is required"),
+    }),
+  });

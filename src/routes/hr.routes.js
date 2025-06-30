@@ -136,13 +136,14 @@ import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloa
 import { getEmpAttendanceSchema } from "../validations/hrEmpAttendanceSchema.js";
 import { getHrEmpAttendance } from "../controllers/HR/attendnaceReport/getHrEmpAttendance.js";
 import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
-import { addClientSchema, deleteClientSchema, updateClientStatusSchema } from "../validations/clientSchema.js";
+import { addClientSchema, deleteClientSchema, getClientSchema, updateClientStatusSchema } from "../validations/clientSchema.js";
 import addClient from "../controllers/HR/client/addClient.js";
 import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
 import deleteClient from "../controllers/HR/client/deleteClient.js";
 import { updateClientProfileSchema } from "../validations/clientSchema.js";
 import updateClientProfile from "../controllers/HR/client/updateClientProfile.js";
+import getClientProfile from "../controllers/HR/client/getClientProfile.js";
 
 const router = express.Router();
 
@@ -633,6 +634,13 @@ router.patch(
   upload.single("image"),
   validateSchema(updateClientProfileSchema),
   updateClientProfile
+);
+
+router.get(
+  "/hr_client_prof",
+  authenticateJWT,
+  validateSchema(getClientSchema),
+  getClientProfile
 );
 
 export default router;
