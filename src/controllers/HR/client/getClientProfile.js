@@ -5,12 +5,9 @@ import { logger } from "../../../helpers/logger.js";
 const getClientProfile = async (req, res) => {
   const { id } = req.query;
 
-  let client;
-
   try {
-    client = await pool.connect();
 
-    const result = await client.query(
+    const result = await pool.query(
       `SELECT id, client_id, first_name, last_name, company_name, 
           phone_number, email, country, image, address, 
           TO_CHAR(join_date, 'YYYY-MM-DD') AS join_date
@@ -53,8 +50,6 @@ const getClientProfile = async (req, res) => {
   } catch (error) {
     logger.error("Get client profile failed:", error);
     return res.status(500).json({ message: "Internal Server Error" });
-  } finally {
-    if (client) client.release();
   }
 };
 
