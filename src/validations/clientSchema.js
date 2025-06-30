@@ -28,3 +28,18 @@ export const addClientSchema = yup.object({
             .required("Confirm password is required"),
     }),
 });
+
+export const updateClientStatusSchema = yup.object({
+    query: yup.object({
+      id: yup.string().required("Client ID is required"),
+    }),
+    body: yup.object({
+        is_active: yup.boolean().required("Status is required"),
+    }),
+  });
+
+export const deleteClientSchema = yup.object({
+    query: yup.object({
+      id: yup.string().required("Client ID is required"),
+    }),
+  });
