@@ -46,7 +46,12 @@ const updateClientProfile = async (req, res) => {
           file: image,
           name: "image",
           required: false,
-          allowedTypes: ["image/png", "image/jpeg", "image/jpg", "image/svg+xml"],
+          allowedTypes: [
+            "image/png",
+            "image/jpeg",
+            "image/jpg",
+            "image/svg+xml",
+          ],
           maxSizeMB: 5,
         });
 
@@ -87,33 +92,43 @@ const updateClientProfile = async (req, res) => {
       );
     }
 
-    const editableFields = [
-      "first_name",
-      "last_name",
-      "company_name",
-      "phone_number",
-      "join_date",
-      "country",
-      "address",
-      "image",
-    ];
+    const {
+      first_name,
+      last_name,
+      company_name,
+      phone_number,
+      join_date,
+      country,
+      address,
+      image: imageField,
+    } = updates;
 
-    const fieldsToUpdate = editableFields.filter((key) => key in updates);
+    await client.query(
+      `
+  UPDATE eSparkTalentAPI_client SET
+    first_name    = COALESCE($2, first_name),
+    last_name     = COALESCE($3, last_name),
+    company_name  = COALESCE($4, company_name),
+    phone_number  = COALESCE($5, phone_number),
+    join_date     = COALESCE($6, join_date),
+    country       = COALESCE($7, country),
+    address       = COALESCE($8, address),
+    image         = COALESCE($9, image)
+  WHERE id = $1
+  `,
+      [
+        id,
+        first_name ?? null,
+        last_name ?? null,
+        company_name ?? null,
+        phone_number ?? null,
+        join_date ?? null,
+        country ?? null,
+        address ?? null,
+        imageField ?? null,
+      ]
+    );
 
-    if (fieldsToUpdate.length > 0) {
-      const setClause = fieldsToUpdate
-        .map((key, i) => `${key} = $${i + 1}`)
-        .join(", ");
-      const values = fieldsToUpdate.map((key) => updates[key]);
-      values.push(id);
-
-      await client.query(
-        `UPDATE eSparkTalentAPI_client SET ${setClause} WHERE id = $${
-          fieldsToUpdate.length + 1
-        }`,
-        values
-      );
-    }
 
     await client.query("COMMIT");
 
