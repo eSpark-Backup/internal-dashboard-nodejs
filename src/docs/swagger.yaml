@@ -5784,3 +5784,309 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+  /hr_is:
+    post:
+      summary: Add Interview Schedule
+      description: Schedules a new interview and creates a notification for the client.
+      tags:
+        - Client Interview Schedule
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - client_id
+                - employee_name
+                - job_title
+                - interview_date_time
+                - gender
+                - role_type
+                - employment_term
+                - country
+              properties:
+                client_id:
+                  type: string
+                  format: email
+                  example: client@example.com
+                  description: Email of the client
+                employee_name:
+                  type: string
+                  example: Ahmed Khan
+                job_title:
+                  type: string
+                  example: Frontend Developer
+                interview_date_time:
+                  type: string
+                  format: date-time
+                  example: "2025-06-06T11:00:00Z"
+                gender:
+                  type: string
+                  example: Male
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                country:
+                  type: string
+                  example: Pakistan
+      responses:
+        '200':
+          description: Interview scheduled successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule is scheduled
+                  id:
+                    type: number
+                    example: 101
+        '400':
+          description: Validation failed or insertion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to add interview schedule
+        '404':
+          description: Client not found with provided email
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client does not exist with given client email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      summary: Get Interview Schedule
+      description: Retrieves a list of interview schedules for a specific client by client ID.
+      tags:
+        - Client Interview Schedule
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "3"
+          description: The ID of the client
+      responses:
+        '200':
+          description: A list of scheduled interviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 12
+                    employee_name:
+                      type: string
+                      example: Ahmed Khan
+                    gender:
+                      type: string
+                      example: Male
+                    job_title:
+                      type: string
+                      example: Frontend Developer
+                    role_type:
+                      type: string
+                      example: Junior
+                    employment_term:
+                      type: string
+                      example: Salary based
+                    interview_date_time:
+                      type: string
+                      format: date-time
+                      example: "2025-06-06T11:00:00Z"
+                    country:
+                      type: string
+                      example: Pakistan
+                    status:
+                      type: string
+                      example: pending
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client ID is required
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      summary: Update Interview Schedule
+      description: Update fields of an existing interview schedule. At least one updatable field must be provided.
+      tags:
+        - Client Interview Schedule
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "15"
+          description: ID of the interview schedule to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employee_name:
+                  type: string
+                  example: Ahmed Khan
+                job_title:
+                  type: string
+                  example: Frontend Developer
+                interview_date_time:
+                  type: string
+                  format: date-time
+                  example: "2025-06-10T10:00:00Z"
+                gender:
+                  type: string
+                  example: Male
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                  example: Junior
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                  example: Salary based
+                country:
+                  type: string
+                  example: Pakistan
+              description: At least one of the fields must be provided
+      responses:
+        '200':
+          description: Interview schedule updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule updated successfully
+        '400':
+          description: Validation or update failure
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to update interview schedule
+        '404':
+          description: Interview schedule not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule not found with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      summary: Delete Interview Schedule
+      description: Deletes an interview schedule and its associated notification (if any).
+      tags:
+        - Client Interview Schedule
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+            example: "42"
+          description: Interview Schedule ID
+      responses:
+        '200':
+          description: Interview schedule deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule has been deleted
+        '404':
+          description: Interview schedule not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
