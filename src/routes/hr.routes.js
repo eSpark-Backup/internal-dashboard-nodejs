@@ -136,11 +136,17 @@ import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloa
 import { getEmpAttendanceSchema } from "../validations/hrEmpAttendanceSchema.js";
 import { getHrEmpAttendance } from "../controllers/HR/attendnaceReport/getHrEmpAttendance.js";
 import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
-import { addClientSchema, deleteClientSchema, updateClientStatusSchema } from "../validations/clientSchema.js";
+import {
+  addClientSchema,
+  deleteClientSchema,
+  updateClientStatusSchema,
+} from "../validations/clientSchema.js";
 import addClient from "../controllers/HR/client/addClient.js";
 import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
 import deleteClient from "../controllers/HR/client/deleteClient.js";
+import { hrStartHireSchema } from "../validations/hrStartHireSchema.js";
+import addStartHire from "../controllers/HR/client/startHire/addStartHire.js";
 
 const router = express.Router();
 
@@ -559,11 +565,7 @@ router.post(
   addOffshoreContract
 );
 
-router.get(
-  "/hr_offscontract",
-  authenticateJWT,
-  getOffshoreContracts
-);
+router.get("/hr_offscontract", authenticateJWT, getOffshoreContracts);
 
 router.delete(
   "/hr_offscontract",
@@ -604,11 +606,7 @@ router.post(
   addClient
 );
 
-router.get(
-  "/hr_clients", 
-  authenticateJWT, 
-  getClients
-);
+router.get("/hr_clients", authenticateJWT, getClients);
 
 router.delete(
   "/hr_clients",
@@ -624,5 +622,12 @@ router.patch(
   updateClientStatus
 );
 
+router.post(
+  "/hr_start_hire/",
+  authenticateJWT,
+  upload.single("job_description"),
+  validateSchema(hrStartHireSchema),
+  addStartHire
+);
 
 export default router;
