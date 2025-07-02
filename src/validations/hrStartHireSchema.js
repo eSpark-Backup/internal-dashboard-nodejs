@@ -101,3 +101,9 @@ export const deleteStartHireSchema = yup.object({
     id: yup.string().required("Hiring request ID is required"),
   }),
 });
+
+export const downloadStartHireJDSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Hiring request ID is required"),
+  }),
+});
