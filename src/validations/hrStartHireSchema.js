@@ -20,7 +20,7 @@ export const hrStartHireSchema = yup.object({
         try {
           return JSON.parse(originalValue);
         } catch {
-          return {}; 
+          return {};
         }
       })
       .test(
@@ -29,8 +29,10 @@ export const hrStartHireSchema = yup.object({
         (value) => {
           return (
             value &&
-            typeof value.minimum === "string" &&
-            typeof value.maximum === "string"
+            (typeof value.minimum === "string" ||
+              typeof value.minimum === "number") &&
+            (typeof value.maximum === "string" ||
+              typeof value.maximum === "number")
           );
         }
       )
@@ -44,7 +46,52 @@ export const hrStartHireSchema = yup.object({
 });
 
 export const getHrStartHireSchema = yup.object({
-    query: yup.object({
-        id: yup.string().required("Client ID is required"),
-    }),
+  query: yup.object({
+    id: yup.string().required("Client ID is required"),
+  }),
+});
+
+export const updateStartHireSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Hiring request ID is required"),
+  }),
+  body: yup.object({
+    job_title: yup.string().optional(),
+    role_type: yup.string().optional(),
+    gender: yup.string().optional(),
+    employment_term: yup
+      .string()
+      .oneOf(["Salary based", "Hourly based", "Project based"])
+      .optional(),
+    salary_range: yup
+      .mixed()
+      .transform((value, originalValue) => {
+        if (typeof originalValue === "object") return originalValue;
+        try {
+          return JSON.parse(originalValue);
+        } catch {
+          return {};
+        }
+      })
+      .test(
+        "is-valid-salary-range",
+        "Salary range must have minimum and maximum",
+        (value) => {
+          if (value === undefined) return true;
+          return (
+            value &&
+            (typeof value.minimum === "string" ||
+              typeof value.minimum === "number") &&
+            (typeof value.maximum === "string" ||
+              typeof value.maximum === "number")
+          );
+        }
+      )
+      .optional(),
+    salary_currency: yup.string().optional(),
+    country: yup.string().optional(),
+    hiring_start_date: yup.date().optional(),
+    hiring_end_date: yup.date().optional(),
+    comments: yup.string().nullable().optional(),
+  }),
 });

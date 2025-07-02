@@ -67,19 +67,28 @@ const addStartHire = async (req, res) => {
     const fileContent = fs.readFileSync(job_description.path);
     await uploadToS3(s3Key, fileContent, job_description.mimetype);
     await cleanupFiles([{ localPath: job_description.path }]);
+    const parsedRange =
+      typeof salary_range === "string"
+        ? JSON.parse(salary_range)
+        : salary_range;
+
+    const parsedSalaryRange = {
+      minimum: String(parsedRange.minimum),
+      maximum: String(parsedRange.maximum),
+    };
 
     const hiringReq = await client.query(
       `INSERT INTO eSparkTalentAPI_hiring_request 
-      (client_id, job_title, role_type, gender, employment_term, salary_range, salary_currency, country, hiring_start_date, hiring_end_date, job_description, comments) 
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) 
-      RETURNING id`,
+  (client_id, job_title, role_type, gender, employment_term, salary_range, salary_currency, country, hiring_start_date, hiring_end_date, job_description, comments) 
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) 
+  RETURNING id`,
       [
         clientResult.rows[0].id,
         job_title,
         role_type,
         gender,
         employment_term,
-        salary_range,
+        JSON.stringify(parsedSalaryRange),
         salary_currency,
         country,
         hiring_start_date,
@@ -97,7 +106,7 @@ const addStartHire = async (req, res) => {
     }
 
     const notification = await client.query(
-      `INSERT INTO eSparkTalentAPI_notifications (email, ref_id, notification_type, description, status) 
+      `INSERT INTO eSparkTalentAPI_notifications (email, ref_id, notification_type, description, status)
        VALUES ($1, $2, $3, $4, $5) RETURNING id`,
       [
         clientResult.rows[0].email,
