@@ -149,6 +149,11 @@ import deleteInterviewSchedule from "../controllers/HR/client/interviewSchedule/
 import { updateClientProfileSchema } from "../validations/clientSchema.js";
 import updateClientProfile from "../controllers/HR/client/updateClientProfile.js";
 import getClientProfile from "../controllers/HR/client/getClientProfile.js";
+import { addOnboardingSchema, deleteOnboardingSchema, getOnboardingSchema, updateOnboardingSchema } from "../validations/addOnboardingSchema.js";
+import addOnboarding from "../controllers/HR/client/onBoarding/addOnboarding.js";
+import getOnboarding from "../controllers/HR/client/onBoarding/getOnboarding.js";
+import deleteOnboarding from "../controllers/HR/client/onBoarding/deleteOnboarding.js";
+import updateOnboarding from "../controllers/HR/client/onBoarding/updateOnboarding.js";
 
 const router = express.Router();
 
@@ -676,5 +681,37 @@ router.get(
   validateSchema(getClientSchema),
   getClientProfile
 );
+
+// Onboarding CRUD Routes
+
+router.post(
+  "/hr_onboarding",
+  authenticateJWT,
+  validateSchema(addOnboardingSchema),
+  addOnboarding
+);
+
+router.get(
+  "/hr_onboarding",
+  authenticateJWT,
+  validateSchema(getOnboardingSchema),
+  getOnboarding
+);
+
+router.delete(
+  "/hr_onboarding",
+  authenticateJWT,
+  validateSchema(deleteOnboardingSchema),
+  deleteOnboarding
+);
+
+router.patch(
+  "/hr_onboarding",
+  authenticateJWT,
+  upload.none(),
+  validateSchema(updateOnboardingSchema),
+  updateOnboarding
+);
+
 
 export default router;
