@@ -6090,3 +6090,328 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+   
+  /hr_onboarding:
+    post:
+      summary: Add Onboarding Record
+      description: Adds a new onboarding entry for an employee under a client. Also creates a related notification.
+      tags:
+        - Client Onboarding
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - employee_name
+                - client_id
+                - job_title
+                - joining_date
+                - notice_period
+                - salary
+                - gender
+                - role_type
+                - employment_term
+                - country
+                - salary_currency
+              properties:
+                employee_name:
+                  type: string
+                  example: ABC
+                client_id:
+                  type: string
+                  format: email
+                  example: client@example.com
+                job_title:
+                  type: string
+                  example: React Developer
+                joining_date:
+                  type: string
+                  format: date
+                  example: "2025-06-15"
+                notice_period:
+                  type: string
+                  example: "10"
+                salary:
+                  type: string
+                  example: "1500"
+                salary_currency:
+                  type: string
+                  example: "$ U.S. dollar"
+                gender:
+                  type: string
+                  example: Male
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                  example: Junior
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                  example: Salary based
+                country:
+                  type: string
+                  example: Pakistan
+      responses:
+        '200':
+          description: Onboarding record added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: You have successfully added ABC onboarded for React Developer position
+                  id:
+                    type: integer
+                    example: 5
+        '400':
+          description: Bad request, onboarding or notification failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to add onboarding
+        '404':
+          description: Client not found with given email
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client does not exist with given client email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      summary: Get Onboarding Records
+      description: Retrieves a list of onboarding entries for a specific client.
+      tags:
+        - Client Onboarding
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the client (as a string)
+      responses:
+        '200':
+          description: A list of onboarding records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 3
+                    employee_name:
+                      type: string
+                      example: ABC
+                    gender:
+                      type: string
+                      example: Male
+                    country:
+                      type: string
+                      example: Pakistan
+                    job_title:
+                      type: string
+                      example: Frontend Developer
+                    role_type:
+                      type: string
+                      example: Junior
+                    employment_term:
+                      type: string
+                      example: Salary based
+                    joining_date:
+                      type: string
+                      format: date
+                      example: "2025-06-01"
+                    notice_period:
+                      type: string
+                      example: "10"
+                    salary:
+                      type: string
+                      example: "2000"
+                    salary_currency:
+                      type: string
+                      example: $ U.S. dollar
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      summary: Delete Onboarding Record
+      description: Deletes an onboarding record by its ID. Also removes any related onboarding notification.
+      tags:
+        - Client Onboarding
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The ID of the onboarding record to delete
+      responses:
+        '200':
+          description: Onboarding record deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Onboarding has been deleted
+        '404':
+          description: Onboarding record not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Onboarding does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      summary: Update Onboarding Record
+      description: Updates fields of an onboarding record by ID. At least one field in the body must be provided.
+      tags:
+        - Client Onboarding
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The ID of the onboarding record to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employee_name:
+                  type: string
+                  example: ABC
+                client_id:
+                  type: string
+                  example: client@example.com
+                job_title:
+                  type: string
+                  example: Backend Developer
+                joining_date:
+                  type: string
+                  format: date
+                  example: "2025-06-01"
+                notice_period:
+                  type: string
+                  example: "10"
+                salary:
+                  type: string
+                  example: "2500"
+                gender:
+                  type: string
+                  example: Male
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                  example: Intermediate
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                  example: Salary based
+                country:
+                  type: string
+                  example: Pakistan
+                salary_currency:
+                  type: string
+                  example: $ U.S. dollar
+              description: At least one field is required
+      responses:
+        '200':
+          description: Onboarding record updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Onboarding updated successfully
+        '400':
+          description: Failed to update onboarding
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to update onboarding
+        '404':
+          description: Onboarding not found with given id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Onboarding not found with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
