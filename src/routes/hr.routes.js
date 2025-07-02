@@ -146,6 +146,7 @@ import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
 import deleteClient from "../controllers/HR/client/deleteClient.js";
 import {
+  deleteStartHireSchema,
   getHrStartHireSchema,
   hrStartHireSchema,
   updateStartHireSchema,
@@ -153,6 +154,7 @@ import {
 import addStartHire from "../controllers/HR/client/startHire/addStartHire.js";
 import getStartHire from "../controllers/HR/client/startHire/getStartHire.js";
 import updateStartHire from "../controllers/HR/client/startHire/updateStartHire.js";
+import deleteStartHire from "../controllers/HR/client/startHire/deleteStartHire.js";
 
 const router = express.Router();
 
@@ -649,6 +651,13 @@ router.patch(
   upload.single("job_description"),
   validateSchema(updateStartHireSchema),
   updateStartHire
+);
+
+router.delete(
+  "/hr_start_hire/",
+  authenticateJWT,
+  validateSchema(deleteStartHireSchema),
+  deleteStartHire
 );
 
 export default router;

@@ -95,3 +95,9 @@ export const updateStartHireSchema = yup.object({
     comments: yup.string().nullable().optional(),
   }),
 });
+
+export const deleteStartHireSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Hiring request ID is required"),
+  }),
+});
