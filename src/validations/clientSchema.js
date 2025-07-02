@@ -43,3 +43,36 @@ export const deleteClientSchema = yup.object({
       id: yup.string().required("Client ID is required"),
     }),
   });
+
+export const updateClientProfileSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Client ID is required"),
+  }),
+  body: yup
+    .object()
+    .shape({
+      client_id: yup.string(),
+      first_name: yup.string(),
+      last_name: yup.string(),
+      company_name: yup.string(),
+      phone_number: yup.string(),
+      join_date: yup.date().typeError("Invalid date format"),
+      country: yup.string(),
+      address: yup.string(),
+      email: yup
+        .mixed()
+        .notRequired()
+        .test({
+          name: "email-not-editable",
+          message: "Email field cannot be edited",
+          test: (value) => value === undefined,
+        }),
+    })
+    .noUnknown(true, "Unknown fields are not allowed in the request body"),
+});
+
+export const getClientSchema = yup.object({
+    query: yup.object({
+      id: yup.string().required("Client ID is required"),
+    }),
+  });

@@ -75,10 +75,6 @@ const getEmployees = async (req, res) => {
       })
     );
 
-    if (records.length === 0) {
-      logger.info("No employees found — returning 204 No Content");
-      return res.status(204).send();
-    }
     logger.info("Returning employee records to client");
 
     return res.status(200).json(records);
