@@ -145,8 +145,9 @@ import addClient from "../controllers/HR/client/addClient.js";
 import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
 import deleteClient from "../controllers/HR/client/deleteClient.js";
-import { hrStartHireSchema } from "../validations/hrStartHireSchema.js";
+import { getHrStartHireSchema, hrStartHireSchema } from "../validations/hrStartHireSchema.js";
 import addStartHire from "../controllers/HR/client/startHire/addStartHire.js";
+import getStartHire from "../controllers/HR/client/startHire/getStartHire.js";
 
 const router = express.Router();
 
@@ -628,6 +629,13 @@ router.post(
   upload.single("job_description"),
   validateSchema(hrStartHireSchema),
   addStartHire
+);
+
+router.get(
+  "/hr_start_hire/",
+  authenticateJWT,
+  validateSchema(getHrStartHireSchema),
+  getStartHire
 );
 
 export default router;

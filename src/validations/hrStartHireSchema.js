@@ -13,23 +13,14 @@ export const hrStartHireSchema = yup.object({
       .string()
       .oneOf(["Salary based", "Hourly based", "Project based"])
       .required("Employment term is required"),
-    // salary_range: yup
-    //   .object({
-    //     minimum: yup.string().required("Minimum salary required"),
-    //     maximum: yup.string().required("Maximum salary required"),
-    //   })
-    //   .required("Salary range is required"),
     salary_range: yup
       .mixed()
       .transform((value, originalValue) => {
-        // If value is already an object, keep it
         if (typeof originalValue === "object") return originalValue;
-
-        // Try parsing if it's a string
         try {
           return JSON.parse(originalValue);
         } catch {
-          return {}; // Force schema validation to catch invalid format
+          return {}; 
         }
       })
       .test(
@@ -50,4 +41,10 @@ export const hrStartHireSchema = yup.object({
     hiring_end_date: yup.date().required("Hiring end date is required"),
     comments: yup.string().nullable(),
   }),
+});
+
+export const getHrStartHireSchema = yup.object({
+    query: yup.object({
+        id: yup.string().required("Client ID is required"),
+    }),
 });
