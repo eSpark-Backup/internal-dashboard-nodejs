@@ -136,7 +136,7 @@ import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloa
 import { getEmpAttendanceSchema } from "../validations/hrEmpAttendanceSchema.js";
 import { getHrEmpAttendance } from "../controllers/HR/attendnaceReport/getHrEmpAttendance.js";
 import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
-import { addClientSchema, deleteClientSchema, updateClientStatusSchema } from "../validations/clientSchema.js";
+import { addClientSchema, deleteClientSchema, getClientSchema, updateClientStatusSchema } from "../validations/clientSchema.js";
 import addClient from "../controllers/HR/client/addClient.js";
 import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
@@ -146,6 +146,9 @@ import addInterviewSchedule from "../controllers/HR/client/interviewSchedule/add
 import getInterviewSchedule from "../controllers/HR/client/interviewSchedule/getInterviewSchedule.js";
 import updateInterviewSchedule from "../controllers/HR/client/interviewSchedule/updateInterviewSchedule.js";
 import deleteInterviewSchedule from "../controllers/HR/client/interviewSchedule/deleteInterviewSchedule.js";
+import { updateClientProfileSchema } from "../validations/clientSchema.js";
+import updateClientProfile from "../controllers/HR/client/updateClientProfile.js";
+import getClientProfile from "../controllers/HR/client/getClientProfile.js";
 
 const router = express.Router();
 
@@ -657,6 +660,21 @@ router.delete(
   authenticateJWT,
   validateSchema(deleteInterviewScheduleSchema),
   deleteInterviewSchedule
+);
+
+router.patch(
+  "/hr_client_prof",
+  authenticateJWT,
+  upload.single("image"),
+  validateSchema(updateClientProfileSchema),
+  updateClientProfile
+);
+
+router.get(
+  "/hr_client_prof",
+  authenticateJWT,
+  validateSchema(getClientSchema),
+  getClientProfile
 );
 
 export default router;
