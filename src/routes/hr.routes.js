@@ -139,6 +139,7 @@ import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
 import {
   addClientSchema,
   deleteClientSchema,
+  getClientSchema,
   updateClientStatusSchema,
 } from "../validations/clientSchema.js";
 import addClient from "../controllers/HR/client/addClient.js";
@@ -157,6 +158,19 @@ import getStartHire from "../controllers/HR/client/startHire/getStartHire.js";
 import updateStartHire from "../controllers/HR/client/startHire/updateStartHire.js";
 import deleteStartHire from "../controllers/HR/client/startHire/deleteStartHire.js";
 import downloadStartHireJD from "../controllers/HR/client/startHire/downloadStartHireJD.js";
+import {
+  addInterviewScheduleSchema,
+  deleteInterviewScheduleSchema,
+  getInterviewScheduleSchema,
+  updateInterviewScheduleSchema,
+} from "../validations/interviewScheduleSchema.js";
+import addInterviewSchedule from "../controllers/HR/client/interviewSchedule/addInterviewSchedule.js";
+import getInterviewSchedule from "../controllers/HR/client/interviewSchedule/getInterviewSchedule.js";
+import updateInterviewSchedule from "../controllers/HR/client/interviewSchedule/updateInterviewSchedule.js";
+import deleteInterviewSchedule from "../controllers/HR/client/interviewSchedule/deleteInterviewSchedule.js";
+import { updateClientProfileSchema } from "../validations/clientSchema.js";
+import updateClientProfile from "../controllers/HR/client/updateClientProfile.js";
+import getClientProfile from "../controllers/HR/client/getClientProfile.js";
 
 const router = express.Router();
 
@@ -667,6 +681,50 @@ router.get(
   authenticateJWT,
   validateSchema(downloadStartHireJDSchema),
   downloadStartHireJD
+);
+//Interview Schedule CRUD Routes
+
+router.post(
+  "/hr_is",
+  authenticateJWT,
+  validateSchema(addInterviewScheduleSchema),
+  addInterviewSchedule
+);
+
+router.get(
+  "/hr_is",
+  authenticateJWT,
+  validateSchema(getInterviewScheduleSchema),
+  getInterviewSchedule
+);
+
+router.patch(
+  "/hr_is",
+  authenticateJWT,
+  validateSchema(updateInterviewScheduleSchema),
+  updateInterviewSchedule
+);
+
+router.delete(
+  "/hr_is",
+  authenticateJWT,
+  validateSchema(deleteInterviewScheduleSchema),
+  deleteInterviewSchedule
+);
+
+router.patch(
+  "/hr_client_prof",
+  authenticateJWT,
+  upload.single("image"),
+  validateSchema(updateClientProfileSchema),
+  updateClientProfile
+);
+
+router.get(
+  "/hr_client_prof",
+  authenticateJWT,
+  validateSchema(getClientSchema),
+  getClientProfile
 );
 
 export default router;
