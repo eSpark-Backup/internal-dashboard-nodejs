@@ -651,6 +651,7 @@ router.get(
 router.patch(
   "/hr_is",
   authenticateJWT,
+  upload.none(),
   validateSchema(updateInterviewScheduleSchema),
   updateInterviewSchedule
 );

@@ -149,7 +149,7 @@ const getTimeSheetDetails = async (req, res) => {
 
         let client = clientResult.rows[0];
 
-        let outsrcResult = await pool.query(`SELECT * FROM eSparkTalentAPI_outsource_employees WHERE employee_id = $1 AND client_id = $2`, [emp.id, client.id]);
+        let outsrcResult = await pool.query(`SELECT id, role_type, job_title, TO_CHAR(joining_date, 'YYYY-MM-DD') AS joining_date FROM eSparkTalentAPI_outsource_employees WHERE employee_id = $1 AND client_id = $2`, [emp.id, client.id]);
         let outsrc = outsrcResult.rows[0];
 
         const employeeDetails = {

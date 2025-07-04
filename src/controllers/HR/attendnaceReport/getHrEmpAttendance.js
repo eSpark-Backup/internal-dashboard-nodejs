@@ -95,7 +95,7 @@ export const getHrEmpAttendance = async (req, res) => {
     );
 
     const outsrcQuery = await pool.query(
-      `SELECT * FROM eSparkTalentAPI_outsource_employees
+      `SELECT id, client_id, role_type, job_title, TO_CHAR(joining_date, 'YYYY-MM-DD') AS joining_date FROM eSparkTalentAPI_outsource_employees
        WHERE employee_id = $1 AND client_id = ANY($2::bigint[])`,
       [employeeId, clientIds]
     );
