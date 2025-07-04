@@ -5117,7 +5117,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\"employee_name\":\"Griffin Bowman\",\"job_title\":\"Exercitationem dolor\",\"interview_date_time\":\"2025-07-16T19:00:00.000Z\",\"gender\":\"Male\",\"role_type\":\"Junior\",\"employment_term\":\"Hourly based\",\"country\":\"Afghanistan\",\"client_id\":\"muzclient@yopmail.com\"}",
+											"raw": "{\"employee_name\":\"Griffin Bowman\",\"job_title\":\"Exercitationem dolor\",\"interview_date_time\":\"2025-07-16T19:00:00.000Z\",\"gender\":\"Male\",\"role_type\":\"Junior\",\"employment_term\":\"Hourly based\",\"country\":\"Afghanistan\"}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5199,6 +5199,297 @@
 												{
 													"key": "id",
 													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "On-Boarding",
+							"item": [
+								{
+									"name": "Add On-Boarding",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNDY1MTMyLCJpYXQiOjE3NTE0NDcxMzIsImp0aSI6ImE3NGYwOGYyNzg1ODRkYzRiODEyNjQxMmRkZTA4ZWRiIiwidXNlcl9pZCI6MX0.QaeHbz8DijtCPYuSEZOyH1rdjIS1_BpCE03rnBBXK24",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"employee_name\":\"Whitney Anderson\",\"job_title\":\"Angular JS Developer\",\"joining_date\":\"2025-07-09\",\"notice_period\":\"42\",\"salary\":\"19\",\"gender\":\"Male\",\"role_type\":\"Senior\",\"employment_term\":\"Salary based\",\"country\":\"Afghanistan\",\"salary_currency\":\"$ U.S. dollar\",\"client_id\":\"abc@example.com\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:3000/api/hr_onboarding/"
+									},
+									"response": []
+								},
+								{
+									"name": "Get On-Boarding",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNDY1MTMyLCJpYXQiOjE3NTE0NDcxMzIsImp0aSI6ImE3NGYwOGYyNzg1ODRkYzRiODEyNjQxMmRkZTA4ZWRiIiwidXNlcl9pZCI6MX0.QaeHbz8DijtCPYuSEZOyH1rdjIS1_BpCE03rnBBXK24",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_onboarding/?id=2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_onboarding",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update On-Boarding",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNDY1MTMyLCJpYXQiOjE3NTE0NDcxMzIsImp0aSI6ImE3NGYwOGYyNzg1ODRkYzRiODEyNjQxMmRkZTA4ZWRiIiwidXNlcl9pZCI6MX0.QaeHbz8DijtCPYuSEZOyH1rdjIS1_BpCE03rnBBXK24",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "employee_name",
+													"value": "xyz",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "nonspec",
+													"type": "text"
+												},
+												{
+													"key": "job_title",
+													"value": "UI UX Designer",
+													"type": "text"
+												},
+												{
+													"key": "role_type",
+													"value": "Intern",
+													"type": "text"
+												},
+												{
+													"key": "employment_term",
+													"value": "Salary based",
+													"type": "text"
+												},
+												{
+													"key": "joining_date",
+													"value": "2025-02-21",
+													"type": "text"
+												},
+												{
+													"key": "country",
+													"value": "Afghanistan",
+													"type": "text"
+												},
+												{
+													"key": "notice_period",
+													"value": "4",
+													"type": "text"
+												},
+												{
+													"key": "salary_currency",
+													"value": "$ U.S. dollar",
+													"type": "text"
+												},
+												{
+													"key": "salary",
+													"value": "400",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/hr_onboarding/?id=3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_onboarding",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete On-Boarding",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNDY1MTMyLCJpYXQiOjE3NTE0NDcxMzIsImp0aSI6ImE3NGYwOGYyNzg1ODRkYzRiODEyNjQxMmRkZTA4ZWRiIiwidXNlcl9pZCI6MX0.QaeHbz8DijtCPYuSEZOyH1rdjIS1_BpCE03rnBBXK24",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_onboarding/?id=4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_onboarding",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "4"
 												}
 											]
 										}
