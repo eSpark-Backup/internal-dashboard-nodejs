@@ -136,12 +136,34 @@ import downloadOffshoreContract from "../controllers/HR/OffShoreContract/downloa
 import { getEmpAttendanceSchema } from "../validations/hrEmpAttendanceSchema.js";
 import { getHrEmpAttendance } from "../controllers/HR/attendnaceReport/getHrEmpAttendance.js";
 import downloadSalary from "../controllers/HR/Salary/downloadSalary.js";
-import { addClientSchema, deleteClientSchema, getClientSchema, updateClientStatusSchema } from "../validations/clientSchema.js";
+import {
+  addClientSchema,
+  deleteClientSchema,
+  getClientSchema,
+  updateClientStatusSchema,
+} from "../validations/clientSchema.js";
 import addClient from "../controllers/HR/client/addClient.js";
 import getClients from "../controllers/HR/client/getClients.js";
 import updateClientStatus from "../controllers/HR/client/updateClientStatus.js";
 import deleteClient from "../controllers/HR/client/deleteClient.js";
-import { addInterviewScheduleSchema, deleteInterviewScheduleSchema, getInterviewScheduleSchema, updateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
+import {
+  deleteStartHireSchema,
+  downloadStartHireJDSchema,
+  getHrStartHireSchema,
+  hrStartHireSchema,
+  updateStartHireSchema,
+} from "../validations/hrStartHireSchema.js";
+import addStartHire from "../controllers/HR/client/startHire/addStartHire.js";
+import getStartHire from "../controllers/HR/client/startHire/getStartHire.js";
+import updateStartHire from "../controllers/HR/client/startHire/updateStartHire.js";
+import deleteStartHire from "../controllers/HR/client/startHire/deleteStartHire.js";
+import downloadStartHireJD from "../controllers/HR/client/startHire/downloadStartHireJD.js";
+import {
+  addInterviewScheduleSchema,
+  deleteInterviewScheduleSchema,
+  getInterviewScheduleSchema,
+  updateInterviewScheduleSchema,
+} from "../validations/interviewScheduleSchema.js";
 import addInterviewSchedule from "../controllers/HR/client/interviewSchedule/addInterviewSchedule.js";
 import getInterviewSchedule from "../controllers/HR/client/interviewSchedule/getInterviewSchedule.js";
 import updateInterviewSchedule from "../controllers/HR/client/interviewSchedule/updateInterviewSchedule.js";
@@ -572,11 +594,7 @@ router.post(
   addOffshoreContract
 );
 
-router.get(
-  "/hr_offscontract",
-  authenticateJWT,
-  getOffshoreContracts
-);
+router.get("/hr_offscontract", authenticateJWT, getOffshoreContracts);
 
 router.delete(
   "/hr_offscontract",
@@ -617,11 +635,7 @@ router.post(
   addClient
 );
 
-router.get(
-  "/hr_clients", 
-  authenticateJWT, 
-  getClients
-);
+router.get("/hr_clients", authenticateJWT, getClients);
 
 router.delete(
   "/hr_clients",
@@ -637,6 +651,42 @@ router.patch(
   updateClientStatus
 );
 
+router.post(
+  "/hr_start_hire/",
+  authenticateJWT,
+  upload.single("job_description"),
+  validateSchema(hrStartHireSchema),
+  addStartHire
+);
+
+router.get(
+  "/hr_start_hire/",
+  authenticateJWT,
+  validateSchema(getHrStartHireSchema),
+  getStartHire
+);
+
+router.patch(
+  "/hr_start_hire/",
+  authenticateJWT,
+  upload.single("job_description"),
+  validateSchema(updateStartHireSchema),
+  updateStartHire
+);
+
+router.delete(
+  "/hr_start_hire/",
+  authenticateJWT,
+  validateSchema(deleteStartHireSchema),
+  deleteStartHire
+);
+
+router.get(
+  "/down_jd/",
+  authenticateJWT,
+  validateSchema(downloadStartHireJDSchema),
+  downloadStartHireJD
+);
 //Interview Schedule CRUD Routes
 
 router.post(
