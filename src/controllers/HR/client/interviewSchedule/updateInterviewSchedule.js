@@ -7,7 +7,7 @@ const updateInterviewSchedule = async (req, res) => {
     const { employee_name, job_title, interview_date_time, gender, role_type, employment_term, country } = req.body || {};
 
     try {
-        const interviewScheduleResult = await pool.query("SELECT id, employee_name, gender, job_title, role_type, employment_term, interview_date_time, country FROM eSparkTalentAPI_interview_schedule WHERE id = $1", [id]);
+        const interviewScheduleResult = await pool.query("SELECT id FROM eSparkTalentAPI_interview_schedule WHERE id = $1", [id]);
 
         if (interviewScheduleResult.rowCount === 0) {
             return res.status(404).json({ message: "Interview schedule not found with given id" });
