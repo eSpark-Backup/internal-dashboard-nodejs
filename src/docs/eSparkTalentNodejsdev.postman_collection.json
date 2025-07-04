@@ -5630,6 +5630,423 @@
 							]
 						},
 						{
+							"name": "Hiring Request",
+							"item": [
+								{
+									"name": "Get Hiring Requests",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_start_hire/?id=3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_start_hire",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Hiring Request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "comments",
+													"value": "xyz",
+													"type": "text"
+												},
+												{
+													"key": "hiring_end_date",
+													"value": "2025-07-16",
+													"type": "text"
+												},
+												{
+													"key": "hiring_start_date",
+													"value": "2025-07-08",
+													"type": "text"
+												},
+												{
+													"key": "job_title",
+													"value": "Flutter Developer",
+													"type": "text"
+												},
+												{
+													"key": "salary_range",
+													"value": "{\"minimum\":\"38\",\"maximum\":\"97\"}",
+													"type": "text"
+												},
+												{
+													"key": "role_type",
+													"value": "Junior",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "Male",
+													"type": "text"
+												},
+												{
+													"key": "country",
+													"value": "Albania",
+													"type": "text"
+												},
+												{
+													"key": "salary_currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "employment_term",
+													"value": "Hourly based",
+													"type": "text"
+												},
+												{
+													"key": "job_description",
+													"type": "file",
+													"src": "blank.pdf"
+												},
+												{
+													"key": "description",
+													"value": "ok",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "muzclient@yopmail.com",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:3000/api/hr_start_hire/"
+									},
+									"response": []
+								},
+								{
+									"name": "Download Hiring Request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/down_jd/?id=133",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"down_jd",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Hiring Request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id",
+													"value": "133",
+													"type": "text"
+												},
+												{
+													"key": "job_title",
+													"value": "Flutter Developer",
+													"type": "text"
+												},
+												{
+													"key": "role_type",
+													"value": "Junior",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "Male",
+													"type": "text"
+												},
+												{
+													"key": "jobDescription",
+													"value": "Download",
+													"type": "text"
+												},
+												{
+													"key": "salary_range",
+													"value": "{\"minimum\":38,\"maximum\":97}",
+													"type": "text"
+												},
+												{
+													"key": "country",
+													"value": "Albania",
+													"type": "text"
+												},
+												{
+													"key": "salary_currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "employment_term",
+													"value": "Hourly based",
+													"type": "text"
+												},
+												{
+													"key": "hiring_end_date",
+													"value": "2025-07-16",
+													"type": "text"
+												},
+												{
+													"key": "hiring_start_date",
+													"value": "2025-07-08",
+													"type": "text"
+												},
+												{
+													"key": "comments",
+													"value": "xyz",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/hr_start_hire/?id=133",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_start_hire",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Hiring Request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_start_hire/?id=133",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_start_hire",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "Add Client",
 							"request": {
 								"auth": {

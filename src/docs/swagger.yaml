@@ -6745,3 +6745,435 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+
+  /hr_start_hire/:
+    post:
+      summary: Create a new hiring request
+      description: HR can create a hiring request for a client by providing job details and uploading a job description PDF.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - client_id
+                - job_title
+                - role_type
+                - gender
+                - employment_term
+                - salary_range
+                - salary_currency
+                - country
+                - hiring_start_date
+                - hiring_end_date
+                - job_description
+              properties:
+                client_id:
+                  type: string
+                  format: email
+                  example: hr@company.com
+                job_title:
+                  type: string
+                  example: Backend Developer
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                  example: Intermediate
+                gender:
+                  enum: [Male, Female, Not specific]
+                  example: Female
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                  example: Salary based
+                salary_range:
+                  type: string
+                  description: JSON string with `minimum` and `maximum` keys
+                  example: '{"minimum": "50000", "maximum": "80000"}'
+                salary_currency:
+                  type: string
+                  example: USD
+                country:
+                  type: string
+                  example: USA
+                hiring_start_date:
+                  type: string
+                  format: date
+                  example: "2025-07-01"
+                hiring_end_date:
+                  type: string
+                  format: date
+                  example: "2025-08-31"
+                comments:
+                  type: string
+                  nullable: true
+                  example: "Urgent requirement for project X"
+                job_description:
+                  type: string
+                  format: binary
+                  description: "PDF file of the job description (Max: 5MB)"
+      responses:
+        '201':
+          description: Hiring request successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: One new request is successfully added to hiring
+                  id:
+                    type: integer
+                    example: 123
+        '400':
+          description: Validation error or file upload issue
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client does not exist with given client email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    get:
+      summary: Get hiring requests for a client
+      description: Retrieves all hiring requests associated with a given client ID.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The internal UUID or ID of the client
+          example: "123"
+      responses:
+        '200':
+          description: Successfully fetched hiring requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 12
+                    job_title:
+                      type: string
+                      example: Backend Developer
+                    role_type:
+                      type: string
+                      example: Intermediate
+                    gender:
+                      type: string
+                      example: Any
+                    employment_term:
+                      type: string
+                      example: Salary based
+                    salary_range:
+                      type: object
+                      properties:
+                        minimum:
+                          type: string
+                          example: "50000"
+                        maximum:
+                          type: string
+                          example: "80000"
+                    salary_currency:
+                      type: string
+                      example: USD
+                    country:
+                      type: string
+                      example: USA
+                    hiring_start_date:
+                      type: string
+                      format: date
+                      example: "2025-07-01"
+                    hiring_end_date:
+                      type: string
+                      format: date
+                      example: "2025-08-31"
+                    comments:
+                      type: string
+                      nullable: true
+                      example: Urgent requirement for project X
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    delete:
+      summary: Delete a hiring request
+      description: Deletes a hiring request by ID, removes the job description file from S3, and deletes associated notifications.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the hiring request to delete
+          example: "17"
+      responses:
+        '200':
+          description: Hiring request successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request is successfully deleted
+        '404':
+          description: Hiring request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request does not exist with given ID
+        '400':
+          description: Failed to delete associated S3 file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to delete S3 file
+                  error:
+                    type: string
+                    example: S3 deletion failed due to permission issues
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    patch:
+      summary: Update a hiring request
+      description: |
+        Updates the details of a hiring request such as job title, role type, salary range, and optionally the job description file.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: ID of the hiring request to update
+          schema:
+            type: string
+          example: "23"
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                job_title:
+                  type: string
+                  example: Frontend Developer
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                  example: Junior
+                gender:
+                  enum: [Male, Female, Not specific]
+                  example: Female
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                  example: Hourly based
+                salary_range:
+                  type: string
+                  description: JSON string with `minimum` and `maximum` salary
+                  example: '{"minimum": "1000", "maximum": "2000"}'
+                salary_currency:
+                  type: string
+                  example: USD
+                country:
+                  type: string
+                  example: United States
+                hiring_start_date:
+                  type: string
+                  format: date
+                  example: "2025-07-01"
+                hiring_end_date:
+                  type: string
+                  format: date
+                  example: "2025-07-31"
+                comments:
+                  type: string
+                  nullable: true
+                  example: Looking for someone with React experience
+                job_description:
+                  type: string
+                  format: binary
+                  description: PDF file of job description
+      responses:
+        '200':
+          description: Hiring request updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request has been updated successfully
+        '400':
+          description: Validation error or file issues
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: At least one field must be provided to update
+        '404':
+          description: Hiring request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+
+    paths:
+  /down_jd/:
+    get:
+      summary: Download job description file
+      description: |
+        Downloads the job description file associated with a specific hiring request.
+        The file is returned as a PDF attachment if found.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Hiring request ID
+          schema:
+            type: string
+          example: "45"
+      responses:
+        '200':
+          description: Job description PDF file
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '204':
+          description: No content (job description file not found)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Job description file not found
+        '404':
+          description: Hiring request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request not found with given ID
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
