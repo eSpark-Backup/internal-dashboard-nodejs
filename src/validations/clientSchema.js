@@ -51,7 +51,7 @@ export const updateClientProfileSchema = yup.object({
   body: yup
     .object()
     .shape({
-      client_id: yup.string(),
+      client_id: yup.string().notRequired(),
       first_name: yup.string(),
       last_name: yup.string(),
       company_name: yup.string(),

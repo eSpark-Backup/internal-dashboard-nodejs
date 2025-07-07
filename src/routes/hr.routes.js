@@ -674,19 +674,19 @@ router.get(
   getStartHire
 );
 
+router.delete(
+  "/hr_start_hire/",
+  authenticateJWT,
+  validateSchema(deleteStartHireSchema),
+  deleteStartHire
+);
+
 router.patch(
   "/hr_start_hire/",
   authenticateJWT,
   upload.single("job_description"),
   validateSchema(updateStartHireSchema),
   updateStartHire
-);
-
-router.delete(
-  "/hr_start_hire/",
-  authenticateJWT,
-  validateSchema(deleteStartHireSchema),
-  deleteStartHire
 );
 
 router.get(
@@ -714,6 +714,7 @@ router.get(
 router.patch(
   "/hr_is",
   authenticateJWT,
+  upload.none(),
   validateSchema(updateInterviewScheduleSchema),
   updateInterviewSchedule
 );

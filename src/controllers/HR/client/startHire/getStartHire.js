@@ -20,7 +20,7 @@ const getStartHire = async (req, res) => {
 
     const hiringReqResult = await client.query(
       `SELECT id, job_title, role_type, gender, employment_term, salary_range, 
-          salary_currency, country, hiring_start_date, hiring_end_date, comments
+          salary_currency, country, TO_CHAR(hiring_start_date, 'YYYY-MM-DD') AS hiring_start_date, TO_CHAR(hiring_end_date, 'YYYY-MM-DD') AS hiring_end_date, comments
    FROM eSparkTalentAPI_hiring_request 
    WHERE client_id = $1`,
       [id]
