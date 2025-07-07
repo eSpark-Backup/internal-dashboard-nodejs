@@ -100,6 +100,7 @@ const addStartHire = async (req, res) => {
 
     if (!hiringReq.rows[0]?.id) {
       await client.query("ROLLBACK");
+      await cleanupFiles([{ localPath: job_description?.path, s3Key: s3Key }]);
       return res
         .status(400)
         .json({ message: "Failed to create hiring request" });
@@ -119,6 +120,7 @@ const addStartHire = async (req, res) => {
 
     if (!notification.rows[0]?.id) {
       await client.query("ROLLBACK");
+      await cleanupFiles([{ localPath: job_description?.path, s3Key: s3Key }]);
       return res.status(400).json({ message: "Failed to add notification" });
     }
 

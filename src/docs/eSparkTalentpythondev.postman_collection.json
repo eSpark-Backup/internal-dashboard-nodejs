@@ -1540,6 +1540,74 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Attendance Sheet",
+					"item": [
+						{
+							"name": "Get Attendace Sheet",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ0NTk3LCJpYXQiOjE3NTE2MjY1OTcsImp0aSI6ImQ4NDc4OGY5OGI4NjRiOWRiNzI2YTViN2NhOWMyYmRiIiwidXNlcl9pZCI6MTA0fQ.ksjt-gQEnHw7phtT1N5lRxsgjwXTaeMJqT0sBZ_eq3o"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/emp_timesheet/?workspace=talent@esparkconsultants.com&from=2025-06-01&to=2025-06-05",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"emp_timesheet",
+										""
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "talent@esparkconsultants.com"
+										},
+										{
+											"key": "from",
+											"value": "2025-06-01"
+										},
+										{
+											"key": "to",
+											"value": "2025-06-05"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -3312,6 +3380,61 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Attendance Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjM1MTA0LCJpYXQiOjE3NTE2MTcxMDQsImp0aSI6IjMwM2M0NTBhZjNjZDRmOGY5NTEwY2M0YTllZTIzZWU4IiwidXNlcl9pZCI6MX0.GFXuBTHoDaIz1qahU4mtOSpSmJZDr26dc9p4PIUQgOw"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_empattendance/?e_email=ne5%%wemp@gmail.com",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_empattendance",
+										""
+									],
+									"query": [
+										{
+											"key": "e_email",
+											"value": "ne5%%wemp@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -4549,6 +4672,400 @@
 					"name": "Client",
 					"item": [
 						{
+							"name": "Hiring Request",
+							"item": [
+								{
+									"name": "Get Hiring Requests",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_start_hire/?id=21",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_start_hire",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "21"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Hiring Request",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "comments",
+													"value": "xyz",
+													"type": "text"
+												},
+												{
+													"key": "hiring_end_date",
+													"value": "2025-07-16",
+													"type": "text"
+												},
+												{
+													"key": "hiring_start_date",
+													"value": "2025-07-08",
+													"type": "text"
+												},
+												{
+													"key": "job_title",
+													"value": "Flutter Developer",
+													"type": "text"
+												},
+												{
+													"key": "salary_range",
+													"value": "{\"minimum\":\"38\",\"maximum\":\"97\"}",
+													"type": "text"
+												},
+												{
+													"key": "role_type",
+													"value": "Junior",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "Male",
+													"type": "text"
+												},
+												{
+													"key": "country",
+													"value": "Albania",
+													"type": "text"
+												},
+												{
+													"key": "salary_currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "employment_term",
+													"value": "Hourly based",
+													"type": "text"
+												},
+												{
+													"key": "job_description",
+													"type": "file",
+													"src": "blank.pdf"
+												},
+												{
+													"key": "description",
+													"value": "ok",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "muzclient@yopmail.com",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://54.162.147.127:8000/api/hr_start_hire/"
+									},
+									"response": []
+								},
+								{
+									"name": "Download Hiring Request",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/down_jd/?id=133",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"down_jd",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Hiring Request",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id",
+													"value": "133",
+													"type": "text"
+												},
+												{
+													"key": "job_title",
+													"value": "Flutter Developer",
+													"type": "text"
+												},
+												{
+													"key": "role_type",
+													"value": "Junior",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "Male",
+													"type": "text"
+												},
+												{
+													"key": "jobDescription",
+													"value": "Download",
+													"type": "text"
+												},
+												{
+													"key": "salary_range",
+													"value": "{\"minimum\":38,\"maximum\":97}",
+													"type": "text"
+												},
+												{
+													"key": "country",
+													"value": "Albania",
+													"type": "text"
+												},
+												{
+													"key": "salary_currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "employment_term",
+													"value": "Hourly based",
+													"type": "text"
+												},
+												{
+													"key": "hiring_end_date",
+													"value": "2025-07-16",
+													"type": "text"
+												},
+												{
+													"key": "hiring_start_date",
+													"value": "2025-07-08",
+													"type": "text"
+												},
+												{
+													"key": "comments",
+													"value": "xyz",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_start_hire/?id=133",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_start_hire",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Hiring Request",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjQ3MDE5LCJpYXQiOjE3NTE2MjkwMTksImp0aSI6IjEyNDI5ZmEyM2YyNTQ4ODNiMjQ3YzFkNWMyNzRjMWIwIiwidXNlcl9pZCI6MX0.va8rEWy5srKTMv97-OZy8m7-ADXBJeU6-R2cYRp4QZ0"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_start_hire/?id=133",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_start_hire",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "Interview Schedule",
 							"item": [
 								{
@@ -5305,6 +5822,166 @@
 										{
 											"key": "id",
 											"value": "28"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Client",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjM1MTA0LCJpYXQiOjE3NTE2MTcxMDQsImp0aSI6IjMwM2M0NTBhZjNjZDRmOGY5NTEwY2M0YTllZTIzZWU4IiwidXNlcl9pZCI6MX0.GFXuBTHoDaIz1qahU4mtOSpSmJZDr26dc9p4PIUQgOw"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_client_prof/?id=2",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_client_prof",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Client",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxNjM1MTA0LCJpYXQiOjE3NTE2MTcxMDQsImp0aSI6IjMwM2M0NTBhZjNjZDRmOGY5NTEwY2M0YTllZTIzZWU4IiwidXNlcl9pZCI6MX0.GFXuBTHoDaIz1qahU4mtOSpSmJZDr26dc9p4PIUQgOw"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "44",
+											"type": "text"
+										},
+										{
+											"key": "first_name",
+											"value": "Johnnss",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Doe",
+											"type": "text"
+										},
+										{
+											"key": "company_name",
+											"value": "Real Madrid",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "+923192013292",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Spain",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "madrid111",
+											"type": "text"
+										},
+										{
+											"key": "join_date",
+											"value": "2003-03-12",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/hr_client_prof/?id=2",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hr_client_prof",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
 										}
 									]
 								}
