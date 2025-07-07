@@ -5782,19 +5782,19 @@
 													"type": "text"
 												},
 												{
-													"key": "job_description",
-													"type": "file",
-													"src": "blank.pdf"
-												},
-												{
 													"key": "description",
-													"value": "ok",
+													"value": "ok\n",
 													"type": "text"
 												},
 												{
 													"key": "client_id",
-													"value": "muzclient@yopmail.com",
+													"value": "abc@example.com",
 													"type": "text"
+												},
+												{
+													"key": "job_description",
+													"type": "file",
+													"src": "/C:/Users/HP/Downloads/letter (1).pdf"
 												}
 											]
 										},
@@ -5840,7 +5840,7 @@
 											}
 										],
 										"url": {
-											"raw": "http://localhost:3000/api/down_jd/?id=133",
+											"raw": "http://localhost:3000/api/down_jd/?id=8",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -5854,7 +5854,7 @@
 											"query": [
 												{
 													"key": "id",
-													"value": "133"
+													"value": "8"
 												}
 											]
 										}
@@ -6038,6 +6038,367 @@
 												{
 													"key": "id",
 													"value": "133"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Employee Invoices",
+							"item": [
+								{
+									"name": "Get Employee Invoices",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxODkwMDAxLCJpYXQiOjE3NTE4NzIwMDEsImp0aSI6IjA0NTM0YTliNWFlZjQ4NTBhMGFiYTJiYmE5MTFjYzVlIiwidXNlcl9pZCI6MX0.Zke9ZMnq7yqQTDlSnOK_juDbpaYI4lGnFoxqgWn8IfU",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_empinv/?client_id=talent@esparkconsultants.com",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_empinv",
+												""
+											],
+											"query": [
+												{
+													"key": "client_id",
+													"value": "talent@esparkconsultants.com"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Employee Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxODkwMDAxLCJpYXQiOjE3NTE4NzIwMDEsImp0aSI6IjA0NTM0YTliNWFlZjQ4NTBhMGFiYTJiYmE5MTFjYzVlIiwidXNlcl9pZCI6MX0.Zke9ZMnq7yqQTDlSnOK_juDbpaYI4lGnFoxqgWn8IfU"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "invoice_date",
+													"value": "2025-07-01",
+													"type": "text"
+												},
+												{
+													"key": "due_date",
+													"value": "2025-07-10",
+													"type": "text"
+												},
+												{
+													"key": "employee_id",
+													"value": "es123",
+													"type": "text"
+												},
+												{
+													"key": "invoice_amount",
+													"value": "92",
+													"type": "text"
+												},
+												{
+													"key": "currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "invoice",
+													"type": "file",
+													"src": "/C:/Users/HP/Downloads/letter (1).pdf"
+												},
+												{
+													"key": "client_id",
+													"value": "talent@esparkconsultants.com",
+													"type": "text"
+												},
+												{
+													"key": "payment_status",
+													"value": "pending",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:3000/api/hr_empinv/"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Employee Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxODkwMDAxLCJpYXQiOjE3NTE4NzIwMDEsImp0aSI6IjA0NTM0YTliNWFlZjQ4NTBhMGFiYTJiYmE5MTFjYzVlIiwidXNlcl9pZCI6MX0.Zke9ZMnq7yqQTDlSnOK_juDbpaYI4lGnFoxqgWn8IfU",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_empinv/?id=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_empinv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Employee Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxODkwMDAxLCJpYXQiOjE3NTE4NzIwMDEsImp0aSI6IjA0NTM0YTliNWFlZjQ4NTBhMGFiYTJiYmE5MTFjYzVlIiwidXNlcl9pZCI6MX0.Zke9ZMnq7yqQTDlSnOK_juDbpaYI4lGnFoxqgWn8IfU",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id",
+													"value": "41",
+													"type": "text"
+												},
+												{
+													"key": "invoice_date",
+													"value": "2025-07-03",
+													"type": "text"
+												},
+												{
+													"key": "due_date",
+													"value": "2025-07-07",
+													"type": "text"
+												},
+												{
+													"key": "invoice_amount",
+													"value": "49",
+													"type": "text"
+												},
+												{
+													"key": "currency",
+													"value": "$ U.S. dollar",
+													"type": "text"
+												},
+												{
+													"key": "payment_status",
+													"value": "paid",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/hr_empinv/?id=4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_empinv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Download Employee Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTA4MTAwLCJpYXQiOjE3NTE4OTAxMDAsImp0aSI6IjBmNzBmN2MxNmNhZTQyZmNhNDU0OTM3OWUzYzM0Y2RiIiwidXNlcl9pZCI6MX0.wI6Wzv8fnJC4V9qGVk6C0dHiGPQn4ay77gslXSGJwAs",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/down_emp_inv/?id=2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"down_emp_inv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "2"
 												}
 											]
 										}
