@@ -21,6 +21,7 @@ const addEmployeeInvoice = async (req, res) => {
         );
 
         if (!clientResult.rows[0]?.id) {
+            await cleanupFiles([{ localPath: invoice?.path }]);
             return res.status(404).json({ message: "Client does not exist with given client email" });
         }
 
@@ -30,6 +31,7 @@ const addEmployeeInvoice = async (req, res) => {
         );
 
         if (!employeeResult.rows[0]?.id) {
+            await cleanupFiles([{ localPath: invoice?.path }]);
             return res.status(404).json({ message: "Employee does not exist with given employee id" });
         }
 
@@ -39,10 +41,12 @@ const addEmployeeInvoice = async (req, res) => {
         );
 
         if (!outsourceEmployeeResult.rows[0]?.id) {
+            await cleanupFiles([{ localPath: invoice?.path }]);
             return res.status(404).json({ message: "Employee is not associated with the client or was not found" });
         }
 
         if (outsourceEmployeeResult.rows[0]?.status === "terminated") {
+            await cleanupFiles([{ localPath: invoice?.path }]);
             return res.status(400).json({ message: "Cannot create invoice for terminated employee" });
         }
 

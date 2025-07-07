@@ -9,7 +9,7 @@ import { cleanupFiles } from "../../../../helpers/utils.js";
 
 const updateEmployeeInvoice = async (req, res) => {
     const { id } = req.query;
-    const { invoice_date, due_date, invoice_amount, payment_status } = req.body || {};
+    const { invoice_date, due_date, invoice_amount, payment_status, currency } = req.body || {};
     const invoice = req?.files?.invoice?.[0];
 
     try {
@@ -61,9 +61,10 @@ const updateEmployeeInvoice = async (req, res) => {
                     invoice_amount  = COALESCE($4, invoice_amount),
                     payment_status  = COALESCE($5, payment_status),
                     invoice         = COALESCE($6, invoice),
+                    currency        = COALESCE($7, currency),
                     updated_at    = CURRENT_TIMESTAMP
              WHERE id = $1`,
-            [id, invoice_date, due_date, invoice_amount, payment_status, invoiceUrl]
+            [id, invoice_date, due_date, invoice_amount, payment_status, invoiceUrl, currency]
         );
 
         if (updatedEmployeeInvoice.rowCount === 0) {

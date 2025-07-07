@@ -32,7 +32,9 @@ export const updateEmployeeInvoiceSchema = yup.object({
       invoice_date: yup.date().optional(),
       due_date: yup.date().optional(),
       invoice_amount: yup.number().optional(),
+      currency: yup.string().optional(),
       payment_status: yup.string().oneOf(["pending", "processing", "paid"]).optional(),
+      
     }),
   })
 
