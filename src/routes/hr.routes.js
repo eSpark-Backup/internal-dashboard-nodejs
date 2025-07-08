@@ -171,11 +171,19 @@ import deleteInterviewSchedule from "../controllers/HR/client/interviewSchedule/
 import { updateClientProfileSchema } from "../validations/clientSchema.js";
 import updateClientProfile from "../controllers/HR/client/updateClientProfile.js";
 import getClientProfile from "../controllers/HR/client/getClientProfile.js";
-import { addOnboardingSchema, deleteOnboardingSchema, getOnboardingSchema, updateOnboardingSchema } from "../validations/addOnboardingSchema.js";
+import {
+  addOnboardingSchema,
+  deleteOnboardingSchema,
+  getOnboardingSchema,
+  updateOnboardingSchema,
+} from "../validations/addOnboardingSchema.js";
 import addOnboarding from "../controllers/HR/client/onBoarding/addOnboarding.js";
 import getOnboarding from "../controllers/HR/client/onBoarding/getOnboarding.js";
 import deleteOnboarding from "../controllers/HR/client/onBoarding/deleteOnboarding.js";
 import updateOnboarding from "../controllers/HR/client/onBoarding/updateOnboarding.js";
+import { hrClientEmpsPatchSchema, validateHrClientEmpsGetSchema } from "../validations/hrClientEmpsSchema.js";
+import updateHrClientEmps from "../controllers/HR/client/hrClientEmployees/updateHrClientEmps.js";
+import getHrClientEmps from "../controllers/HR/client/hrClientEmployees/getHrClientEmps.js";
 import { addEmployeeInvoiceSchema, deleteEmployeeInvoiceSchema, downloadEmployeeInvoiceSchema, getEmployeeInvoicesSchema, updateEmployeeInvoiceSchema } from "../validations/addEmployeeInvoiceSchema.js";
 import addEmployeeInvoice from "../controllers/HR/client/employeeInvoices/addEmployeeInvoice.js";
 import getEmployeeInvoices from "../controllers/HR/client/employeeInvoices/getEmployeeInvoices.js";
@@ -768,6 +776,21 @@ router.patch(
   upload.none(),
   validateSchema(updateOnboardingSchema),
   updateOnboarding
+);
+
+router.get(
+  "/hr_clientemps",
+  authenticateJWT,
+  validateSchema(validateHrClientEmpsGetSchema),
+  getHrClientEmps
+);
+
+
+router.patch(
+  "/hr_clientemps",
+  authenticateJWT,
+  validateSchema(hrClientEmpsPatchSchema),
+  updateHrClientEmps
 );
 
 // Employee Invoices CRUD Routes
