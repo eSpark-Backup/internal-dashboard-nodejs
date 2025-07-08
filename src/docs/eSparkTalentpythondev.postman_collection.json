@@ -5921,6 +5921,354 @@
 							]
 						},
 						{
+							"name": "Other Invoices",
+							"item": [
+								{
+									"name": "Get Other Invoices",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_otherinv/?client_id=muzclient@yopmail.com&tab=pending",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_otherinv",
+												""
+											],
+											"query": [
+												{
+													"key": "client_id",
+													"value": "muzclient@yopmail.com"
+												},
+												{
+													"key": "tab",
+													"value": "pending"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Other Invoice",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "invoice_date",
+													"value": "2025-07-01",
+													"type": "text"
+												},
+												{
+													"key": "due_date",
+													"value": "2025-07-03",
+													"type": "text"
+												},
+												{
+													"key": "invoice_reference",
+													"value": "Quisquam sed et exer",
+													"type": "text"
+												},
+												{
+													"key": "invoice_amount",
+													"value": "76",
+													"type": "text"
+												},
+												{
+													"key": "currency",
+													"value": "¥ Japanese yen",
+													"type": "text"
+												},
+												{
+													"key": "invoice",
+													"type": "file",
+													"src": "blank.pdf"
+												},
+												{
+													"key": "client_id",
+													"value": "muzclient@yopmail.com",
+													"type": "text"
+												},
+												{
+													"key": "payment_status",
+													"value": "pending",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://54.162.147.127:8000/api/hr_otherinv/"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Other Invoice",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_otherinv/?id=27",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_otherinv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "27"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Other Invoice",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id",
+													"value": "23",
+													"type": "text"
+												},
+												{
+													"key": "invoice_reference",
+													"value": "2222222222",
+													"type": "text"
+												},
+												{
+													"key": "invoice_date",
+													"value": "2025-03-19",
+													"type": "text"
+												},
+												{
+													"key": "due_date",
+													"value": "2025-07-08",
+													"type": "text"
+												},
+												{
+													"key": "invoice_amount",
+													"value": "1000000",
+													"type": "text"
+												},
+												{
+													"key": "currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "muzclient@yopmail.com",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_otherinv/?id=23",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_otherinv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "23"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Download Other Invoice",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/down_oth_inv/?id=23",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"down_oth_inv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "23"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "Add Client",
 							"request": {
 								"method": "POST",
