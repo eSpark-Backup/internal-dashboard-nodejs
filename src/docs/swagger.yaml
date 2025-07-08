@@ -7532,3 +7532,350 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+
+  /hr_otherinv:
+    post:
+      summary: Upload other invoice
+      description: Uploads an invoice for other payments (non-employee specific) for a specific client.
+      tags:
+        - Client Other Invoices
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  format: email
+                  example: client@example.com
+                invoice_reference:
+                  type: string
+                  example: REF-INV-1022
+                invoice_date:
+                  type: string
+                  format: date
+                  example: "2024-06-01"
+                due_date:
+                  type: string
+                  format: date
+                  example: "2024-06-15"
+                currency:
+                  type: string
+                  example: "€ Euro"
+                invoice_amount:
+                  type: number
+                  example: 450
+                invoice:
+                  type: string
+                  format: binary
+            encoding:
+              invoice:
+                contentType: application/pdf
+      responses:
+        '200':
+          description: Invoice uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: You have successfully added invoice for REF-INV-1022
+                  id:
+                    type: string
+                    example: "77"
+        '400':
+          description: Validation or upload error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  errors:
+                    type: object
+        '404':
+          description: Client not found or duplicate reference
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      summary: Get other payment invoices
+      description: Retrieves all other (non-employee) invoices for a specific client, optionally filtered by payment status.
+      tags:
+        - Client Other Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: email
+          description: Client's email address
+          example: client@example.com
+        - name: tab
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [pending, processing, paid]
+          description: Filter by payment status
+          example: pending
+      responses:
+        '200':
+          description: List of other payment invoices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "51"
+                    invoice_reference:
+                      type: string
+                      example: REF-INV-2024
+                    invoice_date:
+                      type: string
+                      format: date
+                      example: "2024-06-01"
+                    due_date:
+                      type: string
+                      format: date
+                      example: "2024-06-15"
+                    invoice_amount:
+                      type: number
+                      example: 350
+                    currency:
+                      type: string
+                      example: "€ Euro"
+                    payment_status:
+                      type: string
+                      example: pending
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client does not exist with the given client email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      summary: Delete other payment invoice
+      description: Deletes a specific "other" invoice by ID along with its related notification.
+      tags:
+        - Client Other Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the other payment invoice
+          example: "85"
+      responses:
+        '200':
+          description: Invoice deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Other invoice has been deleted
+        '404':
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invoice does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      summary: Update other payment invoice
+      description: Updates a specific "other" invoice by ID, including file replacement, amount, dates, and payment status.
+      tags:
+        - Client Other Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the invoice to update
+          example: "73"
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                invoice_reference:
+                  type: string
+                  example: REF-UPDATE-2024
+                invoice_date:
+                  type: string
+                  format: date
+                  example: "2024-06-10"
+                due_date:
+                  type: string
+                  format: date
+                  example: "2024-06-20"
+                invoice_amount:
+                  type: number
+                  example: 650
+                currency:
+                  type: string
+                  example: "€ Euro"
+                payment_status:
+                  type: string
+                  enum: [pending, processing, paid]
+                  example: processing
+                invoice:
+                  type: string
+                  format: binary
+                  description: PDF file of the updated invoice
+      responses:
+        '200':
+          description: Invoice updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Other invoice updated successfully
+        '400':
+          description: Bad request (validation error, duplicate reference, or update failure)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: invoice reference already exists should be unique
+        '404':
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invoice does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+  /down_oth_inv:
+    get:
+      summary: Download other invoice
+      description: Downloads the PDF file of a specific "other" type invoice by ID.
+      tags:
+        - Client Other Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the invoice to download
+          example: "107"
+      responses:
+        '200':
+          description: File downloaded successfully
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invoice not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
