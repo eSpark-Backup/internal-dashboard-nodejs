@@ -182,6 +182,12 @@ import getEmployeeInvoices from "../controllers/HR/client/employeeInvoices/getEm
 import deleteEmployeeInvoice from "../controllers/HR/client/employeeInvoices/deleteEmployeeInvoice.js";
 import updateEmployeeInvoice from "../controllers/HR/client/employeeInvoices/updateEmployeeInvoice.js";
 import downloadEmployeeInvoice from "../controllers/HR/client/employeeInvoices/downloadEmployeeInvoice.js";
+import { addOtherInvoiceSchema, deleteOtherInvoiceSchema, downloadOtherInvoiceSchema, getOtherInvoicesSchema, updateOtherInvoiceSchema } from "../validations/addOtherInvoiceSchema.js";
+import addOtherInvoice from "../controllers/HR/client/otherInvoices/addOtherInvoice.js";
+import getOtherInvoices from "../controllers/HR/client/otherInvoices/getOtherInvoices.js";
+import deleteOtherInvoice from "../controllers/HR/client/otherInvoices/deleteOtherInvoice.js";
+import updateOtherInvoice from "../controllers/HR/client/otherInvoices/updateOtherInvoice.js";
+import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloadOtherInvoice.js";
 
 const router = express.Router();
 
@@ -808,6 +814,51 @@ router.get(
   validateSchema(downloadEmployeeInvoiceSchema),
   downloadEmployeeInvoice
 );
+
+
+// Other Invoice CRUD Routes
+
+router.post(
+  "/hr_otherinv",
+  authenticateJWT,
+  upload.fields([{ name: "invoice", maxCount: 1 }]),
+  validateSchema(addOtherInvoiceSchema),
+  addOtherInvoice
+);
+
+router.get(
+  "/hr_otherinv",
+  authenticateJWT,
+  validateSchema(getOtherInvoicesSchema),
+  getOtherInvoices
+);
+
+router.delete(
+  "/hr_otherinv",
+  authenticateJWT,
+  validateSchema(deleteOtherInvoiceSchema),
+  deleteOtherInvoice
+);
+
+router.patch(
+  "/hr_otherinv",
+  authenticateJWT,
+  upload.fields([{ name: "invoice", maxCount: 1 }]),
+  validateSchema(updateOtherInvoiceSchema),
+  updateOtherInvoice
+);
+
+router.get(
+  "/down_oth_inv",
+  authenticateJWT,
+  validateSchema(downloadOtherInvoiceSchema),
+  downloadOtherInvoice
+);
+
+
+
+
+
 
 
 export default router;
