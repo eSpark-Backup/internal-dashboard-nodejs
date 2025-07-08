@@ -176,6 +176,12 @@ import addOnboarding from "../controllers/HR/client/onBoarding/addOnboarding.js"
 import getOnboarding from "../controllers/HR/client/onBoarding/getOnboarding.js";
 import deleteOnboarding from "../controllers/HR/client/onBoarding/deleteOnboarding.js";
 import updateOnboarding from "../controllers/HR/client/onBoarding/updateOnboarding.js";
+import { addEmployeeInvoiceSchema, deleteEmployeeInvoiceSchema, downloadEmployeeInvoiceSchema, getEmployeeInvoicesSchema, updateEmployeeInvoiceSchema } from "../validations/addEmployeeInvoiceSchema.js";
+import addEmployeeInvoice from "../controllers/HR/client/employeeInvoices/addEmployeeInvoice.js";
+import getEmployeeInvoices from "../controllers/HR/client/employeeInvoices/getEmployeeInvoices.js";
+import deleteEmployeeInvoice from "../controllers/HR/client/employeeInvoices/deleteEmployeeInvoice.js";
+import updateEmployeeInvoice from "../controllers/HR/client/employeeInvoices/updateEmployeeInvoice.js";
+import downloadEmployeeInvoice from "../controllers/HR/client/employeeInvoices/downloadEmployeeInvoice.js";
 
 const router = express.Router();
 
@@ -762,6 +768,45 @@ router.patch(
   upload.none(),
   validateSchema(updateOnboardingSchema),
   updateOnboarding
+);
+
+// Employee Invoices CRUD Routes
+
+router.post(
+  "/hr_empinv",
+  authenticateJWT,
+  upload.fields([{ name: "invoice", maxCount: 1 }]),
+  validateSchema(addEmployeeInvoiceSchema),
+  addEmployeeInvoice
+);
+
+router.get(
+  "/hr_empinv",
+  authenticateJWT,
+  validateSchema(getEmployeeInvoicesSchema),
+  getEmployeeInvoices
+);
+
+router.delete(
+  "/hr_empinv",
+  authenticateJWT,
+  validateSchema(deleteEmployeeInvoiceSchema),
+  deleteEmployeeInvoice
+);
+
+router.patch(
+  "/hr_empinv",
+  authenticateJWT,
+  upload.fields([{ name: "invoice", maxCount: 1 }]),
+  validateSchema(updateEmployeeInvoiceSchema),
+  updateEmployeeInvoice
+);
+
+router.get(
+  "/down_emp_inv",
+  authenticateJWT,
+  validateSchema(downloadEmployeeInvoiceSchema),
+  downloadEmployeeInvoice
 );
 
 

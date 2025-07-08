@@ -7177,3 +7177,358 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+ 
+
+  /hr_empinv:
+    post:
+      summary: Add employee invoice
+      description: Adds a new invoice for a specific employee under a client, along with uploading the invoice file (PDF).
+      tags:
+        - Client Employee Invoices
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - client_id
+                - employee_id
+                - invoice_date
+                - due_date
+                - currency
+                - invoice_amount
+                - invoice
+              properties:
+                client_id:
+                  type: string
+                  format: email
+                  example: client@example.com
+                employee_id:
+                  type: string
+                  example: EMP123
+                invoice_date:
+                  type: string
+                  format: date
+                  example: "2025-07-01"
+                due_date:
+                  type: string
+                  format: date
+                  example: "2025-07-15"
+                currency:
+                  type: string
+                  example: "€ Euro"
+                invoice_amount:
+                  type: number
+                  example: 1200
+                invoice:
+                  type: string
+                  format: binary
+                  description: Invoice PDF file
+      responses:
+        '200':
+          description: Invoice successfully added
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: You have successfully added invoice for John Doe
+                  id:
+                    type: string
+                    example: "98"
+        '400':
+          description: Validation error or failed upload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+                  errors:
+                    type: object
+                    additionalProperties: true
+        '404':
+          description: Client or employee not found or not associated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee is not associated with the client or was not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    get:
+      summary: Get employee invoices
+      description: |
+        Fetches a list of invoices for a client’s employees.
+        Optionally filters by `payment_status` tab: `pending`, `processing`, or `paid`.
+      tags:
+        - Client Employee Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: email
+          example: client@example.com
+          description: Email of the client
+        - name: tab
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [pending, processing, paid]
+          description: Optional payment status to filter invoices
+      responses:
+        '200':
+          description: List of employee invoices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 101
+                    employee_id:
+                      type: string
+                      example: EMP001
+                    invoice_date:
+                      type: string
+                      format: date
+                      example: "2025-07-01"
+                    due_date:
+                      type: string
+                      format: date
+                      example: "2025-07-15"
+                    invoice_amount:
+                      type: number
+                      example: 1200.5
+                    currency:
+                      type: string
+                      example: USD
+                    payment_status:
+                      type: string
+                      enum: [pending, processing, paid]
+                      example: pending
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client does not exist with the given client email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      summary: Delete an employee invoice
+      description: |
+        Deletes a specific employee invoice and its associated notification, if any.
+      tags:
+        - Client Employee Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Invoice ID to delete
+          example: "123"
+      responses:
+        '200':
+          description: Invoice deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee invoice has been deleted
+        '404':
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee invoice does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      summary: Update an employee invoice
+      description: Updates details of an existing employee invoice. Allows changing dates, amount, payment status, or replacing the attached invoice PDF.
+      tags:
+        - Client Employee Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of the employee invoice to update
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                invoice_date:
+                  type: string
+                  format: date
+                  example: "2025-06-01"
+                due_date:
+                  type: string
+                  format: date
+                  example: "2025-06-10"
+                invoice_amount:
+                  type: number
+                  example: 500
+                currency:
+                  type: string
+                  example: "€ Euro"
+                payment_status:
+                  type: string
+                  enum: [pending, processing, paid]
+                  example: paid
+                invoice:
+                  type: string
+                  format: binary
+                  description: PDF file of the updated invoice (max 5MB)
+      responses:
+        '200':
+          description: Invoice updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee invoice updated successfully
+        '400':
+          description: Invalid input or file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid file format or size
+        '404':
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee invoice not found with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+   
+  /down_emp_inv:
+    get:
+      summary: Download employee invoice
+      description: Downloads the invoice PDF file for a specific employee invoice by ID.
+      tags:
+        - Client Employee Invoices
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Invoice ID to download
+          schema:
+            type: string
+          example: "123"
+      responses:
+        '200':
+          description: Invoice file downloaded successfully
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Invoice not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invoice not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
