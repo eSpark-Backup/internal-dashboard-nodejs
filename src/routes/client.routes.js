@@ -4,6 +4,10 @@ import getClientHome from "../controllers/client/Home/getClientHome.js";
 import getHiringRequests from "../controllers/client/HiringRequests/getHiringRequests.js";
 import deleteHiringRequest from "../controllers/client/HiringRequests/deleteHiringRequest.js";
 
+import { clientStartHireSchema } from "../validations/clientStartHireSchema.js";
+import addClientStartHire from "../controllers/client/startHire/addClientStartHire.js";
+import { upload } from "../helpers/multer.js";
+import validateSchema from "../middleware/validate.js";
 
 const router = express.Router();
 
@@ -18,7 +22,15 @@ router.get("/c_hr",
 
 router.delete("/c_hr",
   authenticateJWT,
-  deleteHiringRequest
+  deleteHiringRequest 
+);
+
+router.post(
+  "/c_sh",
+  authenticateJWT,
+  upload.single("job_description"),
+  validateSchema(clientStartHireSchema),
+  addClientStartHire
 );
 
 export default router;
