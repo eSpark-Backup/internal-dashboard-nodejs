@@ -6798,7 +6798,7 @@ paths:
                   example: '{"minimum": "50000", "maximum": "80000"}'
                 salary_currency:
                   type: string
-                  example: USD
+                  example: $ U.S. dollar
                 country:
                   type: string
                   example: USA
@@ -6918,7 +6918,7 @@ paths:
                           example: "80000"
                     salary_currency:
                       type: string
-                      example: USD
+                      example: $ U.S. dollar
                     country:
                       type: string
                       example: USA
@@ -7058,7 +7058,7 @@ paths:
                   example: '{"minimum": "1000", "maximum": "2000"}'
                 salary_currency:
                   type: string
-                  example: USD
+                  example: $ U.S. dollar
                 country:
                   type: string
                   example: United States
