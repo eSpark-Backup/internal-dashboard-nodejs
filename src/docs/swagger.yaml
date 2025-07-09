@@ -7179,6 +7179,135 @@ paths:
                     example: Internal Server Error
  
 
+  /c_hr:
+    get:
+      summary: Get logged-in client's hiring requests
+      description: Retrieves all hiring requests associated with the currently authenticated client user.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved hiring requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "789"
+                    job_title:
+                      type: string
+                      example: "Software Engineer"
+                    role_type:
+                      type: string
+                      example: "Senior"
+                    gender:
+                      type: string
+                      example: "Any"
+                    employment_term:
+                      type: string
+                      example: "Salary based"
+                    salary_range:
+                      type: object
+                      properties:
+                        minimum:
+                          type: string
+                          example: "1000"
+                        maximum:
+                          type: string
+                          example: "2000"
+                    salary_currency:
+                      type: string
+                      example: "USD"
+                    country:
+                      type: string
+                      example: "Pakistan"
+                    hiring_start_date:
+                      type: string
+                      format: date
+                      example: "2025-07-01"
+                    hiring_end_date:
+                      type: string
+                      format: date
+                      example: "2025-07-31"
+                    comments:
+                      type: string
+                      nullable: true
+                      example: "Looking for remote candidates"
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: client does not exist with logged email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    delete:
+      summary: Delete a hiring request by ID (logged-in client)
+      description: Deletes a hiring request along with its associated notification, if any, for the authenticated client.
+      tags:
+        - Client Hiring Request
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the hiring request to delete
+      responses:
+        '200':
+          description: Hiring request successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request has been deleted
+        '404':
+          description: Hiring request not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hiring request does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
+
   /hr_empinv:
     post:
       summary: Add employee invoice
