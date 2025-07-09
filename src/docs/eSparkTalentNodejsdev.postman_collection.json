@@ -6175,7 +6175,7 @@
 												{
 													"key": "invoice",
 													"type": "file",
-													"src": "/C:/Users/HP/Downloads/letter (1).pdf"
+													"src": "/C:/Users/HP/Downloads/blank.pdf"
 												},
 												{
 													"key": "client_id",
@@ -6393,6 +6393,378 @@
 											"path": [
 												"api",
 												"down_emp_inv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Other Invoices",
+							"item": [
+								{
+									"name": "Get Other Invoices",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_otherinv/?client_id=abc@example.com&tab=pending",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_otherinv",
+												""
+											],
+											"query": [
+												{
+													"key": "client_id",
+													"value": "abc@example.com"
+												},
+												{
+													"key": "tab",
+													"value": "pending"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Other Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "invoice_date",
+													"value": "2025-07-01",
+													"type": "text"
+												},
+												{
+													"key": "due_date",
+													"value": "2025-07-03",
+													"type": "text"
+												},
+												{
+													"key": "invoice_reference",
+													"value": "Quisquam sed et exer12",
+													"type": "text"
+												},
+												{
+													"key": "invoice_amount",
+													"value": "76",
+													"type": "text"
+												},
+												{
+													"key": "currency",
+													"value": "¥ Japanese yen",
+													"type": "text"
+												},
+												{
+													"key": "invoice",
+													"type": "file",
+													"src": "/C:/Users/HP/Downloads/blank.pdf"
+												},
+												{
+													"key": "client_id",
+													"value": "abc@example.com",
+													"type": "text"
+												},
+												{
+													"key": "payment_status",
+													"value": "pending",
+													"type": "text"
+												}
+											]
+										},
+										"url": "http://localhost:3000/api/hr_otherinv/"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Other Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/hr_otherinv/?id=4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_otherinv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Other Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id",
+													"value": "23",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "invoice_reference",
+													"value": "2222222222",
+													"type": "text"
+												},
+												{
+													"key": "invoice_date",
+													"value": "2025-03-19",
+													"type": "text"
+												},
+												{
+													"key": "due_date",
+													"value": "2025-07-08",
+													"type": "text"
+												},
+												{
+													"key": "invoice_amount",
+													"value": "1000000",
+													"type": "text"
+												},
+												{
+													"key": "currency",
+													"value": "€ Euro",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "muzclient@yopmail.com",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/hr_otherinv/?id=3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"hr_otherinv",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Download Other Invoice",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9,ur;q=0.8"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUxOTgxNjU1LCJpYXQiOjE3NTE5NjM2NTUsImp0aSI6IjNjMzNlYzc1NzhmNTQ3ZmVhOWU0NDFjZjlhZmQ3OGRlIiwidXNlcl9pZCI6MX0.CpK5WNalpszukl9pcFpCOBML3HWOlfyefbeRv1FK1cg",
+												"disabled": true
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3000/api/down_oth_inv/?id=2",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"down_oth_inv",
 												""
 											],
 											"query": [
@@ -6855,7 +7227,113 @@
 		},
 		{
 			"name": "Client Panel",
-			"item": []
+			"item": [
+				{
+					"name": "Hiring Requests",
+					"item": [
+						{
+							"name": "Get Hiring Requests",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDcxNDM4LCJpYXQiOjE3NTIwNTM0MzgsImp0aSI6IjY3MTc3YzNhMTAxNTQ3M2JhN2Q3NDZhYmU4Y2RjODQ0IiwidXNlcl9pZCI6ODd9.JA0wmMs6ripFBTSZZdK3hzCH29exc5nGqLfgB2Hr3Js",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/c_hr/"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Hiring Request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDcxNDM4LCJpYXQiOjE3NTIwNTM0MzgsImp0aSI6IjY3MTc3YzNhMTAxNTQ3M2JhN2Q3NDZhYmU4Y2RjODQ0IiwidXNlcl9pZCI6ODd9.JA0wmMs6ripFBTSZZdK3hzCH29exc5nGqLfgB2Hr3Js",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/c_hr/?id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"c_hr",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "login",
@@ -6889,7 +7367,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"muzemp2@gmail.com\",\"password\":\"Test1234@\"}",
+					"raw": "{\"email\":\"xifi@mailinator.com\",\"password\":\"Test1234@\"}",
 					"options": {
 						"raw": {
 							"language": "json"
