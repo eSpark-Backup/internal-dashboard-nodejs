@@ -7227,7 +7227,113 @@
 		},
 		{
 			"name": "Client Panel",
-			"item": []
+			"item": [
+				{
+					"name": "Hiring Requests",
+					"item": [
+						{
+							"name": "Get Hiring Requests",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDcxNDM4LCJpYXQiOjE3NTIwNTM0MzgsImp0aSI6IjY3MTc3YzNhMTAxNTQ3M2JhN2Q3NDZhYmU4Y2RjODQ0IiwidXNlcl9pZCI6ODd9.JA0wmMs6ripFBTSZZdK3hzCH29exc5nGqLfgB2Hr3Js",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/c_hr/"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Hiring Request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMDcxNDM4LCJpYXQiOjE3NTIwNTM0MzgsImp0aSI6IjY3MTc3YzNhMTAxNTQ3M2JhN2Q3NDZhYmU4Y2RjODQ0IiwidXNlcl9pZCI6ODd9.JA0wmMs6ripFBTSZZdK3hzCH29exc5nGqLfgB2Hr3Js",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/c_hr/?id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"c_hr",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "login",
@@ -7261,7 +7367,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"muzemp2@gmail.com\",\"password\":\"Test1234@\"}",
+					"raw": "{\"email\":\"xifi@mailinator.com\",\"password\":\"Test1234@\"}",
 					"options": {
 						"raw": {
 							"language": "json"
