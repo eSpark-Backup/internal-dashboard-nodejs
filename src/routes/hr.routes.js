@@ -181,21 +181,38 @@ import addOnboarding from "../controllers/HR/client/onBoarding/addOnboarding.js"
 import getOnboarding from "../controllers/HR/client/onBoarding/getOnboarding.js";
 import deleteOnboarding from "../controllers/HR/client/onBoarding/deleteOnboarding.js";
 import updateOnboarding from "../controllers/HR/client/onBoarding/updateOnboarding.js";
-import { hrClientEmpsPatchSchema, validateHrClientEmpsGetSchema } from "../validations/hrClientEmpsSchema.js";
+import {
+  hrClientEmpsPatchSchema,
+  validateHrClientEmpsGetSchema,
+} from "../validations/hrClientEmpsSchema.js";
 import updateHrClientEmps from "../controllers/HR/client/hrClientEmployees/updateHrClientEmps.js";
 import getHrClientEmps from "../controllers/HR/client/hrClientEmployees/getHrClientEmps.js";
-import { addEmployeeInvoiceSchema, deleteEmployeeInvoiceSchema, downloadEmployeeInvoiceSchema, getEmployeeInvoicesSchema, updateEmployeeInvoiceSchema } from "../validations/addEmployeeInvoiceSchema.js";
+import {
+  addEmployeeInvoiceSchema,
+  deleteEmployeeInvoiceSchema,
+  downloadEmployeeInvoiceSchema,
+  getEmployeeInvoicesSchema,
+  updateEmployeeInvoiceSchema,
+} from "../validations/addEmployeeInvoiceSchema.js";
 import addEmployeeInvoice from "../controllers/HR/client/employeeInvoices/addEmployeeInvoice.js";
 import getEmployeeInvoices from "../controllers/HR/client/employeeInvoices/getEmployeeInvoices.js";
 import deleteEmployeeInvoice from "../controllers/HR/client/employeeInvoices/deleteEmployeeInvoice.js";
 import updateEmployeeInvoice from "../controllers/HR/client/employeeInvoices/updateEmployeeInvoice.js";
 import downloadEmployeeInvoice from "../controllers/HR/client/employeeInvoices/downloadEmployeeInvoice.js";
-import { addOtherInvoiceSchema, deleteOtherInvoiceSchema, downloadOtherInvoiceSchema, getOtherInvoicesSchema, updateOtherInvoiceSchema } from "../validations/addOtherInvoiceSchema.js";
+import {
+  addOtherInvoiceSchema,
+  deleteOtherInvoiceSchema,
+  downloadOtherInvoiceSchema,
+  getOtherInvoicesSchema,
+  updateOtherInvoiceSchema,
+} from "../validations/addOtherInvoiceSchema.js";
 import addOtherInvoice from "../controllers/HR/client/otherInvoices/addOtherInvoice.js";
 import getOtherInvoices from "../controllers/HR/client/otherInvoices/getOtherInvoices.js";
 import deleteOtherInvoice from "../controllers/HR/client/otherInvoices/deleteOtherInvoice.js";
 import updateOtherInvoice from "../controllers/HR/client/otherInvoices/updateOtherInvoice.js";
 import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloadOtherInvoice.js";
+import { addOutsourceEmployeeSchema } from "../validations/addOutsourceEmployeeSchema.js";
+import hrClientAddEmp from "../controllers/HR/client/hrClientAddEmp/hrClientAddEmp.js";
 
 const router = express.Router();
 
@@ -791,7 +808,6 @@ router.get(
   getHrClientEmps
 );
 
-
 router.patch(
   "/hr_clientemps",
   authenticateJWT,
@@ -838,7 +854,6 @@ router.get(
   downloadEmployeeInvoice
 );
 
-
 // Other Invoice CRUD Routes
 
 router.post(
@@ -878,10 +893,11 @@ router.get(
   downloadOtherInvoice
 );
 
-
-
-
-
-
+router.post(
+  "/hr_clientaddemp",
+  authenticateJWT,
+  validateSchema(addOutsourceEmployeeSchema),
+  hrClientAddEmp
+);
 
 export default router;
