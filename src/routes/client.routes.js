@@ -8,6 +8,9 @@ import { clientStartHireSchema } from "../validations/clientStartHireSchema.js";
 import addClientStartHire from "../controllers/client/startHire/addClientStartHire.js";
 import { upload } from "../helpers/multer.js";
 import validateSchema from "../middleware/validate.js";
+import getInterviewSchedules from "../controllers/client/InterviewSchedule/getInterviewSchedules.js";
+import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
+import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 
 const router = express.Router();
 
@@ -25,12 +28,30 @@ router.delete("/c_hr",
   deleteHiringRequest 
 );
 
+
+// Start Hire 
+
 router.post(
   "/c_sh",
   authenticateJWT,
   upload.single("job_description"),
   validateSchema(clientStartHireSchema),
   addClientStartHire
+);
+
+// Interview Schedule 
+
+router.get(
+  "/c_is",
+  authenticateJWT,
+  getInterviewSchedules
+);
+
+router.patch(
+  "/c_is",
+  authenticateJWT,
+  validateSchema(clientUpdateInterviewScheduleSchema),
+  updateInterviewSchedule
 );
 
 export default router;
