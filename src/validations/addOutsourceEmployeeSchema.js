@@ -20,3 +20,9 @@ export const addOutsourceEmployeeSchema = yup.object({
     salary: yup.number().required("Salary is required"),
   }),
 });
+
+export const getOutsourceEligibleEmployeesSchema = yup.object({
+  query: yup.object({
+    c_email: yup.string().email("Valid client email is required").required("Client email is required"),
+  }),
+});

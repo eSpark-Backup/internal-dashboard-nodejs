@@ -211,8 +211,9 @@ import getOtherInvoices from "../controllers/HR/client/otherInvoices/getOtherInv
 import deleteOtherInvoice from "../controllers/HR/client/otherInvoices/deleteOtherInvoice.js";
 import updateOtherInvoice from "../controllers/HR/client/otherInvoices/updateOtherInvoice.js";
 import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloadOtherInvoice.js";
-import { addOutsourceEmployeeSchema } from "../validations/addOutsourceEmployeeSchema.js";
+import { addOutsourceEmployeeSchema, getOutsourceEligibleEmployeesSchema } from "../validations/addOutsourceEmployeeSchema.js";
 import hrClientAddEmp from "../controllers/HR/client/hrClientAddEmp/hrClientAddEmp.js";
+import getOutsourceEligibleEmployees from "../controllers/HR/client/hrClientAddEmp/getOutsourceEligibleEmployees.js";
 
 const router = express.Router();
 
@@ -898,6 +899,13 @@ router.post(
   authenticateJWT,
   validateSchema(addOutsourceEmployeeSchema),
   hrClientAddEmp
+);
+
+router.get(
+  "/hr_clientaddemp",
+  authenticateJWT,
+  validateSchema(getOutsourceEligibleEmployeesSchema),
+  getOutsourceEligibleEmployees
 );
 
 export default router;
