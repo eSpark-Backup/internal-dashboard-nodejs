@@ -8,6 +8,7 @@ import { clientStartHireSchema } from "../validations/clientStartHireSchema.js";
 import addClientStartHire from "../controllers/client/startHire/addClientStartHire.js";
 import { upload } from "../helpers/multer.js";
 import validateSchema from "../middleware/validate.js";
+import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 
 const router = express.Router();
 
@@ -31,6 +32,14 @@ router.post(
   upload.single("job_description"),
   validateSchema(clientStartHireSchema),
   addClientStartHire
+);
+
+// Onboarding 
+
+router.get(
+  "/c_onboard",
+  authenticateJWT,
+  getOnboardings
 );
 
 export default router;
