@@ -6421,6 +6421,143 @@ paths:
                     type: string
                     example: Internal server error
 
+  /c_is:
+    get:
+      summary: Get interview schedules (client Panel)
+      description: Retrieves a list of interview schedules for the authenticated client.
+      tags:
+        - Client Interview Schedule
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of interview schedules retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "34"
+                    employee_name:
+                      type: string
+                      example: "John Doe"
+                    gender:
+                      type: string
+                      example: "Male"
+                    job_title:
+                      type: string
+                      example: "Frontend Developer"
+                    role_type:
+                      type: string
+                      example: "Junior"
+                    employment_term:
+                      type: string
+                      example: "Salary based"
+                    interview_date_time:
+                      type: string
+                      format: date-time
+                      example: "2025-07-15T14:00:00.000Z"
+                    country:
+                      type: string
+                      example: "Pakistan"
+                    status:
+                      type: string
+                      example: "Scheduled"
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: client does not exist with logged email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    patch:
+      summary: Update interview schedule status (client Panel)
+      description: Updates the status of a specific interview schedule by ID (status will be short_list, pending, rejected, hold).
+      tags:
+        - Client Interview Schedule
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Interview schedule ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [short_list, pending, rejected, hold]
+                  example: "short_list"
+      responses:
+        '200':
+          description: Interview schedule updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule updated successfully with short_list status
+        '400':
+          description: Failed to update interview schedule
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to update interview schedule
+        '404':
+          description: Interview schedule not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Interview schedule not found with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
+
+
    
   /hr_onboarding:
     post:
@@ -6745,6 +6882,77 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+  /c_onboard:
+    get:
+      summary: Get onboarding records (client Panel)
+      description: Fetches all onboarding records for the authenticated client based on their email.
+      tags:
+        - Client Onboarding
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Onboarding data fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    employee_name:
+                      type: string
+                      example: John Doe
+                    gender:
+                      type: string
+                      example: Male
+                    country:
+                      type: string
+                      example: USA
+                    job_title:
+                      type: string
+                      example: Software Engineer
+                    role_type:
+                      type: string
+                      example: Full-time
+                    employment_term:
+                      type: string
+                      example: Salary based
+                    joining_date:
+                      type: string
+                      format: date
+                      example: "2024-07-01"
+                    notice_period:
+                      type: string
+                      example: 2 weeks
+                    salary:
+                      type: number
+                      example: 5000
+                    salary_currency:
+                      type: string
+                      example: USD
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: client does not exist with logged email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
 
 
   /hr_start_hire/:
