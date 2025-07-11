@@ -8518,3 +8518,71 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+
+  /c_team:
+    get:
+      summary: Get client team
+      description: Retrieve a list of client team members, filtered by employee status.
+      tags:
+        - Client Team Members
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
+            enum: [active, onboard, terminated]
+          description: Filter team members by their status
+      responses:
+        '200':
+          description: Successfully retrieved team members
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    employee_name:
+                      type: string
+                      example: John Doe
+                    country:
+                      type: string
+                      example: Pakistan
+                    role_type:
+                      type: string
+                      nullable: true
+                      example: Senior
+                    job_title:
+                      type: string
+                      example: Frontend Developer
+                    employment_term:
+                      type: string
+                      example: Salary based
+                    joining_date:
+                      type: string
+                      format: date
+                      example: 2025-06-01
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
