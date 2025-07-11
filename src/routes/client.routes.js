@@ -8,22 +8,25 @@ import { clientStartHireSchema } from "../validations/clientStartHireSchema.js";
 import addClientStartHire from "../controllers/client/startHire/addClientStartHire.js";
 import { upload } from "../helpers/multer.js";
 import validateSchema from "../middleware/validate.js";
+import { getClientTeamSchema } from "../validations/getClientTeamSchema.js";
+import getClientTeam from "../controllers/client/clientTeam/getClientTeam.js";
+import getInterviewSchedules from "../controllers/client/InterviewSchedule/getInterviewSchedules.js";
+import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
+import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
+import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 
 const router = express.Router();
 
 router.get("/c_home", authenticateJWT, getClientHome);
 
-// Hiring Requests 
+// Hiring Requests
 
-router.get("/c_hr",
-  authenticateJWT,
-  getHiringRequests
-);
+router.get("/c_hr", authenticateJWT, getHiringRequests);
 
-router.delete("/c_hr",
-  authenticateJWT,
-  deleteHiringRequest 
-);
+router.delete("/c_hr", authenticateJWT, deleteHiringRequest);
+
+
+// Start Hire 
 
 router.post(
   "/c_sh",
@@ -31,6 +34,36 @@ router.post(
   upload.single("job_description"),
   validateSchema(clientStartHireSchema),
   addClientStartHire
+);
+
+router.get(
+  "/c_team",
+  authenticateJWT,
+  validateSchema(getClientTeamSchema),
+  getClientTeam
+);
+
+// Interview Schedule 
+
+router.get(
+  "/c_is",
+  authenticateJWT,
+  getInterviewSchedules
+);
+
+router.patch(
+  "/c_is",
+  authenticateJWT,
+  validateSchema(clientUpdateInterviewScheduleSchema),
+  updateInterviewSchedule
+);
+
+// Onboarding 
+
+router.get(
+  "/c_onboard",
+  authenticateJWT,
+  getOnboardings
 );
 
 export default router;

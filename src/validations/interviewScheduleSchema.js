@@ -33,17 +33,26 @@ export const updateInterviewScheduleSchema = yup.object({
         employment_term: yup.string().oneOf(["Salary based", "Hourly based", "Project based"]).optional(),
         country: yup.string().optional(),
     })
-    .test(
-        "at-least-one-field",
-        "At least one field must be provided in the request body",
-        (value) => {
-          return value && Object.values(value).some((v) => v !== undefined && v !== null && v !== "");
-        }
-      ),
+        .test(
+            "at-least-one-field",
+            "At least one field must be provided in the request body",
+            (value) => {
+                return value && Object.values(value).some((v) => v !== undefined && v !== null && v !== "");
+            }
+        ),
 });
 
 export const deleteInterviewScheduleSchema = yup.object({
     query: yup.object({
         id: yup.string().required("Interview schedule ID is required"),
+    }),
+});
+
+export const clientUpdateInterviewScheduleSchema = yup.object({
+    query: yup.object({
+        id: yup.string().required("Interview schedule ID is required"),
+    }),
+    body: yup.object({
+        status: yup.string().oneOf(["short_list", "pending", "rejected", "hold"]).required("Status is required"),
     }),
 });
