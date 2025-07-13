@@ -6252,6 +6252,173 @@ paths:
                     type: string
                     example: Outsource employee not found
 
+  /hr_clientaddemp:
+    get:
+      summary: Get outsource-eligible employees
+      description: Returns a list of employees from the Talent client who are not yet outsourced to the provided client.
+      tags:
+        - Client Employees
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: c_email
+          required: true
+          schema:
+            type: string
+            format: email
+          description: Client email to filter outsource-eligible employees
+      responses:
+        '200':
+          description: List of eligible employees retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 102
+                    employee_id:
+                      type: string
+                      example: EMP456
+                    name:
+                      type: string
+                      example: Alice Johnson
+                    gender:
+                      type: string
+                      example: Female
+                    image:
+                      type: string
+                      format: uri
+                      example: https://your-s3-url.com/signed-image.jpg
+                    job_title:
+                      type: string
+                      example: Backend Developer
+                    status:
+                      type: string
+                      example: active
+        '404':
+          description: Client(s) not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client(s) not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+    post:
+      summary: Add outsource employee to client team
+      description: Assigns an employee to a client's team with job and salary details.
+      tags:
+        - Client Employees
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: c_email
+          required: true
+          schema:
+            type: string
+            format: email
+          description: Email of the client to whom the employee will be assigned
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+                - country
+                - job_title
+                - role_type
+                - employment_term
+                - joining_date
+                - salary
+              properties:
+                id:
+                  type: integer
+                  example: 123
+                country:
+                  type: string
+                  example: Pakistan
+                job_title:
+                  type: string
+                  example: Frontend Developer
+                role_type:
+                  type: string
+                  enum: [Intern, Junior, Intermediate, Senior]
+                  example: Intermediate
+                employment_term:
+                  type: string
+                  enum: [Salary based, Hourly based, Project based]
+                  example: Salary based
+                joining_date:
+                  type: string
+                  format: date
+                  example: "2025-06-01"
+                salary:
+                  type: number
+                  example: 80000
+      responses:
+        '201':
+          description: Employee successfully added to client's team
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "John Doe is added successfully"
+                  id:
+                    type: integer
+                    example: 456
+        '404':
+          description: Employee or Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Client does not exist"
+        '400':
+          description: Failed to add outsource employee
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Failed to add outsource employee"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
 
 
 
