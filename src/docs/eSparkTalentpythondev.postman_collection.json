@@ -5921,6 +5921,265 @@
 							]
 						},
 						{
+							"name": "Employees",
+							"item": [
+								{
+									"name": "Get Client Employee",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMjQ0NjEzLCJpYXQiOjE3NTIyMjY2MTMsImp0aSI6ImQ5YTRjNDJkOGQ2YjQxN2RiN2ExZmMxYTk5ODQwZGMwIiwidXNlcl9pZCI6MX0.UIp3Ljcg9QFcuajuqtS0IDX3Z-UVfHb1ft5W6hW2fO8"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_clientemps/?c_email=muzclient@yopmail.com&tab=all",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_clientemps",
+												""
+											],
+											"query": [
+												{
+													"key": "c_email",
+													"value": "muzclient@yopmail.com"
+												},
+												{
+													"key": "tab",
+													"value": "all"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Client Employee Status",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMjQ0NjEzLCJpYXQiOjE3NTIyMjY2MTMsImp0aSI6ImQ5YTRjNDJkOGQ2YjQxN2RiN2ExZmMxYTk5ODQwZGMwIiwidXNlcl9pZCI6MX0.UIp3Ljcg9QFcuajuqtS0IDX3Z-UVfHb1ft5W6hW2fO8"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"status\":\"active\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_clientemps/?id=86",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_clientemps",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "86"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Employees (excluded)",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMjUyNDQ2LCJpYXQiOjE3NTIyMzQ0NDYsImp0aSI6ImVhZDgwM2JjMWY4MzQ2MTY5YmE0YWRkNjk3ZWY4NTI0IiwidXNlcl9pZCI6MX0.1j4GXuXwO5NhsCe6aNYnbiy4F25FxlSmBdlYpUlPSbw"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_clientaddemp/?c_email=muzclient@yopmail.com&tab=active",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_clientaddemp",
+												""
+											],
+											"query": [
+												{
+													"key": "c_email",
+													"value": "muzclient@yopmail.com"
+												},
+												{
+													"key": "tab",
+													"value": "active"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add Client Employee",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json, text/plain, */*"
+											},
+											{
+												"key": "Accept-Language",
+												"value": "en-US,en;q=0.9"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMjUyNDQ2LCJpYXQiOjE3NTIyMzQ0NDYsImp0aSI6ImVhZDgwM2JjMWY4MzQ2MTY5YmE0YWRkNjk3ZWY4NTI0IiwidXNlcl9pZCI6MX0.1j4GXuXwO5NhsCe6aNYnbiy4F25FxlSmBdlYpUlPSbw"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Origin",
+												"value": "https://dashboard-dev.esparktalent.com"
+											},
+											{
+												"key": "User-Agent",
+												"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"joining_date\":\"2025-07-04\",\"employment_term\":\"Salary based\",\"country\":\"Afghanistan\",\"salary\":\"100\",\"salary_currency\":\"£ Sterling\",\"job_title\":\"Angular JS Developer\",\"role_type\":\"Intermediate\",\"id\":65}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://54.162.147.127:8000/api/hr_clientaddemp/?c_email=muzclient@yopmail.com",
+											"protocol": "http",
+											"host": [
+												"54",
+												"162",
+												"147",
+												"127"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"hr_clientaddemp",
+												""
+											],
+											"query": [
+												{
+													"key": "c_email",
+													"value": "muzclient@yopmail.com"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "Other Invoices",
 							"item": [
 								{
@@ -6926,6 +7185,183 @@
 									}
 								],
 								"url": "http://54.162.147.127:8000/api/c_onboard/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Home",
+					"item": [
+						{
+							"name": "Get Home",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMjUwNjUyLCJpYXQiOjE3NTIyMzI2NTIsImp0aSI6IjkzZTdhZDQwN2NiZjQ0NDZiNzZmZGNiNWE0YWYyZmJkIiwidXNlcl9pZCI6ODd9.oayleoLy8eQfAGHpLLoVGtq92vszIQTHuAusI7d3Nhk"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/c_home/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Team Members",
+					"item": [
+						{
+							"name": "Get Team Members",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyMjUwNjUyLCJpYXQiOjE3NTIyMzI2NTIsImp0aSI6IjkzZTdhZDQwN2NiZjQ0NDZiNzZmZGNiNWE0YWYyZmJkIiwidXNlcl9pZCI6ODd9.oayleoLy8eQfAGHpLLoVGtq92vszIQTHuAusI7d3Nhk"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/c_team/?status=active",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_team",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "active"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Get Policies",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNDk1MjY4LCJpYXQiOjE3NTI0NzcyNjgsImp0aSI6ImVmYzE1ZGMxYmRhNzQ0ZGNhMTRiNGJjNWE0YmZiZjExIiwidXNlcl9pZCI6ODd9.pZI15TQT1-6whL2pCdzLptTNNN14dMiMYrdCq7jkAqc"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/c_policy/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Guides",
+					"item": [
+						{
+							"name": "Get Guides",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNDk1MjY4LCJpYXQiOjE3NTI0NzcyNjgsImp0aSI6ImVmYzE1ZGMxYmRhNzQ0ZGNhMTRiNGJjNWE0YmZiZjExIiwidXNlcl9pZCI6ODd9.pZI15TQT1-6whL2pCdzLptTNNN14dMiMYrdCq7jkAqc"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/c_guide/"
 							},
 							"response": []
 						}
