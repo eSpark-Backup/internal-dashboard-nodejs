@@ -14,6 +14,7 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import getPolicies from "../controllers/client/Policy/getPolicies.js";
 
 const router = express.Router();
 
@@ -65,5 +66,14 @@ router.get(
   authenticateJWT,
   getOnboardings
 );
+
+// Policy 
+
+router.get(
+  "/c_policy",
+  authenticateJWT,
+  getPolicies
+);
+
 
 export default router;
