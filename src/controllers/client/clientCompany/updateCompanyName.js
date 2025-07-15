@@ -17,7 +17,7 @@ const updateCompanyName = async (req, res) => {
 
     if (clientResult.rows.length === 0) {
       await client.query("ROLLBACK");
-      return res.status(404).json({ error: "Client not found" });
+      return res.status(404).json({ message: "Client not found" });
     }
 
     await client.query(
