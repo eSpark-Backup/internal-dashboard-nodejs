@@ -14,9 +14,10 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
-import { updateCompanyNameSchema } from "../validations/companySchema.js";
+import { updateClientPasswordSchema, updateCompanyNameSchema } from "../validations/companySchema.js";
 import updateCompanyName from "../controllers/client/clientCompany/updateCompanyName.js";
 import updateClientProfilePicture from "../controllers/client/clientCompany/updateClientProfilePicture.js";
+import updateClientPassword from "../controllers/client/clientCompany/updateClientPassword.js";
 
 const router = express.Router();
 
@@ -72,6 +73,13 @@ router.post(
   authenticateJWT,
   upload.fields([{ name: "picture", maxCount: 1 }]),
   updateClientProfilePicture
+);
+
+router.patch(
+  "/c_updpass",
+  authenticateJWT,
+  validateSchema(updateClientPasswordSchema),
+  updateClientPassword
 );
 
 export default router;
