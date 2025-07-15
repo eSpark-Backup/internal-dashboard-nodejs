@@ -8216,3 +8216,183 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
+ 
+  /c_invpay:
+    get:
+      summary: Get invoice payments
+      description: Retrieve both employee invoices and other payments for the authenticated client. Can filter by payment status.
+      tags:
+        - Client Invoice Payments
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: payment_status
+          schema:
+            type: string
+            enum: [pending, processing, paid]
+          required: false
+          description: Filter results by payment status.
+      responses:
+        '200':
+          description: List of employee and other invoices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  employee_invoices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 42
+                        employee_name:
+                          type: string
+                          example: John Doe
+                        invoice_date:
+                          type: string
+                          format: date
+                          example: "2025-06-01"
+                        due_date:
+                          type: string
+                          format: date
+                          example: "2025-06-15"
+                        invoice_amount:
+                          type: number
+                          example: 1000
+                        currency:
+                          type: string
+                          example: USD
+                        payment_status:
+                          type: string
+                          example: pending
+                  other_payments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 88
+                        invoice_reference:
+                          type: string
+                          example: INV-002
+                        invoice_date:
+                          type: string
+                          format: date
+                          example: "2025-06-05"
+                        due_date:
+                          type: string
+                          format: date
+                          example: "2025-06-20"
+                        invoice_amount:
+                          type: number
+                          example: 500
+                        currency:
+                          type: string
+                          example: USD
+                        payment_status:
+                          type: string
+                          example: paid
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: client does not exist with logged email
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
+    patch:
+      summary: Update payment status for an invoice
+      description: Update the `payment_status` for an employee invoice or other payment by ID and category.
+      tags:
+        - Client Invoice Payments
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the invoice to be updated
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - category
+                - payment_status
+              properties:
+                category:
+                  type: string
+                  enum: [employee_invoices, other_payment]
+                  example: employee_invoices
+                payment_status:
+                  type: string
+                  enum: [pending, processing, paid]
+                  example: paid
+      responses:
+        '200':
+          description: Invoice payment status updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee invoice has been updated
+                  id:
+                    type: integer
+                    example: 101
+        '400':
+          description: Validation error or failed operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid category
+        '404':
+          description: Invoice record not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Employee invoice does not exist with given id
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error

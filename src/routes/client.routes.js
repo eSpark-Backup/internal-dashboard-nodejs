@@ -14,6 +14,9 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import { getClientInvoicePaymentsSchema, updateInvoicePaymentStatusSchema } from "../validations/addOtherInvoiceSchema.js";
+import getInvoicePayments from "../controllers/client/InvoicePayments/getInvoicePayments.js";
+import updateInvoicePaymentStatus from "../controllers/client/InvoicePayments/updateInvoicePaymentStatus.js";
 
 const router = express.Router();
 
@@ -64,6 +67,22 @@ router.get(
   "/c_onboard",
   authenticateJWT,
   getOnboardings
+);
+
+// Invoice Payments 
+
+router.get(
+  "/c_invpay",
+  authenticateJWT,
+  validateSchema(getClientInvoicePaymentsSchema),
+  getInvoicePayments
+);
+
+router.patch(
+  "/c_invpay",
+  authenticateJWT,
+  validateSchema(updateInvoicePaymentStatusSchema),
+  updateInvoicePaymentStatus
 );
 
 export default router;
