@@ -16,6 +16,7 @@ import updateInterviewSchedule from "../controllers/client/InterviewSchedule/upd
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 import { updateCompanyNameSchema } from "../validations/companySchema.js";
 import updateCompanyName from "../controllers/client/clientCompany/updateCompanyName.js";
+import updateClientProfilePicture from "../controllers/client/clientCompany/updateClientProfilePicture.js";
 
 const router = express.Router();
 
@@ -64,6 +65,13 @@ router.patch(
   authenticateJWT,
   validateSchema(updateCompanyNameSchema),
   updateCompanyName
+);
+
+router.post(
+  "/c_updpic",
+  authenticateJWT,
+  upload.fields([{ name: "picture", maxCount: 1 }]),
+  updateClientProfilePicture
 );
 
 export default router;
