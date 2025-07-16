@@ -14,6 +14,8 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import { getClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
+import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
 
 const router = express.Router();
 
@@ -25,8 +27,7 @@ router.get("/c_hr", authenticateJWT, getHiringRequests);
 
 router.delete("/c_hr", authenticateJWT, deleteHiringRequest);
 
-
-// Start Hire 
+// Start Hire
 
 router.post(
   "/c_sh",
@@ -43,13 +44,9 @@ router.get(
   getClientTeam
 );
 
-// Interview Schedule 
+// Interview Schedule
 
-router.get(
-  "/c_is",
-  authenticateJWT,
-  getInterviewSchedules
-);
+router.get("/c_is", authenticateJWT, getInterviewSchedules);
 
 router.patch(
   "/c_is",
@@ -58,12 +55,19 @@ router.patch(
   updateInterviewSchedule
 );
 
-// Onboarding 
+// Onboarding
 
 router.get(
   "/c_onboard",
   authenticateJWT,
   getOnboardings
+);
+
+router.get(
+  "/c_clockinout",
+  authenticateJWT,
+  validateSchema(getClientPunchRequestSchema),
+  getClientPunchRequests
 );
 
 export default router;
