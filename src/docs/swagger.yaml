@@ -3832,6 +3832,45 @@ paths:
 
     paths:
 
+  /c_policy:
+    get:
+      summary: Get client policies
+      description: Returns a list of all policies that are applicable to clients.
+      tags:
+        - Policies
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of client policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    policy_name:
+                      type: string
+                      example: Code of Conduct
+                    description:
+                      type: string
+                      example: "Clients are expected to adhere to professional conduct standards."
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal server error"
+
+
   /hr_guide:
     post:
       tags:
@@ -8620,6 +8659,7 @@ paths:
                   message:
                     type: string
                     example: Internal server error
+
 
 
   /c_home:
