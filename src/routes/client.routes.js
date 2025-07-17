@@ -14,8 +14,9 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
-import { getClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
+import { getClientPunchRequestSchema, updateClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
 import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
+import updateClientPunchRequest from "../controllers/client/c_clockinout/updateClientPunchRequest.js";
 
 const router = express.Router();
 
@@ -68,6 +69,13 @@ router.get(
   authenticateJWT,
   validateSchema(getClientPunchRequestSchema),
   getClientPunchRequests
+);
+
+router.patch(
+  "/c_clockinout",
+  authenticateJWT,
+  validateSchema(updateClientPunchRequestSchema),
+  updateClientPunchRequest
 );
 
 export default router;
