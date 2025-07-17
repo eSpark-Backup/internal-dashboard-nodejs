@@ -2148,6 +2148,63 @@ paths:
                     type: string
                     example: Unexpected server error occurred
 
+  /c_lb:
+    get:
+      summary: Get leave balances for all employees associated with the client
+      tags:
+        - Client - Leave Balance
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of leave balances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    employee_name:
+                      type: string
+                      example: John Doe
+                    casual_leaves:
+                      type: integer
+                      example: 5
+                    sick_leaves:
+                      type: integer
+                      example: 2
+                    annual_leaves:
+                      type: integer
+                      example: 7
+                    taken:
+                      type: integer
+                      example: 9
+                    balance:
+                      type: integer
+                      example: 14
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
   /emp_wfhr:
     post:
       tags:
