@@ -52,5 +52,14 @@ export const getClientLeaveRequestsSchema = yup.object({
   }),
 });
 
+export const updateClientLeaveRequestSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Leave Request ID is required"),
+  }),
+  body: yup.object({
+    status: yup.string().oneOf(["completed", "rejected"]).required("Status is required"),
+  }),
+});
+
 
 

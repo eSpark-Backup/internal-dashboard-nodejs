@@ -3349,6 +3349,76 @@ paths:
                     example: "Internal server error"
 
 
+    patch:
+      summary: Update client leave request status
+      description: Update the status of a leave request (to `completed` or `rejected`) by the client.
+      tags:
+        - Leave Requests
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the leave request to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  enum: [completed, rejected]
+                  example: completed
+      responses:
+        '200':
+          description: Leave request updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "John Doe annual leave request is accepted"
+        '400':
+          description: Validation or business logic error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Leave request already rejected or completed"
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Leave request not found"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal server error"
+
+
 
   /hr_update_empimg:
     patch:

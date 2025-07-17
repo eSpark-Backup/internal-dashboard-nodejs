@@ -14,8 +14,9 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
-import { getClientLeaveRequestsSchema } from "../validations/leaveRequestSchema.js";
+import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
 import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
+import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
 
 const router = express.Router();
 
@@ -76,6 +77,15 @@ router.get(
   validateSchema(getClientLeaveRequestsSchema),
   getLeaveRequests
 );
+
+router.patch(
+  "/c_lr",
+  authenticateJWT,
+  validateSchema(updateClientLeaveRequestSchema),
+  updateLeaveRequestStatus
+);
+
+
 
 
 
