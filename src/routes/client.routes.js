@@ -16,6 +16,8 @@ import updateInterviewSchedule from "../controllers/client/InterviewSchedule/upd
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
 import { getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
+import getPolicies from "../controllers/client/Policy/getPolicies.js";
+import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
 
 const router = express.Router();
 
@@ -74,5 +76,15 @@ router.get(
   validateSchema(getClientTrackTimeSchema),
   getClientTimeTracking
 );
+
+// Policy 
+router.get(
+  "/c_policy",
+  authenticateJWT,
+  getPolicies
+);
+
+router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
+
 
 export default router;
