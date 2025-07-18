@@ -2148,6 +2148,63 @@ paths:
                     type: string
                     example: Unexpected server error occurred
 
+  /c_lb:
+    get:
+      summary: Get leave balances for all employees associated with the client
+      tags:
+        - Client - Leave Balance
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of leave balances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    employee_name:
+                      type: string
+                      example: John Doe
+                    casual_leaves:
+                      type: integer
+                      example: 5
+                    sick_leaves:
+                      type: integer
+                      example: 2
+                    annual_leaves:
+                      type: integer
+                      example: 7
+                    taken:
+                      type: integer
+                      example: 9
+                    balance:
+                      type: integer
+                      example: 14
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Client not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+
+
   /emp_wfhr:
     post:
       tags:
@@ -3254,6 +3311,172 @@ paths:
                     type: string
                     example: Internal Server Error
 
+
+  /c_lr:
+    get:
+      summary: Get leave requests for client
+      description: Retrieve leave requests for the logged-in client based on leave status.
+      tags:
+        - Leave Requests
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [all, pending, completed, rejected]
+          required: false
+          description: Filter leave requests by status (optional)
+      responses:
+        '200':
+          description: Successfully retrieved leave requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "1a2b3c"
+                    employee_id:
+                      type: string
+                      example: "EMP123"
+                    employee_name:
+                      type: string
+                      example: "John Doe"
+                    country:
+                      type: string
+                      example: "Pakistan"
+                    department:
+                      type: string
+                      example: "Frontend Development"
+                    leave_type:
+                      type: string
+                      example: "Annual Leave"
+                    start_date:
+                      type: string
+                      example: "01-07-2025"
+                    end_date:
+                      type: string
+                      example: "03-07-2025"
+                    check_in:
+                      type: string
+                      example: "09:00 AM"
+                    check_out:
+                      type: string
+                      example: "06:00 PM"
+                    count:
+                      type: number
+                      example: 3
+                    reason:
+                      type: string
+                      example: "Family Event"
+                    requested_at:
+                      type: string
+                      example: "15-07-2025 02:15:00 PM"
+                    status:
+                      type: string
+                      enum: [pending, completed, rejected]
+                      example: "pending"
+                    employee_image:
+                      type: string
+                      example: "https://s3.amazonaws.com/.../john_doe.jpg"
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Client not found"
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal server error"
+
+
+    patch:
+      summary: Update client leave request status
+      description: Update the status of a leave request (to `completed` or `rejected`) by the client.
+      tags:
+        - Leave Requests
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the leave request to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  enum: [completed, rejected]
+                  example: completed
+      responses:
+        '200':
+          description: Leave request updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "John Doe annual leave request is accepted"
+        '400':
+          description: Validation or business logic error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Leave request already rejected or completed"
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Leave request not found"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal server error"
+
+
+
   /hr_update_empimg:
     patch:
       tags:
@@ -4266,6 +4489,49 @@ paths:
                   message:
                     type: string
                     example: Internal Server Error
+
+  /c_guide:
+    get:
+      summary: Get client guides
+      description: Returns a list of all guides available for clients.
+      tags:
+        - Guides
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of client guides
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    guide_name:
+                      type: string
+                      example: Onboarding Guide
+                    description:
+                      type: string
+                      example: "Step-by-step instructions for onboarding new employees."
+                    language:
+                      type: string
+                      example: "en"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal server error"
+
+
 
   /hr_compcontract:
     post:

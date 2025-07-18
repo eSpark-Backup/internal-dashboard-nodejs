@@ -16,8 +16,14 @@ import updateInterviewSchedule from "../controllers/client/InterviewSchedule/upd
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
 import { getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
+import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
+import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
+import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
+import getGuides from "../controllers/client/Guide/getGuides.js";
 import getPolicies from "../controllers/client/Policy/getPolicies.js";
 import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
+import getLeaveBalance from "../controllers/client/LeaveBalance/getLeaveBalance.js";
+import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 
 const router = express.Router();
 
@@ -76,6 +82,34 @@ router.get(
   validateSchema(getClientTrackTimeSchema),
   getClientTimeTracking
 );
+// Leave Requests 
+
+router.get(
+  "/c_lr",
+  authenticateJWT,
+  validateSchema(getClientLeaveRequestsSchema),
+  getLeaveRequests
+);
+
+router.patch(
+  "/c_lr",
+  authenticateJWT,
+  validateSchema(updateClientLeaveRequestSchema),
+  updateLeaveRequestStatus
+);
+
+
+
+// Guide 
+
+router.get(
+  "/c_guide",
+  authenticateJWT,
+  getGuides
+);
+
+
+// Policy 
 
 // Policy 
 router.get(
@@ -85,6 +119,17 @@ router.get(
 );
 
 router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
+router.get(
+  "/c_empcontract", 
+  authenticateJWT, 
+  getClientEmployeeContracts
+);
+
+router.get(
+  "/c_lb",
+  authenticateJWT,
+  getLeaveBalances
+);
 
 
 export default router;

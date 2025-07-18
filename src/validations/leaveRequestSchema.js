@@ -45,3 +45,21 @@ export const getEmployeeLeaveRequestsSchema = yup.object({
     emp_email: yup.string().email("Invalid email").required("Employee email is required"),
   }),
 });
+
+export const getClientLeaveRequestsSchema = yup.object({
+  query: yup.object({
+    status: yup.string().oneOf(["all", "pending", "completed", "rejected"]).optional(),
+  }),
+});
+
+export const updateClientLeaveRequestSchema = yup.object({
+  query: yup.object({
+    id: yup.string().required("Leave Request ID is required"),
+  }),
+  body: yup.object({
+    status: yup.string().oneOf(["completed", "rejected"]).required("Status is required"),
+  }),
+});
+
+
+
