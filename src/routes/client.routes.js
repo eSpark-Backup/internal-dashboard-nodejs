@@ -14,6 +14,8 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
+import { getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
 import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
 import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
 import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
@@ -34,7 +36,7 @@ router.get("/c_hr", authenticateJWT, getHiringRequests);
 router.delete("/c_hr", authenticateJWT, deleteHiringRequest);
 
 
-// Start Hire 
+// Start Hire
 
 router.post(
   "/c_sh",
@@ -51,7 +53,7 @@ router.get(
   getClientTeam
 );
 
-// Interview Schedule 
+// Interview Schedule
 
 router.get(
   "/c_is",
@@ -66,7 +68,7 @@ router.patch(
   updateInterviewSchedule
 );
 
-// Onboarding 
+// Onboarding
 
 router.get(
   "/c_onboard",
@@ -74,6 +76,12 @@ router.get(
   getOnboardings
 );
 
+router.get(
+  "/c_tracktime",
+  authenticateJWT,
+  validateSchema(getClientTrackTimeSchema),
+  getClientTimeTracking
+);
 // Leave Requests 
 
 router.get(
@@ -103,12 +111,14 @@ router.get(
 
 // Policy 
 
+// Policy 
 router.get(
   "/c_policy",
   authenticateJWT,
   getPolicies
 );
 
+router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
 router.get(
   "/c_empcontract", 
   authenticateJWT, 
