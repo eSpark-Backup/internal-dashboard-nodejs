@@ -15,6 +15,26 @@ import { clientUpdateInterviewScheduleSchema } from "../validations/interviewSch
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 import getClientContracts from "../controllers/client/companyContracts/getClientContracts.js";
+import { updateClientPasswordSchema, updateCompanyNameSchema } from "../validations/companySchema.js";
+import updateCompanyName from "../controllers/client/clientCompany/updateCompanyName.js";
+import updateClientProfilePicture from "../controllers/client/clientCompany/updateClientProfilePicture.js";
+import updateClientPassword from "../controllers/client/clientCompany/updateClientPassword.js";
+import { getClientInvoicePaymentsSchema, updateInvoicePaymentStatusSchema } from "../validations/addOtherInvoiceSchema.js";
+import getInvoicePayments from "../controllers/client/InvoicePayments/getInvoicePayments.js";
+import updateInvoicePaymentStatus from "../controllers/client/InvoicePayments/updateInvoicePaymentStatus.js";
+import { getClientPunchRequestSchema, updateClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
+import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
+import updateClientPunchRequest from "../controllers/client/c_clockinout/updateClientPunchRequest.js";
+import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
+import { getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
+import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
+import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
+import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
+import getGuides from "../controllers/client/Guide/getGuides.js";
+import getPolicies from "../controllers/client/Policy/getPolicies.js";
+import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
+import getLeaveBalance from "../controllers/client/LeaveBalance/getLeaveBalance.js";
+import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 
 const router = express.Router();
 
@@ -25,6 +45,7 @@ router.get("/c_home", authenticateJWT, getClientHome);
 router.get("/c_hr", authenticateJWT, getHiringRequests);
 
 router.delete("/c_hr", authenticateJWT, deleteHiringRequest);
+
 
 // Start Hire
 
@@ -59,5 +80,111 @@ router.patch(
 router.get("/c_onboard", authenticateJWT, getOnboardings);
 
 router.get("/c_cmpcontract", authenticateJWT, getClientContracts);
+router.patch(
+  "/c_upduser",
+  authenticateJWT,
+  validateSchema(updateCompanyNameSchema),
+  updateCompanyName
+);
+
+router.post(
+  "/c_updpic",
+  authenticateJWT,
+  upload.fields([{ name: "picture", maxCount: 1 }]),
+  updateClientProfilePicture
+);
+
+router.patch(
+  "/c_updpass",
+  authenticateJWT,
+  validateSchema(updateClientPasswordSchema),
+  updateClientPassword
+);
+
+// Invoice Payments 
+
+router.get(
+  "/c_invpay",
+  authenticateJWT,
+  validateSchema(getClientInvoicePaymentsSchema),
+  getInvoicePayments
+);
+
+router.patch(
+  "/c_invpay",
+  authenticateJWT,
+  validateSchema(updateInvoicePaymentStatusSchema),
+  updateInvoicePaymentStatus
+);
+
+router.get(
+  "/c_clockinout",
+  authenticateJWT,
+  validateSchema(getClientPunchRequestSchema),
+  getClientPunchRequests
+);
+
+router.patch(
+  "/c_clockinout",
+  authenticateJWT,
+  validateSchema(updateClientPunchRequestSchema),
+  updateClientPunchRequest
+);
+
+router.get(
+  "/c_tracktime",
+  authenticateJWT,
+  validateSchema(getClientTrackTimeSchema),
+  getClientTimeTracking
+);
+// Leave Requests 
+
+router.get(
+  "/c_lr",
+  authenticateJWT,
+  validateSchema(getClientLeaveRequestsSchema),
+  getLeaveRequests
+);
+
+router.patch(
+  "/c_lr",
+  authenticateJWT,
+  validateSchema(updateClientLeaveRequestSchema),
+  updateLeaveRequestStatus
+);
+
+
+
+// Guide 
+
+router.get(
+  "/c_guide",
+  authenticateJWT,
+  getGuides
+);
+
+
+// Policy 
+
+// Policy 
+router.get(
+  "/c_policy",
+  authenticateJWT,
+  getPolicies
+);
+
+router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
+router.get(
+  "/c_empcontract", 
+  authenticateJWT, 
+  getClientEmployeeContracts
+);
+
+router.get(
+  "/c_lb",
+  authenticateJWT,
+  getLeaveBalances
+);
+
 
 export default router;
