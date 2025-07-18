@@ -14,6 +14,7 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import getClientContracts from "../controllers/client/companyContracts/getClientContracts.js";
 import { updateClientPasswordSchema, updateCompanyNameSchema } from "../validations/companySchema.js";
 import updateCompanyName from "../controllers/client/clientCompany/updateCompanyName.js";
 import updateClientProfilePicture from "../controllers/client/clientCompany/updateClientProfilePicture.js";
@@ -78,6 +79,7 @@ router.patch(
 
 router.get("/c_onboard", authenticateJWT, getOnboardings);
 
+router.get("/c_cmpcontract", authenticateJWT, getClientContracts);
 router.patch(
   "/c_upduser",
   authenticateJWT,
