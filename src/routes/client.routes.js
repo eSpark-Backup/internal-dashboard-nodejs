@@ -14,6 +14,7 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import getGuides from "../controllers/client/Guide/getGuides.js";
 import getPolicies from "../controllers/client/Policy/getPolicies.js";
 import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
 import getLeaveBalance from "../controllers/client/LeaveBalance/getLeaveBalance.js";
@@ -69,6 +70,15 @@ router.get(
   authenticateJWT,
   getOnboardings
 );
+
+// Guide 
+
+router.get(
+  "/c_guide",
+  authenticateJWT,
+  getGuides
+);
+
 
 // Policy 
 
