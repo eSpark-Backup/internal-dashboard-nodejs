@@ -14,6 +14,9 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import { getClientPunchRequestSchema, updateClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
+import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
+import updateClientPunchRequest from "../controllers/client/c_clockinout/updateClientPunchRequest.js";
 import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
 import { getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
 import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
@@ -55,11 +58,7 @@ router.get(
 
 // Interview Schedule
 
-router.get(
-  "/c_is",
-  authenticateJWT,
-  getInterviewSchedules
-);
+router.get("/c_is", authenticateJWT, getInterviewSchedules);
 
 router.patch(
   "/c_is",
@@ -77,6 +76,19 @@ router.get(
 );
 
 router.get(
+  "/c_clockinout",
+  authenticateJWT,
+  validateSchema(getClientPunchRequestSchema),
+  getClientPunchRequests
+);
+
+router.patch(
+  "/c_clockinout",
+  authenticateJWT,
+  validateSchema(updateClientPunchRequestSchema),
+  updateClientPunchRequest
+);
+
   "/c_tracktime",
   authenticateJWT,
   validateSchema(getClientTrackTimeSchema),
