@@ -215,6 +215,8 @@ import { addOutsourceEmployeeSchema, getOutsourceEligibleEmployeesSchema } from 
 import hrClientAddEmp from "../controllers/HR/client/hrClientAddEmp/hrClientAddEmp.js";
 import getOutsourceEligibleEmployees from "../controllers/HR/client/hrClientAddEmp/getOutsourceEligibleEmployees.js";
 import getRolesAndPermissions from "../controllers/HR/AccountAndPermissions/getRolesAndPermissions.js";
+import { patchRolesAndPermissionsSchema } from "../validations/updateRolesAndPermissionsSchema.js";
+import patchRolesAndPermissions from "../controllers/HR/AccountAndPermissions/updateRolesAndPermissions.js";
 
 const router = express.Router();
 
@@ -913,6 +915,13 @@ router.get(
   "/hr_rnp",
   authenticateJWT,
   getRolesAndPermissions
+);
+
+router.patch(
+  "/hr_rnp",
+  authenticateJWT,
+  validateSchema(patchRolesAndPermissionsSchema),
+  patchRolesAndPermissions
 );
 
 export default router;
