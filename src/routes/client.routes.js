@@ -17,6 +17,8 @@ import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js"
 import getGuides from "../controllers/client/Guide/getGuides.js";
 import getPolicies from "../controllers/client/Policy/getPolicies.js";
 import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
+import getLeaveBalance from "../controllers/client/LeaveBalance/getLeaveBalance.js";
+import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 
 const router = express.Router();
 
@@ -85,7 +87,18 @@ router.get(
   authenticateJWT,
   getPolicies
 );
-router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
+
+router.get(
+  "/c_empcontract", 
+  authenticateJWT, 
+  getClientEmployeeContracts
+);
+
+router.get(
+  "/c_lb",
+  authenticateJWT,
+  getLeaveBalances
+);
 
 
 export default router;
