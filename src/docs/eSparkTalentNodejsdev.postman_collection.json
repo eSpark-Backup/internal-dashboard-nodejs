@@ -8245,6 +8245,52 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Leave Balance",
+					"item": [
+						{
+							"name": "Get Leave Balance",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNzYzNzIxLCJpYXQiOjE3NTI3NDU3MjEsImp0aSI6ImRmOGM2YjY5ZjcyYzQ4NDNiMmE4NDQwMjE1NjliMWNmIiwidXNlcl9pZCI6ODd9.Y-s_59L6liNkhRHjk_bGzL6HMKtYTNCBWvDSp9GrxNE",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/c_lb/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},

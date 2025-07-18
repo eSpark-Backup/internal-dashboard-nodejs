@@ -17,6 +17,11 @@ import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js"
 import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
 import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
 import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
+import getGuides from "../controllers/client/Guide/getGuides.js";
+import getPolicies from "../controllers/client/Policy/getPolicies.js";
+import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
+import getLeaveBalance from "../controllers/client/LeaveBalance/getLeaveBalance.js";
+import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 
 const router = express.Router();
 
@@ -87,6 +92,34 @@ router.patch(
 
 
 
+// Guide 
+
+router.get(
+  "/c_guide",
+  authenticateJWT,
+  getGuides
+);
+
+
+// Policy 
+
+router.get(
+  "/c_policy",
+  authenticateJWT,
+  getPolicies
+);
+
+router.get(
+  "/c_empcontract", 
+  authenticateJWT, 
+  getClientEmployeeContracts
+);
+
+router.get(
+  "/c_lb",
+  authenticateJWT,
+  getLeaveBalances
+);
 
 
 export default router;
