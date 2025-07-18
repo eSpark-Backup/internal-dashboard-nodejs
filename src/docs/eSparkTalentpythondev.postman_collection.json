@@ -7494,6 +7494,173 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Leave Requests",
+					"item": [
+						{
+							"name": "Get Leave Requests",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNjY2NTYwLCJpYXQiOjE3NTI2NDg1NjAsImp0aSI6ImJiZDViNTg4ZWI1MjRlZDJiNzljNzA3ZjJjOWRlYTk1IiwidXNlcl9pZCI6ODd9.n-5hF8qLNTHV6MkplvG8LaVon0FLJ8fHxhMhqa214jk"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/c_lr/?status=all",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_lr",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "all"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Leave Request Status",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNjkyMDg0LCJpYXQiOjE3NTI2NzQwODQsImp0aSI6IjhhOWMzNTAxOTA0ZTRiODNhM2M2M2M5MTNlNjUzMzZlIiwidXNlcl9pZCI6ODd9.zhTIP-xY1dGIMys1KY6bksNkJ1bSPxVfUHBjtPzz2rI"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"status\":\"completed\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/c_lr/?id=91",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_lr",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "91"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Leave Balance",
+					"item": [
+						{
+							"name": "Get Leave Balance",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyNzYzNzIxLCJpYXQiOjE3NTI3NDU3MjEsImp0aSI6ImRmOGM2YjY5ZjcyYzQ4NDNiMmE4NDQwMjE1NjliMWNmIiwidXNlcl9pZCI6ODd9.Y-s_59L6liNkhRHjk_bGzL6HMKtYTNCBWvDSp9GrxNE"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/c_lb/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
