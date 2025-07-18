@@ -14,6 +14,9 @@ import getInterviewSchedules from "../controllers/client/InterviewSchedule/getIn
 import { clientUpdateInterviewScheduleSchema } from "../validations/interviewScheduleSchema.js";
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
+import { getClientInvoicePaymentsSchema, updateInvoicePaymentStatusSchema } from "../validations/addOtherInvoiceSchema.js";
+import getInvoicePayments from "../controllers/client/InvoicePayments/getInvoicePayments.js";
+import updateInvoicePaymentStatus from "../controllers/client/InvoicePayments/updateInvoicePaymentStatus.js";
 import { getClientPunchRequestSchema, updateClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
 import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
 import updateClientPunchRequest from "../controllers/client/c_clockinout/updateClientPunchRequest.js";
@@ -75,6 +78,22 @@ router.get(
   getOnboardings
 );
 
+// Invoice Payments 
+
+router.get(
+  "/c_invpay",
+  authenticateJWT,
+  validateSchema(getClientInvoicePaymentsSchema),
+  getInvoicePayments
+);
+
+router.patch(
+  "/c_invpay",
+  authenticateJWT,
+  validateSchema(updateInvoicePaymentStatusSchema),
+  updateInvoicePaymentStatus
+);
+
 router.get(
   "/c_clockinout",
   authenticateJWT,
@@ -89,6 +108,7 @@ router.patch(
   updateClientPunchRequest
 );
 
+router.get(
   "/c_tracktime",
   authenticateJWT,
   validateSchema(getClientTrackTimeSchema),
