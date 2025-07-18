@@ -214,6 +214,7 @@ import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloa
 import { addOutsourceEmployeeSchema, getOutsourceEligibleEmployeesSchema } from "../validations/addOutsourceEmployeeSchema.js";
 import hrClientAddEmp from "../controllers/HR/client/hrClientAddEmp/hrClientAddEmp.js";
 import getOutsourceEligibleEmployees from "../controllers/HR/client/hrClientAddEmp/getOutsourceEligibleEmployees.js";
+import getRolesAndPermissions from "../controllers/HR/AccountAndPermissions/getRolesAndPermissions.js";
 
 const router = express.Router();
 
@@ -906,6 +907,12 @@ router.get(
   authenticateJWT,
   validateSchema(getOutsourceEligibleEmployeesSchema),
   getOutsourceEligibleEmployees
+);
+
+router.get(
+  "/hr_rnp",
+  authenticateJWT,
+  getRolesAndPermissions
 );
 
 export default router;
