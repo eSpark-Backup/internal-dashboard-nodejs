@@ -15,6 +15,7 @@ import { clientUpdateInterviewScheduleSchema } from "../validations/interviewSch
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 import getGuides from "../controllers/client/Guide/getGuides.js";
+import getPolicies from "../controllers/client/Policy/getPolicies.js";
 import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
 
 const router = express.Router();
@@ -74,6 +75,15 @@ router.get(
   "/c_guide",
   authenticateJWT,
   getGuides
+);
+
+
+// Policy 
+
+router.get(
+  "/c_policy",
+  authenticateJWT,
+  getPolicies
 );
 router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
 
