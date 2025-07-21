@@ -33,22 +33,33 @@ import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/update
 import getGuides from "../controllers/client/Guide/getGuides.js";
 import getPolicies from "../controllers/client/Policy/getPolicies.js";
 import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
-import getLeaveBalance from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 
 const router = express.Router();
 
-router.get("/c_home", authenticateJWT, getClientHome);
+
+// Home
+router.get(
+  "/c_home", 
+  authenticateJWT, 
+  getClientHome
+);
 
 // Hiring Requests
+router.get(
+  "/c_hr", 
+  authenticateJWT, 
+  getHiringRequests
+);
 
-router.get("/c_hr", authenticateJWT, getHiringRequests);
-
-router.delete("/c_hr", authenticateJWT, deleteHiringRequest);
+router.delete(
+  "/c_hr", 
+  authenticateJWT, 
+  deleteHiringRequest
+);
 
 
 // Start Hire
-
 router.post(
   "/c_sh",
   authenticateJWT,
@@ -57,6 +68,7 @@ router.post(
   addClientStartHire
 );
 
+// Team
 router.get(
   "/c_team",
   authenticateJWT,
@@ -65,9 +77,13 @@ router.get(
 );
 
 // Interview Schedule
+router.get(
+  "/c_is", 
+  authenticateJWT, 
+  getInterviewSchedules
+);
 
-router.get("/c_is", authenticateJWT, getInterviewSchedules);
-
+// Update Interview Schedule
 router.patch(
   "/c_is",
   authenticateJWT,
@@ -75,11 +91,24 @@ router.patch(
   updateInterviewSchedule
 );
 
+
 // Onboarding
+router.get(
+  "/c_onboard",
+  authenticateJWT,
+  getOnboardings
+);
 
-router.get("/c_onboard", authenticateJWT, getOnboardings);
 
-router.get("/c_cmpcontract", authenticateJWT, getClientContracts);
+// Company Contracts
+router.get(
+  "/c_cmpcontract", 
+  authenticateJWT, 
+  getClientContracts
+);
+
+
+// Update Company Name
 router.patch(
   "/c_upduser",
   authenticateJWT,
@@ -87,6 +116,7 @@ router.patch(
   updateCompanyName
 );
 
+// Update Client Profile Picture
 router.post(
   "/c_updpic",
   authenticateJWT,
@@ -94,6 +124,7 @@ router.post(
   updateClientProfilePicture
 );
 
+// Update Client Password
 router.patch(
   "/c_updpass",
   authenticateJWT,
@@ -102,7 +133,6 @@ router.patch(
 );
 
 // Invoice Payments 
-
 router.get(
   "/c_invpay",
   authenticateJWT,
@@ -110,6 +140,7 @@ router.get(
   getInvoicePayments
 );
 
+// Update Invoice Payment Status
 router.patch(
   "/c_invpay",
   authenticateJWT,
@@ -117,6 +148,7 @@ router.patch(
   updateInvoicePaymentStatus
 );
 
+// Clock In Out
 router.get(
   "/c_clockinout",
   authenticateJWT,
@@ -124,6 +156,7 @@ router.get(
   getClientPunchRequests
 );
 
+// Update Clock In Out
 router.patch(
   "/c_clockinout",
   authenticateJWT,
@@ -131,14 +164,15 @@ router.patch(
   updateClientPunchRequest
 );
 
+// Time Tracking
 router.get(
   "/c_tracktime",
   authenticateJWT,
   validateSchema(getClientTrackTimeSchema),
   getClientTimeTracking
 );
-// Leave Requests 
 
+// Leave Requests 
 router.get(
   "/c_lr",
   authenticateJWT,
@@ -146,6 +180,7 @@ router.get(
   getLeaveRequests
 );
 
+// Update Leave Request Status
 router.patch(
   "/c_lr",
   authenticateJWT,
@@ -153,18 +188,12 @@ router.patch(
   updateLeaveRequestStatus
 );
 
-
-
 // Guide 
-
 router.get(
   "/c_guide",
   authenticateJWT,
   getGuides
 );
-
-
-// Policy 
 
 // Policy 
 router.get(
@@ -173,13 +202,14 @@ router.get(
   getPolicies
 );
 
-router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
+// Employee Contracts
 router.get(
   "/c_empcontract", 
   authenticateJWT, 
   getClientEmployeeContracts
 );
 
+// Leave Balance
 router.get(
   "/c_lb",
   authenticateJWT,

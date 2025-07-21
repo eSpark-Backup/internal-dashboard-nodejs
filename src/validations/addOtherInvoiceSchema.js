@@ -57,7 +57,7 @@ export const updateInvoicePaymentStatusSchema = yup.object({
     id: yup.string().required("ID is required"),
   }),
   body: yup.object({
-    category: yup.string().oneOf(["employee_invoices", "other_payment"]).required("Category is required"),
+    category: yup.string().oneOf(["employee_invoice", "other_payment"]).required("Category is required"),
     payment_status: yup.string().oneOf(["pending", "processing", "paid"]).required("Payment status is required"),
   }),
 });

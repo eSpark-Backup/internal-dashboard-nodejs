@@ -7661,6 +7661,280 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Company Contracts",
+					"item": [
+						{
+							"name": "Get Company Contracts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODYyOTI4LCJpYXQiOjE3NTI4NDQ5MjgsImp0aSI6IjEzNjJiOTc4ZjdmMjRhMTk4OWFlODIyYmZiMDFlYjhiIiwidXNlcl9pZCI6ODd9.nhK2a8E17yx420abn9ZMSEirY2sGNQEAT0uB3LQErBc"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/c_cmpcontract/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee Contracts",
+					"item": [
+						{
+							"name": "Get Employee Contracts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODYyOTI4LCJpYXQiOjE3NTI4NDQ5MjgsImp0aSI6IjEzNjJiOTc4ZjdmMjRhMTk4OWFlODIyYmZiMDFlYjhiIiwidXNlcl9pZCI6ODd9.nhK2a8E17yx420abn9ZMSEirY2sGNQEAT0uB3LQErBc"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/c_empcontract/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Check In / Check out Requests",
+					"item": [
+						{
+							"name": "Get Check-In / Check-out Requests",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODY1MzgxLCJpYXQiOjE3NTI4NDczODEsImp0aSI6ImU5MzVmZjAxMDFlYTQxMWVhZGExMGRmMTE5ODA1ZGQyIiwidXNlcl9pZCI6ODd9.sJc_NHFsF8xMSkvaUJn18k7F1tTW8Y-3liHNyBHPzYk"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/c_clockinout/?status=all",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_clockinout",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "all"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Request Status",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODcxMTE1LCJpYXQiOjE3NTI4NTMxMTUsImp0aSI6ImUzZDgwZmExMjUwNzQwNGViNjFkZDdlOWU4NjhlNjY2IiwidXNlcl9pZCI6ODd9.OESbzGPHYAw1QDDw-UfIK9eQNver5nj9-KpyUnan5oM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"status\":\"completed\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/c_clockinout/?id=92",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_clockinout",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "92"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Time Track",
+					"item": [
+						{
+							"name": "Get Time Track",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODcxMTE1LCJpYXQiOjE3NTI4NTMxMTUsImp0aSI6ImUzZDgwZmExMjUwNzQwNGViNjFkZDdlOWU4NjhlNjY2IiwidXNlcl9pZCI6ODd9.OESbzGPHYAw1QDDw-UfIK9eQNver5nj9-KpyUnan5oM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://54.162.147.127:8000/api/c_tracktime/?year=2025&month=July&emp_id=logitech@gmail.com",
+									"protocol": "http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_tracktime",
+										""
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2025"
+										},
+										{
+											"key": "month",
+											"value": "July"
+										},
+										{
+											"key": "emp_id",
+											"value": "logitech@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
