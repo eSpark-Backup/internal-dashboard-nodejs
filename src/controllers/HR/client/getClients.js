@@ -3,22 +3,26 @@ import { getSignedUrl } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
 
 const getClients = async (req, res) => {
+    const excludedEmail = process.env.TALENT_EMAIL;
+
     try {
 
         const result = await pool.query(
             `
-      SELECT 
-        c.id,
-        c.client_id,
-        c.first_name,
-        c.last_name,
-        c.image,
-        c.company_name,
-        eu.is_active
-      FROM eSparkTalentAPI_client AS c
-      LEFT JOIN eSparkTalentAPI_end_user AS eu
-        ON c.email = eu.email
-    `
+            SELECT 
+                c.id,
+                c.client_id,
+                c.first_name,
+                c.last_name,
+                c.image,
+                c.company_name,
+                eu.is_active
+            FROM eSparkTalentAPI_client AS c
+            LEFT JOIN eSparkTalentAPI_end_user AS eu
+                ON c.email = eu.email 
+            WHERE c.email != $1
+            `,
+            [excludedEmail]
         );
 
         const records = await Promise.all(
