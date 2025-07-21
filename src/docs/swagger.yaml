@@ -9662,3 +9662,35 @@ paths:
           description: Client or employee not found
         '500':
           description: Internal server error
+
+
+  /c_availemp:
+    get:
+      tags:
+        - Time Tracking
+      summary: Get available employees for a client
+      description: Returns a list of currently active employees associated with the authenticated client.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved available employees
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  employees:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        employee_id:
+                          type: string
+                          format: email
+                        name:
+                          type: string
+        '404':
+          description: Client not found
+        '500':
+          description: Internal server error
