@@ -13,18 +13,7 @@ const getRolesAndPermissions = async (req, res) => {
       FROM eSparkTalentAPI_account_n_persmission
     `);
 
-    const records = result.rows.map((row) => ({
-      id: row.id,
-      role: row.role,
-      employee_perms: row.employee_perms,
-      client_perms: row.client_perms,
-      leaves_perms: row.leaves_perms,
-      invoices_perms: row.invoices_perms,
-      policies_perms: row.policies_perms,
-      guides_perms: row.guides_perms,
-    }));
-
-    return res.status(200).json(records);
+    return res.status(200).json(result.rows);
   } catch (err) {
     logger.error("Error in getRolesAndPermissions:", err);
     return res.status(500).json({ message: "Internal server error" });
