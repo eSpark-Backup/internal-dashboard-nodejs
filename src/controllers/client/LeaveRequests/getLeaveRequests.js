@@ -29,11 +29,11 @@ const getLeaveRequests = async (req, res) => {
                 oe.country,
                 oe.job_title AS department,
                 lr.leave_type,
-                TO_CHAR(lr.start_date, 'DD-MM-YYYY') AS start_date,
-                TO_CHAR(lr.end_date, 'DD-MM-YYYY') AS end_date,
+                lr.start_date,
+                lr.end_date,
                 lr.count,
                 lr.reason,
-                TO_CHAR(lr.created_at, 'DD-MM-YYYY HH12:MI:SS AM') AS requested_at,
+                lr.created_at AS requested_at,
                 lr.status
             FROM eSparkTalentAPI_leave_request lr
             JOIN eSparkTalentAPI_employee e ON lr.employee_id = e.id

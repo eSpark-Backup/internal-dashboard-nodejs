@@ -11,7 +11,7 @@ const updateInvoicePaymentStatus = async (req, res) => {
     let client;
 
     switch (category) {
-        case "employee_invoices":
+        case "employee_invoice":
             try {
                 client = await pool.connect();
 
