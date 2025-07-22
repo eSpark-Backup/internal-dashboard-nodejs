@@ -211,12 +211,18 @@ import getOtherInvoices from "../controllers/HR/client/otherInvoices/getOtherInv
 import deleteOtherInvoice from "../controllers/HR/client/otherInvoices/deleteOtherInvoice.js";
 import updateOtherInvoice from "../controllers/HR/client/otherInvoices/updateOtherInvoice.js";
 import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloadOtherInvoice.js";
-import { addOutsourceEmployeeSchema, getOutsourceEligibleEmployeesSchema } from "../validations/addOutsourceEmployeeSchema.js";
+import {
+  addOutsourceEmployeeSchema,
+  getOutsourceEligibleEmployeesSchema,
+} from "../validations/addOutsourceEmployeeSchema.js";
 import hrClientAddEmp from "../controllers/HR/client/hrClientAddEmp/hrClientAddEmp.js";
 import getOutsourceEligibleEmployees from "../controllers/HR/client/hrClientAddEmp/getOutsourceEligibleEmployees.js";
 import getRolesAndPermissions from "../controllers/HR/AccountAndPermissions/getRolesAndPermissions.js";
 import { patchRolesAndPermissionsSchema } from "../validations/updateRolesAndPermissionsSchema.js";
 import patchRolesAndPermissions from "../controllers/HR/AccountAndPermissions/updateRolesAndPermissions.js";
+import getCompanySettings from "../controllers/HR/CompanySettings/getCompanySettings.js";
+import { patchCompanySettingsSchema } from "../validations/updateCompanySettingsSchema.js";
+import patchCompanySettings from "../controllers/HR/CompanySettings/updateCompanySettings.js";
 
 const router = express.Router();
 
@@ -911,17 +917,23 @@ router.get(
   getOutsourceEligibleEmployees
 );
 
-router.get(
-  "/hr_rnp",
-  authenticateJWT,
-  getRolesAndPermissions
-);
+router.get("/hr_rnp", authenticateJWT, getRolesAndPermissions);
 
 router.patch(
   "/hr_rnp",
   authenticateJWT,
   validateSchema(patchRolesAndPermissionsSchema),
   patchRolesAndPermissions
+);
+
+router.get("/hr_compsett", authenticateJWT, getCompanySettings);
+
+router.patch(
+  "/hr_compsett",
+  authenticateJWT,
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  validateSchema(patchCompanySettingsSchema),
+  patchCompanySettings
 );
 
 export default router;
