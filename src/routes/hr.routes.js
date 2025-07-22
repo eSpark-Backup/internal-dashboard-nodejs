@@ -211,12 +211,17 @@ import getOtherInvoices from "../controllers/HR/client/otherInvoices/getOtherInv
 import deleteOtherInvoice from "../controllers/HR/client/otherInvoices/deleteOtherInvoice.js";
 import updateOtherInvoice from "../controllers/HR/client/otherInvoices/updateOtherInvoice.js";
 import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloadOtherInvoice.js";
-import { addOutsourceEmployeeSchema, getOutsourceEligibleEmployeesSchema } from "../validations/addOutsourceEmployeeSchema.js";
+import {
+  addOutsourceEmployeeSchema,
+  getOutsourceEligibleEmployeesSchema,
+} from "../validations/addOutsourceEmployeeSchema.js";
 import hrClientAddEmp from "../controllers/HR/client/hrClientAddEmp/hrClientAddEmp.js";
 import getOutsourceEligibleEmployees from "../controllers/HR/client/hrClientAddEmp/getOutsourceEligibleEmployees.js";
 import getRolesAndPermissions from "../controllers/HR/AccountAndPermissions/getRolesAndPermissions.js";
 import { patchRolesAndPermissionsSchema } from "../validations/updateRolesAndPermissionsSchema.js";
 import patchRolesAndPermissions from "../controllers/HR/AccountAndPermissions/updateRolesAndPermissions.js";
+import { changePasswordSchema } from "../validations/changePasswordSchema.js";
+import changePassword from "../controllers/HR/UpdatePassword/changePassword.js";
 
 const router = express.Router();
 
@@ -922,6 +927,14 @@ router.patch(
   authenticateJWT,
   validateSchema(patchRolesAndPermissionsSchema),
   patchRolesAndPermissions
+);
+
+router.patch(
+  "/hr_changepass",
+  authenticateJWT,
+  upload.none(),
+  validateSchema(changePasswordSchema),
+  changePassword
 );
 
 export default router;
