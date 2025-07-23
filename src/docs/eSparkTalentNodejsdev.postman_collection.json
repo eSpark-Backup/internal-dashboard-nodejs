@@ -7497,6 +7497,52 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Invoices",
+					"item": [
+						{
+							"name": "Get Invoices",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMTEwOTI5LCJpYXQiOjE3NTMwOTI5MjksImp0aSI6IjlkZWUwNTJjMzc5YzQ0MDRhNTkyNzRhNjllMDFjMmFhIiwidXNlcl9pZCI6MX0.7pVuAU9Vlg2e3FJG-fYAlQzBvzPNERSBoUc6RdzTtkY",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/hr_invoices/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -8584,6 +8630,111 @@
 										{
 											"key": "emp_id",
 											"value": "logitech@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Available Employee",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMTIyMDEwLCJpYXQiOjE3NTMxMDQwMTAsImp0aSI6ImM1MDRmN2FhNGQyNDQ4YzhhMDNjYmM2YTA2OTZlNDYxIiwidXNlcl9pZCI6ODd9.zbsd-NkiaAAQB2Tf5ZaFUujRlpB1yuSA_KV9nLMnd2A",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://localhost:3000/api/c_availemp/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Time off Reports",
+					"item": [
+						{
+							"name": "Get Time off Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMjc2ODI0LCJpYXQiOjE3NTMyNTg4MjQsImp0aSI6Ijg0MjZhZjU2NmIwODQ3YzE4OGVjMjJlNmMyYzQ5MDM0IiwidXNlcl9pZCI6ODd9.ffBN8OgR5UemgaXERpcCtzUXRz-Ukp2bZ0nw8tSE8vE",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/c_downreport/?tab=lb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"c_downreport",
+										""
+									],
+									"query": [
+										{
+											"key": "tab",
+											"value": "lb"
 										}
 									]
 								}

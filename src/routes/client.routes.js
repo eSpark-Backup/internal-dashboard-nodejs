@@ -34,6 +34,8 @@ import getGuides from "../controllers/client/Guide/getGuides.js";
 import getPolicies from "../controllers/client/Policy/getPolicies.js";
 import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/c_empcontract.js";
 import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
+import getTimeOffDownloadReport from "../controllers/client/timeOff/getTimeOffDownloadReport.js";
+import { getTimeOffDownloadReportSchema } from "../validations/getTimeOffDownloadReportSchema.js";
 
 const router = express.Router();
 
@@ -215,6 +217,15 @@ router.get(
   authenticateJWT,
   getLeaveBalances
 );
+
+// Download Reports
+router.get(
+  "/c_downreport",
+  authenticateJWT,
+  validateSchema(getTimeOffDownloadReportSchema),
+  getTimeOffDownloadReport
+);
+
 
 
 export default router;

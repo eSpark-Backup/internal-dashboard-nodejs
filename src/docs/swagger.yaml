@@ -9662,3 +9662,40 @@ paths:
           description: Client or employee not found
         '500':
           description: Internal server error
+
+
+  /c_downreport:
+    get:
+      tags:
+        - Client Time off Download Report
+      summary: Download time off report as PDF
+      description: >
+        Generates and downloads a time off report as a PDF based on the selected tab. 
+        Supported values for `tab` are:
+          - `lr`: Leave Requests
+          - `cio`: Clock In/Out Requests
+          - `lb`: Leave Balances
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tab
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [lr, cio, lb]
+          description: Type of report to download (`lr`, `cio`, or `lb`)
+      responses:
+        '200':
+          description: Successfully generated and returned the PDF report
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid tab or validation error
+        '404':
+          description: Client not found
+        '500':
+          description: Internal server error
