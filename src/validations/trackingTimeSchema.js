@@ -30,3 +30,23 @@ export const getClientTrackTimeSchema = yup.object({
     }
   ),
 });
+
+
+export const getClientTrackTimeReportSchema = yup.object({
+  query: yup.object({
+    e_email: yup
+      .string()
+      .email("emp_id must be a valid email")
+      .required("emp_id is required"),
+
+    month: yup
+      .string()
+      .matches(/^[A-Za-z]+$/, "Month must be a valid month name")
+      .required(),
+
+    year: yup
+      .number()
+      .typeError("Year must be a number")
+      .required(),
+  })
+});

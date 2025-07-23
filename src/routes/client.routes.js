@@ -26,7 +26,7 @@ import { getClientPunchRequestSchema, updateClientPunchRequestSchema } from "../
 import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
 import updateClientPunchRequest from "../controllers/client/c_clockinout/updateClientPunchRequest.js";
 import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
-import { getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
+import { getClientTrackTimeReportSchema, getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
 import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
 import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
 import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
@@ -36,6 +36,7 @@ import getClientEmployeeContracts from "../controllers/client/EmployeeContracts/
 import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance.js";
 import getTimeOffDownloadReport from "../controllers/client/timeOff/getTimeOffDownloadReport.js";
 import { getTimeOffDownloadReportSchema } from "../validations/getTimeOffDownloadReportSchema.js";
+import getClientTimeTrackingReport from "../controllers/client/timeTracking/getClientTimeTrackingReport.js";
 
 const router = express.Router();
 
@@ -226,6 +227,14 @@ router.get(
   getTimeOffDownloadReport
 );
 
+
+// Time Tracking Report
+router.get(
+  "/c_downattendreport",
+  authenticateJWT,
+  validateSchema(getClientTrackTimeReportSchema),
+  getClientTimeTrackingReport
+);
 
 
 export default router;

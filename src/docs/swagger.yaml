@@ -9664,6 +9664,51 @@ paths:
           description: Internal server error
 
 
+  /c_downattendreport:
+    get:
+      tags:
+        - Time Tracking
+      summary: Download Attendance Report (PDF) for a specific employee under a client
+      description: Generates and downloads the employee attendance report in PDF format based on email, month, and year.
+      operationId: getClientTimeTrackingReport
+      parameters:
+        - name: e_email
+          in: query
+          description: Employee email
+          required: true
+          schema:
+            type: string
+            format: email
+        - name: month
+          in: query
+          description: Month name (e.g., "January")
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: query
+          description: Year (e.g., 2024)
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: PDF file successfully generated
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Client or Employee not found
+        '500':
+          description: Internal server error
+      security:
+        - bearerAuth: []
+
+
+
+
   /c_downreport:
     get:
       tags:
