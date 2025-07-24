@@ -8,6 +8,7 @@ const getWFHRequests = async (req, res) => {
     let client
 
     try {
+        
         client = await pool.connect()
 
         const employee = await client.query(

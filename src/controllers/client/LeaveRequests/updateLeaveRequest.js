@@ -6,9 +6,11 @@ const updateLeaveRequestStatus = async (req, res) => {
     const { id: requestId } = req.query;
     const toUpdateStatus = req.body.status;
 
-    const client = await pool.connect();
+    let client;
 
     try {
+        client = await pool.connect();
+
         await client.query("BEGIN");
 
         const clientResult = await client.query(
@@ -206,7 +208,7 @@ const updateLeaveRequestStatus = async (req, res) => {
         logger.error(`Transaction failed: ${error.message}`);
         return res.status(400).json({ error: error.message });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 };
 

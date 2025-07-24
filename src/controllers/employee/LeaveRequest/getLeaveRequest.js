@@ -114,12 +114,16 @@ const getLeaveRequest = async (req, res) => {
 
   try {
     const employee = await getEmployeeByEmail(email);
-    if (!employee)
+
+    if (!employee) {
       return res.status(404).json({ message: "Employee not found." });
+    }
 
     const clientId = await getClientIdByEmail(workspace);
-    if (!clientId)
+
+    if (!clientId) {
       return res.status(404).json({ message: "Client not found." });
+    }
 
     const employeeId = employee.id;
     const employeeCode = employee.employee_id;

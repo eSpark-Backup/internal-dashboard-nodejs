@@ -7,7 +7,9 @@ const updateClientPassword = async (req, res) => {
   const { email } = req.user;
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const result = await client.query(

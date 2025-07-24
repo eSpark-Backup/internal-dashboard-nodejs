@@ -6,7 +6,9 @@ const getClientTimeTracking = async (req, res) => {
   const { year, month, emp_id: employeeEmail } = req.query;
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const clientResult = await client.query(

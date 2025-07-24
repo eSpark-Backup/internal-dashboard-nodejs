@@ -18,6 +18,7 @@ const updateClientProfilePicture = async (req, res) => {
   const imageFile = req.files?.picture?.[0];
 
   let client;
+
   try {
     const fileErrors = {};
     const validationErrors = validateFile({
@@ -33,6 +34,7 @@ const updateClientProfilePicture = async (req, res) => {
     }
 
     client = await pool.connect();
+    
     await client.query("BEGIN");
 
     const clientResult = await client.query(

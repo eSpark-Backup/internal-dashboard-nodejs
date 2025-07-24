@@ -6,9 +6,12 @@ import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 import { uploadToS3, S3_TEMP_BUCKET } from "../../../helpers/s3.js";
 
 const createLeaveRequest = async (req, res) => {
+
   let client;
+
   try {
     client = await pool.connect();
+    
     await client.query("BEGIN");
     const {
       client_id: clientEmail,

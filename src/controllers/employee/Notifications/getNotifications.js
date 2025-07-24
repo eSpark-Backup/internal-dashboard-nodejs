@@ -3,18 +3,23 @@ import { logger } from "../../../helpers/logger.js";
 
 const getNotifications = async (req, res) => {
   try {
+
     const userEmail = req.user?.email;
     const talentEmail =
       process.env.TALENT_EMAIL || "talent@esparkconsultants.com";
-    if (!userEmail)
+
+    if (!userEmail) {
       return res.status(400).json({ message: "Missing user email." });
+    }
 
     const userRes = await pool.query(
       `SELECT role FROM eSparkTalentAPI_end_user WHERE email = $1`,
       [userEmail]
     );
-    if (userRes.rows.length === 0)
+
+    if (userRes.rows.length === 0) {
       return res.status(404).json({ message: "User not found." });
+    }
 
     const role = userRes.rows[0].role;
     const notiArray = [];

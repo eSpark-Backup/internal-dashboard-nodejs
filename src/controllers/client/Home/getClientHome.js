@@ -4,6 +4,7 @@ import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getClientHome = async (req, res) => {
   const { email, username } = req.user;
+  
   let client;
 
   if (!email) {
