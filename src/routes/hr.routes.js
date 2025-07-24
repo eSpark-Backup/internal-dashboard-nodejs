@@ -223,6 +223,7 @@ import patchRolesAndPermissions from "../controllers/HR/AccountAndPermissions/up
 import getCompanySettings from "../controllers/HR/CompanySettings/getCompanySettings.js";
 import { patchCompanySettingsSchema } from "../validations/updateCompanySettingsSchema.js";
 import patchCompanySettings from "../controllers/HR/CompanySettings/updateCompanySettings.js";
+import getInvoices from "../controllers/HR/Invoices/getInvoices.js";
 
 const router = express.Router();
 
@@ -934,6 +935,12 @@ router.patch(
   upload.fields([{ name: "image", maxCount: 1 }]),
   validateSchema(patchCompanySettingsSchema),
   patchCompanySettings
+);
+
+router.get(
+  "/hr_invoices",
+  authenticateJWT,
+  getInvoices
 );
 
 export default router;
