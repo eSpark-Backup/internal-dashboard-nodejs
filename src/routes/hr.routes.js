@@ -220,6 +220,8 @@ import getOutsourceEligibleEmployees from "../controllers/HR/client/hrClientAddE
 import getRolesAndPermissions from "../controllers/HR/AccountAndPermissions/getRolesAndPermissions.js";
 import { patchRolesAndPermissionsSchema } from "../validations/updateRolesAndPermissionsSchema.js";
 import patchRolesAndPermissions from "../controllers/HR/AccountAndPermissions/updateRolesAndPermissions.js";
+import { changePasswordSchema } from "../validations/changePasswordSchema.js";
+import changePassword from "../controllers/HR/UpdatePassword/changePassword.js";
 import getCompanySettings from "../controllers/HR/CompanySettings/getCompanySettings.js";
 import { patchCompanySettingsSchema } from "../validations/updateCompanySettingsSchema.js";
 import patchCompanySettings from "../controllers/HR/CompanySettings/updateCompanySettings.js";
@@ -925,6 +927,14 @@ router.patch(
   authenticateJWT,
   validateSchema(patchRolesAndPermissionsSchema),
   patchRolesAndPermissions
+);
+
+router.patch(
+  "/hr_changepass",
+  authenticateJWT,
+  upload.none(),
+  validateSchema(changePasswordSchema),
+  changePassword
 );
 
 router.get("/hr_compsett", authenticateJWT, getCompanySettings);
