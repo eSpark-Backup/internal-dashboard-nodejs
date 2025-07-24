@@ -37,6 +37,7 @@ import getLeaveBalances from "../controllers/client/LeaveBalance/getLeaveBalance
 import getTimeOffDownloadReport from "../controllers/client/timeOff/getTimeOffDownloadReport.js";
 import { getTimeOffDownloadReportSchema } from "../validations/getTimeOffDownloadReportSchema.js";
 import getClientTimeTrackingReport from "../controllers/client/timeTracking/getClientTimeTrackingReport.js";
+import getAvailableEmployees from "../controllers/client/timeTracking/getAvailableEmployees.js";
 
 const router = express.Router();
 
@@ -234,6 +235,12 @@ router.get(
   authenticateJWT,
   validateSchema(getClientTrackTimeReportSchema),
   getClientTimeTrackingReport
+);
+
+router.get(
+  "/c_availemp",
+  authenticateJWT,
+  getAvailableEmployees
 );
 
 
