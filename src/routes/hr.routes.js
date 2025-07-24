@@ -937,7 +937,11 @@ router.patch(
   changePassword
 );
 
-router.get("/hr_compsett", authenticateJWT, getCompanySettings);
+router.get(
+  "/hr_compsett",
+  authenticateJWT,
+  getCompanySettings
+);
 
 router.patch(
   "/hr_compsett",
