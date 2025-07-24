@@ -13,7 +13,9 @@ const patchCompanySettings = async (req, res) => {
   const imageFile = req.files?.image?.[0];
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     await client.query("BEGIN");

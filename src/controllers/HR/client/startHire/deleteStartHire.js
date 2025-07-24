@@ -6,7 +6,9 @@ const deleteStartHire = async (req, res) => {
   const { id } = req.query;
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const hiringReq = await client.query(

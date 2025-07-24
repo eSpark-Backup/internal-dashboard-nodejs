@@ -7,10 +7,12 @@ import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 
 const updateLetter = async (req, res) => {
-  let client;
+
   const { reason } = req.body || {};
   const letterFile = req.file;
-
+  
+  let client;
+  
   try {
     client = await pool.connect();
 

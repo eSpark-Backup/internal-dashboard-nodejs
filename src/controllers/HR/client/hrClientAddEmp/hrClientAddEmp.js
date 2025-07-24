@@ -16,6 +16,7 @@ const hrClientAddEmp = async (req, res) => {
   let client;
 
   try {
+
     client = await pool.connect();
 
     const empResult = await client.query(
@@ -79,6 +80,7 @@ const hrClientAddEmp = async (req, res) => {
       message: `${emp.first_name} ${emp.last_name} is added successfully`,
       id: outEmpId,
     });
+    
   } catch (err) {
     logger.error("Error in hrClientAddEmp:", err);
     return res.status(500).json({ message: "Internal Server Error" });

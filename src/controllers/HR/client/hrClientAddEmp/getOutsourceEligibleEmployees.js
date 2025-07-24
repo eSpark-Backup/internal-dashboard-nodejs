@@ -8,7 +8,9 @@ const getOutsourceEligibleEmployees = async (req, res) => {
     process.env.TALENT_EMAIL || "talent@esparkconsultants.com";
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const talentClientResult = await client.query(

@@ -6,7 +6,9 @@ const downloadStartHireJD = async (req, res) => {
   const { id } = req.query;
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const result = await client.query(

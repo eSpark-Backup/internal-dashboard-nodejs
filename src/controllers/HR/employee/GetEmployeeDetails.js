@@ -5,6 +5,7 @@ import { getSignedUrl } from "../../../helpers/s3.js";
 const getEmployeeDetails = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL;
   const { id, tab } = req.query;
+ 
   try {
     
     const employee = await pool.query(

@@ -29,6 +29,7 @@ const addClient = async (req, res) => {
     let imageS3Key = null;
 
     try {
+        
         client = await pool.connect();
 
         const fileErrors = {};

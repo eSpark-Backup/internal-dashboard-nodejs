@@ -6,8 +6,11 @@ const updateHrClientEmps = async (req, res) => {
   const { status } = req.body;
 
   let client;
+
   try {
+
     client = await pool.connect();
+    
     await client.query("BEGIN");
 
     const { rows: outsourceRows } = await client.query(

@@ -4,9 +4,11 @@ import { removeFromS3 } from "../../../helpers/s3.js";
 
 const deleteEmployee = async (req, res) => {
   const employeeId = req.query.id;
+
   let client;
 
   try {
+
     client = await pool.connect();
 
     await client.query("BEGIN");
@@ -45,7 +47,6 @@ const deleteEmployee = async (req, res) => {
         .json({ message: "Error deleting related records" });
     }
 
-    // Step 3: Delete S3 files (image + resume)
     const filesToDelete = [];
     if (image) filesToDelete.push(image);
     if (resume) filesToDelete.push(resume);
@@ -64,13 +65,13 @@ const deleteEmployee = async (req, res) => {
       logger.info(`Deleted file from S3: ${key}`);
     }
 
-    // Step 4: Delete from employee table (cascades to all FK-based tables)
     await client.query(`DELETE FROM eSparkTalentAPI_employee WHERE id = $1`, [
       employeeId,
     ]);
-    logger.info(`Deleted employee row for ID: ${employeeId}`);
+
 
     await client.query("COMMIT");
+    
     return res
       .status(200)
       .json({ message: `${fullName} is removed successfully` });

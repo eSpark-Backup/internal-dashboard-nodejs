@@ -44,7 +44,9 @@ const updateStartHire = async (req, res) => {
   }
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const result = await client.query(

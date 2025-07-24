@@ -2,11 +2,15 @@ import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
 const deleteLetter = async (req, res) => {
+  
   let client;
+
   try {
+
     client = await pool.connect();
 
     await client.query("BEGIN");
+    
     const id = req.query.id;
 
     const letterRes = await client.query(

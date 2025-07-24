@@ -4,6 +4,7 @@ import { getSignedUrl } from "../../../helpers/s3.js";
 import { decrypt } from "../../../helpers/utils.js";
 
 const getAccounts = async (req, res) => {
+  
   try {
     const result = await pool.query(
       "SELECT id, account_name, email, image, password FROM eSparkTalentAPI_account_n_persmission"

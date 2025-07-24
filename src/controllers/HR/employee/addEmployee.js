@@ -14,10 +14,11 @@ import {
 
 const addEmployee = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL;
-
-  let client;
   const imageFile = req.files?.image?.[0];
   const resumeFile = req.files?.resume?.[0];
+
+  let client;
+
   try {
 
     client = await pool.connect();
@@ -278,8 +279,6 @@ const addEmployee = async (req, res) => {
       { localPath: imageFile?.path, s3Key: imageS3Key },
       { localPath: resumeFile?.path, s3Key: resumeS3Key },
     ]);
-
-    logger.error("Add employee error:", err);
 
     return res.status(500).json({ message: "Failed to add employee" });
   } finally {

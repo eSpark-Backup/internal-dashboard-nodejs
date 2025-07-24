@@ -6,8 +6,11 @@ const deleteOffshoreContract = async (req, res) => {
   const { id } = req.query;
 
   let client;
+
   try {
+
     client = await pool.connect();
+    
     await client.query("BEGIN");
     
     const contractRes = await client.query(

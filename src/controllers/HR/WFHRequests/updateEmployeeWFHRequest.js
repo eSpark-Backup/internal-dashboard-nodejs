@@ -8,6 +8,7 @@ const updateEmployeeWFHRequest = async (req, res) => {
     let client;
 
     try {
+        
         client = await pool.connect()
 
         await client.query('BEGIN')

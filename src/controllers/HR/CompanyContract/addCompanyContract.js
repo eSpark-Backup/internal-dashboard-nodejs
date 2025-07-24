@@ -9,6 +9,7 @@ import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 const addCompanyContract = async (req, res) => {
     const { status } = req.query;
+    
     let client;
 
     switch (status) {

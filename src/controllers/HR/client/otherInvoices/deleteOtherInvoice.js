@@ -6,7 +6,9 @@ const deleteOtherInvoice = async (req, res) => {
     const { id } = req.query;
 
     let client;
+
     try {
+        
         client = await pool.connect();
 
         const otherInvoice = await client.query(

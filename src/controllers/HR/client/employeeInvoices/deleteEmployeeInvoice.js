@@ -6,7 +6,9 @@ const deleteEmployeeInvoice = async (req, res) => {
     const { id } = req.query;
 
     let client;
+
     try {
+        
         client = await pool.connect();
 
         const employeeInvoice = await client.query(

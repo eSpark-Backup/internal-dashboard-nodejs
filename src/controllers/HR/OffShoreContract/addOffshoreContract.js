@@ -10,12 +10,15 @@ import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 const addOffshoreContract = async (req, res) => {
   const { client_id, employee_id, contract_name, date } = req.body;
   const contract_doc = req.files?.contract_doc?.[0];
+
   let client;
 
   try {
+
     client = await pool.connect();
+
     await client.query("BEGIN");
-    // Fetch client email using client_id
+    
     const clientResult = await client.query(
       `SELECT id, email FROM eSparkTalentAPI_client WHERE client_id = $1`,
       [client_id]
@@ -43,7 +46,7 @@ const addOffshoreContract = async (req, res) => {
     const clientEmail = clientResult.rows[0].email;
     const empId = empResult.rows[0].id;
     const clientId = clientResult.rows[0].id;
-    // Check outsource_employees for active status
+
     const outsrcResult = await client.query(
       `SELECT status FROM eSparkTalentAPI_outsource_employees WHERE employee_id = $1 AND client_id = $2`,
       [empId, clientId]
@@ -56,7 +59,6 @@ const addOffshoreContract = async (req, res) => {
         .json({ message: "Cannot create contract for terminated employee" });
     }
 
-    // Validate uploaded file
     const fileErrors = {};
     const contractDocValidationErrors = validateFile({
       file: contract_doc,
@@ -73,8 +75,8 @@ const addOffshoreContract = async (req, res) => {
         .json({ message: "Invalid file", errors: fileErrors });
     }
 
-    // Upload to S3
     let contractDocUrl = null;
+    
     try {
       const timestamp = getFormattedTimestamp();
       const fileName = path.basename(contract_doc.originalname);
@@ -88,8 +90,6 @@ const addOffshoreContract = async (req, res) => {
       await cleanupFiles([{ localPath: contract_doc?.path }]);
       return res.status(500).json({ message: "File upload failed" });
     }
-
-    // Insert contract + notifications
 
     const contractInsert = await client.query(
       `INSERT INTO eSparkTalentAPI_offshore_contracts (employee_id, client_id, contract_name, date, contract_doc)

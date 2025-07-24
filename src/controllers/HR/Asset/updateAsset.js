@@ -2,9 +2,13 @@ import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
 const updateAsset = async (req, res) => {
+
   let client;
+
   try {
+    
     client = await pool.connect();
+    
     const { id } = req.query;
     const updates = req.body || {};
 

@@ -25,9 +25,11 @@ const addStartHire = async (req, res) => {
   } = req.body;
 
   const job_description = req.file;
-  console.log("job_description", job_description);
+
   let client;
+
   try {
+
     client = await pool.connect();
 
     const clientResult = await client.query(
@@ -42,7 +44,7 @@ const addStartHire = async (req, res) => {
     }
 
     await client.query("BEGIN");
-    // ✅ Validate uploaded file
+  
     const fileErrors = {};
     const jobDescValidationErrors = validateFile({
       file: job_description,

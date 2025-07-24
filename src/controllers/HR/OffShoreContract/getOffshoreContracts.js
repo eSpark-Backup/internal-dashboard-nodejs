@@ -3,6 +3,7 @@ import { logger } from "../../../helpers/logger.js";
 
 const getOffshoreContracts = async (req, res) => {
   try {
+    
     const offshoreResult = await pool.query(`
       SELECT 
         oc.id,

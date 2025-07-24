@@ -54,10 +54,6 @@ export const getHrEmpAttendance = async (req, res) => {
     const fromDate = from ? parseISO(from) : startOfMonth(new Date());
     const toDate = to ? parseISO(to) : endOfMonth(new Date());
 
-    logger.info(
-      `Using date range from ${fromDate.toISOString()} to ${toDate.toISOString()}`
-    );
-
     const empQuery = await pool.query(
       "SELECT * FROM eSparkTalentAPI_employee WHERE email = $1",
       [e_email]

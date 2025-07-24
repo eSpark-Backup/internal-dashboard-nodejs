@@ -5,7 +5,9 @@ import { removeFromS3 } from "../../../helpers/s3.js";
 
 const deleteCompanyContract = async (req, res) => {
     const { id, status } = req.query;
+
     let client;
+    
     switch (status) {
         case "clients":
             try {

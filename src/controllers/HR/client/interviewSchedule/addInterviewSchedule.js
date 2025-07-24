@@ -7,6 +7,7 @@ const addInterviewSchedule = async (req, res) => {
     let client;
 
     try {
+        
         client = await pool.connect();
 
         const clientResult = await client.query(

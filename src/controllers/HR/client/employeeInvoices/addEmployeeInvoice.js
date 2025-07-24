@@ -10,9 +10,11 @@ const addEmployeeInvoice = async (req, res) => {
 
     const { client_id, employee_id, invoice_date, due_date, currency, invoice_amount } = req.body || {};
     const invoice = req.files?.invoice?.[0] || null;
+
     let client;
 
     try {
+        
         client = await pool.connect();
 
         const clientResult = await client.query(

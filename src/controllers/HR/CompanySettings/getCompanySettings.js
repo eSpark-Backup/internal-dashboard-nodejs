@@ -4,6 +4,7 @@ import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getCompanySettings = async (req, res) => {
   let client;
+  
   try {
     client = await pool.connect();
 
