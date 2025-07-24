@@ -8006,6 +8006,69 @@
 								"url": "http://54.162.147.127:8000/api/c_availemp/"
 							},
 							"response": []
+						},
+						{
+							"name": "Download Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMjg5NjcyLCJpYXQiOjE3NTMyNzE2NzIsImp0aSI6IjY3YmU3MDVhYjNjYTQyM2Y5ZGFhNWFiMTJiZDE4NTU0IiwidXNlcl9pZCI6ODd9.7HdVyji7OsUIsaBDUCHYLu4pNsM68bwL6PqenlOH-fM"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "curl 'http://54.162.147.127:8000/api/c_downattendreport/?e_email=espark@consultants.com&month=July&year=2025' \\\n  -H 'Accept: application/json, text/plain, */*' \\\n  -H 'Accept-Language: en-US,en;q=0.9,ur;q=0.8' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMjg5NjcyLCJpYXQiOjE3NTMyNzE2NzIsImp0aSI6IjY3YmU3MDVhYjNjYTQyM2Y5ZGFhNWFiMTJiZDE4NTU0IiwidXNlcl9pZCI6ODd9.7HdVyji7OsUIsaBDUCHYLu4pNsM68bwL6PqenlOH-fM' \\\n  -H 'Connection: keep-alive' \\\n  -H 'Origin: https://dashboard-dev.esparktalent.com' \\\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36' \\\n  --insecure",
+									"protocol": "curl 'http",
+									"host": [
+										"54",
+										"162",
+										"147",
+										"127"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"c_downattendreport",
+										""
+									],
+									"query": [
+										{
+											"key": "e_email",
+											"value": "espark@consultants.com"
+										},
+										{
+											"key": "month",
+											"value": "July"
+										},
+										{
+											"key": "year",
+											"value": "2025' \\\n  -H 'Accept: application/json, text/plain, */*' \\\n  -H 'Accept-Language: en-US,en;q=0.9,ur;q=0.8' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMjg5NjcyLCJpYXQiOjE3NTMyNzE2NzIsImp0aSI6IjY3YmU3MDVhYjNjYTQyM2Y5ZGFhNWFiMTJiZDE4NTU0IiwidXNlcl9pZCI6ODd9.7HdVyji7OsUIsaBDUCHYLu4pNsM68bwL6PqenlOH-fM' \\\n  -H 'Connection: keep-alive' \\\n  -H 'Origin: https://dashboard-dev.esparktalent.com' \\\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36' \\\n  --insecure"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},

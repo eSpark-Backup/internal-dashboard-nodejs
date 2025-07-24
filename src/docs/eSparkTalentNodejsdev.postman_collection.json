@@ -8607,7 +8607,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:3000/api/c_tracktime/?year=2025&month=July&emp_id=logitech@gmail.com",
+									"raw": "http://localhost:3000/api/c_tracktime/?year=2025&month=July&emp_id=abc@gmail.com",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -8629,7 +8629,7 @@
 										},
 										{
 											"key": "emp_id",
-											"value": "logitech@gmail.com"
+											"value": "abc@gmail.com"
 										}
 									]
 								}
@@ -8674,6 +8674,73 @@
 									}
 								],
 								"url": "http://localhost:3000/api/c_availemp/"
+							},
+							"response": []
+						},
+						{
+							"name": "Download Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9,ur;q=0.8"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMjg5NjcyLCJpYXQiOjE3NTMyNzE2NzIsImp0aSI6IjY3YmU3MDVhYjNjYTQyM2Y5ZGFhNWFiMTJiZDE4NTU0IiwidXNlcl9pZCI6ODd9.7HdVyji7OsUIsaBDUCHYLu4pNsM68bwL6PqenlOH-fM",
+										"disabled": true
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/c_downattendreport/?e_email=abc@gmail.com&month=July&year=2025 ",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"c_downattendreport",
+										""
+									],
+									"query": [
+										{
+											"key": "e_email",
+											"value": "abc@gmail.com"
+										},
+										{
+											"key": "month",
+											"value": "July"
+										},
+										{
+											"key": "year",
+											"value": "2025 "
+										}
+									]
+								}
 							},
 							"response": []
 						}
