@@ -1,5 +1,5 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const addAsset = async (req, res) => {
   const {
@@ -12,8 +12,6 @@ const addAsset = async (req, res) => {
   } = req.body || {};
 
   try {
-    logger.info("Add asset request received", { asset_id, employee_email });
-
     const employeeQuery = await pool.query(
       `SELECT id FROM eSparkTalentAPI_employee WHERE email = $1`,
       [employee_email]

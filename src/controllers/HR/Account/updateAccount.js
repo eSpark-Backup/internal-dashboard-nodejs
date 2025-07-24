@@ -1,9 +1,9 @@
-import path from "path";
-import fs from "fs";
-import bcrypt from "bcrypt";
 import pool from "../../../config/db.js";
-import { validateFile } from "../../../utils/validateFiles.js";
+import fs from "fs";
+import path from "path";
 import { logger } from "../../../helpers/logger.js";
+import bcrypt from "bcrypt";
+import { validateFile } from "../../../utils/validateFiles.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import { cleanupFiles, encrypt } from "../../../helpers/utils.js";
 

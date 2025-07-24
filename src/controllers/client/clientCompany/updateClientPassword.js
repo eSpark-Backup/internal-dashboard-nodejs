@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt";
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
+import bcrypt from "bcrypt";
 
 const updateClientPassword = async (req, res) => {
   const { current_password, new_password, confirm_password } = req.body;

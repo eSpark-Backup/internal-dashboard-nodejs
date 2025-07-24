@@ -1,6 +1,6 @@
 import pool from '../../../config/db.js';
-import { fonts } from '../../../constants/index.js';
 import { logger } from "../../../helpers/logger.js";
+import { fonts } from '../../../constants/index.js';
 import PdfPrinter from 'pdfmake';
 
 const printer = new PdfPrinter(fonts);

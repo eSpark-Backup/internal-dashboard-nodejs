@@ -1,9 +1,10 @@
-import { validateFile } from "../../../utils/validateFiles.js";
 import pool from "../../../config/db.js";
-import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
-import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
+import { logger } from "../../../helpers/logger.js";
+import { validateFile } from "../../../utils/validateFiles.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
+import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 
 const updateLetter = async (req, res) => {
   let client;
@@ -92,9 +93,10 @@ const updateLetter = async (req, res) => {
     await client.query("COMMIT");
 
     return res.status(200).json({ message: "Letter updated successfully" });
-  } catch (err) {
+  } 
+  catch (err) {
     await client.query("ROLLBACK");
-    console.error(`Letter update error: ${err}`);
+    logger.error(`Letter update error: ${err}`);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
     if (client) client.release();

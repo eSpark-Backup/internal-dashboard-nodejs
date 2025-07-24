@@ -1,6 +1,6 @@
 import pool from "../../../config/db.js";
-import { removeFromS3 } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
+import { removeFromS3 } from "../../../helpers/s3.js";
 
 const deleteClient = async (req, res) => {
     const { id } = req.query;

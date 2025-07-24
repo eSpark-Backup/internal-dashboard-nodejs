@@ -1,6 +1,6 @@
-import path from "path";
-import fs from "fs";
 import pool from "../../../config/db.js";
+import fs from "fs";
+import path from "path";
 import { logger } from "../../../helpers/logger.js";
 import { removeFromS3, uploadToS3 } from "../../../helpers/s3.js";
 import { validateFile } from "../../../utils/validateFiles.js";

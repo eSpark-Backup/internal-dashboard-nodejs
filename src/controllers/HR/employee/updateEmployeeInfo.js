@@ -1,5 +1,5 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const updateEmployeeInfo = async (req, res) => {
   const { id } = req.query;

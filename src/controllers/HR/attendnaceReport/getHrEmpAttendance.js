@@ -1,4 +1,5 @@
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 import {
   parseISO,
   isValid,
@@ -7,7 +8,6 @@ import {
   endOfMonth,
   parse,
 } from "date-fns";
-import { logger } from "../../../helpers/logger.js";
 import { validateAndCleanTime } from "../../../helpers/utils.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL || "talent@esparkconsultants.com";

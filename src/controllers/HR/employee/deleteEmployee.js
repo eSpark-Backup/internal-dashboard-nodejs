@@ -1,6 +1,6 @@
-import { removeFromS3 } from "../../../helpers/s3.js";
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
+import { removeFromS3 } from "../../../helpers/s3.js";
 
 const deleteEmployee = async (req, res) => {
   const employeeId = req.query.id;
@@ -10,9 +10,7 @@ const deleteEmployee = async (req, res) => {
     client = await pool.connect();
 
     await client.query("BEGIN");
-    logger.info(`Started deletion for employee ID: ${employeeId}`);
 
-    // Step 1: Get employee info
     const empRes = await client.query(
       `SELECT email, first_name, last_name, image, resume FROM eSparkTalentAPI_employee WHERE id = $1`,
       [employeeId]
@@ -25,16 +23,11 @@ const deleteEmployee = async (req, res) => {
 
     const { email, first_name, last_name, image, resume } = empRes.rows[0];
     const fullName = `${first_name} ${last_name}`;
-    logger.info(`Deleting employee: ${fullName} (${email})`);
 
-    // Step 2: Manually delete from tables that don't use employee_id
     try {
       const endUserRes = await client.query(
         `DELETE FROM eSparkTalentAPI_end_user WHERE email = $1`,
         [email]
-      );
-      logger.info(
-        `Deleted ${endUserRes.rowCount} row(s) from eSparkTalentAPI_end_user`
       );
 
       const letterRes = await client.query(
@@ -81,7 +74,9 @@ const deleteEmployee = async (req, res) => {
     return res
       .status(200)
       .json({ message: `${fullName} is removed successfully` });
+
   } catch (error) {
+
     await client.query("ROLLBACK");
     logger.error(`delete employee error: ${error.stack || error.message}`);
     return res.status(500).json({ message: "Internal server error" });

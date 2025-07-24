@@ -1,6 +1,6 @@
 import pool from "../../../config/db.js";
-import { getSignedUrl } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getClients = async (req, res) => {
     const excludedEmail = process.env.TALENT_EMAIL;

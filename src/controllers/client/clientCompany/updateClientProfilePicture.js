@@ -1,6 +1,6 @@
+import pool from "../../../config/db.js";
 import fs from "fs";
 import path from "path";
-import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 import { getFormattedTimestamp } from "../../../helpers/utils.js";
 import {

@@ -1,6 +1,6 @@
-import { format, parse } from 'date-fns';
 import pool from "../../../config/db.js";
 import { logger } from '../../../helpers/logger.js';
+import { format, parse } from 'date-fns';
 import { validateAndCleanTime, parseTimeToMinutes } from '../../../helpers/utils.js';
 
 const calculateWorkHours = (checkInMinutes, checkOutMinutes, requiredHours = 9) => {

@@ -1,3 +1,6 @@
+import pool from "../../../config/db.js";
+import { getWeekdaysCount } from "../../../helpers/utils.js";
+import { logger } from "../../../helpers/logger.js";
 import {
     format,
     parseISO,
@@ -13,10 +16,8 @@ import {
     startOfDay
 } from "date-fns";
 
-import { getWeekdaysCount } from "../../../helpers/utils.js";
 
 
-import pool from "../../../config/db.js";
 
 const getTimeSheetDetails = async (req, res) => {
     const { email } = req.user;
@@ -175,7 +176,7 @@ const getTimeSheetDetails = async (req, res) => {
             employee_details: employeeDetails
         });
     } catch (err) {
-        console.error(err);
+        logger.error(err);
         return res.status(500).json({ message: 'Internal Server Error' });
     }
 };

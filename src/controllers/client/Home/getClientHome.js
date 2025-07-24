@@ -1,6 +1,6 @@
 import pool from "../../../config/db.js";
-import { getSignedUrl } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getClientHome = async (req, res) => {
   const { email, username } = req.user;

@@ -6,6 +6,7 @@ const getEmployeeDetails = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL;
   const { id, tab } = req.query;
   try {
+    
     const employee = await pool.query(
       `SELECT id, employee_id, first_name, last_name, gender, TO_CHAR(dob, 'YYYY-MM-DD') as dob, phone_number, email, personal_email, marital_status, emergency_contact, TO_CHAR(joining_date, 'YYYY-MM-DD') as joining_date, job_title, role, job_status, TO_CHAR(starting_date, 'YYYY-MM-DD') as starting_date, TO_CHAR(ending_date, 'YYYY-MM-DD') as ending_date, image FROM eSparkTalentAPI_employee WHERE id = $1`,
       [id]
