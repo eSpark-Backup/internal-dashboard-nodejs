@@ -41,7 +41,7 @@ import getTimeSheetDetails from "../controllers/employee/AttendanceSheet/getAtte
 
 const router = express.Router();
 
-// Employee WFH Request CRUD Routes
+// Add WFH Request
 router.post(
   "/emp_wfhr",
   authenticateJWT,
@@ -50,6 +50,7 @@ router.post(
   addWFHRequest
 );
 
+// Get WFH Requests
 router.get(
   "/emp_wfhr",
   authenticateJWT,
@@ -57,6 +58,7 @@ router.get(
   getWFHRequests
 );
 
+// Delete WFH Request
 router.delete(
   "/emp_wfhr",
   authenticateJWT,
@@ -64,7 +66,7 @@ router.delete(
   deleteWFHRequest
 );
 
-// Employee Punch Request Routes
+// Add Punch Request
 router.post(
   "/emp_pr",
   authenticateJWT,
@@ -73,6 +75,7 @@ router.post(
   addPunchRequest
 );
 
+// Get Punch Requests
 router.get(
   "/emp_pr",
   authenticateJWT,
@@ -80,6 +83,7 @@ router.get(
   getPunchRequests
 );
 
+// Delete Punch Request
 router.delete(
   "/emp_pr",
   authenticateJWT,
@@ -87,8 +91,7 @@ router.delete(
   deletePunchRequest
 );
 
-// Employee Leave Request Routes
-
+// Add Leave Request
 router.post(
   "/emp_lr/",
   authenticateJWT,
@@ -97,6 +100,7 @@ router.post(
   createLeaveRequest
 );
 
+// Delete Leave Request
 router.delete(
   "/emp_lr",
   authenticateJWT,
@@ -104,6 +108,7 @@ router.delete(
   deleteLeaveRequest
 );
 
+// Get Leave Requests
 router.get(
   "/emp_lr",
   authenticateJWT,
@@ -111,34 +116,42 @@ router.get(
   getLeaveRequest
 );
 
-// Employee Policy Routes
+// Get Policies
+router.get(
+  "/emp_policies", 
+  authenticateJWT, 
+  getPolicies
+);
 
-router.get("/emp_policies", authenticateJWT, getPolicies);
+// Get Guides
+router.get(
+  "/emp_guide",
+  authenticateJWT,
+  getGuides
+);
 
-// Employee Guide Routes
-
-router.get("/emp_guide", authenticateJWT, getGuides);
-
-// Employee Benefits Routes
-
+// Get Benefits
 router.get(
   "/emp_benefits",
   authenticateJWT,
   getBenefits
 );
 
-// Employee Letters Routes
+// Get Letters
 router.get(
   "/letters",
   authenticateJWT,
   getLetters
 );
 
-//Employee Company Contracts Routes
+// Get Company Contracts
+router.get(
+  "/emp_compcontract", 
+  authenticateJWT, 
+  getCompanyContracts
+);
 
-router.get("/emp_compcontract", authenticateJWT, getCompanyContracts);
-
-//Employee offshore contracts route
+// Get Offshore Contracts
 router.get(
   "/emp_offshcontract",
   authenticateJWT,
@@ -146,13 +159,14 @@ router.get(
   getEmpOffshoreContracts
 );
 
-// Notification Route
+// Get Notifications
 router.get(
   "/notify",
   authenticateJWT,
   getNotifications
 )
-//Employee Home Routes
+
+// Get Home Details
 router.get(
   "/emp_home",
   authenticateJWT,
@@ -160,6 +174,7 @@ router.get(
   getHomeDetails
 );
 
+// Update Mark Attendance
 router.patch(
   "/emp_home",
   authenticateJWT,
@@ -167,12 +182,12 @@ router.patch(
   updateMarkAttendance
 );
 
+// Get Time Sheet Details
 router.get(
   "/emp_timesheet",
   authenticateJWT,
   getTimeSheetDetails
 );
-
 
 
 export default router;
