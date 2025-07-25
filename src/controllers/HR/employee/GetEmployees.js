@@ -22,7 +22,7 @@ const getEmployees = async (req, res) => {
 
     const result = await pool.query(
       `
-      SELECT 
+      SELECT DISTINCT ON (emp.id)
         emp.id,
         emp.employee_id,
         emp.first_name,
@@ -37,6 +37,7 @@ const getEmployees = async (req, res) => {
         ON emp.id = out.employee_id AND out.client_id != $1
       LEFT JOIN eSparkTalentAPI_client AS client
         ON out.client_id = client.id
+      ORDER BY emp.id, out.client_id
     `,
       [talentId]
     );
