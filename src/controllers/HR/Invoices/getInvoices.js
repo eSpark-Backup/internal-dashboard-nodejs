@@ -5,7 +5,6 @@ const getInvoices = async (req, res) => {
     const excludedEmail = process.env.TALENT_EMAIL;
 
     try {
-
         const Invoices = await pool.query(`
             SELECT 
                 c.id,

@@ -1,12 +1,14 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 
 const deleteBenefit = async (req, res) => {
     const { id } = req.query;
 
     let client;
+
     try {
+        
         client = await pool.connect();
 
         const benefit = await client.query(

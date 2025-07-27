@@ -1,24 +1,26 @@
 import pool from "../../../config/db.js";
-import bcrypt from "bcrypt";
+import { logger } from "../../../helpers/logger.js";
+import fs from "fs";
+import path from "path";
 import { validateFile } from "../../../utils/validateFiles.js";
 import { checkEmployeeDuplicates } from "../../../utils/employee.js";
-import { logger } from "../../../helpers/logger.js";
+import bcrypt from "bcrypt";
 import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 import {
   getSignedUrl,
   S3_TEMP_BUCKET,
   uploadToS3,
 } from "../../../helpers/s3.js";
-import fs from "fs";
-import path from "path";
 
 const addEmployee = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL;
-
-  let client;
   const imageFile = req.files?.image?.[0];
   const resumeFile = req.files?.resume?.[0];
+
+  let client;
+
   try {
+
     client = await pool.connect();
 
     const {
@@ -269,13 +271,15 @@ const addEmployee = async (req, res) => {
       id: emp.id,
       image: imageUrl,
     });
-  } catch (err) {
+  } 
+  catch (err) {
+
     await client.query("ROLLBACK");
     await cleanupFiles([
       { localPath: imageFile?.path, s3Key: imageS3Key },
       { localPath: resumeFile?.path, s3Key: resumeS3Key },
     ]);
-    logger.error("Add employee error:", err);
+
     return res.status(500).json({ message: "Failed to add employee" });
   } finally {
     if (client) client.release();

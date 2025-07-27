@@ -16,15 +16,18 @@ const getEmpOffshoreContracts = async (req, res) => {
       `SELECT id, client_id FROM eSparkTalentAPI_client WHERE email = $1`,
       [workspaceEmail]
     );
+
     if (clientRes.rows.length === 0) {
       return res.status(404).json({ message: "Client not found" });
     }
+
     const clientId = clientRes.rows[0].id;
 
     const employeeRes = await pool.query(
       `SELECT id, employee_id FROM eSparkTalentAPI_employee WHERE email = $1`,
       [employeeEmail]
     );
+    
     if (employeeRes.rows.length === 0) {
       return res.status(404).json({ message: "Employee not found" });
     }

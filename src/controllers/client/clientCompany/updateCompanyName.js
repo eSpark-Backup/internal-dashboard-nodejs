@@ -6,8 +6,11 @@ const updateCompanyName = async (req, res) => {
   const { company_name } = req.body;
 
   let client;
+
   try {
+
     client = await pool.connect();
+    
     await client.query("BEGIN");
 
     const clientResult = await client.query(

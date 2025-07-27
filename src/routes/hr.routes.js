@@ -230,11 +230,20 @@ import getInvoices from "../controllers/HR/Invoices/getInvoices.js";
 const router = express.Router();
 
 //HR Home Page
-router.get("/hr_home", authenticateJWT, hrHome);
+router.get(
+  "/hr_home", 
+  authenticateJWT, 
+  hrHome
+);
 
 //Employee CRUD Routes
-router.get("/hr_emps", authenticateJWT, getEmployees);
+router.get(
+  "/hr_emps", 
+  authenticateJWT, 
+  getEmployees
+);
 
+// Add Employee
 router.post(
   "/hr_add_emp",
   authenticateJWT,
@@ -246,6 +255,7 @@ router.post(
   addEmployee
 );
 
+// Get Employee Details
 router.get(
   "/hr_emp_prof",
   authenticateJWT,
@@ -253,6 +263,7 @@ router.get(
   getEmployeeDetails
 );
 
+// Delete Employee
 router.delete(
   "/hr_emps",
   authenticateJWT,
@@ -260,6 +271,7 @@ router.delete(
   deleteEmployee
 );
 
+// Update Employee Profile Picture
 router.patch(
   "/hr_update_empimg",
   authenticateJWT,
@@ -268,6 +280,7 @@ router.patch(
   updateEmployeeProfilePicture
 );
 
+// Update Employee Credentials
 router.patch(
   "/hr_update_empcred",
   authenticateJWT,
@@ -275,6 +288,7 @@ router.patch(
   updateEmployeeCredentials
 );
 
+// Download Employee Resume
 router.get(
   "/down_resume",
   authenticateJWT,
@@ -282,9 +296,8 @@ router.get(
   getEmployeeResume
 );
 
-//Employee CRUD Routes
 
-// Employee salary CRUD Routes
+// Add Employee Salary
 router.post(
   "/emp_salary",
   authenticateJWT,
@@ -293,6 +306,7 @@ router.post(
   addSalary
 );
 
+// Get Employee Salary
 router.get(
   "/emp_salary",
   authenticateJWT,
@@ -300,6 +314,7 @@ router.get(
   getSalary
 );
 
+// Delete Employee Salary
 router.delete(
   "/emp_salary",
   authenticateJWT,
@@ -307,6 +322,7 @@ router.delete(
   deleteSalary
 );
 
+// Update Employee Salary
 router.patch(
   "/emp_salary",
   authenticateJWT,
@@ -315,6 +331,7 @@ router.patch(
   updateSalary
 );
 
+// Download Employee Salary
 router.get(
   "/down_payslip",
   authenticateJWT,
@@ -322,9 +339,7 @@ router.get(
   downloadSalary
 );
 
-// Employee salary CRUD Routes
-
-// Employee letter CRUD Routes
+// Add Employee Letter
 router.post(
   "/emp_letters",
   authenticateJWT,
@@ -333,6 +348,7 @@ router.post(
   createLetter
 );
 
+// Get Employee Letters
 router.get(
   "/emp_letters",
   authenticateJWT,
@@ -340,6 +356,7 @@ router.get(
   getLettersByEmployeeEmail
 );
 
+// Delete Employee Letter
 router.delete(
   "/emp_letters",
   authenticateJWT,
@@ -347,6 +364,7 @@ router.delete(
   deleteLetter
 );
 
+// Update Employee Letter
 router.patch(
   "/emp_letters",
   authenticateJWT,
@@ -355,6 +373,7 @@ router.patch(
   updateLetter
 );
 
+// Download Employee Letter
 router.get(
   "/down_letter",
   authenticateJWT,
@@ -362,9 +381,7 @@ router.get(
   downloadLetter
 );
 
-// Employee letter payment routes
-
-// Employee Benefits Routes
+// Add Employee Benefit
 router.post(
   "/hr_emp_benefit",
   authenticateJWT,
@@ -372,6 +389,7 @@ router.post(
   addBenefit
 );
 
+// Get Employee Benefits
 router.get(
   "/hr_emp_benefit",
   authenticateJWT,
@@ -379,6 +397,7 @@ router.get(
   getBenefit
 );
 
+// Delete Employee Benefit
 router.delete(
   "/hr_emp_benefit",
   authenticateJWT,
@@ -386,6 +405,7 @@ router.delete(
   deleteBenefit
 );
 
+// Update Employee Benefit
 router.patch(
   "/hr_emp_benefit",
   authenticateJWT,
@@ -393,8 +413,7 @@ router.patch(
   updateBenefit
 );
 
-// Employee Asset CRUD Routes
-
+// Add Employee Asset
 router.post(
   "/hr_add_asset",
   authenticateJWT,
@@ -402,6 +421,7 @@ router.post(
   addAsset
 );
 
+// Delete Employee Asset
 router.delete(
   "/hr_add_asset",
   authenticateJWT,
@@ -409,6 +429,7 @@ router.delete(
   deleteAsset
 );
 
+// Update Employee Asset
 router.patch(
   "/hr_add_asset",
   authenticateJWT,
@@ -417,9 +438,7 @@ router.patch(
   updateAsset
 );
 
-// Employee Asset CRUD Routes
-
-// Account CRUD Routes
+// Add Account
 router.post(
   "/hr_accounts",
   authenticateJWT,
@@ -428,8 +447,14 @@ router.post(
   addAccount
 );
 
-router.get("/hr_accounts", authenticateJWT, getAccounts);
+// Get Accounts
+router.get(
+  "/hr_accounts", 
+  authenticateJWT, 
+  getAccounts
+);
 
+// Delete Account
 router.delete(
   "/hr_accounts",
   authenticateJWT,
@@ -437,6 +462,7 @@ router.delete(
   deleteAccount
 );
 
+// Update Account
 router.patch(
   "/hr_accounts",
   authenticateJWT,
@@ -445,9 +471,7 @@ router.patch(
   updateAccount
 );
 
-// Account CRUD Routes
-
-// HR EMP Time and leaves Routes
+// Get Time and Leave
 router.get(
   "/hr_emp_t&l",
   authenticateJWT,
@@ -455,6 +479,7 @@ router.get(
   getTimeAndLeave
 );
 
+// Update Time and Leave
 router.patch(
   "/hr_emp_t&l",
   authenticateJWT,
@@ -462,10 +487,7 @@ router.patch(
   updateTimeAndLeave
 );
 
-// HR EMP Time and leaves Routes
-
-// HR Employee Punch Requests Routes
-
+// Get Employee Punch Requests
 router.get(
   "/hr_emp_pr",
   authenticateJWT,
@@ -473,9 +495,7 @@ router.get(
   getEmployeePunchRequests
 );
 
-// HR Employee Punch Requests Routes
-
-// Employee WFH Request Routes
+// Get Employee WFH Requests
 router.get(
   "/hr_wfhr",
   authenticateJWT,
@@ -483,6 +503,7 @@ router.get(
   getEmployeeWFHRequests
 );
 
+// Update Employee WFH Requests
 router.patch(
   "/hr_wfhr",
   authenticateJWT,
@@ -491,10 +512,7 @@ router.patch(
   updateEmployeeWFHRequest
 );
 
-// Employee WFH Request Routes
-
-// Employee Leave Request Routes
-
+// Get Employee Leave Requests
 router.get(
   "/hr_emp_lr",
   authenticateJWT,
@@ -502,10 +520,7 @@ router.get(
   getEmployeeLeaveRequests
 );
 
-// Employee Leave Request Routes
-
-// Policies CRUD Routes
-
+// Add Policy
 router.post(
   "/hr_policy",
   authenticateJWT,
@@ -514,8 +529,14 @@ router.post(
   addPolicy
 );
 
-router.get("/hr_policy", authenticateJWT, getPolicy);
+// Get Policy
+router.get(
+  "/hr_policy", 
+  authenticateJWT, 
+  getPolicy
+);
 
+// Delete Policy
 router.delete(
   "/hr_policy",
   authenticateJWT,
@@ -523,6 +544,7 @@ router.delete(
   deletePolicy
 );
 
+// Update Policy
 router.patch(
   "/hr_policy",
   authenticateJWT,
@@ -531,6 +553,7 @@ router.patch(
   updatePolicy
 );
 
+// Download Policy
 router.get(
   "/down_policy",
   authenticateJWT,
@@ -538,6 +561,7 @@ router.get(
   downloadPolicy
 );
 
+// Update Policy Assignment
 router.patch(
   "/hr_policy_edit",
   authenticateJWT,
@@ -545,10 +569,7 @@ router.patch(
   updatePolicyAssignment
 );
 
-// Policies CRUD Routes
-
-// Guides CRUD Routes
-
+// Add Guide
 router.post(
   "/hr_guide",
   authenticateJWT,
@@ -557,8 +578,14 @@ router.post(
   addGuide
 );
 
-router.get("/hr_guide", authenticateJWT, getGuide);
+// Get Guide
+router.get(
+  "/hr_guide",
+  authenticateJWT,
+  getGuide
+);
 
+// Delete Guide
 router.delete(
   "/hr_guide",
   authenticateJWT,
@@ -566,6 +593,7 @@ router.delete(
   deleteGuide
 );
 
+// Update Guide
 router.patch(
   "/hr_guide",
   authenticateJWT,
@@ -574,6 +602,7 @@ router.patch(
   updateGuide
 );
 
+// Download Guide
 router.get(
   "/down_guide",
   authenticateJWT,
@@ -581,6 +610,7 @@ router.get(
   downloadGuide
 );
 
+// Update Guide Assignment
 router.patch(
   "/hr_guide_edit",
   authenticateJWT,
@@ -588,6 +618,7 @@ router.patch(
   updateGuideAssignment
 );
 
+// Update Employee Info
 router.patch(
   "/hr_update_empinfo",
   authenticateJWT,
@@ -595,8 +626,7 @@ router.patch(
   updateEmployeeInfo
 );
 
-// Company Contracts Routes
-
+// Add Company Contract
 router.post(
   "/hr_compcontract",
   authenticateJWT,
@@ -605,6 +635,7 @@ router.post(
   addCompanyContract
 );
 
+// Get Company Contract
 router.get(
   "/hr_compcontract",
   authenticateJWT,
@@ -612,6 +643,7 @@ router.get(
   getCompanyContracts
 );
 
+// Delete Company Contract
 router.delete(
   "/hr_compcontract",
   authenticateJWT,
@@ -619,6 +651,7 @@ router.delete(
   deleteCompanyContract
 );
 
+// Update Company Contract
 router.patch(
   "/hr_compcontract",
   authenticateJWT,
@@ -627,6 +660,7 @@ router.patch(
   updateCompanyContract
 );
 
+// Download Company Contract
 router.get(
   "/down_comp_cont",
   authenticateJWT,
@@ -634,8 +668,7 @@ router.get(
   downloadCompanyContract
 );
 
-// Employee Offshore Contracts Routes
-
+// Add Offshore Contract
 router.post(
   "/hr_offscontract",
   authenticateJWT,
@@ -644,8 +677,14 @@ router.post(
   addOffshoreContract
 );
 
-router.get("/hr_offscontract", authenticateJWT, getOffshoreContracts);
+// Get Offshore Contract
+router.get(
+  "/hr_offscontract", 
+  authenticateJWT, 
+  getOffshoreContracts
+);
 
+// Delete Offshore Contract
 router.delete(
   "/hr_offscontract",
   authenticateJWT,
@@ -653,6 +692,7 @@ router.delete(
   deleteOffshoreContract
 );
 
+// Update Offshore Contract
 router.patch(
   "/hr_offscontract",
   authenticateJWT,
@@ -661,6 +701,7 @@ router.patch(
   updateOffshoreContract
 );
 
+// Download Offshore Contract
 router.get(
   "/down_offshore",
   authenticateJWT,
@@ -668,6 +709,7 @@ router.get(
   downloadOffshoreContract
 );
 
+// Get Employee Attendance
 router.get(
   "/hr_empattendance",
   authenticateJWT,
@@ -676,7 +718,6 @@ router.get(
 );
 
 //Client CRUD Routes
-
 router.post(
   "/hr_add_client",
   authenticateJWT,
@@ -685,8 +726,14 @@ router.post(
   addClient
 );
 
-router.get("/hr_clients", authenticateJWT, getClients);
+// Get Clients
+router.get(
+  "/hr_clients", 
+  authenticateJWT, 
+  getClients
+);
 
+// Delete Client
 router.delete(
   "/hr_clients",
   authenticateJWT,
@@ -694,6 +741,7 @@ router.delete(
   deleteClient
 );
 
+// Update Client Status
 router.patch(
   "/hr_clients",
   authenticateJWT,
@@ -701,6 +749,7 @@ router.patch(
   updateClientStatus
 );
 
+// Add Start Hire
 router.post(
   "/hr_start_hire/",
   authenticateJWT,
@@ -709,6 +758,7 @@ router.post(
   addStartHire
 );
 
+// Get Start Hire
 router.get(
   "/hr_start_hire/",
   authenticateJWT,
@@ -716,6 +766,7 @@ router.get(
   getStartHire
 );
 
+// Delete Start Hire
 router.delete(
   "/hr_start_hire/",
   authenticateJWT,
@@ -723,6 +774,7 @@ router.delete(
   deleteStartHire
 );
 
+// Update Start Hire
 router.patch(
   "/hr_start_hire/",
   authenticateJWT,
@@ -731,14 +783,15 @@ router.patch(
   updateStartHire
 );
 
+// Download Start Hire
 router.get(
   "/down_jd/",
   authenticateJWT,
   validateSchema(downloadStartHireJDSchema),
   downloadStartHireJD
 );
-//Interview Schedule CRUD Routes
 
+// Add Interview Schedule
 router.post(
   "/hr_is",
   authenticateJWT,
@@ -746,6 +799,7 @@ router.post(
   addInterviewSchedule
 );
 
+// Get Interview Schedule
 router.get(
   "/hr_is",
   authenticateJWT,
@@ -753,6 +807,7 @@ router.get(
   getInterviewSchedule
 );
 
+// Update Interview Schedule
 router.patch(
   "/hr_is",
   authenticateJWT,
@@ -761,6 +816,7 @@ router.patch(
   updateInterviewSchedule
 );
 
+// Delete Interview Schedule
 router.delete(
   "/hr_is",
   authenticateJWT,
@@ -768,6 +824,7 @@ router.delete(
   deleteInterviewSchedule
 );
 
+// Update Client Profile
 router.patch(
   "/hr_client_prof",
   authenticateJWT,
@@ -776,6 +833,7 @@ router.patch(
   updateClientProfile
 );
 
+// Get Client Profile
 router.get(
   "/hr_client_prof",
   authenticateJWT,
@@ -783,8 +841,7 @@ router.get(
   getClientProfile
 );
 
-// Onboarding CRUD Routes
-
+// Add Onboarding
 router.post(
   "/hr_onboarding",
   authenticateJWT,
@@ -792,6 +849,7 @@ router.post(
   addOnboarding
 );
 
+// Get Onboarding
 router.get(
   "/hr_onboarding",
   authenticateJWT,
@@ -799,6 +857,7 @@ router.get(
   getOnboarding
 );
 
+// Delete Onboarding
 router.delete(
   "/hr_onboarding",
   authenticateJWT,
@@ -806,6 +865,7 @@ router.delete(
   deleteOnboarding
 );
 
+// Update Onboarding
 router.patch(
   "/hr_onboarding",
   authenticateJWT,
@@ -814,6 +874,7 @@ router.patch(
   updateOnboarding
 );
 
+// Get Client Employees
 router.get(
   "/hr_clientemps",
   authenticateJWT,
@@ -821,6 +882,7 @@ router.get(
   getHrClientEmps
 );
 
+// Update Client Employees
 router.patch(
   "/hr_clientemps",
   authenticateJWT,
@@ -828,8 +890,7 @@ router.patch(
   updateHrClientEmps
 );
 
-// Employee Invoices CRUD Routes
-
+// Add Employee Invoice
 router.post(
   "/hr_empinv",
   authenticateJWT,
@@ -838,6 +899,7 @@ router.post(
   addEmployeeInvoice
 );
 
+// Get Employee Invoices
 router.get(
   "/hr_empinv",
   authenticateJWT,
@@ -845,6 +907,7 @@ router.get(
   getEmployeeInvoices
 );
 
+// Delete Employee Invoice
 router.delete(
   "/hr_empinv",
   authenticateJWT,
@@ -852,6 +915,7 @@ router.delete(
   deleteEmployeeInvoice
 );
 
+// Update Employee Invoice
 router.patch(
   "/hr_empinv",
   authenticateJWT,
@@ -860,6 +924,7 @@ router.patch(
   updateEmployeeInvoice
 );
 
+// Download Employee Invoice
 router.get(
   "/down_emp_inv",
   authenticateJWT,
@@ -867,8 +932,7 @@ router.get(
   downloadEmployeeInvoice
 );
 
-// Other Invoice CRUD Routes
-
+// Add Other Invoice
 router.post(
   "/hr_otherinv",
   authenticateJWT,
@@ -877,6 +941,7 @@ router.post(
   addOtherInvoice
 );
 
+// Get Other Invoices
 router.get(
   "/hr_otherinv",
   authenticateJWT,
@@ -884,6 +949,7 @@ router.get(
   getOtherInvoices
 );
 
+// Delete Other Invoice
 router.delete(
   "/hr_otherinv",
   authenticateJWT,
@@ -891,6 +957,7 @@ router.delete(
   deleteOtherInvoice
 );
 
+// Update Other Invoice
 router.patch(
   "/hr_otherinv",
   authenticateJWT,
@@ -899,6 +966,7 @@ router.patch(
   updateOtherInvoice
 );
 
+// Download Other Invoice
 router.get(
   "/down_oth_inv",
   authenticateJWT,
@@ -906,6 +974,14 @@ router.get(
   downloadOtherInvoice
 );
 
+// Get Invoices
+router.get(
+  "/hr_invoices",
+  authenticateJWT,
+  getInvoices
+);
+
+// Add Outsource Employee
 router.post(
   "/hr_clientaddemp",
   authenticateJWT,
@@ -913,6 +989,7 @@ router.post(
   hrClientAddEmp
 );
 
+// Get Outsource Eligible Employees
 router.get(
   "/hr_clientaddemp",
   authenticateJWT,
@@ -920,8 +997,14 @@ router.get(
   getOutsourceEligibleEmployees
 );
 
-router.get("/hr_rnp", authenticateJWT, getRolesAndPermissions);
+// Get Roles and Permissions
+router.get(
+  "/hr_rnp",
+  authenticateJWT,
+  getRolesAndPermissions
+);
 
+// Update Roles and Permissions
 router.patch(
   "/hr_rnp",
   authenticateJWT,
@@ -929,6 +1012,7 @@ router.patch(
   patchRolesAndPermissions
 );
 
+// Change Password
 router.patch(
   "/hr_changepass",
   authenticateJWT,
@@ -937,20 +1021,20 @@ router.patch(
   changePassword
 );
 
-router.get("/hr_compsett", authenticateJWT, getCompanySettings);
+// Get Company Settings
+router.get(
+  "/hr_compsett",
+  authenticateJWT,
+  getCompanySettings
+);
 
+// Update Company Settings
 router.patch(
   "/hr_compsett",
   authenticateJWT,
   upload.fields([{ name: "image", maxCount: 1 }]),
   validateSchema(patchCompanySettingsSchema),
   patchCompanySettings
-);
-
-router.get(
-  "/hr_invoices",
-  authenticateJWT,
-  getInvoices
 );
 
 export default router;

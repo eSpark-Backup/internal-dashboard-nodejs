@@ -5,6 +5,7 @@ const getClientEmployeeContracts = async (req, res) => {
   const { email } = req.user;
 
   let client;
+  
   try {
     client = await pool.connect();
 

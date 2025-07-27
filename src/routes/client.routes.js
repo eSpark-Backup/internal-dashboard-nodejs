@@ -49,19 +49,19 @@ router.get(
   getClientHome
 );
 
-// Hiring Requests
+// Get Hiring Requests
 router.get(
   "/c_hr", 
   authenticateJWT, 
   getHiringRequests
 );
 
+// Delete Hiring Request
 router.delete(
   "/c_hr", 
   authenticateJWT, 
   deleteHiringRequest
 );
-
 
 // Start Hire
 router.post(
@@ -72,7 +72,7 @@ router.post(
   addClientStartHire
 );
 
-// Team
+// Get Team
 router.get(
   "/c_team",
   authenticateJWT,
@@ -80,7 +80,7 @@ router.get(
   getClientTeam
 );
 
-// Interview Schedule
+// Get Interview Schedule
 router.get(
   "/c_is", 
   authenticateJWT, 
@@ -96,7 +96,7 @@ router.patch(
 );
 
 
-// Onboarding
+// Get Onboarding
 router.get(
   "/c_onboard",
   authenticateJWT,
@@ -104,7 +104,7 @@ router.get(
 );
 
 
-// Company Contracts
+// Get Company Contracts
 router.get(
   "/c_cmpcontract", 
   authenticateJWT, 
@@ -136,7 +136,7 @@ router.patch(
   updateClientPassword
 );
 
-// Invoice Payments 
+// Get Invoice Payments 
 router.get(
   "/c_invpay",
   authenticateJWT,
@@ -152,7 +152,7 @@ router.patch(
   updateInvoicePaymentStatus
 );
 
-// Clock In Out
+// Get Clock In Out
 router.get(
   "/c_clockinout",
   authenticateJWT,
@@ -168,7 +168,7 @@ router.patch(
   updateClientPunchRequest
 );
 
-// Time Tracking
+// Get Time Tracking
 router.get(
   "/c_tracktime",
   authenticateJWT,
@@ -176,7 +176,7 @@ router.get(
   getClientTimeTracking
 );
 
-// Leave Requests 
+// Get Leave Requests 
 router.get(
   "/c_lr",
   authenticateJWT,
@@ -192,35 +192,35 @@ router.patch(
   updateLeaveRequestStatus
 );
 
-// Guide 
+// Get Guide 
 router.get(
   "/c_guide",
   authenticateJWT,
   getGuides
 );
 
-// Policy 
+// Get Policy 
 router.get(
   "/c_policy",
   authenticateJWT,
   getPolicies
 );
 
-// Employee Contracts
+// Get Employee Contracts
 router.get(
   "/c_empcontract", 
   authenticateJWT, 
   getClientEmployeeContracts
 );
 
-// Leave Balance
+// Get Leave Balance
 router.get(
   "/c_lb",
   authenticateJWT,
   getLeaveBalances
 );
 
-// Download Reports
+// Get Time Off Download Report
 router.get(
   "/c_downreport",
   authenticateJWT,
@@ -229,7 +229,7 @@ router.get(
 );
 
 
-// Time Tracking Report
+// Get Time Tracking Report
 router.get(
   "/c_downattendreport",
   authenticateJWT,
@@ -237,6 +237,7 @@ router.get(
   getClientTimeTrackingReport
 );
 
+// Get Available Employees
 router.get(
   "/c_availemp",
   authenticateJWT,

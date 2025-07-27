@@ -1,16 +1,17 @@
 import pool from "../../../config/db.js";
-import { removeFromS3 } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
+import { removeFromS3 } from "../../../helpers/s3.js";
 
 const deleteClient = async (req, res) => {
     const { id } = req.query;
+
     let client;
 
     try {
+
         client = await pool.connect();
 
         await client.query("BEGIN");
-        logger.info(`Started deletion for client ID: ${id}`);
 
         const clientResult = await client.query(
             `SELECT * FROM eSparkTalentAPI_client WHERE id = $1`,

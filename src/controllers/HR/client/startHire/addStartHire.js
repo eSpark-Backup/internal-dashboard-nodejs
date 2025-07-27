@@ -1,8 +1,8 @@
+import pool from "../../../../config/db.js";
 import fs from "fs";
 import path from "path";
-import pool from "../../../../config/db.js";
 import { logger } from "../../../../helpers/logger.js";
-import { uploadToS3, S3_TEMP_BUCKET } from "../../../../helpers/s3.js";
+import { S3_TEMP_BUCKET, uploadToS3 } from "../../../../helpers/s3.js";
 import {
   cleanupFiles,
   getFormattedTimestamp,
@@ -25,9 +25,11 @@ const addStartHire = async (req, res) => {
   } = req.body;
 
   const job_description = req.file;
-  console.log("job_description", job_description);
+
   let client;
+
   try {
+
     client = await pool.connect();
 
     const clientResult = await client.query(
@@ -42,7 +44,7 @@ const addStartHire = async (req, res) => {
     }
 
     await client.query("BEGIN");
-    // ✅ Validate uploaded file
+  
     const fileErrors = {};
     const jobDescValidationErrors = validateFile({
       file: job_description,

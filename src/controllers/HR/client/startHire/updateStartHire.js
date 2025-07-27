@@ -1,6 +1,6 @@
+import pool from "../../../../config/db.js";
 import fs from "fs";
 import path from "path";
-import pool from "../../../../config/db.js";
 import { logger } from "../../../../helpers/logger.js";
 import {
   uploadToS3,
@@ -44,7 +44,9 @@ const updateStartHire = async (req, res) => {
   }
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const result = await client.query(

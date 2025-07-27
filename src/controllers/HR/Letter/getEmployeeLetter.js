@@ -1,8 +1,11 @@
 import pool from "../../../config/db.js";
 
 const getLettersByEmployeeEmail = async (req, res) => {
+ 
   try {
+
     const email = req.query.email;
+    
     const employeeRes = await pool.query(
       `SELECT id FROM esparktalentapi_employee WHERE email = $1`,
       [email]

@@ -1,14 +1,15 @@
 import pool from "../../../config/db.js";
-import { validateFile } from "../../../utils/validateFiles.js";
-import { logger } from "../../../helpers/logger.js";
-import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
-import path from "path";
 import fs from "fs";
+import path from "path";
+import { logger } from "../../../helpers/logger.js";
+import { validateFile } from "../../../utils/validateFiles.js";
+import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 
 const addCompanyContract = async (req, res) => {
     const { status } = req.query;
+    
     let client;
 
     switch (status) {

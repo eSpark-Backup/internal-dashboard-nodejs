@@ -6983,6 +6983,186 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Company Settings",
+					"item": [
+						{
+							"name": "Get Company Details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzY2OTEzLCJpYXQiOjE3NTMzNDg5MTMsImp0aSI6ImQ3YWQwNjQwMDVjODQ4YjFiZjFlOWQ0ZTBhMDlkN2NmIiwidXNlcl9pZCI6MX0.spLQWTCaDXpQza1O2bIZ9sCa0T1UoQ6ZR9jN_rjXd-4"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"url": "http://54.162.147.127:8000/api/hr_compsett/"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Company details",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzMzY2OTEzLCJpYXQiOjE3NTMzNDg5MTMsImp0aSI6ImQ3YWQwNjQwMDVjODQ4YjFiZjFlOWQ0ZTBhMDlkN2NmIiwidXNlcl9pZCI6MX0.spLQWTCaDXpQza1O2bIZ9sCa0T1UoQ6ZR9jN_rjXd-4"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dashboard-dev.esparktalent.com"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "company_name",
+											"value": "eSpark Consulting Groupasdsad",
+											"type": "text"
+										},
+										{
+											"key": "company_email",
+											"value": "test@gmail.comm1",
+											"type": "text"
+										},
+										{
+											"key": "website_url",
+											"value": "www.esparktalent.com1",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://54.162.147.127:8000/api/hr_compsett/"
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-US,en;q=0.9"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjciLCJlbWFpbCI6Im11emVtcDJAZ21haWwuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwidXNlcm5hbWUiOiJkIGZmIiwiaWF0IjoxNzUzMzUwMzYwLCJleHAiOjE3NTMzNjgzNjB9.avYgHBgwuAOrIBZtK_R_mdTkO5sKyMZYLkc_8WLVKwU"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3001"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3001/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "Pa$$0rd!",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "faraz123",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "faraz123",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://54.162.147.127:8000/api/hr_changepass/"
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},

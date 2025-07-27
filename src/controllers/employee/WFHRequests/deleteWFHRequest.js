@@ -6,7 +6,9 @@ const deleteWFHRequest = async (req, res) => {
     const { id } = req.query;
 
     let client;
+
     try {
+        
         client = await pool.connect();
 
         const wfhRequest = await client.query(

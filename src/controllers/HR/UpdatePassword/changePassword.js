@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt";
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
+import bcrypt from "bcrypt";
 
 const changePassword = async (req, res) => {
   const { email } = req.user;
@@ -9,6 +9,7 @@ const changePassword = async (req, res) => {
   let client;
 
   try {
+    
     client = await pool.connect();
 
     const result = await client.query(

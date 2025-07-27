@@ -1,13 +1,16 @@
-import { logger } from "../../../../helpers/logger.js";
 import pool from "../../../../config/db.js";
+import { logger } from "../../../../helpers/logger.js";
 
 const updateHrClientEmps = async (req, res) => {
   const { id } = req.query;
   const { status } = req.body;
 
   let client;
+
   try {
+
     client = await pool.connect();
+    
     await client.query("BEGIN");
 
     const { rows: outsourceRows } = await client.query(

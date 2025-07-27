@@ -1,10 +1,10 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import fs from "fs";
+import path from "path";
+import { logger } from "../../../helpers/logger.js";
 import { getSignedUrl, S3_TEMP_BUCKET, uploadToS3, removeFromS3 } from "../../../helpers/s3.js";
 import { validateFile } from "../../../utils/validateFiles.js";
 import { getFormattedTimestamp } from "../../../helpers/utils.js";
-import fs from "fs";
-import path from "path";
 
 
 const updateEmployeeProfilePicture = async (req, res) => {
@@ -12,7 +12,9 @@ const updateEmployeeProfilePicture = async (req, res) => {
     const imageFile = req.files?.image?.[0];
 
     let client;
+    
     try {
+        
         client = await pool.connect();
 
         const fileErrors = {};

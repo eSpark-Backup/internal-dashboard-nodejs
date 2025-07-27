@@ -3,6 +3,7 @@ import { logger } from "../../../helpers/logger.js";
 
 const patchRolesAndPermissions = async (req, res) => {
   const { id } = req.query;
+
   const {
     employee_perms,
     client_perms,
@@ -13,7 +14,9 @@ const patchRolesAndPermissions = async (req, res) => {
   } = req.body;
 
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const existing = await client.query(

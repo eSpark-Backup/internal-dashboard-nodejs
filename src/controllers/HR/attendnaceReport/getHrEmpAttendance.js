@@ -1,4 +1,5 @@
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 import {
   parseISO,
   isValid,
@@ -7,7 +8,6 @@ import {
   endOfMonth,
   parse,
 } from "date-fns";
-import { logger } from "../../../helpers/logger.js";
 import { validateAndCleanTime } from "../../../helpers/utils.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL || "talent@esparkconsultants.com";
@@ -53,10 +53,6 @@ export const getHrEmpAttendance = async (req, res) => {
   try {
     const fromDate = from ? parseISO(from) : startOfMonth(new Date());
     const toDate = to ? parseISO(to) : endOfMonth(new Date());
-
-    logger.info(
-      `Using date range from ${fromDate.toISOString()} to ${toDate.toISOString()}`
-    );
 
     const empQuery = await pool.query(
       "SELECT * FROM eSparkTalentAPI_employee WHERE email = $1",

@@ -1,8 +1,8 @@
-import path from "path";
-import fs from "fs";
 import pool from "../../../../config/db.js";
-import { validateFile } from "../../../../utils/validateFiles.js";
+import fs from "fs";
+import path from "path";
 import { logger } from "../../../../helpers/logger.js";
+import { validateFile } from "../../../../utils/validateFiles.js";
 import { S3_TEMP_BUCKET, uploadToS3 } from "../../../../helpers/s3.js";
 import { cleanupFiles, getFormattedTimestamp } from "../../../../helpers/utils.js";
 
@@ -10,9 +10,11 @@ const addEmployeeInvoice = async (req, res) => {
 
     const { client_id, employee_id, invoice_date, due_date, currency, invoice_amount } = req.body || {};
     const invoice = req.files?.invoice?.[0] || null;
+
     let client;
 
     try {
+        
         client = await pool.connect();
 
         const clientResult = await client.query(

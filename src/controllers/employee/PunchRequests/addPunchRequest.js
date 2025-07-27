@@ -6,7 +6,9 @@ const addPunchRequest = async (req, res) => {
     const { date, client_id, punch_type, punch_time, description } = req.body || {};
 
     let client;
+
     try {
+        
         client = await pool.connect();
 
         const employee = await client.query(`SELECT id, email FROM eSparkTalentAPI_employee WHERE email = $1`, [email]);

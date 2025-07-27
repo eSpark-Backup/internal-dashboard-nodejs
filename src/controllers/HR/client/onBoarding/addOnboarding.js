@@ -1,12 +1,14 @@
-import { logger } from "../../../../helpers/logger.js";
 import pool from "../../../../config/db.js";
+import { logger } from "../../../../helpers/logger.js";
 
 const addOnboarding = async (req, res) => {
 
     const { client_id, employee_name, job_title, joining_date, notice_period, salary, gender, role_type, employment_term, country, salary_currency } = req.body || {};
+
     let client;
 
     try {
+        
         client = await pool.connect();
 
         const clientResult = await client.query(

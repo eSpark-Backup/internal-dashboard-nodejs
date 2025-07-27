@@ -1,14 +1,14 @@
+import pool from "../../../config/db.js";
+import fs from "fs";
+import path from "path";
+import { logger } from "../../../helpers/logger.js";
 import {
   removeFromS3,
   S3_TEMP_BUCKET,
   uploadToS3,
   getSignedUrl,
 } from "../../../helpers/s3.js";
-import fs from "fs";
-import path from "path";
 import { validateFile } from "../../../utils/validateFiles.js";
-import pool from "../../../config/db.js";
-import { logger } from "../../../helpers/logger.js";
 import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 
 const updateClientProfile = async (req, res) => {

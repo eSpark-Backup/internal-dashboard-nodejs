@@ -4,9 +4,11 @@ import { logger } from "../../../helpers/logger.js";
 const getClientTeam = async (req, res) => {
   const { email } = req.user;
   const { status } = req.query;
+  
   let client;
 
   try {
+
     client = await pool.connect();
 
     const clientResult = await client.query(

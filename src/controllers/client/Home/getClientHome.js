@@ -1,9 +1,10 @@
 import pool from "../../../config/db.js";
-import { getSignedUrl } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getClientHome = async (req, res) => {
   const { email, username } = req.user;
+
   let client;
 
   if (!email) {
@@ -91,7 +92,8 @@ const getClientHome = async (req, res) => {
     }
 
     return res.status(200).json({
-       username: username || "",
+      username: username || "",
+      c_email: email || "",
       hiring_request_count,
       interview_schedule_count,
       onboarding_count,

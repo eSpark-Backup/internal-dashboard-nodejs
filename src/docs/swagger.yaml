@@ -9804,3 +9804,189 @@ paths:
           description: Client not found
         '500':
           description: Internal server error
+
+
+
+  /hr_compsett:
+    get:
+      tags:
+        - Company Settings
+      summary: Get Company Settings
+      description: Retrieve the global company settings including name, email, website, and image URL.
+      operationId: getCompanySettings
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successfully retrieved company settings or empty list
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      company_name:
+                        type: string
+                        example: "Acme Corp"
+                      company_email:
+                        type: string
+                        format: email
+                        example: "info@acme.com"
+                      website_url:
+                        type: string
+                        format: uri
+                        example: "https://acme.com"
+                      image:
+                        type: string
+                        format: uri
+                        nullable: true
+                        example: "https://yourbucket.s3.amazonaws.com/image.png"
+                  - type: array
+                    items: {}
+                    example: []
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal server error"
+
+
+    patch:
+      summary: Update company settings
+      description: Allows clients to update their company name, email, website, and image.
+      tags:
+        - Company Settings
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                company_name:
+                  type: string
+                  example: XYZ
+                company_email:
+                  type: string
+                  format: email
+                  example: contact@xyz.com
+                website_url:
+                  type: string
+                  format: uri
+                  example: https://abc.com
+                image:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Company settings successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Company settings successfully updated
+                  image:
+                    type: string
+                    example: s3-bucket-folder/image-name.jpg
+        "201":
+          description: Company settings successfully added
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Company settings successfully added
+                  image:
+                    type: string
+                    example: s3-bucket-folder/image-name.jpg
+        "400":
+          description: Invalid image
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  errors:
+                    type: object
+        "500":
+          description: Internal server error
+
+
+  /hr_changepass:
+    patch:
+      summary: Change user password
+      description: Allows an authenticated user to change their password.
+      tags:
+        - Company Settings
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - current_password
+                - new_password
+                - confirm_password
+              properties:
+                current_password:
+                  type: string
+                  example: oldpassword123
+                new_password:
+                  type: string
+                  example: newpassword456
+                confirm_password:
+                  type: string
+                  example: newpassword456
+      responses:
+        "200":
+          description: Password updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Credentials have been updated successfully
+        "400":
+          description: Bad request – validation error or incorrect password
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid current password
+        "404":
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User not found
+        "500":
+          description: Internal server error

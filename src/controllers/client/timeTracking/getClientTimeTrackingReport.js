@@ -6,6 +6,7 @@ import { fonts } from "../../../constants/index.js"
 const getClientTimeTrackingReport = async (req, res) => {
   const { email: clientEmail } = req.user
   const { year, month, e_email: employeeEmail } = req.query
+
   let client
 
   try {
@@ -112,6 +113,7 @@ function buildAttendanceReportPdfmake({
   timeSheet,
   pageOrientation,
 }) {
+  
   // Status legend with exact colors from the image
   const statusLegend = [
     { label: "Present", code: "P", color: "#4CAF50" },

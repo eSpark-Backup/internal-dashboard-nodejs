@@ -1,5 +1,5 @@
-import { logger } from "../../../../helpers/logger.js";
 import pool from "../../../../config/db.js";
+import { logger } from "../../../../helpers/logger.js";
 
 const addInterviewSchedule = async (req, res) => {
 
@@ -7,6 +7,7 @@ const addInterviewSchedule = async (req, res) => {
     let client;
 
     try {
+        
         client = await pool.connect();
 
         const clientResult = await client.query(

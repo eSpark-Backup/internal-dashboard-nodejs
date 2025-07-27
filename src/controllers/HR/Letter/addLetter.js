@@ -1,17 +1,19 @@
-import { validateFile } from "../../../utils/validateFiles.js";
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
-import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
-import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
+import { logger } from "../../../helpers/logger.js";
+import { validateFile } from "../../../utils/validateFiles.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
+import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 
 const createLetter = async (req, res) => {
-  let client;
   const { email, objective, issue_date, reason } = req.body || {};
   const letterFile = req.files?.letter?.[0];
   
+  let client;
+
   try {
+    
     client = await pool.connect();
 
     const fileErrors =

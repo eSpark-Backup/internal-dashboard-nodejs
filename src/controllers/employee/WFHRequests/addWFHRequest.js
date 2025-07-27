@@ -7,8 +7,11 @@ const addWFHRequest = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL;
 
   let client;
+
   try {
+
     client = await pool.connect();
+    
     client.query("BEGIN");
 
     const employee = await client.query(

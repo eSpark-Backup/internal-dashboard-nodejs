@@ -172,8 +172,11 @@ const updateClientPunchRequest = async (req, res) => {
   const { status: toUpdateStatus } = req.body;
 
   let client;
+
   try {
+
     client = await pool.connect();
+    
     await client.query("BEGIN");
 
     const clientResult = await client.query(

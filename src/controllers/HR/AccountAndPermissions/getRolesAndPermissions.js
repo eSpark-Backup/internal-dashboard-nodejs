@@ -2,8 +2,11 @@ import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
 const getRolesAndPermissions = async (req, res) => {
+  
   let client;
+
   try {
+    
     client = await pool.connect();
 
     const result = await client.query(`

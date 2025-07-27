@@ -1,6 +1,6 @@
 import pool from "../../../config/db.js"
-import { MONTHS } from "../../../constants/index.js"
 import { logger } from "../../../helpers/logger.js"
+import { MONTHS } from "../../../constants/index.js"
 
 const getSalary = async (req, res) => {
     const { employee_id, month, year } = req.query

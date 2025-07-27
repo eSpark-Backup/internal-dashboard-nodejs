@@ -1,6 +1,6 @@
+import pool from "../../../config/db.js";
 import fs from "fs";
 import path from "path";
-import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 import { uploadToS3, S3_TEMP_BUCKET } from "../../../helpers/s3.js";
 import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
@@ -26,6 +26,7 @@ const addClientStartHire = async (req, res) => {
   let client;
 
   try {
+    
     client = await pool.connect();
 
     const clientResult = await client.query(

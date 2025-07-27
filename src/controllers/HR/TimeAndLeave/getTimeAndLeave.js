@@ -1,9 +1,8 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const getTimeAndLeave = async (req, res) => {
   const { id, tab } = req.query;
-  logger.info(`GET /hr_emp_t&l called with id=${id}, tab=${tab}`);
 
   if (tab === "time") {
     try {

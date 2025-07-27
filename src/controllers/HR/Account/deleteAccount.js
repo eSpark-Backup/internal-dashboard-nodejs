@@ -8,7 +8,9 @@ const deleteAccount = async (req, res) => {
     let client;
 
     try {
+        
         client = await pool.connect();
+
         await client.query("BEGIN");
 
         const { rows: userRows } = await client.query(
