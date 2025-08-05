@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3013:3000"
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=ZGnMb2rwTfafda35235346436346fsaR5Dz2XMTR53=
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST=ec2-54-162-117-48.compute-1.amazonaws.com
+      - POSTGRES_DB=esparkconsultant
+      - POSTGRES_PASSWORD=rbtestingdb
+      - POSTGRES_PORT=5432
+      - TALENT_EMAIL=xyz@example.com
+      - S3_ACCESS_KEY=45c64e62b0412333333333333
+      - S3_SECRET_KEY=4424Ue3pR+LpyijvnA56ps++snqVjk
+      - S3_BUCKET=bucket-name
+      - S3_REGION=regioin
+      - S3_ENDPOINT=https://xyz.backblaze.com
+      - PORT=3000
+    restart: unless-stopped
