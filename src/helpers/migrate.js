@@ -14,14 +14,18 @@ const RETRY_DELAY = 2000; // 2 seconds
 // Database connection setup (createPool)
 async function createPool() {
   const pool = new pg.Pool({
-    user: process.env.POSTGRES_USER, // Username for PostgreSQL
-    host: process.env.POSTGRES_HOST, // Hostname for PostgreSQL
-    database: process.env.POSTGRES_DB, // Database name
-    password: process.env.POSTGRES_PASSWORD, // Password for PostgreSQL
-    port: process.env.POSTGRES_PORT, // Port for PostgreSQL
-    connectionTimeoutMillis: 10000, // Timeout for connection (10 seconds)
-    max: 1, // Maximum number of connections
-  });
+  user: process.env.POSTGRES_USER,           // e.g., 'avnadmin'
+  host: process.env.POSTGRES_HOST,           // e.g., 'pg-xxxxx.aivencloud.com'
+  database: process.env.POSTGRES_DB,         // e.g., 'defaultdb'
+  password: process.env.POSTGRES_PASSWORD,   // your password
+  port: Number(process.env.POSTGRES_PORT),   // usually 26257 or 5432
+  ssl: {
+    require: true,
+    rejectUnauthorized: false
+  },
+  connectionTimeoutMillis: 10000,
+  max: 1
+});
 
   // Test the connection
   for (let i = 0; i < MAX_RETRIES; i++) {
