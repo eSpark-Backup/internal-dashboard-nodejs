@@ -8,11 +8,11 @@ services:
     environment:
       - NODE_ENV=production
       - JWT_SECRET=ZGnMb2rwTfafda35235346436346fsaR5Dz2XMTR53=
-      - POSTGRES_USER=postgres
-      - POSTGRES_HOST=ec2-54-162-117-48.compute-1.amazonaws.com
+      - POSTGRES_USER=avnadmin
+      - POSTGRES_HOST=pg-2ee0a71d-ahmedshafi7812-88d3.k.aivencloud.com
       - POSTGRES_DB=esparkconsultant
-      - POSTGRES_PASSWORD=rbtestingdb
-      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=AVNS_VOmHk7N78V_u0eCW0nS
+      - POSTGRES_PORT=11619
       - TALENT_EMAIL=xyz@example.com
       - S3_ACCESS_KEY=45c64e62b0412333333333333
       - S3_SECRET_KEY=4424Ue3pR+LpyijvnA56ps++snqVjk
