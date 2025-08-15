@@ -1,14 +1,13 @@
-import pool from "../../config/db.js";
-import { getSignedUrl } from "../../helpers/s3.js";
-import { logger } from "../../helpers/logger.js";
+import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
 
-const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
 const getEmployees = async (req, res) => {
+  const TALENT_EMAIL = process.env.TALENT_EMAIL;
+  
   try {
-    logger.info("Fetching talent ID using TALENT_EMAIL...");
 
-    // Step 1: Get ID of the TALENT_EMAIL to exclude from JOIN
     const talentUserRes = await pool.query(
       "SELECT id FROM eSparkTalentAPI_client WHERE email = $1",
       [TALENT_EMAIL]
@@ -20,12 +19,10 @@ const getEmployees = async (req, res) => {
     }
 
     const talentId = talentUserRes.rows[0].id;
-    logger.info(`Found talent client ID: ${talentId}`);
 
-    // Step 2: Main query with JOINs
     const result = await pool.query(
       `
-      SELECT 
+      SELECT DISTINCT ON (emp.id)
         emp.id,
         emp.employee_id,
         emp.first_name,
@@ -40,14 +37,11 @@ const getEmployees = async (req, res) => {
         ON emp.id = out.employee_id AND out.client_id != $1
       LEFT JOIN eSparkTalentAPI_client AS client
         ON out.client_id = client.id
+      ORDER BY emp.id, out.client_id
     `,
       [talentId]
     );
-    logger.info(
-      `Mapping ${result.rows.length} employees with signed image URLs...`
-    );
 
-    // Step 3: Add signed S3 URLs
     const records = await Promise.all(
       result.rows.map(async (row) => {
         const fullName = `${row.first_name} ${row.last_name}`;
@@ -74,12 +68,6 @@ const getEmployees = async (req, res) => {
         };
       })
     );
-
-    if (records.length === 0) {
-      logger.info("No employees found — returning 204 No Content");
-      return res.status(204).send();
-    }
-    logger.info("Returning employee records to client");
 
     return res.status(200).json(records);
   } catch (err) {

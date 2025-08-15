@@ -1,16 +1,21 @@
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
 const hrHome = async (req, res) => {
   const { email, role, username } = req.user;
+
   let client;
 
   try {
+
     client = await pool.connect();
+    
     const companyRes = await client.query(
       "SELECT image FROM eSparkTalentAPI_company_data LIMIT 1"
     );
+
     const company_image = companyRes.rows[0]?.image || "";
 
     const [employeesRes, clientsRes, hiringRes, interviewRes] =
@@ -38,6 +43,7 @@ const hrHome = async (req, res) => {
         ...commonCounts,
       });
     }
+
     const permRes = await client.query(
       `SELECT image, employee_perms, client_perms, leaves_perms,
               invoices_perms, policies_perms, guides_perms
@@ -60,11 +66,12 @@ const hrHome = async (req, res) => {
       guides_perms: row.guides_perms || {},
       ...commonCounts,
     });
+
   } catch (err) {
-    console.error("Error in hr_home:", err);
+    logger.error("Error in hr_home:", err);
     return res.status(500).json({ message: "Internal server error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

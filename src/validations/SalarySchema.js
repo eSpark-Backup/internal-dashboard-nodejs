@@ -40,4 +40,11 @@ export const updateSalarySchema = yup.object({
     }),
 });
 
+export const downloadSalarySchema = yup.object({
+    query: yup.object({
+        id: yup.number().required("Salary ID is required"),
+    })
+})
+
+
 

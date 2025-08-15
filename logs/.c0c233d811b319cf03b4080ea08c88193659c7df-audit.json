@@ -6,49 +6,9 @@
     "auditLog": "logs\\.c0c233d811b319cf03b4080ea08c88193659c7df-audit.json",
     "files": [
         {
-            "date": 1746815792569,
-            "name": "logs\\2025-05-09-basic.log",
-            "hash": "d237b4dd20db58065b032e5d3e7bc5fbe5effb6e085a90a7a3bacb22ecfe7f29"
-        },
-        {
-            "date": 1746820618665,
-            "name": "logs\\2025-05-10-basic.log",
-            "hash": "a36044db0c602fda480f5a2914c1820e30bd5f193daffaa5f87b39a55ab02ae6"
-        },
-        {
-            "date": 1746907620985,
-            "name": "logs\\2025-05-11-basic.log",
-            "hash": "3ab3a88061bc9fa8022c2f9dbebced229c34161c7c09fc2ea9c56c4a9e06b83b"
-        },
-        {
-            "date": 1746993721052,
-            "name": "logs\\2025-05-12-basic.log",
-            "hash": "84c0125516ead1f18ac42e10981cbee03eb700fd8fc84f79a9a20ca058e43bce"
-        },
-        {
-            "date": 1747082686674,
-            "name": "logs\\2025-05-13-basic.log",
-            "hash": "6288f5446e2ab3d74a4507b6bd492b21986c642a59664b6d850dca02e7d2a642"
-        },
-        {
-            "date": 1747209281099,
-            "name": "logs\\2025-05-14-basic.log",
-            "hash": "d7cc3aa1684ae39e1b30b75b433e87d85dca44320a14913217775bc02312e47e"
-        },
-        {
-            "date": 1747298304856,
-            "name": "logs\\2025-05-15-basic.log",
-            "hash": "c994e9f456b7982709ffd8557bc613312835a63b0e384cf6ecf6e80989e70fc9"
-        },
-        {
-            "date": 1747386970606,
-            "name": "logs\\2025-05-16-basic.log",
-            "hash": "1cce814e5825273c4f9c49a721c6896e616d9286df886ad0a955955e81b3afdb"
-        },
-        {
-            "date": 1747566651777,
-            "name": "logs\\2025-05-18-basic.log",
-            "hash": "a03f91c899581dee14c6751b088bbfbaf955d90d21141c18f53936ef9993e7e1"
+            "date": 1750664491597,
+            "name": "logs\\2025-06-23-basic.log",
+            "hash": "0ddec39df9f2f0777b12cdfb69b2eed4e97ff0e541c95e16b0d425cf5df750f2"
         }
     ],
     "hashType": "sha256"

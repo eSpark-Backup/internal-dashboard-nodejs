@@ -1,9 +1,10 @@
 import pool from "../../../config/db.js";
-import { getSignedUrl } from "../../../helpers/s3.js";
 import { logger } from "../../../helpers/logger.js";
+import { getSignedUrl } from "../../../helpers/s3.js";
 import { decrypt } from "../../../helpers/utils.js";
 
 const getAccounts = async (req, res) => {
+  
   try {
     const result = await pool.query(
       "SELECT id, account_name, email, image, password FROM eSparkTalentAPI_account_n_persmission"
@@ -36,10 +37,10 @@ const getAccounts = async (req, res) => {
       })
     );
 
-    res.status(200).json(accounts);
+    return res.status(200).json(accounts);
   } catch (err) {
     logger.error(`Error fetching accounts: ${err}`);
-    res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };
 

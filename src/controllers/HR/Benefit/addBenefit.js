@@ -1,5 +1,5 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const addBenefit = async (req, res) => {
 
@@ -48,7 +48,7 @@ const addBenefit = async (req, res) => {
         logger.error(`Error adding benefit: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {
-        client.release();
+        if (client) client.release();
     }
 
 

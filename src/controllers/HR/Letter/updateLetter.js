@@ -1,15 +1,20 @@
-import { validateFile } from "../../../utils/validateFiles.js";
 import pool from "../../../config/db.js";
-import { getFormattedTimestamp } from "../../../helpers/utils.js";
-import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 import fs from "fs";
 import path from "path";
+import { logger } from "../../../helpers/logger.js";
+import { validateFile } from "../../../utils/validateFiles.js";
+import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
+import { S3_TEMP_BUCKET, uploadToS3 } from "../../../helpers/s3.js";
 
 const updateLetter = async (req, res) => {
-  const client = await pool.connect();
+
+  const { reason } = req.body || {};
+  const letterFile = req.file;
+  
+  let client;
+  
   try {
-    const { reason } = req.body;
-    const letterFile = req.file;
+    client = await pool.connect();
 
     const id = req.query.id;
 
@@ -25,10 +30,11 @@ const updateLetter = async (req, res) => {
     }
 
     let updatedLetterPath = null;
-
-    if (letterFile) {
-      const fileErrors =
-        validateFile({
+    
+    try {
+      if (letterFile) {
+        const fileErrors =
+          validateFile({
           file: letterFile,
           name: "letter",
           allowedTypes: ["application/pdf"],
@@ -37,6 +43,7 @@ const updateLetter = async (req, res) => {
 
       if (Object.keys(fileErrors).length > 0) {
         await client.query("ROLLBACK");
+        await cleanupFiles([{ localPath: letterFile?.path }]);
         return res.status(400).json(fileErrors);
       }
 
@@ -46,9 +53,14 @@ const updateLetter = async (req, res) => {
       const fileContent = fs.readFileSync(letterFile.path);
 
       await uploadToS3(s3Key, fileContent, letterFile.mimetype);
-      fs.unlinkSync(letterFile.path);
+      await cleanupFiles([{ localPath: letterFile?.path }]);
 
-      updatedLetterPath = s3Key;
+        updatedLetterPath = s3Key;
+      }
+    } catch (error) {
+      logger.error(`Error uploading letter: ${error.message}`);
+      await cleanupFiles([{ localPath: letterFile?.path }]);
+      return res.status(500).json({ message: "Internal server error" });
     }
 
     const fieldsToUpdate = [];
@@ -67,6 +79,7 @@ const updateLetter = async (req, res) => {
 
     if (fieldsToUpdate.length === 0) {
       await client.query("ROLLBACK");
+      await cleanupFiles([{ localPath: letterFile?.path }]);
       return res.status(400).json({ message: "No fields to update" });
     }
 
@@ -82,13 +95,13 @@ const updateLetter = async (req, res) => {
     await client.query("COMMIT");
 
     return res.status(200).json({ message: "Letter updated successfully" });
-  } catch (err) {
+  } 
+  catch (err) {
     await client.query("ROLLBACK");
-
-    console.error(`Letter update error: ${err}`);
+    logger.error(`Letter update error: ${err}`);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

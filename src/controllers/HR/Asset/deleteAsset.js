@@ -1,13 +1,15 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const deleteAsset = async (req, res) => {
+  const { id } = req.query || {};
+  
   let client;
 
   try {
+
     client = await pool.connect();
 
-    const { id } = req.query;
 
     const result = await client.query(
       `SELECT * FROM esparktalentapi_asset WHERE id = $1`,
@@ -15,9 +17,9 @@ const deleteAsset = async (req, res) => {
     );
 
     if (result.rowCount === 0) {
-      logger.warn(`Attempted to delete non-existent asset with id: ${id}`);
       return res.status(404).json({ message: "Asset not found" });
     }
+    
     logger.info(`Deleting asset with id ${id}`);
     await client.query(`DELETE FROM esparktalentapi_asset WHERE id = $1`, [id]);
 

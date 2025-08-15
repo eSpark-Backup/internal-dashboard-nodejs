@@ -1,0 +1,4 @@
+ALTER TABLE eSparkTalentAPI_punch_request
+ALTER COLUMN punch_time TYPE VARCHAR,
+ALTER COLUMN punch_time SET NOT NULL,
+ALTER COLUMN punch_time DROP DEFAULT;

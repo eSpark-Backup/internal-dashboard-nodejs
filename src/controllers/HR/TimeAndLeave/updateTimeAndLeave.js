@@ -1,12 +1,12 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const updateTimeAndLeave = async (req, res) => {
   const { id, tab } = req.query;
 
   try {
     if (tab === "time") {
-      const { check_in, check_out } = req.body;
+      const { check_in, check_out } = req.body || {};
 
       const obj = {};
       if (check_in) obj.check_in = check_in;
@@ -31,7 +31,6 @@ const updateTimeAndLeave = async (req, res) => {
         return res.status(404).json({ message: "Employee record not found" });
       }
 
-      logger.info(`Updated punch timings for employee ID ${id}`);
       return res.status(200).json({ message: "Timings updated successfully" });
     } else if (tab === "leaves") {
       const casual_leaves = req.body.casual_leaves
@@ -90,7 +89,7 @@ const updateTimeAndLeave = async (req, res) => {
     return res.status(400).json({ message: "Invalid tab value" });
   } catch (err) {
     logger.error(`PATCH /hr_emp_t&l failed: ${err.message}`);
-    return res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: "Invalid tab value" });
   }
 };
 

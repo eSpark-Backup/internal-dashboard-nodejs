@@ -1,20 +1,21 @@
 import pool from "../../../config/db.js"
-import { MONTHS } from "../../../constants/index.js"
 import { logger } from "../../../helpers/logger.js"
+import { MONTHS } from "../../../constants/index.js"
 
 const getSalary = async (req, res) => {
     const { employee_id, month, year } = req.query
 
-    const employee = await pool.query(
-        `SELECT id FROM eSparkTalentAPI_employee WHERE email = $1`,
-        [employee_id]
-    );
-
-    if (!employee.rows[0]?.id) {
-        return res.status(400).json({ message: "Employee does not exist with given employee email" });
-    }
-
     try {
+        const employee = await pool.query(
+            `SELECT id FROM eSparkTalentAPI_employee WHERE email = $1`,
+            [employee_id]
+        );
+    
+        if (!employee.rows[0]?.id) {
+            return res.status(400).json({ message: "Employee does not exist with given employee email" });
+        }
+
+
         let query = `SELECT id, job_status, gross_salary, tax_deduction, net_salary, TO_CHAR(date, 'YYYY-MM-DD') as date FROM eSparkTalentAPI_salary WHERE employee_id = $1`
         const params = [employee.rows[0]?.id]
 
