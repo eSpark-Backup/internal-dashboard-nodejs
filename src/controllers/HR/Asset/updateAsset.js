@@ -1,14 +1,16 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 const updateAsset = async (req, res) => {
-  let client;
-  try {
-    client = await pool.connect();
-    const { id } = req.query;
-    const updates = req.body;
 
-    logger.info("Update asset request received", { assetId: id, updates });
+  let client;
+
+  try {
+    
+    client = await pool.connect();
+    
+    const { id } = req.query;
+    const updates = req.body || {};
 
     const result = await client.query(
       `SELECT * FROM esparktalentapi_asset WHERE id = $1`,
@@ -80,7 +82,7 @@ const updateAsset = async (req, res) => {
     logger.error("Update asset error:", err);
     return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    client.release();
+    if (client) client.release();
   }
 };
 

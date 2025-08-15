@@ -1,4 +1,7 @@
 import { format } from "date-fns";
+import fs from "fs";
+import { removeFromS3 } from "./s3.js";
+import { logger } from "./logger.js";
 import crypto from "crypto";
 import validateSchema from "../middleware/validate.js";
 import {
@@ -16,6 +19,20 @@ const ENCRYPTION_IV = Buffer.from("1c3db7343ed94480b57a6ee5e6f3a25c", "hex");
 const getFormattedTimestamp = () => {
   return format(new Date(), "MM-dd-yyyy_HH-mm-ss");
 };
+
+const getWeekdaysCount = (startDate, endDate) => {
+  let count = 0;
+  let current = new Date(startDate);
+
+  while (current <= endDate) {
+    const day = current.getDay();
+    if (day !== 0 && day !== 6) count++; 
+    current.setDate(current.getDate() + 1);
+  }
+
+  return count;
+};
+
 
 function encrypt(plaintext) {
   const cipher = crypto.createCipheriv(
@@ -53,9 +70,98 @@ const validateEmpLeavesPatchSchema = (req, res, next) => {
   return validateSchema(schema)(req, res, next);
 };
 
+const validateAndCleanTime = (timeStr) => {
+  if (!timeStr?.trim()) {
+      throw new Error('Time is required');
+  }
+
+  const cleanTime = decodeURIComponent(timeStr).trim();
+
+  if (!cleanTime.match(/\s*(AM|PM|am|pm)\s*$/)) {
+      throw new Error('Time must include AM or PM');
+  }
+
+  if (!cleanTime.match(/^\d{1,2}:\d{2}(:\d{2})?\s*(AM|PM|am|pm)$/)) {
+      throw new Error('Invalid time format. Use HH:mm AM/PM or HH:mm:ss AM/PM');
+  }
+
+  return cleanTime;
+};
+
+const parseTimeToMinutes = (timeStr) => {
+  if (!timeStr || timeStr === "-") {
+      throw new Error("Invalid time string");
+  }
+
+  timeStr = timeStr.trim();
+  let hours, minutes;
+
+  if (timeStr.toUpperCase().includes('AM') || timeStr.toUpperCase().includes('PM')) {
+      const isPM = timeStr.toUpperCase().includes('PM');
+      const timeOnly = timeStr.replace(/\s*(AM|PM|am|pm)\s*/gi, '').trim();
+      const parts = timeOnly.split(':');
+
+      hours = parseInt(parts[0], 10);
+      minutes = parseInt(parts[1], 10);
+
+      if (isNaN(hours) || isNaN(minutes)) {
+          throw new Error("Failed to parse AM/PM time components");
+      }
+
+      if (isPM && hours !== 12) {
+          hours += 12;
+      } else if (!isPM && hours === 12) {
+          hours = 0;
+      }
+  } else if (timeStr.includes(':')) {
+      const parts = timeStr.split(':');
+      hours = parseInt(parts[0], 10);
+      minutes = parseInt(parts[1], 10);
+  } else {
+      throw new Error("Unrecognized time format");
+  }
+
+  if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+      throw new Error(`Invalid time values: hours=${hours}, minutes=${minutes}`);
+  }
+
+  return hours * 60 + minutes;
+};
+
+const cleanupFiles = async (files = []) => {
+  for (const file of files) {
+    const { localPath, s3Key } = file;
+
+    // Remove local file
+    if (localPath) {
+      try {
+        if (fs.existsSync(localPath)) {
+          fs.unlinkSync(localPath);
+        }
+      } catch (err) {
+        logger.warn(`Failed to delete local file (${localPath}):`, err);
+      }
+    }
+
+    // Remove from S3
+    if (s3Key) {
+      try {
+        await removeFromS3(s3Key);
+      } catch (err) {
+        logger.warn(`Failed to delete S3 file (${s3Key}):`, err);
+      }
+    }
+  }
+};
+
+
 export {
   getFormattedTimestamp,
   encrypt,
   decrypt,
   validateEmpLeavesPatchSchema,
+  validateAndCleanTime,
+  parseTimeToMinutes,
+  cleanupFiles,
+  getWeekdaysCount
 };

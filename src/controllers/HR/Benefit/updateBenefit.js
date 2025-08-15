@@ -1,10 +1,10 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 
 const updateBenefit = async (req, res) => {
     const { id } = req.query;
-    const { card_id, description } = req.body;
+    const { card_id, description } = req.body || {};
 
     try {
         const benefit = await pool.query(

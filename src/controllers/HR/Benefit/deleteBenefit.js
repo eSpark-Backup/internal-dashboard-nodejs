@@ -1,12 +1,14 @@
-import { logger } from "../../../helpers/logger.js";
 import pool from "../../../config/db.js";
+import { logger } from "../../../helpers/logger.js";
 
 
 const deleteBenefit = async (req, res) => {
     const { id } = req.query;
 
     let client;
+
     try {
+        
         client = await pool.connect();
 
         const benefit = await client.query(
@@ -43,7 +45,7 @@ const deleteBenefit = async (req, res) => {
         return res.status(200).json({ message: "Benefit has been deleted" });
 
     } catch (error) {
-        if (client) await client.query("ROLLBACK");
+        await client.query("ROLLBACK");
         logger.error(`Error deleting benefit: ${error}`);
         return res.status(500).json({ message: "Internal server error" });
     } finally {

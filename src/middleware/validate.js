@@ -8,7 +8,7 @@ const validateSchema = (schema) => async (req, res, next) => {
         query: req.query,
         params: req.params,
       },
-      { abortEarly: false }
+      { abortEarly: false, context: { status: req.query.status } }
     );
     next();
   } catch (err) {
