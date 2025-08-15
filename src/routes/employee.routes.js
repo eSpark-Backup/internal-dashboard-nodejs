@@ -23,7 +23,8 @@ import {
   deletePunchRequestSchema,
   getPunchRequestSchema,
 } from "../validations/punchRequestsSchema.js";
-import addPunchRequest from "../controllers/employee/PunchRequests/AddPunchRequest.js";
+import addPunchRequest from "../controllers/employee/PunchRequests/addPunchRequest.js";
+
 import getPunchRequests from "../controllers/employee/PunchRequests/getPunchRequests.js";
 import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunchRequest.js";
 import getPolicies from "../controllers/employee/Policy/getPolicies.js";
