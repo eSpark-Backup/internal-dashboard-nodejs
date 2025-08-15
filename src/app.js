@@ -29,27 +29,23 @@ if (process.env.ENV !== "prod") {
 // Middleware
 const allowedOrigins = [
   "https://esparktalent-dashboard-fe.stg.esparkconsultants.com",
-  "http://localhost:3000", // for local dev if needed
+  "http://localhost:3000",
 ];
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps or curl)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
 
-// Handle preflight requests explicitly (important for CORS errors)
-app.options("*", cors());
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Allow Postman/curl
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(null, false); // <- Do not throw error
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
+
+// Ensure OPTIONS requests are handled
+app.options("*", cors()); 
+
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
