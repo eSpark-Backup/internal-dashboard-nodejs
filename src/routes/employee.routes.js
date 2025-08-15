@@ -27,7 +27,7 @@ import addPunchRequest from "../controllers/employee/PunchRequests/addPunchReque
 
 import getPunchRequests from "../controllers/employee/PunchRequests/getPunchRequests.js";
 import deletePunchRequest from "../controllers/employee/PunchRequests/deletePunchRequest.js";
-import getPolicies from "../controllers/employee/Policy/getPolicies.js";
+import getPolicies from "../controllers/employee/policy/getPolicies.js";
 import getGuides from "../controllers/employee/Guide/getGuides.js";
 import getLetters from "../controllers/employee/Letter/getLetters.js";
 import getBenefits from "../controllers/employee/Benefit/getBenefits.js";

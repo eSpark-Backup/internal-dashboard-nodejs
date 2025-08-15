@@ -69,7 +69,7 @@ import updateTimeAndLeave from "../controllers/HR/TimeAndLeave/updateTimeAndLeav
 import { getTimeAndLeaveSchema } from "../validations/timeAndLeavesSchema.js";
 import { validateEmpLeavesPatchSchema } from "../helpers/utils.js";
 import { getEmployeePunchRequestsSchema } from "../validations/punchRequestsSchema.js";
-import getEmployeePunchRequests from "../controllers/HR/PunchRequests/GetEmployeePunchRequests.js";
+import getEmployeePunchRequests from "../controllers/HR/PunchRequests/getEmployeePunchRequests.js";
 import {
   getEmployeeWFHRequestsSchema,
   updateEmployeeWFHRequestSchema,
