@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -10,7 +10,6 @@ RUN npm ci --only=production
 
 # Copy source code
 COPY . .
-
 
 # Start the application
 CMD ["npm", "start"]
