@@ -1,0 +1,88 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:04:28.820Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:04:28.860Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:04:29.258Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:04:29.260Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:04:29.311Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:04:29.315Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:04:29.381Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:04:29.383Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:05:10.740Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:05:10.766Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:05:11.091Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:05:11.092Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:05:11.098Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:05:11.100Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:05:11.107Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:05:11.107Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:05:33.657Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:05:33.680Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:05:33.860Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:05:33.862Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:05:33.869Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:05:33.872Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:05:33.880Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:05:33.881Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:05:59.481Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:05:59.504Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:05:59.663Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:05:59.665Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:05:59.671Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:05:59.674Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:05:59.681Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:05:59.682Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:06:32.892Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:06:32.914Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:06:33.058Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:06:33.059Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:06:33.065Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:06:33.067Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:06:33.075Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:06:33.075Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:06:59.659Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:06:59.691Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:06:59.885Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:06:59.890Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:06:59.897Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:06:59.903Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:06:59.911Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:06:59.913Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:09:46.830Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:09:46.846Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:09:46.996Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:09:46.998Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:09:47.007Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:09:47.010Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:09:47.023Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:09:47.024Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:10:18.304Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:10:18.328Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:10:18.473Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:10:18.475Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:10:18.482Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:10:18.484Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:10:18.493Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:10:18.494Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:10:32.215Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:10:32.234Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:10:32.368Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:10:32.370Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:10:32.376Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:10:32.379Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:10:32.386Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:10:32.386Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T10:11:22.552Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T10:11:22.573Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T10:11:22.728Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T10:11:22.730Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T10:11:22.736Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T10:11:22.739Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T10:11:22.747Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T10:11:22.748Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2025-12-31T11:43:11.675Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2025-12-31T11:43:11.703Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2025-12-31T11:43:11.895Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2025-12-31T11:43:11.897Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2025-12-31T11:43:11.945Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2025-12-31T11:43:11.947Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2025-12-31T11:43:12.002Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2025-12-31T11:43:12.003Z"}

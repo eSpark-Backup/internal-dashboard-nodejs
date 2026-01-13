@@ -1,5 +1,12 @@
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
+import dotenv from "dotenv";
+import { getSignedUrl } from "../../../helpers/s3.js";
+
+dotenv.config();
+
+const s3Endpoint = process.env.S3_ENDPOINT;
+const s3Bucket = process.env.S3_BUCKET;
 
 const TALENT_EMAIL = process.env.TALENT_EMAIL;
 
@@ -9,14 +16,16 @@ const hrHome = async (req, res) => {
   let client;
 
   try {
-
     client = await pool.connect();
-    
+
     const companyRes = await client.query(
       "SELECT image FROM eSparkTalentAPI_company_data LIMIT 1"
     );
 
-    const company_image = companyRes.rows[0]?.image || "";
+    // const company_image = companyRes.rows[0]?.image || "";
+    const rawCompanyImage = companyRes.rows[0]?.image || "";
+    const company_image =
+      rawCompanyImage && (await getSignedUrl(rawCompanyImage));
 
     const [employeesRes, clientsRes, hiringRes, interviewRes] =
       await Promise.all([
@@ -66,7 +75,6 @@ const hrHome = async (req, res) => {
       guides_perms: row.guides_perms || {},
       ...commonCounts,
     });
-
   } catch (err) {
     logger.error("Error in hr_home:", err);
     return res.status(500).json({ message: "Internal server error" });
