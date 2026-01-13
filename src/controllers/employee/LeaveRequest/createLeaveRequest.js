@@ -6,12 +6,11 @@ import { cleanupFiles, getFormattedTimestamp } from "../../../helpers/utils.js";
 import { uploadToS3, S3_TEMP_BUCKET } from "../../../helpers/s3.js";
 
 const createLeaveRequest = async (req, res) => {
-
   let client;
 
   try {
     client = await pool.connect();
-    
+
     await client.query("BEGIN");
     const {
       client_id: clientEmail,
@@ -52,6 +51,65 @@ const createLeaveRequest = async (req, res) => {
     }
     const employeeId = result.rows[0].id;
 
+    // ======== NEW LEAVE BALANCE CHECK START ========
+
+    // Map leave_type to column
+    const leaveColumnMap = {
+      casual: "casual_leaves",
+      sick: "sick_leaves",
+      annual: "annual_leaves",
+      unpaid: "unpaid_leaves",
+      paid: "paid_leaves",
+      hajj: "hajj_leaves",
+    };
+
+    const columnName = leaveColumnMap[leave_type];
+
+    if (!columnName) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
+      return res.status(400).json({ message: "Invalid leave type" });
+    }
+
+    // Get current leave balance
+    const leaveBalanceRes = await client.query(
+      `SELECT ${columnName} FROM eSparkTalentAPI_leave_balance WHERE employee_id = $1`,
+      [employeeId]
+    );
+
+    if (leaveBalanceRes.rows.length === 0) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
+      return res.status(400).json({ message: "Leave balance not found" });
+    }
+
+    const leaveData = leaveBalanceRes.rows[0][columnName];
+
+    if (!leaveData || leaveData.status !== "enable") {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
+      return res.status(400).json({ message: "Leave type not allowed" });
+    }
+
+    // Calculate already requested leaves (pending or approved)
+    const pendingLeavesRes = await client.query(
+      `SELECT COALESCE(SUM(count),0) as total_requested
+   FROM eSparkTalentAPI_leave_request
+   WHERE employee_id = $1 AND leave_type = $2 AND status IN ('pending','approved')`,
+      [employeeId, leave_type]
+    );
+
+    const alreadyRequested = Number(
+      pendingLeavesRes.rows[0].total_requested || 0
+    );
+    const availableBalance = Number(leaveData.balance) - alreadyRequested;
+
+    if (Number(count) > availableBalance) {
+      await cleanupFiles([{ localPath: attachmentFile?.path }]);
+      return res.status(400).json({
+        message: `Insufficient leave balance. You have ${availableBalance} ${leave_type} leave(s) remaining.`,
+      });
+    }
+
+    // ======== NEW LEAVE BALANCE CHECK END ========
+
     const clientResult = await client.query(
       `SELECT id FROM eSparkTalentAPI_client WHERE email = $1`,
       [clientEmail]
@@ -80,7 +138,7 @@ const createLeaveRequest = async (req, res) => {
       await cleanupFiles([{ localPath: attachmentFile?.path }]);
       return res.status(400).json({ message: "Leave request already present" });
     }
-    
+
     let attachmentS3Key = null;
 
     if (attachmentFile) {
