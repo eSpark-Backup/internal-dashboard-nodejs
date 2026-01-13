@@ -1,0 +1,48 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-13T08:38:55.625Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-13T08:38:55.639Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-13T08:38:55.821Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-13T08:38:55.823Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-13T08:38:55.874Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-13T08:38:55.876Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-13T08:38:55.932Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-13T08:38:55.933Z"}
+{"level":"info","message":"Processing 0 hiring_request notifications with refIds: ","timestamp":"2026-01-13T08:43:15.287Z"}
+{"level":"info","message":"Retrieved 0 hiring_request records from DB","timestamp":"2026-01-13T08:43:15.292Z"}
+{"level":"info","message":"Unique client IDs in hiring requests: ","timestamp":"2026-01-13T08:43:15.294Z"}
+{"level":"info","message":"Found 0 interview_schedule (short_list) notifications","timestamp":"2026-01-13T08:43:15.295Z"}
+{"level":"info","message":"No interview_schedule (short_list) ref_ids to process.","timestamp":"2026-01-13T08:43:15.296Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule records from DB","timestamp":"2026-01-13T08:43:15.298Z"}
+{"level":"info","message":"Unique client IDs for interview_shortlist: ","timestamp":"2026-01-13T08:43:15.300Z"}
+{"level":"info","message":"Found 0 interview_schedule (rejected) notifications","timestamp":"2026-01-13T08:43:15.302Z"}
+{"level":"info","message":"No rejected interview ref_ids to process.","timestamp":"2026-01-13T08:43:15.304Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule (rejected) records from DB","timestamp":"2026-01-13T08:43:15.308Z"}
+{"level":"info","message":"Unique client IDs for interview rejects: ","timestamp":"2026-01-13T08:43:15.311Z"}
+{"level":"info","message":"No employee_invoice ref_ids to process.","timestamp":"2026-01-13T08:43:15.311Z"}
+{"level":"info","message":"Retrieved 0 employee_invoice records from DB","timestamp":"2026-01-13T08:43:15.324Z"}
+{"level":"info","message":"Unique client IDs for employee_invoice: ","timestamp":"2026-01-13T08:43:15.325Z"}
+{"level":"info","message":"Found 0 other_payment notifications","timestamp":"2026-01-13T08:43:15.326Z"}
+{"level":"info","message":"No other_payment ref_ids to process.","timestamp":"2026-01-13T08:43:15.326Z"}
+{"level":"info","message":"Retrieved 0 other_payment records from DB","timestamp":"2026-01-13T08:43:15.334Z"}
+{"level":"info","message":"Unique client IDs for other_payment: ","timestamp":"2026-01-13T08:43:15.337Z"}
+{"level":"info","message":"🔍 Found 0 wfh_request notifications","timestamp":"2026-01-13T08:43:15.337Z"}
+{"level":"info","message":"No wfh_request ref_ids to process.","timestamp":"2026-01-13T08:43:15.338Z"}
+{"level":"info","message":"Retrieved 0 wfh_request records from DB","timestamp":"2026-01-13T08:43:15.346Z"}
+{"level":"info","message":"Unique employee IDs for wfh_request: ","timestamp":"2026-01-13T08:43:15.347Z"}
+{"level":"info","message":"Retrieved 0 employee records for WFH notifications","timestamp":"2026-01-13T08:43:15.353Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-13T08:43:15.354Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-13T10:50:43.250Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-13T10:50:43.275Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-13T10:50:43.421Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-13T10:50:43.422Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-13T10:50:43.440Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-13T10:50:43.443Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-13T10:50:43.452Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-13T10:50:43.453Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-13T10:51:01.506Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-13T10:51:01.519Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-13T10:51:01.618Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-13T10:51:01.619Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-13T10:51:01.624Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-13T10:51:01.626Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-13T10:51:01.630Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-13T10:51:01.632Z"}

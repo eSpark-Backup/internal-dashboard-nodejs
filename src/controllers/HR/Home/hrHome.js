@@ -63,10 +63,22 @@ const hrHome = async (req, res) => {
     );
 
     const row = permRes.rows[0] || {};
+
+    let user_image = "";
+    if (row.image) {
+      try {
+        user_image = await getSignedUrl(row.image);
+      } catch (err) {
+        logger.error(
+          `Error generating signed URL for user_image: ${err.message}`
+        );
+      }
+    }
+
     return res.status(200).json({
       user: username,
       company_image,
-      user_image: row.image || "",
+      user_image: user_image,
       employee_perms: row.employee_perms || {},
       client_perms: row.client_perms || {},
       leaves_perms: row.leaves_perms || {},
