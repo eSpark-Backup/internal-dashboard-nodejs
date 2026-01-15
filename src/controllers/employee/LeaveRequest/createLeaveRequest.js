@@ -187,7 +187,8 @@ const createLeaveRequest = async (req, res) => {
   VALUES ($1, $2, $3, $4, $5)
 `;
     await client.query(notificationInsertQuery, [
-      clientId,
+      // clientId,
+      clientEmail,
       rows[0].id,
       "leave_request",
       `New leave request from ${employeeEmail} for ${leave_type} leave from ${start_date} to ${end_date}`,

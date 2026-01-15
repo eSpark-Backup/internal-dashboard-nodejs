@@ -1,0 +1,314 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T06:24:11.088Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T06:24:11.101Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T06:24:11.327Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T06:24:11.328Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T06:24:11.384Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T06:24:11.386Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T06:24:11.464Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T06:24:11.465Z"}
+{"level":"info","message":"WFH request added successfully for Sohaib Ali","timestamp":"2026-01-15T06:32:35.368Z"}
+{"level":"info","message":"WFH request added successfully for Sohaib Ali","timestamp":"2026-01-15T07:00:52.560Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:05:44.920Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T07:07:18.076Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:07:36.984Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:16:19.708Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:16:19.745Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:16:19.858Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:16:19.859Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:16:19.873Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:16:19.876Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:16:19.882Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:16:19.882Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:16:25.225Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:16:25.237Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:16:25.309Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:16:25.310Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:16:25.313Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:16:25.314Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:16:25.318Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:16:25.319Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:16:35.471Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:16:35.484Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:16:35.610Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:16:35.613Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:16:35.621Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:16:35.626Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:16:35.636Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:16:35.637Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:16:40.896Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:16:40.907Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:16:41.130Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:16:41.132Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:16:41.138Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:16:41.140Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:16:41.148Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:16:41.149Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:18:02.699Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:18:02.710Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:18:02.838Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:18:02.839Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:18:02.843Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:18:02.845Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:18:02.852Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:18:02.852Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:18:07.269Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T07:18:39.669Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:19:07.682Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:19:09.288Z"}
+{"code":"22008","file":"datetime.c","length":151,"level":"error","line":"4102","message":"Leave request error: date/time field value out of range: \"2026-02-29\"","name":"error","routine":"DateTimeParseError","severity":"ERROR","stack":"error: date/time field value out of range: \"2026-02-29\"\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg\\lib\\client.js:545:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createLeaveRequest (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/employee/LeaveRequest/createLeaveRequest.js:130:31)","timestamp":"2026-01-15T07:19:52.534Z","where":"unnamed portal parameter $4 = '...'"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:20:30.565Z"}
+{"level":"info","message":"Processing 0 hiring_request notifications with refIds: ","timestamp":"2026-01-15T07:22:06.316Z"}
+{"level":"info","message":"Retrieved 0 hiring_request records from DB","timestamp":"2026-01-15T07:22:06.324Z"}
+{"level":"info","message":"Unique client IDs in hiring requests: ","timestamp":"2026-01-15T07:22:06.325Z"}
+{"level":"info","message":"Found 0 interview_schedule (short_list) notifications","timestamp":"2026-01-15T07:22:06.326Z"}
+{"level":"info","message":"No interview_schedule (short_list) ref_ids to process.","timestamp":"2026-01-15T07:22:06.326Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule records from DB","timestamp":"2026-01-15T07:22:06.332Z"}
+{"level":"info","message":"Unique client IDs for interview_shortlist: ","timestamp":"2026-01-15T07:22:06.333Z"}
+{"level":"info","message":"Found 0 interview_schedule (rejected) notifications","timestamp":"2026-01-15T07:22:06.333Z"}
+{"level":"info","message":"No rejected interview ref_ids to process.","timestamp":"2026-01-15T07:22:06.334Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule (rejected) records from DB","timestamp":"2026-01-15T07:22:06.336Z"}
+{"level":"info","message":"Unique client IDs for interview rejects: ","timestamp":"2026-01-15T07:22:06.336Z"}
+{"level":"info","message":"No employee_invoice ref_ids to process.","timestamp":"2026-01-15T07:22:06.337Z"}
+{"level":"info","message":"Retrieved 0 employee_invoice records from DB","timestamp":"2026-01-15T07:22:06.342Z"}
+{"level":"info","message":"Unique client IDs for employee_invoice: ","timestamp":"2026-01-15T07:22:06.343Z"}
+{"level":"info","message":"Found 0 other_payment notifications","timestamp":"2026-01-15T07:22:06.344Z"}
+{"level":"info","message":"No other_payment ref_ids to process.","timestamp":"2026-01-15T07:22:06.345Z"}
+{"level":"info","message":"Retrieved 0 other_payment records from DB","timestamp":"2026-01-15T07:22:06.352Z"}
+{"level":"info","message":"Unique client IDs for other_payment: ","timestamp":"2026-01-15T07:22:06.353Z"}
+{"level":"info","message":"🔍 Found 2 wfh_request notifications","timestamp":"2026-01-15T07:22:06.354Z"}
+{"level":"info","message":"Retrieved 2 wfh_request records from DB","timestamp":"2026-01-15T07:22:06.359Z"}
+{"level":"info","message":"Unique employee IDs for wfh_request: 8","timestamp":"2026-01-15T07:22:06.360Z"}
+{"level":"info","message":"Retrieved 1 employee records for WFH notifications","timestamp":"2026-01-15T07:22:06.365Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T07:22:06.365Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T07:22:06.366Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T07:22:06.366Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:22:41.699Z"}
+{"level":"info","message":"Processing 0 hiring_request notifications with refIds: ","timestamp":"2026-01-15T07:23:27.347Z"}
+{"level":"info","message":"Retrieved 0 hiring_request records from DB","timestamp":"2026-01-15T07:23:27.351Z"}
+{"level":"info","message":"Unique client IDs in hiring requests: ","timestamp":"2026-01-15T07:23:27.351Z"}
+{"level":"info","message":"Found 0 interview_schedule (short_list) notifications","timestamp":"2026-01-15T07:23:27.352Z"}
+{"level":"info","message":"No interview_schedule (short_list) ref_ids to process.","timestamp":"2026-01-15T07:23:27.353Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule records from DB","timestamp":"2026-01-15T07:23:27.358Z"}
+{"level":"info","message":"Unique client IDs for interview_shortlist: ","timestamp":"2026-01-15T07:23:27.359Z"}
+{"level":"info","message":"Found 0 interview_schedule (rejected) notifications","timestamp":"2026-01-15T07:23:27.360Z"}
+{"level":"info","message":"No rejected interview ref_ids to process.","timestamp":"2026-01-15T07:23:27.361Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule (rejected) records from DB","timestamp":"2026-01-15T07:23:27.364Z"}
+{"level":"info","message":"Unique client IDs for interview rejects: ","timestamp":"2026-01-15T07:23:27.365Z"}
+{"level":"info","message":"No employee_invoice ref_ids to process.","timestamp":"2026-01-15T07:23:27.365Z"}
+{"level":"info","message":"Retrieved 0 employee_invoice records from DB","timestamp":"2026-01-15T07:23:27.368Z"}
+{"level":"info","message":"Unique client IDs for employee_invoice: ","timestamp":"2026-01-15T07:23:27.369Z"}
+{"level":"info","message":"Found 0 other_payment notifications","timestamp":"2026-01-15T07:23:27.370Z"}
+{"level":"info","message":"No other_payment ref_ids to process.","timestamp":"2026-01-15T07:23:27.372Z"}
+{"level":"info","message":"Retrieved 0 other_payment records from DB","timestamp":"2026-01-15T07:23:27.376Z"}
+{"level":"info","message":"Unique client IDs for other_payment: ","timestamp":"2026-01-15T07:23:27.377Z"}
+{"level":"info","message":"🔍 Found 2 wfh_request notifications","timestamp":"2026-01-15T07:23:27.377Z"}
+{"level":"info","message":"Retrieved 2 wfh_request records from DB","timestamp":"2026-01-15T07:23:27.381Z"}
+{"level":"info","message":"Unique employee IDs for wfh_request: 8","timestamp":"2026-01-15T07:23:27.382Z"}
+{"level":"info","message":"Retrieved 1 employee records for WFH notifications","timestamp":"2026-01-15T07:23:27.387Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T07:23:27.388Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T07:23:27.389Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T07:23:27.390Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:34:15.878Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:34:15.890Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:34:16.039Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:34:16.040Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:34:16.075Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:34:16.077Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:34:16.112Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:34:16.113Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T07:35:54.353Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T07:35:54.369Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T07:35:54.533Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T07:35:54.535Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T07:35:54.543Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T07:35:54.545Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T07:35:54.551Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T07:35:54.552Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:36:27.956Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:37:05.555Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:37:06.913Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T07:37:08.534Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:05:34.654Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:05:34.667Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:05:34.789Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:05:34.790Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:05:34.834Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:05:34.836Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:05:34.881Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:05:34.882Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:08:06.830Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:08:06.842Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:08:06.923Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:08:06.924Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:08:06.927Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:08:06.929Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:08:06.934Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:08:06.934Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:14:51.074Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:14:51.098Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:14:51.228Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:14:51.231Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:14:51.238Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:14:51.241Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:14:51.248Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:14:51.249Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:15:51.369Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:15:51.380Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:15:51.463Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:15:51.465Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:15:51.471Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:15:51.473Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:15:51.479Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:15:51.480Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:17:16.033Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:17:16.046Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:17:16.254Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:17:16.256Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:17:16.261Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:17:16.263Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:17:16.271Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:17:16.272Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:44:35.218Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:44:35.231Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:44:35.364Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:44:35.366Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:44:35.405Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:44:35.408Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:44:35.451Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:44:35.452Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:45:40.635Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:45:40.668Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:45:41.006Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:45:41.010Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:45:41.025Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:45:41.033Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:45:41.055Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:45:41.056Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:50:30.713Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:50:30.738Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:50:30.956Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:50:30.957Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:50:30.962Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:50:30.963Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:50:30.968Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:50:30.969Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T08:51:18.917Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T08:51:18.935Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T08:51:19.079Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T08:51:19.081Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T08:51:19.087Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T08:51:19.089Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T08:51:19.097Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T08:51:19.098Z"}
+{"level":"info","message":"No notifications found. Sending empty array.","timestamp":"2026-01-15T08:54:30.566Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T08:55:34.279Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T08:55:34.280Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T08:55:34.280Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T08:57:36.929Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T08:57:50.911Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T08:57:50.912Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T08:57:50.913Z"}
+{"level":"info","message":"Processing 0 hiring_request notifications with refIds: ","timestamp":"2026-01-15T08:58:05.112Z"}
+{"level":"info","message":"Retrieved 0 hiring_request records from DB","timestamp":"2026-01-15T08:58:05.119Z"}
+{"level":"info","message":"Unique client IDs in hiring requests: ","timestamp":"2026-01-15T08:58:05.120Z"}
+{"level":"info","message":"Found 0 interview_schedule (short_list) notifications","timestamp":"2026-01-15T08:58:05.121Z"}
+{"level":"info","message":"No interview_schedule (short_list) ref_ids to process.","timestamp":"2026-01-15T08:58:05.122Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule records from DB","timestamp":"2026-01-15T08:58:05.126Z"}
+{"level":"info","message":"Unique client IDs for interview_shortlist: ","timestamp":"2026-01-15T08:58:05.127Z"}
+{"level":"info","message":"Found 0 interview_schedule (rejected) notifications","timestamp":"2026-01-15T08:58:05.128Z"}
+{"level":"info","message":"No rejected interview ref_ids to process.","timestamp":"2026-01-15T08:58:05.129Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule (rejected) records from DB","timestamp":"2026-01-15T08:58:05.132Z"}
+{"level":"info","message":"Unique client IDs for interview rejects: ","timestamp":"2026-01-15T08:58:05.132Z"}
+{"level":"info","message":"No employee_invoice ref_ids to process.","timestamp":"2026-01-15T08:58:05.132Z"}
+{"level":"info","message":"Retrieved 0 employee_invoice records from DB","timestamp":"2026-01-15T08:58:05.135Z"}
+{"level":"info","message":"Unique client IDs for employee_invoice: ","timestamp":"2026-01-15T08:58:05.136Z"}
+{"level":"info","message":"Found 0 other_payment notifications","timestamp":"2026-01-15T08:58:05.137Z"}
+{"level":"info","message":"No other_payment ref_ids to process.","timestamp":"2026-01-15T08:58:05.137Z"}
+{"level":"info","message":"Retrieved 0 other_payment records from DB","timestamp":"2026-01-15T08:58:05.140Z"}
+{"level":"info","message":"Unique client IDs for other_payment: ","timestamp":"2026-01-15T08:58:05.140Z"}
+{"level":"info","message":"🔍 Found 2 wfh_request notifications","timestamp":"2026-01-15T08:58:05.141Z"}
+{"level":"info","message":"Retrieved 2 wfh_request records from DB","timestamp":"2026-01-15T08:58:05.145Z"}
+{"level":"info","message":"Unique employee IDs for wfh_request: 8","timestamp":"2026-01-15T08:58:05.146Z"}
+{"level":"info","message":"Retrieved 1 employee records for WFH notifications","timestamp":"2026-01-15T08:58:05.152Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T08:58:05.153Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T08:58:05.154Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T08:58:05.154Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T08:59:53.147Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T08:59:53.148Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T08:59:53.148Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:01:04.131Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:02:21.910Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T09:02:45.731Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T09:02:45.732Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T09:02:45.732Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:03:13.589Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T09:03:38.595Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T09:03:38.595Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T09:03:38.595Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:05:20.525Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T09:05:36.826Z"}
+{"level":"info","message":"Adding general notification: Punch Request","timestamp":"2026-01-15T09:05:36.827Z"}
+{"level":"info","message":"Adding Punch Request notification","timestamp":"2026-01-15T09:05:36.827Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T09:05:36.827Z"}
+{"level":"info","message":"Sending 4 notifications in response","timestamp":"2026-01-15T09:05:36.828Z"}
+{"level":"info","message":"Processing 0 hiring_request notifications with refIds: ","timestamp":"2026-01-15T09:09:02.510Z"}
+{"level":"info","message":"Retrieved 0 hiring_request records from DB","timestamp":"2026-01-15T09:09:02.513Z"}
+{"level":"info","message":"Unique client IDs in hiring requests: ","timestamp":"2026-01-15T09:09:02.513Z"}
+{"level":"info","message":"Found 0 interview_schedule (short_list) notifications","timestamp":"2026-01-15T09:09:02.513Z"}
+{"level":"info","message":"No interview_schedule (short_list) ref_ids to process.","timestamp":"2026-01-15T09:09:02.514Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule records from DB","timestamp":"2026-01-15T09:09:02.515Z"}
+{"level":"info","message":"Unique client IDs for interview_shortlist: ","timestamp":"2026-01-15T09:09:02.515Z"}
+{"level":"info","message":"Found 0 interview_schedule (rejected) notifications","timestamp":"2026-01-15T09:09:02.516Z"}
+{"level":"info","message":"No rejected interview ref_ids to process.","timestamp":"2026-01-15T09:09:02.516Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule (rejected) records from DB","timestamp":"2026-01-15T09:09:02.517Z"}
+{"level":"info","message":"Unique client IDs for interview rejects: ","timestamp":"2026-01-15T09:09:02.517Z"}
+{"level":"info","message":"No employee_invoice ref_ids to process.","timestamp":"2026-01-15T09:09:02.518Z"}
+{"level":"info","message":"Retrieved 0 employee_invoice records from DB","timestamp":"2026-01-15T09:09:02.524Z"}
+{"level":"info","message":"Unique client IDs for employee_invoice: ","timestamp":"2026-01-15T09:09:02.525Z"}
+{"level":"info","message":"Found 0 other_payment notifications","timestamp":"2026-01-15T09:09:02.525Z"}
+{"level":"info","message":"No other_payment ref_ids to process.","timestamp":"2026-01-15T09:09:02.526Z"}
+{"level":"info","message":"Retrieved 0 other_payment records from DB","timestamp":"2026-01-15T09:09:02.528Z"}
+{"level":"info","message":"Unique client IDs for other_payment: ","timestamp":"2026-01-15T09:09:02.529Z"}
+{"level":"info","message":"🔍 Found 2 wfh_request notifications","timestamp":"2026-01-15T09:09:02.529Z"}
+{"level":"info","message":"Retrieved 2 wfh_request records from DB","timestamp":"2026-01-15T09:09:02.531Z"}
+{"level":"info","message":"Unique employee IDs for wfh_request: 8","timestamp":"2026-01-15T09:09:02.531Z"}
+{"level":"info","message":"Retrieved 1 employee records for WFH notifications","timestamp":"2026-01-15T09:09:02.534Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T09:09:02.535Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T09:09:02.537Z"}
+{"level":"info","message":"Sending 2 notifications in response","timestamp":"2026-01-15T09:09:02.538Z"}
+{"level":"info","message":"WFH request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:31:36.912Z"}
+{"level":"info","message":"Processing 0 hiring_request notifications with refIds: ","timestamp":"2026-01-15T09:34:56.238Z"}
+{"level":"info","message":"Retrieved 0 hiring_request records from DB","timestamp":"2026-01-15T09:34:56.244Z"}
+{"level":"info","message":"Unique client IDs in hiring requests: ","timestamp":"2026-01-15T09:34:56.244Z"}
+{"level":"info","message":"Found 0 interview_schedule (short_list) notifications","timestamp":"2026-01-15T09:34:56.245Z"}
+{"level":"info","message":"No interview_schedule (short_list) ref_ids to process.","timestamp":"2026-01-15T09:34:56.245Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule records from DB","timestamp":"2026-01-15T09:34:56.249Z"}
+{"level":"info","message":"Unique client IDs for interview_shortlist: ","timestamp":"2026-01-15T09:34:56.249Z"}
+{"level":"info","message":"Found 0 interview_schedule (rejected) notifications","timestamp":"2026-01-15T09:34:56.250Z"}
+{"level":"info","message":"No rejected interview ref_ids to process.","timestamp":"2026-01-15T09:34:56.251Z"}
+{"level":"info","message":"Retrieved 0 interview_schedule (rejected) records from DB","timestamp":"2026-01-15T09:34:56.254Z"}
+{"level":"info","message":"Unique client IDs for interview rejects: ","timestamp":"2026-01-15T09:34:56.255Z"}
+{"level":"info","message":"No employee_invoice ref_ids to process.","timestamp":"2026-01-15T09:34:56.255Z"}
+{"level":"info","message":"Retrieved 0 employee_invoice records from DB","timestamp":"2026-01-15T09:34:56.258Z"}
+{"level":"info","message":"Unique client IDs for employee_invoice: ","timestamp":"2026-01-15T09:34:56.259Z"}
+{"level":"info","message":"Found 0 other_payment notifications","timestamp":"2026-01-15T09:34:56.259Z"}
+{"level":"info","message":"No other_payment ref_ids to process.","timestamp":"2026-01-15T09:34:56.259Z"}
+{"level":"info","message":"Retrieved 0 other_payment records from DB","timestamp":"2026-01-15T09:34:56.263Z"}
+{"level":"info","message":"Unique client IDs for other_payment: ","timestamp":"2026-01-15T09:34:56.264Z"}
+{"level":"info","message":"🔍 Found 3 wfh_request notifications","timestamp":"2026-01-15T09:34:56.265Z"}
+{"level":"info","message":"Retrieved 3 wfh_request records from DB","timestamp":"2026-01-15T09:34:56.267Z"}
+{"level":"info","message":"Unique employee IDs for wfh_request: 8","timestamp":"2026-01-15T09:34:56.268Z"}
+{"level":"info","message":"Retrieved 1 employee records for WFH notifications","timestamp":"2026-01-15T09:34:56.272Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T09:34:56.272Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T09:34:56.273Z"}
+{"level":"info","message":"Added WFH Request notification by Sohaib Ali","timestamp":"2026-01-15T09:34:56.274Z"}
+{"level":"info","message":"Sending 3 notifications in response","timestamp":"2026-01-15T09:34:56.276Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:39:39.018Z"}
+{"level":"info","message":"Punch request added successfully for Sohaib Ali","timestamp":"2026-01-15T09:39:57.245Z"}
+{"level":"info","message":"Adding general notification: Leave Request","timestamp":"2026-01-15T09:40:08.846Z"}
+{"level":"info","message":"Adding general notification: Punch Request","timestamp":"2026-01-15T09:40:08.847Z"}
+{"level":"info","message":"Adding general notification: Punch Request","timestamp":"2026-01-15T09:40:08.847Z"}
+{"level":"info","message":"Adding general notification: Punch Request","timestamp":"2026-01-15T09:40:08.849Z"}
+{"level":"info","message":"Adding Punch Request notification","timestamp":"2026-01-15T09:40:08.850Z"}
+{"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T09:40:08.850Z"}
+{"level":"info","message":"Sending 6 notifications in response","timestamp":"2026-01-15T09:40:08.851Z"}

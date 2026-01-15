@@ -3,7 +3,6 @@ import { logger } from "../../../helpers/logger.js";
 
 const getNotifications = async (req, res) => {
   try {
-
     const userEmail = req.user?.email;
     const talentEmail =
       process.env.TALENT_EMAIL || "talent@esparkconsultants.com";
@@ -162,6 +161,8 @@ const getNotifications = async (req, res) => {
         offContract,
         policies,
         guides,
+        punchReq,
+        leaveReq,
       ] = await Promise.all([
         pool.query(
           `
@@ -246,6 +247,26 @@ const getNotifications = async (req, res) => {
     `,
           [fiveDaysAgo]
         ),
+
+        // Punch Requests (for clients)
+        pool.query(
+          `
+      SELECT * FROM eSparkTalentAPI_notifications
+      WHERE email = $1 AND notification_type = 'punch_request' AND status = 'added'
+      ORDER BY created_at DESC
+    `,
+          [userEmail]
+        ),
+
+        // Leave Requests (for clients)
+        pool.query(
+          `
+      SELECT * FROM eSparkTalentAPI_notifications
+      WHERE email = $1 AND notification_type = 'leave_request' AND status = 'added'
+      ORDER BY created_at DESC
+    `,
+          [userEmail]
+        ),
       ]);
 
       // General notifications
@@ -322,6 +343,35 @@ const getNotifications = async (req, res) => {
             : `${invoiceCount} new invoices are added`;
         logger.info(`Adding Invoice notification`);
         pushNotification("Invoice", description, invoice.rows[0].created_at);
+      }
+      // Punch Requests
+      if (punchReq?.rows?.length > 0) {
+        const punchCount = punchReq.rows.length;
+        const description =
+          punchCount === 1
+            ? "1 new punch request is pending"
+            : `${punchCount} new punch requests are pending`;
+        logger.info(`Adding Punch Request notification`);
+        pushNotification(
+          "Punch Request",
+          description,
+          punchReq.rows[0].created_at
+        );
+      }
+
+      // Leave Requests
+      if (leaveReq?.rows?.length > 0) {
+        const leaveCount = leaveReq.rows.length;
+        const description =
+          leaveCount === 1
+            ? "1 new leave request is pending"
+            : `${leaveCount} new leave requests are pending`;
+        logger.info(`Adding Leave Request notification`);
+        pushNotification(
+          "Leave Request",
+          description,
+          leaveReq.rows[0].created_at
+        );
       }
     } else {
       const [hireReq, shortInt, rejInt, empInvoice, otherInv, wfhReq] =
