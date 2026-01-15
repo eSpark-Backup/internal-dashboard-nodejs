@@ -312,3 +312,11 @@
 {"level":"info","message":"Adding Punch Request notification","timestamp":"2026-01-15T09:40:08.850Z"}
 {"level":"info","message":"Adding Leave Request notification","timestamp":"2026-01-15T09:40:08.850Z"}
 {"level":"info","message":"Sending 6 notifications in response","timestamp":"2026-01-15T09:40:08.851Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-15T11:24:36.792Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-15T11:24:36.804Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-15T11:24:36.909Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-15T11:24:36.910Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-15T11:24:36.924Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-15T11:24:36.926Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-15T11:24:36.931Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-15T11:24:36.932Z"}
