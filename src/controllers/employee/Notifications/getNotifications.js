@@ -1,6 +1,37 @@
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
+const getHRPermissions = async (userEmail) => {
+  const permRes = await pool.query(
+    `SELECT employee_perms, client_perms, leaves_perms, invoices_perms, policies_perms, guides_perms 
+     FROM eSparkTalentAPI_account_n_persmission WHERE email = $1`,
+    [userEmail]
+  );
+  return permRes.rows[0] || null;
+};
+
+const shouldShowNotification = (notificationType, hrPermissions) => {
+  if (!hrPermissions) return true;
+  const permissionMap = {
+    employee_contract: "employee_perms",
+    offshore_contracts: "employee_perms",
+    hiring_request: "employee_perms",
+    interview_schedule: "employee_perms",
+    onboarding: "employee_perms",
+    client_contract: "client_perms",
+    leave_request: "leaves_perms",
+    punch_request: "leaves_perms",
+    wfh_request: "leaves_perms",
+    employee_invoice: "invoices_perms",
+    other_payment: "invoices_perms",
+    policy: "policies_perms",
+    guide: "guides_perms",
+  };
+  const permKey = permissionMap[notificationType];
+  if (!permKey) return true;
+  return hrPermissions[permKey]?.read === true;
+};
+
 const getNotifications = async (req, res) => {
   try {
     const userEmail = req.user?.email;
@@ -21,6 +52,20 @@ const getNotifications = async (req, res) => {
     }
 
     const role = userRes.rows[0].role;
+
+    const isHR =
+      role !== "employee" && role !== "client" && role !== "super-admin";
+    let hrPermissions = null;
+
+    if (isHR) {
+      hrPermissions = await getHRPermissions(userEmail);
+      if (!hrPermissions) {
+        return res
+          .status(403)
+          .json({ message: "No permissions found for HR account" });
+      }
+    }
+
     const notiArray = [];
     const now = new Date();
     const fiveDaysAgo = new Date(now.getTime() - 5 * 24 * 60 * 60 * 1000);
@@ -40,7 +85,21 @@ const getNotifications = async (req, res) => {
       return map;
     };
 
-    const pushNotification = (type, description, dateObj) => {
+    const pushNotification = (
+      type,
+      description,
+      dateObj,
+      notificationType = null
+    ) => {
+      if (
+        isHR &&
+        notificationType &&
+        !shouldShowNotification(notificationType, hrPermissions)
+      ) {
+        logger.info(`Skipping notification ${type} - HR lacks read permission`);
+        return;
+      }
+
       notiArray.push({
         type,
         description,
@@ -111,7 +170,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           notificationFormatType(n.notification_type),
           n.description,
-          n.updated_at
+          n.updated_at,
+          n.notification_type
         );
       });
 
@@ -121,7 +181,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           "Company Contracts",
           `${empContract.rows.length} new contract has been added to company contracts.`,
-          empContract.rows[0].updated_at
+          empContract.rows[0].updated_at,
+          "employee_contract"
         );
       }
       // Client Contracts
@@ -130,7 +191,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           "Client Contracts",
           `${offContract.rows.length} new contract has been added to client contracts.`,
-          offContract.rows[0].created_at
+          offContract.rows[0].created_at,
+          "offshore_contracts"
         );
       }
 
@@ -140,7 +202,12 @@ const getNotifications = async (req, res) => {
           policies.rows.length === 1 ? "y has" : "ies have"
         } been added.`;
         logger.info("Adding Policy notification");
-        pushNotification("Policy", description, policies.rows[0].created_at);
+        pushNotification(
+          "Policy",
+          description,
+          policies.rows[0].created_at,
+          "policy"
+        );
       }
 
       // Guides
@@ -149,7 +216,12 @@ const getNotifications = async (req, res) => {
           guides.rows.length === 1 ? "e has" : "es have"
         } been added.`;
         logger.info("Adding Guide notification");
-        pushNotification("Guide", description, guides.rows[0].created_at);
+        pushNotification(
+          "Guide",
+          description,
+          guides.rows[0].created_at,
+          "guide"
+        );
       }
     } else if (role === "client") {
       const [
@@ -273,7 +345,12 @@ const getNotifications = async (req, res) => {
       notificationsData.rows.forEach((n) => {
         const type = notificationFormatType(n.notification_type);
         logger.info(`Adding general notification: ${type}`);
-        pushNotification(type, n.description, n.updated_at);
+        pushNotification(
+          type,
+          n.description,
+          n.updated_at,
+          n.notification_type
+        );
       });
 
       // Company Contracts
@@ -283,7 +360,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           "Company Contracts",
           msg,
-          cltContract.rows[0].created_at
+          cltContract.rows[0].created_at,
+          "client_contract"
         );
       }
 
@@ -294,7 +372,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           "Employee Contracts",
           msg,
-          offContract.rows[0].created_at
+          offContract.rows[0].created_at,
+          "offshore_contracts"
         );
       }
 
@@ -304,7 +383,12 @@ const getNotifications = async (req, res) => {
           policies.rows.length === 1 ? "y has" : "ies have"
         } been added.`;
         logger.info(`Adding Policy notification`);
-        pushNotification("Policy", description, policies.rows[0].created_at);
+        pushNotification(
+          "Policy",
+          description,
+          policies.rows[0].created_at,
+          "policy"
+        );
       }
 
       // Guides
@@ -313,14 +397,24 @@ const getNotifications = async (req, res) => {
           guides.rows.length === 1 ? "e has" : "es have"
         } been added.`;
         logger.info(`Adding Guide notification`);
-        pushNotification("Guide", description, guides.rows[0].created_at);
+        pushNotification(
+          "Guide",
+          description,
+          guides.rows[0].created_at,
+          "guide"
+        );
       }
 
       // Interview Schedule
       if (intSch?.rows?.length > 0) {
         const msg = `You have ${intSch.rows.length} new interview scheduled.`;
         logger.info(`Adding Interview Schedule notification`);
-        pushNotification("Interview Schedule", msg, intSch.rows[0].created_at);
+        pushNotification(
+          "Interview Schedule",
+          msg,
+          intSch.rows[0].created_at,
+          "interview_schedule"
+        );
       }
 
       // Onboarding
@@ -331,7 +425,12 @@ const getNotifications = async (req, res) => {
             ? "1 new employee is added"
             : `${onboardCount} new employees are added`;
         logger.info(`Adding Onboarding notification`);
-        pushNotification("Onboarding", description, onboard.rows[0].created_at);
+        pushNotification(
+          "Onboarding",
+          description,
+          onboard.rows[0].created_at,
+          "onboarding"
+        );
       }
 
       // Invoice
@@ -342,7 +441,12 @@ const getNotifications = async (req, res) => {
             ? "1 new invoice is added"
             : `${invoiceCount} new invoices are added`;
         logger.info(`Adding Invoice notification`);
-        pushNotification("Invoice", description, invoice.rows[0].created_at);
+        pushNotification(
+          "Invoice",
+          description,
+          invoice.rows[0].created_at,
+          "employee_invoice"
+        );
       }
       // Punch Requests
       if (punchReq?.rows?.length > 0) {
@@ -355,7 +459,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           "Punch Request",
           description,
-          punchReq.rows[0].created_at
+          punchReq.rows[0].created_at,
+          "punch_request"
         );
       }
 
@@ -370,7 +475,8 @@ const getNotifications = async (req, res) => {
         pushNotification(
           "Leave Request",
           description,
-          leaveReq.rows[0].created_at
+          leaveReq.rows[0].created_at,
+          "leave_request"
         );
       }
     } else {
@@ -481,6 +587,11 @@ const getNotifications = async (req, res) => {
           `Added Hiring Request notification for client ${client.company_name}`
         );
 
+        if (isHR && !shouldShowNotification("hiring_request", hrPermissions)) {
+          logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+          continue;
+        }
+
         notiArray.push({
           type: "Hiring Request",
           description: `New hiring request has been generated by ${client.company_name}`,
@@ -542,6 +653,14 @@ const getNotifications = async (req, res) => {
         logger.info(
           `Added Interview Shortlist notification for ${schedule.employee_name} under ${client.company_name}`
         );
+
+        if (
+          isHR &&
+          !shouldShowNotification("interview_schedule", hrPermissions)
+        ) {
+          logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+          continue;
+        }
 
         notiArray.push({
           type: "Interview Shortlist",
@@ -606,6 +725,14 @@ const getNotifications = async (req, res) => {
           `Added Interview Reject notification for ${schedule.employee_name} by ${client.company_name}`
         );
 
+        if (
+          isHR &&
+          !shouldShowNotification("interview_schedule", hrPermissions)
+        ) {
+          logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+          continue;
+        }
+
         notiArray.push({
           type: "Interview Reject",
           description: `${schedule.employee_name} has been rejected by ${client.company_name}`,
@@ -663,6 +790,14 @@ const getNotifications = async (req, res) => {
         logger.info(
           `Added Employee Invoice notification for ${client.company_name} with status ${inv.status}`
         );
+
+        if (
+          isHR &&
+          !shouldShowNotification("employee_invoice", hrPermissions)
+        ) {
+          logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+          continue;
+        }
 
         notiArray.push({
           type: "Employee Invoice",
@@ -722,6 +857,11 @@ const getNotifications = async (req, res) => {
         logger.info(
           `Added Other Payment notification for ${client.company_name} with status ${inv.status}`
         );
+
+        if (isHR && !shouldShowNotification("other_payment", hrPermissions)) {
+          logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+          continue;
+        }
 
         notiArray.push({
           type: "Other Payments",
@@ -786,6 +926,11 @@ const getNotifications = async (req, res) => {
         logger.info(
           `Added WFH Request notification by ${emp.first_name} ${emp.last_name}`
         );
+
+        if (isHR && !shouldShowNotification("wfh_request", hrPermissions)) {
+          logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+          continue;
+        }
 
         notiArray.push({
           type: "WFH Request",
