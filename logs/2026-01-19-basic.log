@@ -1,0 +1,135 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:04:23.814Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:04:23.831Z"}
+{"attempt":1,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:04:23.954Z"}
+{"level":"info","message":"Attempting database connection (attempt 2/5)","timestamp":"2026-01-19T08:04:25.961Z"}
+{"attempt":2,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:04:26.139Z"}
+{"level":"info","message":"Attempting database connection (attempt 3/5)","timestamp":"2026-01-19T08:04:28.143Z"}
+{"attempt":3,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:04:28.302Z"}
+{"level":"info","message":"Attempting database connection (attempt 4/5)","timestamp":"2026-01-19T08:04:30.306Z"}
+{"attempt":4,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:04:30.372Z"}
+{"level":"info","message":"Attempting database connection (attempt 5/5)","timestamp":"2026-01-19T08:04:32.382Z"}
+{"error":"The server does not support SSL connections","level":"error","message":"Failed to connect to database after maximum retries","stack":"Error: The server does not support SSL connections\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createPool (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:36:22)\n    at async runMigrations (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:86:12)\n    at async startServer (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/server.js:8:5)","timestamp":"2026-01-19T08:04:32.432Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:07:36.721Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:07:36.749Z"}
+{"attempt":1,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:07:36.832Z"}
+{"level":"info","message":"Attempting database connection (attempt 2/5)","timestamp":"2026-01-19T08:07:38.834Z"}
+{"attempt":2,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:07:38.887Z"}
+{"level":"info","message":"Attempting database connection (attempt 3/5)","timestamp":"2026-01-19T08:07:40.889Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:07:44.304Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:07:44.313Z"}
+{"attempt":1,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:07:44.382Z"}
+{"level":"info","message":"Attempting database connection (attempt 2/5)","timestamp":"2026-01-19T08:07:46.391Z"}
+{"attempt":2,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:07:46.521Z"}
+{"level":"info","message":"Attempting database connection (attempt 3/5)","timestamp":"2026-01-19T08:07:48.528Z"}
+{"attempt":3,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:07:48.617Z"}
+{"level":"info","message":"Attempting database connection (attempt 4/5)","timestamp":"2026-01-19T08:07:50.621Z"}
+{"attempt":4,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:07:50.702Z"}
+{"level":"info","message":"Attempting database connection (attempt 5/5)","timestamp":"2026-01-19T08:07:52.716Z"}
+{"error":"The server does not support SSL connections","level":"error","message":"Failed to connect to database after maximum retries","stack":"Error: The server does not support SSL connections\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createPool (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:36:22)\n    at async runMigrations (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:86:12)\n    at async startServer (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/server.js:8:5)","timestamp":"2026-01-19T08:07:52.793Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:08:35.736Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:08:35.746Z"}
+{"attempt":1,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:08:35.816Z"}
+{"level":"info","message":"Attempting database connection (attempt 2/5)","timestamp":"2026-01-19T08:08:37.823Z"}
+{"attempt":2,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:08:37.905Z"}
+{"level":"info","message":"Attempting database connection (attempt 3/5)","timestamp":"2026-01-19T08:08:39.919Z"}
+{"attempt":3,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:08:40.070Z"}
+{"level":"info","message":"Attempting database connection (attempt 4/5)","timestamp":"2026-01-19T08:08:42.082Z"}
+{"attempt":4,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:08:42.182Z"}
+{"level":"info","message":"Attempting database connection (attempt 5/5)","timestamp":"2026-01-19T08:08:44.187Z"}
+{"error":"The server does not support SSL connections","level":"error","message":"Failed to connect to database after maximum retries","stack":"Error: The server does not support SSL connections\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createPool (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:36:22)\n    at async runMigrations (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:86:12)\n    at async startServer (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/server.js:8:5)","timestamp":"2026-01-19T08:08:44.323Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:08:56.137Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:08:56.158Z"}
+{"attempt":1,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:08:56.246Z"}
+{"level":"info","message":"Attempting database connection (attempt 2/5)","timestamp":"2026-01-19T08:08:58.260Z"}
+{"attempt":2,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:08:58.310Z"}
+{"level":"info","message":"Attempting database connection (attempt 3/5)","timestamp":"2026-01-19T08:09:00.323Z"}
+{"attempt":3,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:09:00.481Z"}
+{"level":"info","message":"Attempting database connection (attempt 4/5)","timestamp":"2026-01-19T08:09:02.489Z"}
+{"attempt":4,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T08:09:02.531Z"}
+{"level":"info","message":"Attempting database connection (attempt 5/5)","timestamp":"2026-01-19T08:09:04.535Z"}
+{"error":"The server does not support SSL connections","level":"error","message":"Failed to connect to database after maximum retries","stack":"Error: The server does not support SSL connections\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createPool (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:36:22)\n    at async runMigrations (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/helpers/migrate.js:86:12)\n    at async startServer (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/server.js:8:5)","timestamp":"2026-01-19T08:09:04.596Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:10:33.519Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:10:33.541Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:10:33.709Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:10:33.710Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:10:33.740Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:10:33.744Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:10:33.792Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:10:33.794Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:15:41.538Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:15:41.579Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:15:41.745Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:15:41.747Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:15:41.771Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:15:41.774Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:15:41.784Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:15:41.785Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:19:16.816Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:19:16.831Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:19:17.026Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:19:17.028Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:19:17.061Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:19:17.063Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:19:17.097Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:19:17.098Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:20:18.637Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:20:18.659Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:20:18.786Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:20:18.788Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:20:18.794Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:20:18.798Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:20:18.817Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:20:18.824Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:55:29.856Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:55:29.876Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:55:30.067Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:55:30.070Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:55:30.103Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:55:30.106Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:55:30.147Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:55:30.147Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:56:10.554Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:56:10.564Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:56:10.648Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:56:10.649Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:56:10.654Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:56:10.656Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:56:10.660Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:56:10.661Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T08:59:27.596Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T08:59:27.606Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T08:59:27.731Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T08:59:27.733Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T08:59:27.772Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T08:59:27.774Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T08:59:27.812Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T08:59:27.813Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T09:02:32.048Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T09:02:32.059Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T09:02:32.145Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T09:02:32.146Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T09:02:32.150Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T09:02:32.151Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T09:02:32.156Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T09:02:32.157Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T09:05:12.952Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T09:05:12.968Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T09:05:13.230Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T09:05:13.232Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T09:05:13.236Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T09:05:13.238Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T09:05:13.244Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T09:05:13.244Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T11:12:06.570Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T11:12:06.580Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-01-19T11:12:06.717Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-01-19T11:12:06.719Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-01-19T11:12:06.758Z"}
+{"count":10,"level":"info","message":"Found migration files","timestamp":"2026-01-19T11:12:06.760Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-01-19T11:12:06.805Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-01-19T11:12:06.806Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-01-19T11:16:42.590Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-01-19T11:16:42.612Z"}
+{"attempt":1,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T11:16:42.777Z"}
+{"level":"info","message":"Attempting database connection (attempt 2/5)","timestamp":"2026-01-19T11:16:44.787Z"}
+{"attempt":2,"error":"The server does not support SSL connections","level":"warn","message":"Connection attempt failed, retrying in 2 seconds...","timestamp":"2026-01-19T11:16:44.935Z"}

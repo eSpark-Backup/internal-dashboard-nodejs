@@ -73,13 +73,14 @@ export const updateEmployeeProfilePictureSchema = yup.object({
 });
 
 export const updateEmployeeCredentialsSchema = yup.object({
-   body: yup.object({
+  body: yup.object({
     employee_id: yup.string().required("Employee ID is required"),
-    current_password: yup.string().required("Current password is required"),
     new_password: yup.string().required("New password is required"),
-    confirm_password: yup.string().required("Confirm password is required")
-    .oneOf([yup.ref("new_password")], "Passwords do not match")
-   })
+    confirm_password: yup
+      .string()
+      .required("Confirm password is required")
+      .oneOf([yup.ref("new_password")], "Passwords do not match"),
+  }),
 });
 
 export const downloadEmployeeResumeSchema = yup.object({
@@ -104,8 +105,8 @@ export const updateMarkAttendanceSchema = yup.object({
       resume: yup.string(),
     })
     .test(
-      'at-least-one',
-      'At least one of check_in, check_out, break, or resume is required',
+      "at-least-one",
+      "At least one of check_in, check_out, break, or resume is required",
       (value) => {
         return (
           !!value.check_in ||
