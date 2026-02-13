@@ -1,0 +1,772 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T09:44:26.937Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T09:44:26.986Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T09:44:27.198Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T09:44:27.200Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T09:44:27.241Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T09:44:27.244Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T09:44:27.299Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T09:44:27.300Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T09:44:27.305Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T09:44:27.510Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T09:44:27.518Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T09:44:27.526Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T09:44:27.526Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T09:48:01.164Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T09:48:01.188Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T09:48:01.278Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T09:48:01.279Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T09:48:01.283Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T09:48:01.284Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T09:48:01.289Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T09:48:01.289Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T09:48:01.291Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T09:48:01.329Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T09:48:01.334Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T09:48:01.341Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T09:48:01.341Z"}
+{"level":"info","message":"Test Client is added successfully","timestamp":"2026-02-02T10:00:43.077Z"}
+{"level":"info","message":"Test Employee is added successfully","timestamp":"2026-02-02T10:05:47.981Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T10:41:23.895Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T10:41:23.932Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T10:41:24.073Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T10:41:24.075Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T10:41:24.092Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T10:41:24.094Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T10:41:24.106Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T10:41:24.107Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T10:41:24.112Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * *","timestamp":"2026-02-02T10:41:24.295Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T10:41:24.303Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T10:41:24.311Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T10:41:24.311Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-02-02T10:42:00.043Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-02-02T10:42:00.098Z"}
+{"level":"info","message":"No active outsourced employees found","timestamp":"2026-02-02T10:42:00.116Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T10:42:40.964Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T10:42:41.007Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T10:42:41.200Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T10:42:41.201Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T10:42:41.204Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T10:42:41.206Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T10:42:41.210Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T10:43:09.665Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T10:43:09.690Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T10:43:09.813Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T10:43:09.814Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T10:43:09.841Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T10:43:09.843Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T10:43:09.866Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T10:43:09.866Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T10:43:09.868Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T10:43:09.908Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T10:43:09.913Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T10:43:09.917Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T10:43:09.917Z"}
+{"level":"info","message":"Updated fields for employee ID 10: first_name, last_name, dob, gender, personal_email, marital_status, phone_number, joining_date, job_title, role, job_status","timestamp":"2026-02-02T11:00:28.565Z"}
+{"level":"info","message":"Updated emergency_contact for employee ID: 10","timestamp":"2026-02-02T11:00:28.569Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:02:31.664Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:02:31.712Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:02:31.792Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:02:31.793Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:02:31.796Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:02:31.797Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:02:31.801Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:02:31.801Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:02:31.803Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * *","timestamp":"2026-02-02T11:02:31.832Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:02:31.837Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:02:31.842Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:02:31.842Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-02-02T11:03:00.058Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-02-02T11:03:00.253Z"}
+{"level":"info","message":"Found 2 active outsourced employees","timestamp":"2026-02-02T11:03:00.293Z"}
+{"level":"info","message":"Prorated salary for Test Employee: 0.00","timestamp":"2026-02-02T11:03:00.294Z"}
+{"level":"info","message":"Generated invoice 3 for Test Employee","timestamp":"2026-02-02T11:03:00.327Z"}
+{"level":"info","message":"Prorated salary for Test Employee: 42857.14","timestamp":"2026-02-02T11:03:00.328Z"}
+{"level":"info","message":"Generated invoice 4 for Test Employee","timestamp":"2026-02-02T11:03:00.335Z"}
+{"level":"info","message":"Monthly invoice generation completed: 2 invoices generated, 0 errors","timestamp":"2026-02-02T11:03:00.338Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-02-02T11:04:00.058Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-02-02T11:04:00.163Z"}
+{"level":"warn","message":"Salary invoices already generated for 2026-01-31","timestamp":"2026-02-02T11:04:00.167Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:05:08.032Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:05:08.058Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:05:08.284Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:05:08.285Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:05:08.291Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:05:08.293Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:05:08.302Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:05:08.303Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:05:08.307Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:05:08.347Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:05:08.351Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:05:08.355Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:05:08.356Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:19:33.103Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:19:33.153Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:19:33.263Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:19:33.264Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:19:33.275Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:19:33.276Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:19:33.281Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:19:33.281Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:19:33.283Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:19:33.321Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:19:33.326Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:19:33.331Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:19:33.331Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:19:49.758Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:19:49.778Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:43:10.068Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:43:10.084Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:50:08.539Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:50:08.596Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:50:08.679Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:50:08.680Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:50:08.691Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:50:08.693Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:50:08.699Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:50:08.699Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:50:08.701Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:50:08.738Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:50:08.742Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:50:08.747Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:50:08.748Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:50:24.440Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:50:24.442Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:53:32.005Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:53:32.034Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:53:32.161Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:53:32.175Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:53:32.184Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:53:32.187Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:53:32.195Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:53:32.196Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:53:32.199Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:53:32.275Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:53:32.286Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:53:32.291Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:53:32.292Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:53:45.513Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:53:45.546Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:53:45.623Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:53:45.624Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:53:45.627Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:53:45.629Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:53:45.634Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:53:45.634Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:53:45.639Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:53:45.677Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:53:45.681Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:53:45.686Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:53:45.687Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:54:02.458Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:54:02.592Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:54:02.696Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:54:02.698Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:54:02.702Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:54:02.705Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:54:02.710Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:54:02.711Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:54:02.713Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:54:02.767Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:54:02.776Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:54:02.783Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:54:02.784Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:54:16.717Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:54:16.735Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:54:56.277Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:54:56.331Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:54:56.480Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:54:56.481Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:54:56.485Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:54:56.487Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:54:56.492Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:54:56.493Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:54:56.499Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:54:56.578Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:54:56.585Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:54:56.594Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:54:56.595Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:55:00.526Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:55:00.577Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:55:00.678Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:55:00.679Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:55:00.683Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:55:00.684Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:55:00.691Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:55:00.695Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:55:00.700Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:55:00.759Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:55:00.764Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:55:00.770Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:55:00.771Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:55:09.932Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:55:09.958Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:55:10.051Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:55:10.052Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:55:10.055Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:55:10.056Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:55:10.061Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:55:10.061Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:55:10.063Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:55:10.111Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:55:10.116Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:55:10.120Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:55:10.120Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:55:25.837Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:55:25.840Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:56:02.588Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:56:02.641Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:56:02.781Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:56:02.783Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:56:02.790Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:56:02.793Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:56:02.801Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:56:02.802Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:56:02.807Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:56:02.894Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:56:02.905Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:56:02.918Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:56:02.919Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:56:14.045Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T11:56:14.048Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T11:56:48.582Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T11:56:48.608Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T11:56:48.691Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T11:56:48.692Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T11:56:48.695Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T11:56:48.696Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T11:56:48.701Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T11:56:48.701Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T11:56:48.704Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T11:56:48.746Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T11:56:48.752Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T11:56:48.756Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T11:56:48.757Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:23:28.576Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:23:28.656Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:23:28.854Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:23:28.855Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:23:28.889Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:23:28.892Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:23:28.931Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:23:28.932Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:23:28.938Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:23:29.173Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:23:29.179Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:23:29.184Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:23:29.185Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T14:28:34.591Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T14:28:34.611Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T14:41:59.252Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T14:41:59.261Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:47:02.206Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:47:02.250Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:47:02.362Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:47:02.363Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:47:02.395Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:47:02.399Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:47:02.432Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:47:02.433Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:47:02.437Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:47:02.628Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:47:02.632Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:47:02.635Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:47:02.636Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:47:49.908Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:47:49.949Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:47:50.064Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:47:50.066Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:47:50.071Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:47:50.074Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:47:50.080Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:47:50.081Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:47:50.083Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:47:50.132Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:47:50.141Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:47:50.146Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:47:50.147Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:49:33.919Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:49:33.953Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:49:34.086Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:49:34.088Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:49:34.093Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:49:34.094Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:49:34.101Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:49:34.102Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:49:34.105Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:49:34.162Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:49:34.168Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:49:34.175Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:49:34.175Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:50:04.158Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:50:04.189Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:50:04.394Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:50:04.397Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:50:04.404Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:50:04.406Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:50:04.414Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:50:04.415Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:50:04.418Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:50:04.468Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:50:04.477Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:50:04.488Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:50:04.488Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:51:19.938Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:51:19.967Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:51:20.235Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:51:20.237Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:51:20.243Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:51:20.245Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:51:20.253Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:51:20.253Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:51:20.257Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:51:20.326Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:51:20.333Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:51:20.339Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:51:20.340Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:51:28.377Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:51:28.426Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:51:28.534Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:51:28.535Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:51:28.539Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:51:28.541Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:51:28.546Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:51:28.546Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:51:28.549Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:51:28.599Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:51:28.602Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:51:28.606Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:51:28.606Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:51:48.853Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:51:48.879Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:51:48.960Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:51:48.961Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:51:48.963Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:51:48.965Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:51:48.969Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:51:48.969Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:51:48.970Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:51:49.009Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:51:49.016Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:51:49.021Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:51:49.021Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:57:35.848Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:57:35.908Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:57:36.040Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:57:36.042Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:57:36.073Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:57:36.075Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:57:36.110Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:57:36.111Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:57:36.115Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:57:36.190Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:57:36.198Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:57:36.208Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:57:36.208Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:58:31.274Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:58:31.302Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:58:31.393Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:58:31.394Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:58:31.397Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:58:31.399Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:58:31.403Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:58:31.404Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:58:31.405Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:58:31.488Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:58:31.493Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:58:31.514Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:58:31.515Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:58:47.556Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:58:47.587Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:58:47.724Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:58:47.726Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:58:47.731Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:58:47.734Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:58:47.742Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:58:47.743Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:58:47.747Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:58:47.800Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:58:47.804Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:58:47.807Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:58:47.808Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T14:59:24.248Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T14:59:24.308Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T14:59:24.569Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T14:59:24.571Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T14:59:24.578Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T14:59:24.580Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T14:59:24.586Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T14:59:24.587Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T14:59:24.589Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T14:59:24.671Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T14:59:24.677Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T14:59:24.688Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T14:59:24.688Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:05:59.428Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:05:59.453Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:05:59.710Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:05:59.712Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:05:59.741Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:05:59.744Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:05:59.770Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:05:59.770Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:05:59.774Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:05:59.975Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:05:59.981Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:05:59.986Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:05:59.987Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:07:42.376Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:07:42.400Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:07:42.484Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:07:42.484Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:07:42.489Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:07:42.491Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:07:42.496Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:07:42.497Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:07:42.499Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:07:42.543Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:07:42.547Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:07:42.551Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:07:42.551Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:08:48.568Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:08:48.596Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:08:48.682Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:08:48.683Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:08:48.687Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:08:48.688Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:08:48.693Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:08:48.693Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:08:48.695Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:08:48.730Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:08:48.736Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:08:48.742Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:08:48.742Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:13:58.530Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:13:58.568Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:13:58.667Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:13:58.668Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:13:58.672Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:13:58.673Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:13:58.680Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:13:58.681Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:13:58.684Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:13:58.736Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:13:58.740Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:13:58.744Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:13:58.745Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:14:07.358Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:14:07.391Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:14:07.488Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:14:07.489Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:14:07.492Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:14:07.493Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:14:07.497Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:14:07.498Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:14:07.500Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:14:07.542Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:14:07.546Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:14:07.551Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:14:07.551Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:15:17.278Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:15:17.300Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:15:17.410Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:15:17.411Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:15:17.417Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:15:17.418Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:15:17.426Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:15:17.427Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:15:17.430Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:15:17.477Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:15:17.482Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:15:17.486Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:15:17.487Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:21:05.408Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:21:05.437Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:21:05.603Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:21:05.605Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:21:05.611Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:21:05.613Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:21:05.619Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:21:05.619Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:21:05.622Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:21:05.677Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:21:05.681Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:21:05.686Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:21:05.686Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:21:21.682Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:21:21.708Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:21:21.843Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:21:21.847Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:21:21.852Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:21:21.854Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:21:21.858Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:21:21.859Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:21:21.861Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:21:21.914Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:21:21.919Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:21:21.923Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:21:21.924Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:21:37.598Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:21:37.603Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:23:26.904Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:23:26.908Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:35:33.035Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:35:33.105Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:35:33.245Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:35:33.247Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:35:33.283Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:35:33.286Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:35:33.316Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:35:33.317Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:35:33.322Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:35:33.503Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:35:33.511Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:35:33.522Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:35:33.523Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:35:51.013Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:35:51.033Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:37:18.375Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:37:18.421Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:37:18.543Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:37:18.544Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:37:18.549Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:37:18.551Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:37:18.562Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:37:18.563Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:37:18.565Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:37:18.633Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:37:18.642Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:37:18.652Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:37:18.653Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:38:57.841Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:38:57.869Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:38:57.967Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:38:57.968Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:38:57.971Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:38:57.972Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:38:57.978Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T15:38:57.978Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:38:57.981Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:38:58.017Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:38:58.021Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:38:58.027Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:38:58.027Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:39:17.879Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:39:17.882Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:49:21.001Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:49:21.047Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:49:21.166Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:49:21.167Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:49:21.188Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:49:21.189Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:49:21.207Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:49:21.208Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:49:21.255Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:49:21.265Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:49:21.274Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:49:21.275Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:50:13.818Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:50:13.843Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:50:14.013Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:50:14.014Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:50:14.018Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:50:14.019Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:50:14.023Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:50:14.024Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:50:14.063Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:50:14.068Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:50:14.074Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:50:14.074Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:50:19.674Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:50:19.704Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:50:19.792Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:50:19.793Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:50:19.797Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:50:19.799Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:50:19.803Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:50:19.804Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:50:19.846Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:50:19.852Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:50:19.857Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:50:19.857Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:50:55.891Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:50:55.922Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:50:56.040Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:50:56.042Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:50:56.048Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:50:56.051Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:50:56.058Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:50:56.060Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:50:56.108Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:50:56.114Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:50:56.120Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:50:56.121Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:51:33.188Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:51:33.220Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:51:33.356Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:51:33.357Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:51:33.360Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:51:33.361Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:51:33.365Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:51:33.367Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:51:33.409Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:51:33.413Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:51:33.417Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:51:33.417Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T15:51:47.356Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T15:51:47.388Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T15:51:47.512Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T15:51:47.513Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T15:51:47.517Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T15:51:47.518Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T15:51:47.523Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T15:51:47.524Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T15:51:47.573Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T15:51:47.578Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T15:51:47.582Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T15:51:47.583Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:52:11.714Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T15:52:11.738Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:38:33.279Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:38:33.369Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:38:33.498Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:38:33.499Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:38:33.519Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:38:33.522Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:38:33.550Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:38:33.555Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:38:33.773Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:38:33.780Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:38:33.787Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:38:33.788Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:38:41.620Z"}
+{"level":"error","message":"PayFast getAccessToken error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:38:41.652Z"}
+{"level":"error","message":"Initiate payment error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:38:41.656Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:39:06.487Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:39:06.518Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:39:06.606Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:39:06.607Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:39:06.612Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:39:06.613Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:39:06.620Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:39:06.622Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:39:06.663Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:39:06.668Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:39:06.676Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:39:06.676Z"}
+{"level":"error","message":"PayFast getAccessToken error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:39:19.620Z"}
+{"level":"error","message":"Initiate payment error: timeout exceeded when trying to connect","stack":"Error: timeout exceeded when trying to connect\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg-pool\\index.js:45:11\n    at async PayFastService.getCachedToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:39:20)\n    at async PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:13:27)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:39:19.623Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:39:31.303Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:39:31.337Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:39:31.427Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:39:31.428Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:39:31.432Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:39:31.433Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:39:31.438Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:39:31.439Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:39:31.482Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:39:31.487Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:39:31.492Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:39:31.493Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:39:33.994Z"}
+{"level":"error","message":"PayFast getAccessToken error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:39:33.999Z"}
+{"level":"error","message":"Initiate payment error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:39:34.000Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:40:10.756Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:40:10.806Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:40:10.914Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:40:10.915Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:40:10.920Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:40:10.922Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:40:10.927Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T16:40:10.927Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:40:10.930Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:40:10.976Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:40:10.980Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:40:10.989Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:40:10.990Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:40:14.452Z"}
+{"level":"error","message":"PayFast getAccessToken error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:40:14.459Z"}
+{"level":"error","message":"Initiate payment error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:40:14.461Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:40:18.206Z"}
+{"level":"error","message":"PayFast getAccessToken error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:40:18.208Z"}
+{"level":"error","message":"Initiate payment error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:40:18.210Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:42:11.058Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:42:11.090Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:42:11.181Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:42:11.182Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:42:11.186Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:42:11.187Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:42:11.191Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T16:42:11.192Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:42:11.197Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:42:11.238Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:42:11.247Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:42:11.252Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:42:11.252Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:42:15.288Z"}
+{"level":"error","message":"PayFast getAccessToken error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:42:15.291Z"}
+{"level":"error","message":"Initiate payment error: payloadString is not defined","stack":"ReferenceError: payloadString is not defined\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:79:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:42:15.293Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:43:27.853Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:43:27.884Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:43:28.009Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:43:28.010Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:43:28.014Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:43:28.016Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:43:28.024Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T16:43:28.025Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:43:28.027Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:43:28.068Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:43:28.073Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:43:28.077Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:43:28.078Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:43:34.497Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:43:34.531Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:43:34.629Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:43:34.630Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:43:34.634Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:43:34.636Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:43:34.641Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T16:43:34.641Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:43:34.644Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:43:34.691Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:43:34.697Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:43:34.702Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:43:34.703Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:43:38.493Z"}
+{"level":"info","message":"PayFast token payload:","timestamp":"2026-02-02T16:43:38.494Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","message":"PayFast getAccessToken error: The \"string\" argument must be of type string or an instance of Buffer or ArrayBuffer. Received an instance of URLSearchParams","stack":"TypeError [ERR_INVALID_ARG_TYPE]: The \"string\" argument must be of type string or an instance of Buffer or ArrayBuffer. Received an instance of URLSearchParams\n    at Buffer.byteLength (node:buffer:787:11)\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:80:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:43:38.502Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","message":"Initiate payment error: The \"string\" argument must be of type string or an instance of Buffer or ArrayBuffer. Received an instance of URLSearchParams","stack":"TypeError [ERR_INVALID_ARG_TYPE]: The \"string\" argument must be of type string or an instance of Buffer or ArrayBuffer. Received an instance of URLSearchParams\n    at Buffer.byteLength (node:buffer:787:11)\n    at PayFastService.requestNewToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:80:45)\n    at PayFastService.getAccessToken (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/services/payfast/payfast.service.js:19:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initiatePayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/initiatePayment.js:99:25)","timestamp":"2026-02-02T16:43:38.505Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:44:36.047Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:44:36.076Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:44:36.185Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:44:36.186Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:44:36.190Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:44:36.191Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:44:36.196Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T16:44:36.197Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:44:36.199Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:44:36.242Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:44:36.247Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:44:36.252Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:44:36.253Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-02-02T16:44:40.064Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-02-02T16:44:40.598Z"}
+{"level":"info","message":"Payment initiated for invoice 4, basket_id: SAL-10-2-180328","timestamp":"2026-02-02T16:44:40.654Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-02T16:49:14.936Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-02T16:49:15.020Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-02T16:49:15.231Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-02T16:49:15.235Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-02T16:49:15.292Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-02T16:49:15.298Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-02T16:49:15.361Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-02T16:49:15.363Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-02T16:49:15.389Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-02T16:49:15.485Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-02T16:49:15.491Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-02T16:49:15.498Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-02T16:49:15.499Z"}
+{"level":"info","message":"Using cached PayFast token","timestamp":"2026-02-02T16:53:23.190Z"}
+{"level":"info","message":"Payment initiated for invoice 4, basket_id: SAL-10-2-180328","timestamp":"2026-02-02T16:53:23.225Z"}
+{"level":"info","message":"Using cached PayFast token","timestamp":"2026-02-02T17:00:06.475Z"}
+{"level":"info","message":"Payment initiated for invoice 4, basket_id: SAL-10-2-180328","timestamp":"2026-02-02T17:00:06.502Z"}

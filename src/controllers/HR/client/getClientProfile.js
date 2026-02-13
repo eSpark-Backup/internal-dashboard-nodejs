@@ -6,14 +6,14 @@ const getClientProfile = async (req, res) => {
   const { id } = req.query;
 
   try {
-
     const result = await pool.query(
       `SELECT id, client_id, first_name, last_name, company_name, 
           phone_number, email, country, image, address, 
-          TO_CHAR(join_date, 'YYYY-MM-DD') AS join_date
+          TO_CHAR(join_date, 'YYYY-MM-DD') AS join_date, invoice_due_date,
+        preferred_payment_method
    FROM eSparkTalentAPI_client 
    WHERE id = $1`,
-      [id]
+      [id],
     );
 
     if (result.rows.length === 0) {
@@ -44,6 +44,8 @@ const getClientProfile = async (req, res) => {
       image_path: imageUrl,
       address: clientData.address,
       join_date: clientData.join_date,
+      invoice_due_date: clientData.invoice_due_date,
+      preferred_payment_method: clientData.preferred_payment_method,
     };
 
     return res.status(200).json(responseData);

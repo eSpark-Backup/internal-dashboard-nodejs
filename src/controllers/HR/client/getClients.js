@@ -3,12 +3,11 @@ import { logger } from "../../../helpers/logger.js";
 import { getSignedUrl } from "../../../helpers/s3.js";
 
 const getClients = async (req, res) => {
-    const excludedEmail = process.env.TALENT_EMAIL;
+  const excludedEmail = process.env.TALENT_EMAIL;
 
-    try {
-
-        const result = await pool.query(
-            `
+  try {
+    const result = await pool.query(
+      `
             SELECT 
                 c.id,
                 c.client_id,
@@ -16,46 +15,50 @@ const getClients = async (req, res) => {
                 c.last_name,
                 c.image,
                 c.company_name,
+                c.invoice_due_date,
+                c.preferred_payment_method,
                 eu.is_active
             FROM eSparkTalentAPI_client AS c
             LEFT JOIN eSparkTalentAPI_end_user AS eu
                 ON c.email = eu.email 
             WHERE c.email != $1
             `,
-            [excludedEmail]
-        );
+      [excludedEmail],
+    );
 
-        const records = await Promise.all(
-            result.rows.map(async (row) => {
-                const fullName = `${row.first_name} ${row.last_name}`;
+    const records = await Promise.all(
+      result.rows.map(async (row) => {
+        const fullName = `${row.first_name} ${row.last_name}`;
 
-                let signedImageUrl = null;
-                if (row.image) {
-                    try {
-                        signedImageUrl = await getSignedUrl(row.image);
-                    } catch (err) {
-                        logger.error(
-                            `Signed URL error for image ${row.image}: ${err.message}`
-                        );
-                    }
-                }
+        let signedImageUrl = null;
+        if (row.image) {
+          try {
+            signedImageUrl = await getSignedUrl(row.image);
+          } catch (err) {
+            logger.error(
+              `Signed URL error for image ${row.image}: ${err.message}`,
+            );
+          }
+        }
 
-                return {
-                    id: row.id,
-                    client_id: row.client_id,
-                    name: fullName,
-                    image_path: signedImageUrl,
-                    company_name: row.company_name,
-                    active: !!row.is_active,
-                };
-            })
-        );
+        return {
+          id: row.id,
+          client_id: row.client_id,
+          name: fullName,
+          image_path: signedImageUrl,
+          company_name: row.company_name,
+          active: !!row.is_active,
+          invoice_due_date: row.invoice_due_date,
+          preferred_payment_method: row.preferred_payment_method,
+        };
+      }),
+    );
 
-        return res.status(200).json(records);
-    } catch (err) {
-        logger.error(`Error while getting clients: ${err.message}`);
-        return res.status(500).json({ message: "Internal server error" });
-    }
+    return res.status(200).json(records);
+  } catch (err) {
+    logger.error(`Error while getting clients: ${err.message}`);
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 export default getClients;

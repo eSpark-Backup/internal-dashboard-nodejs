@@ -25,7 +25,7 @@ const updateClientProfile = async (req, res) => {
 
     const result = await client.query(
       "SELECT * FROM eSparkTalentAPI_client WHERE id = $1",
-      [id]
+      [id],
     );
 
     if (result.rows.length === 0) {
@@ -88,7 +88,7 @@ const updateClientProfile = async (req, res) => {
     if (updates.company_name) {
       await client.query(
         `UPDATE eSparkTalentAPI_end_user SET username = $1 WHERE email = $2`,
-        [updates.company_name, clientRecord.email]
+        [updates.company_name, clientRecord.email],
       );
     }
 
@@ -101,6 +101,8 @@ const updateClientProfile = async (req, res) => {
       country,
       address,
       image: imageField,
+      invoice_due_date,
+      preferred_payment_method,
     } = updates;
 
     await client.query(
@@ -113,7 +115,9 @@ const updateClientProfile = async (req, res) => {
     join_date     = COALESCE($6, join_date),
     country       = COALESCE($7, country),
     address       = COALESCE($8, address),
-    image         = COALESCE($9, image)
+    image         = COALESCE($9, image),
+    invoice_due_date = COALESCE($10, invoice_due_date),
+    preferred_payment_method = COALESCE($11, preferred_payment_method)
   WHERE id = $1
   `,
       [
@@ -126,9 +130,10 @@ const updateClientProfile = async (req, res) => {
         country ?? null,
         address ?? null,
         imageField ?? null,
-      ]
+        invoice_due_date ?? null,
+        preferred_payment_method ?? null,
+      ],
     );
-
 
     await client.query("COMMIT");
 

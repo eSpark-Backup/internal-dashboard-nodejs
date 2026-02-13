@@ -15,19 +15,34 @@ import { clientUpdateInterviewScheduleSchema } from "../validations/interviewSch
 import updateInterviewSchedule from "../controllers/client/InterviewSchedule/updateInterviewSchedule.js";
 import getOnboardings from "../controllers/client/OnBoardings/getOnboardings.js";
 import getClientContracts from "../controllers/client/companyContracts/getClientContracts.js";
-import { updateClientPasswordSchema, updateCompanyNameSchema } from "../validations/companySchema.js";
+import {
+  updateClientPasswordSchema,
+  updateCompanyNameSchema,
+} from "../validations/companySchema.js";
 import updateCompanyName from "../controllers/client/clientCompany/updateCompanyName.js";
 import updateClientProfilePicture from "../controllers/client/clientCompany/updateClientProfilePicture.js";
 import updateClientPassword from "../controllers/client/clientCompany/updateClientPassword.js";
-import { getClientInvoicePaymentsSchema, updateInvoicePaymentStatusSchema } from "../validations/addOtherInvoiceSchema.js";
+import {
+  getClientInvoicePaymentsSchema,
+  updateInvoicePaymentStatusSchema,
+} from "../validations/addOtherInvoiceSchema.js";
 import getInvoicePayments from "../controllers/client/InvoicePayments/getInvoicePayments.js";
 import updateInvoicePaymentStatus from "../controllers/client/InvoicePayments/updateInvoicePaymentStatus.js";
-import { getClientPunchRequestSchema, updateClientPunchRequestSchema } from "../validations/clientClockInOutSchema.js";
+import {
+  getClientPunchRequestSchema,
+  updateClientPunchRequestSchema,
+} from "../validations/clientClockInOutSchema.js";
 import getClientPunchRequests from "../controllers/client/c_clockinout/getClientPunchRequests.js";
 import updateClientPunchRequest from "../controllers/client/c_clockinout/updateClientPunchRequest.js";
 import getClientTimeTracking from "../controllers/client/timeTracking/c_tracktime.js";
-import { getClientTrackTimeReportSchema, getClientTrackTimeSchema } from "../validations/trackingTimeSchema.js";
-import { getClientLeaveRequestsSchema, updateClientLeaveRequestSchema } from "../validations/leaveRequestSchema.js";
+import {
+  getClientTrackTimeReportSchema,
+  getClientTrackTimeSchema,
+} from "../validations/trackingTimeSchema.js";
+import {
+  getClientLeaveRequestsSchema,
+  updateClientLeaveRequestSchema,
+} from "../validations/leaveRequestSchema.js";
 import getLeaveRequests from "../controllers/client/LeaveRequests/getLeaveRequests.js";
 import updateLeaveRequestStatus from "../controllers/client/LeaveRequests/updateLeaveRequest.js";
 import getGuides from "../controllers/client/Guide/getGuides.js";
@@ -38,30 +53,39 @@ import getTimeOffDownloadReport from "../controllers/client/timeOff/getTimeOffDo
 import { getTimeOffDownloadReportSchema } from "../validations/getTimeOffDownloadReportSchema.js";
 import getClientTimeTrackingReport from "../controllers/client/timeTracking/getClientTimeTrackingReport.js";
 import getAvailableEmployees from "../controllers/client/timeTracking/getAvailableEmployees.js";
+import paymentInitiationSchema from "../validations/paymentInitiationSchema.js";
+import bulkPaymentSchema from "../validations/bulkPaymentSchema.js";
+import validate from "../middleware/validate.js";
+import webhookHandler from "../controllers/client/payments/webhookHandler.js";
+
+import initiatePayment from "../controllers/client/payments/initiatePayment.js";
+import bulkPayment from "../controllers/client/payments/bulkPayment.js";
 
 const router = express.Router();
 
-
 // Home
-router.get(
-  "/c_home", 
-  authenticateJWT, 
-  getClientHome
+router.get("/c_home", authenticateJWT, getClientHome);
+
+router.post(
+  "/payments/initiate",
+  authenticateJWT,
+  validate(paymentInitiationSchema, "body"),
+  initiatePayment,
 );
+router.post(
+  "/payments/bulk",
+  authenticateJWT,
+  validate(bulkPaymentSchema, "body"),
+  bulkPayment,
+);
+
+router.post("/payfast/webhook", webhookHandler);
 
 // Get Hiring Requests
-router.get(
-  "/c_hr", 
-  authenticateJWT, 
-  getHiringRequests
-);
+router.get("/c_hr", authenticateJWT, getHiringRequests);
 
 // Delete Hiring Request
-router.delete(
-  "/c_hr", 
-  authenticateJWT, 
-  deleteHiringRequest
-);
+router.delete("/c_hr", authenticateJWT, deleteHiringRequest);
 
 // Start Hire
 router.post(
@@ -69,7 +93,7 @@ router.post(
   authenticateJWT,
   upload.single("job_description"),
   validateSchema(clientStartHireSchema),
-  addClientStartHire
+  addClientStartHire,
 );
 
 // Get Team
@@ -77,47 +101,32 @@ router.get(
   "/c_team",
   authenticateJWT,
   validateSchema(getClientTeamSchema),
-  getClientTeam
+  getClientTeam,
 );
 
 // Get Interview Schedule
-router.get(
-  "/c_is", 
-  authenticateJWT, 
-  getInterviewSchedules
-);
+router.get("/c_is", authenticateJWT, getInterviewSchedules);
 
 // Update Interview Schedule
 router.patch(
   "/c_is",
   authenticateJWT,
   validateSchema(clientUpdateInterviewScheduleSchema),
-  updateInterviewSchedule
+  updateInterviewSchedule,
 );
-
 
 // Get Onboarding
-router.get(
-  "/c_onboard",
-  authenticateJWT,
-  getOnboardings
-);
-
+router.get("/c_onboard", authenticateJWT, getOnboardings);
 
 // Get Company Contracts
-router.get(
-  "/c_cmpcontract", 
-  authenticateJWT, 
-  getClientContracts
-);
-
+router.get("/c_cmpcontract", authenticateJWT, getClientContracts);
 
 // Update Company Name
 router.patch(
   "/c_upduser",
   authenticateJWT,
   validateSchema(updateCompanyNameSchema),
-  updateCompanyName
+  updateCompanyName,
 );
 
 // Update Client Profile Picture
@@ -125,7 +134,7 @@ router.post(
   "/c_updpic",
   authenticateJWT,
   upload.fields([{ name: "picture", maxCount: 1 }]),
-  updateClientProfilePicture
+  updateClientProfilePicture,
 );
 
 // Update Client Password
@@ -133,15 +142,15 @@ router.patch(
   "/c_updpass",
   authenticateJWT,
   validateSchema(updateClientPasswordSchema),
-  updateClientPassword
+  updateClientPassword,
 );
 
-// Get Invoice Payments 
+// Get Invoice Payments
 router.get(
   "/c_invpay",
   authenticateJWT,
   validateSchema(getClientInvoicePaymentsSchema),
-  getInvoicePayments
+  getInvoicePayments,
 );
 
 // Update Invoice Payment Status
@@ -149,7 +158,7 @@ router.patch(
   "/c_invpay",
   authenticateJWT,
   validateSchema(updateInvoicePaymentStatusSchema),
-  updateInvoicePaymentStatus
+  updateInvoicePaymentStatus,
 );
 
 // Get Clock In Out
@@ -157,7 +166,7 @@ router.get(
   "/c_clockinout",
   authenticateJWT,
   validateSchema(getClientPunchRequestSchema),
-  getClientPunchRequests
+  getClientPunchRequests,
 );
 
 // Update Clock In Out
@@ -165,7 +174,7 @@ router.patch(
   "/c_clockinout",
   authenticateJWT,
   validateSchema(updateClientPunchRequestSchema),
-  updateClientPunchRequest
+  updateClientPunchRequest,
 );
 
 // Get Time Tracking
@@ -173,15 +182,15 @@ router.get(
   "/c_tracktime",
   authenticateJWT,
   validateSchema(getClientTrackTimeSchema),
-  getClientTimeTracking
+  getClientTimeTracking,
 );
 
-// Get Leave Requests 
+// Get Leave Requests
 router.get(
   "/c_lr",
   authenticateJWT,
   validateSchema(getClientLeaveRequestsSchema),
-  getLeaveRequests
+  getLeaveRequests,
 );
 
 // Update Leave Request Status
@@ -189,60 +198,38 @@ router.patch(
   "/c_lr",
   authenticateJWT,
   validateSchema(updateClientLeaveRequestSchema),
-  updateLeaveRequestStatus
+  updateLeaveRequestStatus,
 );
 
-// Get Guide 
-router.get(
-  "/c_guide",
-  authenticateJWT,
-  getGuides
-);
+// Get Guide
+router.get("/c_guide", authenticateJWT, getGuides);
 
-// Get Policy 
-router.get(
-  "/c_policy",
-  authenticateJWT,
-  getPolicies
-);
+// Get Policy
+router.get("/c_policy", authenticateJWT, getPolicies);
 
 // Get Employee Contracts
-router.get(
-  "/c_empcontract", 
-  authenticateJWT, 
-  getClientEmployeeContracts
-);
+router.get("/c_empcontract", authenticateJWT, getClientEmployeeContracts);
 
 // Get Leave Balance
-router.get(
-  "/c_lb",
-  authenticateJWT,
-  getLeaveBalances
-);
+router.get("/c_lb", authenticateJWT, getLeaveBalances);
 
 // Get Time Off Download Report
 router.get(
   "/c_downreport",
   authenticateJWT,
   validateSchema(getTimeOffDownloadReportSchema),
-  getTimeOffDownloadReport
+  getTimeOffDownloadReport,
 );
-
 
 // Get Time Tracking Report
 router.get(
   "/c_downattendreport",
   authenticateJWT,
   validateSchema(getClientTrackTimeReportSchema),
-  getClientTimeTrackingReport
+  getClientTimeTrackingReport,
 );
 
 // Get Available Employees
-router.get(
-  "/c_availemp",
-  authenticateJWT,
-  getAvailableEmployees
-);
-
+router.get("/c_availemp", authenticateJWT, getAvailableEmployees);
 
 export default router;

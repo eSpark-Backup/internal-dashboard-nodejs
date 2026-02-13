@@ -5,4 +5,6 @@ minio-test.js
 downloaded-hello.txt
 hello.txt
 testNotifications.js
-
+.github
+single-payment-test.html
+bulk-payment-test.html

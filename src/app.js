@@ -10,6 +10,7 @@ import authRoutes from "./routes/auth.routes.js";
 import employeeRoutes from "./routes/employee.routes.js";
 import clientRoutes from "./routes/client.routes.js";
 import hrRoutes from "./routes/hr.routes.js";
+import payfastRoutes from "./routes/payfast.routes.js";
 
 dotenv.config();
 
@@ -31,11 +32,11 @@ app.use(
   cors({
     origin: true,
     credentials: true,
-  })
+  }),
 );
 
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 
 // Routes
@@ -43,12 +44,7 @@ app.use("/api", authRoutes);
 app.use("/api", hrRoutes);
 app.use("/api", employeeRoutes);
 app.use("/api", clientRoutes);
-
-// Logging
-app.use((req, res, next) => {
-  console.log(`Request received: ${req.method} ${req.url}`);
-  next();
-});
+app.use("/api/payment", payfastRoutes);
 
 // 404 handler
 app.use((req, res, next) => {

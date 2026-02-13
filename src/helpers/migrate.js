@@ -13,7 +13,7 @@ const RETRY_DELAY = 2000; // 2 seconds
 
 // Database connection setup (createPool)
 async function createPool() {
-  // const isLocal = process.env.POSTGRES_HOST === "localhost";
+  const isLocal = process.env.POSTGRES_HOST === "localhost";
 
   const pool = new pg.Pool({
     user: process.env.POSTGRES_USER, // e.g., 'avnadmin'
@@ -21,8 +21,8 @@ async function createPool() {
     database: process.env.POSTGRES_DB, // e.g., 'defaultdb'
     password: process.env.POSTGRES_PASSWORD, // your password
     port: Number(process.env.POSTGRES_PORT), // usually 26257 or 5432
-    // ssl: isLocal ? false : { require: true, rejectUnauthorized: false },
-    ssl: { require: true, rejectUnauthorized: false },
+    ssl: isLocal ? false : { require: true, rejectUnauthorized: false },
+    // ssl: { require: true, rejectUnauthorized: false },
     connectionTimeoutMillis: 10000,
     max: 1,
   });
@@ -31,7 +31,7 @@ async function createPool() {
   for (let i = 0; i < MAX_RETRIES; i++) {
     try {
       logger.info(
-        `Attempting database connection (attempt ${i + 1}/${MAX_RETRIES})`
+        `Attempting database connection (attempt ${i + 1}/${MAX_RETRIES})`,
       );
       const client = await pool.connect();
       client.release();
@@ -52,7 +52,7 @@ async function createPool() {
         {
           attempt: i + 1,
           error: error.message,
-        }
+        },
       );
       await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY)); // Retry delay
     }
@@ -96,7 +96,7 @@ export async function runMigrations() {
     logger.info("Found migration files", { count: sqlFiles.length });
 
     const { rows: executedMigrations } = await pool.query(
-      "SELECT name FROM migrations"
+      "SELECT name FROM migrations",
     );
     const executedFiles = new Set(executedMigrations.map((m) => m.name));
 
