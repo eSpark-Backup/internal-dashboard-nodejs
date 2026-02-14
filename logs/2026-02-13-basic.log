@@ -712,3 +712,16 @@
 {"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-13T14:31:08.752Z"}
 {"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-13T14:31:08.758Z"}
 {"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-13T14:31:08.759Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-02-13T14:43:05.514Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-02-13T14:43:05.551Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-02-13T14:43:05.666Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-02-13T14:43:05.668Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-02-13T14:43:05.674Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-02-13T14:43:05.676Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-02-13T14:43:05.682Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-02-13T14:43:05.683Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-02-13T14:43:05.685Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-02-13T14:43:05.746Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-02-13T14:43:05.751Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-02-13T14:43:05.763Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-02-13T14:43:05.764Z"}
