@@ -1,0 +1,50 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-03-30T06:37:54.928Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-03-30T06:37:55.001Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-03-30T06:37:55.140Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-03-30T06:37:55.141Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-03-30T06:37:55.214Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-03-30T06:37:55.216Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-03-30T06:37:55.292Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-03-30T06:37:55.293Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-03-30T06:37:55.298Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-03-30T06:37:55.525Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-03-30T06:37:55.533Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-03-30T06:37:55.540Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-03-30T06:37:55.541Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-03-30T06:42:33.658Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-03-30T06:42:33.723Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-03-30T06:42:33.843Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-03-30T06:42:33.844Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-03-30T06:42:33.877Z"}
+{"count":11,"level":"info","message":"Found migration files","timestamp":"2026-03-30T06:42:33.878Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-03-30T06:42:33.906Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-03-30T06:42:33.907Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-03-30T06:42:33.911Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-03-30T06:42:33.962Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-03-30T06:42:33.968Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-03-30T06:42:33.973Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-03-30T06:42:33.973Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-03-30T06:45:23.464Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-03-30T06:45:24.845Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://bcdc-2400-adc1-10e-4000-54bb-c979-ea40-b125.ngrok-free.app/api/payment/success?basket_id=SAL-1-123337","timestamp":"2026-03-30T06:45:24.888Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://bcdc-2400-adc1-10e-4000-54bb-c979-ea40-b125.ngrok-free.app/api/payment/failure?basket_id=SAL-1-123337","timestamp":"2026-03-30T06:45:24.889Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://bcdc-2400-adc1-10e-4000-54bb-c979-ea40-b125.ngrok-free.app/api/payfast/webhook","timestamp":"2026-03-30T06:45:24.890Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: SAL-1-123337","timestamp":"2026-03-30T06:45:24.890Z"}
+{"level":"info","message":"Notification created: payment_success for cpta@gmail.com","timestamp":"2026-03-30T06:48:04.414Z"}
+{"level":"info","message":"Notification created: payment_success for talent@esparkconsultants.com","timestamp":"2026-03-30T06:48:04.417Z"}
+{"level":"info","message":"Payment success notifications created for invoice 1","timestamp":"2026-03-30T06:48:04.417Z"}
+{"level":"info","message":"[EMAIL] Payment success email sent to cpta@gmail.com","timestamp":"2026-03-30T06:48:14.223Z"}
+{"level":"info","message":"Payment successful for invoice 1, transaction: e006c24f-c884-d856-b11d-d635b0efb685","timestamp":"2026-03-30T06:48:14.224Z"}
+{"level":"info","message":"PayFast webhook processed successfully for basket_id: SAL-1-123337","timestamp":"2026-03-30T06:48:14.226Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-03-30T06:52:15.766Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-03-30T06:52:16.874Z"}
+{"level":"info","message":"Bulk payment initiated for 3 invoices, basket_id: BULK-5-535755","timestamp":"2026-03-30T06:52:16.894Z"}
+{"level":"info","message":"Notification created: bulk_payment_success for cpta@gmail.com","timestamp":"2026-03-30T06:54:17.001Z"}
+{"level":"info","message":"Notification created: bulk_payment_success for talent@esparkconsultants.com","timestamp":"2026-03-30T06:54:17.004Z"}
+{"level":"info","message":"Bulk payment notifications created: 3 invoices, PKR 11428.58","timestamp":"2026-03-30T06:54:17.005Z"}
+{"level":"info","message":"Bulk payment successful for 3 invoices, transaction: 278d24a2-8958-3d2c-79c7-25bf518b598d","timestamp":"2026-03-30T06:54:17.006Z"}
+{"level":"info","message":"PayFast webhook processed successfully for basket_id: BULK-5-535755","timestamp":"2026-03-30T06:54:17.008Z"}
+{"level":"info","message":"Notification created: payment_success for cpta@gmail.com","timestamp":"2026-03-30T06:54:28.737Z"}
+{"level":"info","message":"Notification created: payment_success for talent@esparkconsultants.com","timestamp":"2026-03-30T06:54:28.740Z"}
+{"level":"info","message":"Payment success notifications created for invoice null","timestamp":"2026-03-30T06:54:28.741Z"}
+{"level":"info","message":"[EMAIL] Payment success email sent to cpta@gmail.com","timestamp":"2026-03-30T06:54:36.135Z"}
