@@ -2,6 +2,95 @@ import pool from "../../config/db.js";
 import { logger } from "../../helpers/logger.js";
 import payfastService from "../../services/payfast/payfast.service.js";
 
+const parseHoursWorkedString = (value) => {
+  if (value === null || value === undefined) return 0;
+
+  let trimmed = String(value).trim();
+  if (!trimmed || trimmed === "-") return 0;
+
+  // If value is stored as HH:MM or H:MM (e.g. "09:00", "8:30")
+  const timeParts = trimmed.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+  if (timeParts) {
+    const hours = Number(timeParts[1]);
+    const mins = Number(timeParts[2]);
+    if (!Number.isNaN(hours) && !Number.isNaN(mins)) {
+      return hours + mins / 60;
+    }
+  }
+
+  // If value is in hours/minutes format (e.g. "8h 30m")
+  let totalMinutes = 0;
+  const hoursMatch = trimmed.match(/(\d+)h/);
+  const minsMatch = trimmed.match(/(\d+)m/);
+
+  if (hoursMatch && hoursMatch[1]) {
+    totalMinutes += parseInt(hoursMatch[1], 10) * 60;
+  }
+
+  if (minsMatch && minsMatch[1]) {
+    totalMinutes += parseInt(minsMatch[1], 10);
+  }
+
+  if (totalMinutes > 0) {
+    return totalMinutes / 60;
+  }
+
+  // Fall back to plain number value treated as hours
+  const numericValue = Number(trimmed);
+  if (!Number.isNaN(numericValue)) {
+    return numericValue;
+  }
+
+  return 0;
+};
+
+const getTotalWorkedHoursInMonth = async (
+  client,
+  employeeId,
+  clientId,
+  monthName,
+  year,
+) => {
+  const timeSheetsResult = await client.query(
+    `SELECT record FROM eSparkTalentAPI_time_sheet WHERE employee_id = $1 AND client_id = $2 AND month = $3 AND year = $4`,
+    [employeeId, clientId, monthName, String(year)],
+  );
+
+  if (!timeSheetsResult.rows.length) return 0;
+
+  let totalHours = 0;
+
+  for (const row of timeSheetsResult.rows) {
+    const record = row.record || {};
+    for (const day of Object.values(record)) {
+      if (!day || typeof day !== "object") continue;
+
+      if (day.hours_worked && day.hours_worked !== "-") {
+        totalHours += parseHoursWorkedString(day.hours_worked);
+        continue;
+      }
+
+      if (day.total_hours && day.total_hours !== "-") {
+        totalHours += parseHoursWorkedString(day.total_hours);
+        continue;
+      }
+
+      // Support alternate hour key names if old data format exists
+      if (day.totalHours && day.totalHours !== "-") {
+        totalHours += parseHoursWorkedString(day.totalHours);
+        continue;
+      }
+
+      if (day.hours && day.hours !== "-") {
+        totalHours += parseHoursWorkedString(day.hours);
+        continue;
+      }
+    }
+  }
+
+  return totalHours;
+};
+
 /**
  * Monthly Invoice Generator
  * Runs on the 1st of every month at 2:00 AM
@@ -20,6 +109,12 @@ const generateMonthlyInvoices = async () => {
     const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const currentYear = now.getFullYear();
     const currentMonthNumber = now.getMonth() + 1;
+
+    // Get April 2026 date for testing
+    // const now = new Date(2026, 3, 1); // April is month index 3
+    // const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    // const currentYear = now.getFullYear();
+    // const currentMonthNumber = now.getMonth() + 1;
 
     // Check if invoices already generated for this month
     const existingInvoicesCheck = await client.query(
@@ -49,6 +144,7 @@ const generateMonthlyInvoices = async () => {
         oe.salary,
         oe.joining_date,
         oe.status,
+        oe.employment_term,
         e.first_name,
         e.last_name,
         e.email as employee_email,
@@ -99,21 +195,42 @@ const generateMonthlyInvoices = async () => {
           dueDateDay,
         );
 
-        // Handle prorated salary if employee joined mid-month
-        let invoiceAmount = parseFloat(employee.salary);
-        const joiningDate = new Date(employee.joining_date);
-        const isFirstMonth =
-          joiningDate.getMonth() === now.getMonth() &&
-          joiningDate.getFullYear() === now.getFullYear();
+        // Calculate invoice amount based on employment term
+        let invoiceAmount = 0;
+        const salaryAmount = parseFloat(employee.salary) || 0;
 
-        if (isFirstMonth && joiningDate.getDate() > 1) {
-          // Prorate salary based on days worked
-          const totalDaysInMonth = lastDayOfMonth;
-          const daysWorked = totalDaysInMonth - joiningDate.getDate() + 1;
-          invoiceAmount = (employee.salary / totalDaysInMonth) * daysWorked;
-          logger.info(
-            `Prorated salary for ${employee.first_name} ${employee.last_name}: ${invoiceAmount.toFixed(2)}`,
+        if (employee.employment_term === "Hourly based") {
+          const currentMonthName = now.toLocaleString("en-US", {
+            month: "long",
+          });
+          const totalWorkedHours = await getTotalWorkedHoursInMonth(
+            client,
+            employee.employee_id,
+            employee.client_id,
+            currentMonthName,
+            currentYear,
           );
+
+          invoiceAmount = totalWorkedHours * salaryAmount;
+          logger.info(
+            `Hourly invoice for ${employee.first_name} ${employee.last_name}: ${totalWorkedHours.toFixed(2)}h * ${salaryAmount.toFixed(2)} = ${invoiceAmount.toFixed(2)}`,
+          );
+        } else {
+          invoiceAmount = salaryAmount;
+          const joiningDate = new Date(employee.joining_date);
+          const isFirstMonth =
+            joiningDate.getMonth() === now.getMonth() &&
+            joiningDate.getFullYear() === now.getFullYear();
+
+          if (isFirstMonth && joiningDate.getDate() > 1) {
+            // Prorate salary based on days worked
+            const totalDaysInMonth = lastDayOfMonth;
+            const daysWorked = totalDaysInMonth - joiningDate.getDate() + 1;
+            invoiceAmount = (salaryAmount / totalDaysInMonth) * daysWorked;
+            logger.info(
+              `Prorated salary for ${employee.first_name} ${employee.last_name}: ${invoiceAmount.toFixed(2)}`,
+            );
+          }
         }
 
         // Generate unique basket_id
