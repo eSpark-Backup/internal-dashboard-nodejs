@@ -7,16 +7,12 @@ class PayFastService {
   /**
    * Get valid access token (cached or fresh)
    */
-  async getAccessToken(basketId, amount) {
+  async getAccessToken(basketId, amount, currencyCode = null) {
     try {
-      // Check for valid cached token
-      // const cachedToken = await this.getCachedToken();
-      // if (cachedToken) {
-      //   return cachedToken;
-      // }
+      const currency = currencyCode || payfastConfig.currency;
 
       // Request new token from PayFast
-      return await this.requestNewToken(basketId, amount);
+      return await this.requestNewToken(basketId, amount, currency);
     } catch (error) {
       logger.error("PayFast getAccessToken error:", error);
       throw error;
@@ -56,7 +52,7 @@ class PayFastService {
   /**
    * Request new access token from PayFast API
    */
-  async requestNewToken(basketId, amount) {
+  async requestNewToken(basketId, amount, currencyCode) {
     const urls = payfastConfig.getUrls();
 
     const payload = new URLSearchParams({
@@ -64,7 +60,7 @@ class PayFastService {
       SECURED_KEY: payfastConfig.securedKey,
       TXNAMT: amount.toString(),
       BASKET_ID: basketId,
-      CURRENCY_CODE: payfastConfig.currency,
+      CURRENCY_CODE: currencyCode,
     });
 
     logger.info("PayFast token request payload:", payload.toString());

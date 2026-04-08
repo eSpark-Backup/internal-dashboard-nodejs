@@ -110,8 +110,8 @@ const generateMonthlyInvoices = async () => {
     const currentYear = now.getFullYear();
     const currentMonthNumber = now.getMonth() + 1;
 
-    // Get April 2026 date for testing
-    // const now = new Date(2026, 3, 1); // April is month index 3
+    // Get May 2026 date for testing
+    // const now = new Date(2026, 4, 1); // May is month index 4
     // const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     // const currentYear = now.getFullYear();
     // const currentMonthNumber = now.getMonth() + 1;
@@ -142,6 +142,7 @@ const generateMonthlyInvoices = async () => {
         oe.employee_id,
         oe.client_id,
         oe.salary,
+        oe.salary_currency,
         oe.joining_date,
         oe.status,
         oe.employment_term,
@@ -267,7 +268,7 @@ const generateMonthlyInvoices = async () => {
           dueDate,
           invoiceAmount.toFixed(2),
           invoiceFileName,
-          "PKR",
+          employee.salary_currency || "PKR",
           "pending",
           true,
           "SALARY",
@@ -295,6 +296,7 @@ const generateMonthlyInvoices = async () => {
           employee.last_name,
           invoiceAmount,
           currentMonth,
+          employee.salary_currency,
         );
 
         // Create notification for HR
@@ -370,6 +372,7 @@ const createInvoiceNotification = async (
   amount,
   billingMonth,
   isHR = false,
+  currency = "PKR",
 ) => {
   try {
     const monthName = new Date(billingMonth).toLocaleDateString("en-US", {
@@ -378,8 +381,8 @@ const createInvoiceNotification = async (
     });
 
     const description = isHR
-      ? `Salary invoice auto-generated for ${employeeFirstName} ${employeeLastName} - ${monthName}. Amount: PKR ${amount}`
-      : `Salary Invoice issued for ${employeeFirstName} ${employeeLastName} - ${monthName}. Amount: PKR ${amount}. Please proceed with payment.`;
+      ? `Salary invoice auto-generated for ${employeeFirstName} ${employeeLastName} - ${monthName}. Amount: ${currency} ${amount}`
+      : `Salary Invoice issued for ${employeeFirstName} ${employeeLastName} - ${monthName}. Amount: ${currency} ${amount}. Please proceed with payment.`;
 
     const notificationQuery = `
       INSERT INTO eSparkTalentAPI_notifications 

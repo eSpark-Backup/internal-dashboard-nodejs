@@ -11,17 +11,17 @@ const hrClientAddEmp = async (req, res) => {
     employment_term,
     joining_date,
     salary,
+    salary_currency,
   } = req.body;
 
   let client;
 
   try {
-
     client = await pool.connect();
 
     const empResult = await client.query(
       `SELECT id, email, first_name, last_name FROM eSparkTalentAPI_employee WHERE id = $1 LIMIT 1`,
-      [id]
+      [id],
     );
 
     if (!empResult.rows.length) {
@@ -32,7 +32,7 @@ const hrClientAddEmp = async (req, res) => {
 
     const clientResult = await client.query(
       `SELECT id FROM eSparkTalentAPI_client WHERE email = $1 LIMIT 1`,
-      [c_email]
+      [c_email],
     );
 
     if (!clientResult.rows.length) {
@@ -43,8 +43,8 @@ const hrClientAddEmp = async (req, res) => {
 
     const insertOutsource = await client.query(
       `INSERT INTO eSparkTalentAPI_outsource_employees 
-        (client_id, employee_id, job_title, country, role_type, employment_term, joining_date, salary)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id`,
+        (client_id, employee_id, job_title, country, role_type, employment_term, joining_date, salary, salary_currency)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id`,
       [
         clientId,
         emp.id,
@@ -54,7 +54,8 @@ const hrClientAddEmp = async (req, res) => {
         employment_term,
         joining_date,
         salary,
-      ]
+        salary_currency,
+      ],
     );
 
     const outEmpId = insertOutsource.rows[0]?.id;
@@ -73,14 +74,13 @@ const hrClientAddEmp = async (req, res) => {
         c_email,
         outEmpId,
         `${emp.first_name} ${emp.last_name} have been added to your team`,
-      ]
+      ],
     );
 
     return res.status(201).json({
       message: `${emp.first_name} ${emp.last_name} is added successfully`,
       id: outEmpId,
     });
-    
   } catch (err) {
     logger.error("Error in hrClientAddEmp:", err);
     return res.status(500).json({ message: "Internal Server Error" });

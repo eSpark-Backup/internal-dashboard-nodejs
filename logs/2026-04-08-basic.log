@@ -1,0 +1,989 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T07:41:23.678Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T07:41:23.723Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T07:41:23.864Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T07:41:23.865Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T07:41:23.906Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T07:41:23.908Z"}
+{"level":"info","message":"Starting migration: 012_add_salary_currency_to_outsource.sql","timestamp":"2026-04-08T07:41:23.955Z"}
+{"level":"info","message":"Completed migration: 012_add_salary_currency_to_outsource.sql","timestamp":"2026-04-08T07:41:24.044Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T07:41:24.045Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T07:41:24.045Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T07:41:24.048Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T07:41:24.244Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T07:41:24.248Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T07:41:24.251Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T07:41:24.252Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:35:54.683Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:35:54.760Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:35:54.856Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:35:54.857Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:35:54.869Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:35:54.871Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:35:54.889Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:35:54.889Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:35:54.895Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:35:55.090Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:35:55.098Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:35:55.109Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:35:55.110Z"}
+{"level":"info","message":"Ather Khan is added successfully","timestamp":"2026-04-08T08:39:55.695Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:41:36.266Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:41:36.336Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:41:36.421Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:41:36.422Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:41:36.431Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:41:36.433Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:41:36.437Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:41:36.437Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:41:36.439Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:41:36.480Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:41:36.484Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:41:36.487Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:41:36.488Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:41:43.612Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:41:43.641Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:41:43.722Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:41:43.723Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:41:43.726Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:41:43.727Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:41:43.731Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:41:43.732Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:41:43.734Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:41:43.776Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:41:43.780Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:41:43.785Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:41:43.785Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:42:47.515Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:42:47.546Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:42:47.635Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:42:47.637Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:42:47.640Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:42:47.642Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:42:47.646Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:42:47.647Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:42:47.649Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:42:47.694Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:42:47.698Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:42:47.703Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:42:47.703Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:43:23.950Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:43:23.988Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:43:24.078Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:43:24.079Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:43:24.082Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:43:24.083Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:43:24.088Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:43:24.089Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:43:24.091Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T08:43:24.126Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:43:24.130Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:43:24.133Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:43:24.134Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T08:43:25.044Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T08:43:25.048Z"}
+{"level":"info","message":"Found 2 active outsourced employees","timestamp":"2026-04-08T08:43:25.066Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T08:43:25.075Z"}
+{"level":"info","message":"Generated invoice 2 for Ather Khan","timestamp":"2026-04-08T08:43:25.081Z"}
+{"level":"info","message":"Monthly invoice generation completed: 2 invoices generated, 0 errors","timestamp":"2026-04-08T08:43:25.083Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:43:41.917Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:43:41.944Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:43:42.117Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:43:42.119Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:43:42.122Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:43:42.124Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:43:42.129Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:43:42.129Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:43:42.131Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:43:42.168Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:43:42.172Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:43:42.177Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:43:42.178Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:46:26.215Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:46:26.249Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:46:26.355Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:46:26.356Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:46:26.362Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:46:26.365Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:46:26.373Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:46:26.374Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:46:26.378Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:46:26.452Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:46:26.460Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:46:26.469Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:46:26.469Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:47:04.028Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:47:04.126Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:47:04.257Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:47:04.258Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:47:04.270Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:47:04.271Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:47:04.283Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:47:04.283Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:47:04.285Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:47:04.414Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:47:04.421Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:47:04.429Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:47:04.430Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:47:48.997Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:47:49.032Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:47:49.148Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:47:49.149Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:47:49.155Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:47:49.156Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:47:49.164Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:47:49.165Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:47:49.168Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:47:49.230Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:47:49.239Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:47:49.245Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:47:49.245Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:47:56.214Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:47:56.261Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:47:56.368Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:47:56.369Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:47:56.372Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:47:56.374Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:47:56.380Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:47:56.381Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:47:56.385Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:47:56.436Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:47:56.444Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:47:56.450Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:47:56.450Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:48:00.228Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:48:00.287Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:48:00.422Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:48:00.424Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:48:00.430Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:48:00.433Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:48:00.445Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:48:00.446Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:48:00.451Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:48:00.523Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:48:00.531Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:48:00.542Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:48:00.542Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:48:31.668Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:48:31.728Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:48:31.834Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:48:31.836Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:48:31.840Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:48:31.842Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:48:31.847Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:48:31.847Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:48:31.850Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:48:31.894Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:48:31.899Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:48:31.908Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:48:31.908Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:49:36.898Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:49:36.952Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:49:37.031Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:49:37.033Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:49:37.037Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:49:37.039Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:49:37.043Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:49:37.043Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:49:37.047Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:49:37.088Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:49:37.093Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:49:37.102Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:49:37.102Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:53:12.720Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:53:12.756Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:53:12.826Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:53:12.827Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:53:12.831Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:53:12.832Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:53:12.837Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:53:12.838Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:53:12.840Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T08:53:12.877Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:53:12.880Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:53:12.885Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:53:12.886Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T08:53:13.008Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T08:53:13.073Z"}
+{"level":"info","message":"Found 2 active outsourced employees","timestamp":"2026-04-08T08:53:13.087Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T08:53:13.115Z"}
+{"level":"info","message":"Generated invoice 2 for Ather Khan","timestamp":"2026-04-08T08:53:13.119Z"}
+{"level":"info","message":"Monthly invoice generation completed: 2 invoices generated, 0 errors","timestamp":"2026-04-08T08:53:13.121Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T08:53:26.440Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T08:53:26.470Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T08:53:26.559Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T08:53:26.560Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T08:53:26.563Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T08:53:26.564Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T08:53:26.569Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T08:53:26.570Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T08:53:26.573Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T08:53:26.611Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T08:53:26.615Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T08:53:26.619Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T08:53:26.620Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T08:55:19.419Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T08:55:21.116Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-1-5-393115","timestamp":"2026-04-08T08:55:21.138Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-1-5-393115","timestamp":"2026-04-08T08:55:21.139Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T08:55:21.139Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-1-5-393115","timestamp":"2026-04-08T08:55:21.140Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T09:00:38.323Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T09:00:38.324Z"}
+{"additional_value":"","basket_id":["SAL-1-5-393115","SAL-1-5-393115"],"err_code":"901","err_msg":"Customer cancel transaction","level":"info","message":"Query:","order_date":"2026-04-08","timestamp":"2026-04-08T09:00:38.326Z","transaction_amount":"500"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T09:00:38.327Z"}
+{"level":"info","message":"RAW PayFast payload","timestamp":"2026-04-08T09:00:38.328Z"}
+{"basket_id":"SAL-1-5-393115","err_code":"901","err_msg":"Customer cancel transaction","level":"error","message":"PayFast failure redirect received","timestamp":"2026-04-08T09:00:38.329Z","transaction_amount":"500"}
+{"0":{"amount":"500.00","bank_code":null,"client_email":"cpta@gmail.com","client_id":"5","company_name":"My Company xyz","completed_at":null,"created_at":"2026-04-08T08:55:19.393Z","currency":"PKR","error_code":null,"error_message":null,"first_name":"Test","id":87,"initiated_at":"2026-04-08T08:55:19.393Z","instrument_id":null,"instrument_token":null,"invoice_id":"2","invoice_type":"SALARY","last_name":"Client","payfast_basket_id":"SAL-1-5-393115","payfast_transaction_id":null,"payment_method":null,"status":"PENDING","updated_at":"2026-04-08T08:55:19.393Z","validation_hash":null},"level":"info","message":"Transaction query result","timestamp":"2026-04-08T09:00:38.455Z"}
+{"level":"info","message":"Notification created: payment_failed for cpta@gmail.com","timestamp":"2026-04-08T09:00:38.495Z"}
+{"level":"info","message":"Payment failure notifications created","timestamp":"2026-04-08T09:00:38.495Z"}
+{"level":"info","message":"[EMAIL] Payment failure email sent to cpta@gmail.com","timestamp":"2026-04-08T09:00:47.836Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:01:28.203Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:01:29.740Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-888200","timestamp":"2026-04-08T09:01:29.753Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-888200","timestamp":"2026-04-08T09:01:29.755Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:01:29.756Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-888200","timestamp":"2026-04-08T09:01:29.756Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:14:06.968Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:14:08.326Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-646954","timestamp":"2026-04-08T09:14:08.351Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-646954","timestamp":"2026-04-08T09:14:08.352Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:14:08.353Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-646954","timestamp":"2026-04-08T09:14:08.354Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:15:40.524Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:15:41.631Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-740520","timestamp":"2026-04-08T09:15:41.644Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-740520","timestamp":"2026-04-08T09:15:41.645Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:15:41.646Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-740520","timestamp":"2026-04-08T09:15:41.646Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:16:02.294Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:16:03.453Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-762291","timestamp":"2026-04-08T09:16:03.465Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-762291","timestamp":"2026-04-08T09:16:03.466Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:16:03.467Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-762291","timestamp":"2026-04-08T09:16:03.467Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:16:32.419Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:16:33.728Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-792415","timestamp":"2026-04-08T09:16:33.740Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-792415","timestamp":"2026-04-08T09:16:33.741Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:16:33.741Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-792415","timestamp":"2026-04-08T09:16:33.742Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:16:51.298Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:16:51.974Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-811292","timestamp":"2026-04-08T09:16:51.989Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-811292","timestamp":"2026-04-08T09:16:51.990Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:16:51.991Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-811292","timestamp":"2026-04-08T09:16:51.991Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:17:07.101Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:17:08.095Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-827093","timestamp":"2026-04-08T09:17:08.107Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-827093","timestamp":"2026-04-08T09:17:08.108Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:17:08.108Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-827093","timestamp":"2026-04-08T09:17:08.109Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:17:21.367Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:17:22.471Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-841358","timestamp":"2026-04-08T09:17:22.483Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-841358","timestamp":"2026-04-08T09:17:22.484Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:17:22.484Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-841358","timestamp":"2026-04-08T09:17:22.485Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:17:43.793Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:17:44.962Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-863789","timestamp":"2026-04-08T09:17:44.985Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-863789","timestamp":"2026-04-08T09:17:44.987Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:17:44.989Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-863789","timestamp":"2026-04-08T09:17:44.991Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:23:57.732Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:23:57.823Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:23:58.019Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:23:58.023Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:23:58.057Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:23:58.063Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:23:58.084Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:23:58.086Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:23:58.092Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:23:58.380Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:23:58.399Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:23:58.419Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:23:58.421Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:24:57.561Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:24:57.632Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:24:58.091Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:24:58.094Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:24:58.106Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:24:58.110Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:24:58.128Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:24:58.129Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:24:58.136Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:24:58.254Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:24:58.268Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:24:58.286Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:24:58.287Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:25:42.023Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:25:42.144Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:25:42.534Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:25:42.537Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:25:42.550Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:25:42.555Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:25:42.580Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:25:42.582Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:25:42.591Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:25:42.684Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:25:42.691Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:25:42.702Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:25:42.703Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:25:59.867Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:25:59.933Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:26:00.106Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:26:00.109Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:26:00.117Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:26:00.120Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:26:00.133Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:26:00.134Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:26:00.139Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:26:00.235Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:26:00.244Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:26:00.257Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:26:00.258Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:26:48.925Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:26:48.985Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:26:49.129Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:26:49.131Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:26:49.137Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:26:49.140Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:26:49.147Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:26:49.147Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:26:49.151Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:26:49.227Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:26:49.235Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:26:49.244Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:26:49.244Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:27:20.906Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:27:22.348Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-440866","timestamp":"2026-04-08T09:27:22.368Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-440866","timestamp":"2026-04-08T09:27:22.369Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:27:22.369Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-440866","timestamp":"2026-04-08T09:27:22.370Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:28:42.890Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:28:42.927Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:28:42.992Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:28:42.993Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:28:43.005Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:28:43.006Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:28:43.009Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:28:43.009Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:28:43.011Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T09:28:43.042Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:28:43.047Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:28:43.051Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:28:43.051Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T09:28:44.043Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T09:28:44.045Z"}
+{"level":"info","message":"Found 2 active outsourced employees","timestamp":"2026-04-08T09:28:44.062Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T09:28:44.097Z"}
+{"level":"info","message":"Generated invoice 2 for Ather Khan","timestamp":"2026-04-08T09:28:44.100Z"}
+{"level":"info","message":"Monthly invoice generation completed: 2 invoices generated, 0 errors","timestamp":"2026-04-08T09:28:44.101Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:28:53.668Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:28:53.697Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:28:53.883Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:28:53.884Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:28:53.887Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:28:53.888Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:28:53.892Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:28:53.893Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:28:53.895Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:28:53.927Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:28:53.930Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:28:53.933Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:28:53.934Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:29:13.714Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:29:14.750Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-1-5-524097","timestamp":"2026-04-08T09:29:14.762Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-1-5-524097","timestamp":"2026-04-08T09:29:14.762Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:29:14.762Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-1-5-524097","timestamp":"2026-04-08T09:29:14.763Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:29:27.629Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:29:28.208Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-567602","timestamp":"2026-04-08T09:29:28.214Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-567602","timestamp":"2026-04-08T09:29:28.215Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:29:28.215Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-567602","timestamp":"2026-04-08T09:29:28.215Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:29:34.581Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:29:35.124Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-574580","timestamp":"2026-04-08T09:29:35.139Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-574580","timestamp":"2026-04-08T09:29:35.139Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:29:35.139Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-574580","timestamp":"2026-04-08T09:29:35.140Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:29:49.956Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:29:50.566Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-589953","timestamp":"2026-04-08T09:29:50.572Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-589953","timestamp":"2026-04-08T09:29:50.573Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:29:50.573Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-589953","timestamp":"2026-04-08T09:29:50.573Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:35:13.821Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:35:13.859Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:35:13.958Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:35:13.959Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:35:13.981Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:35:13.982Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:35:14.011Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:35:14.012Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:35:14.013Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:35:14.049Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:35:14.053Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:35:14.057Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:35:14.058Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:35:18.973Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:35:20.268Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-918942","timestamp":"2026-04-08T09:35:20.278Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-918942","timestamp":"2026-04-08T09:35:20.279Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:35:20.279Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-918942","timestamp":"2026-04-08T09:35:20.279Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:40:02.975Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:40:03.020Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:40:03.101Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:40:03.102Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:40:03.119Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:40:03.120Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:40:03.123Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:40:03.124Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:40:03.125Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:40:03.155Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:40:03.158Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:40:03.161Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:40:03.162Z"}
+{"level":"info","message":"RAW DATABASE INVOICE DATA: {\"id\":2,\"client_id\":\"5\",\"employee_id\":\"1\",\"invoice_date\":\"2026-04-30T19:00:00.000Z\",\"due_date\":\"2026-05-30T19:00:00.000Z\",\"invoice_amount\":\"500.00\",\"invoice\":\"salary_invoice_1_2026_05.pdf\",\"currency\":\"AED\",\"payment_status\":\"pending\",\"created_at\":\"2026-04-08T09:28:44.046Z\",\"updated_at\":\"2026-04-08T09:35:18.920Z\",\"is_payment_due\":true,\"invoice_type\":\"SALARY\",\"billing_month\":\"2026-04-30T19:00:00.000Z\",\"basket_id\":\"SAL-2-918942\",\"payment_method\":null,\"payment_reference\":null,\"paid_at\":null,\"salary_currency\":\"PKR\"}","timestamp":"2026-04-08T09:40:18.723Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:40:18.774Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:40:19.829Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-218733","timestamp":"2026-04-08T09:40:19.846Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-218733","timestamp":"2026-04-08T09:40:19.846Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:40:19.846Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-218733","timestamp":"2026-04-08T09:40:19.846Z"}
+{"level":"info","message":"RAW DATABASE INVOICE DATA: {\"id\":2,\"client_id\":\"5\",\"employee_id\":\"1\",\"invoice_date\":\"2026-04-30T19:00:00.000Z\",\"due_date\":\"2026-05-30T19:00:00.000Z\",\"invoice_amount\":\"500.00\",\"invoice\":\"salary_invoice_1_2026_05.pdf\",\"currency\":\"AED\",\"payment_status\":\"pending\",\"created_at\":\"2026-04-08T09:28:44.046Z\",\"updated_at\":\"2026-04-08T09:40:18.717Z\",\"is_payment_due\":true,\"invoice_type\":\"SALARY\",\"billing_month\":\"2026-04-30T19:00:00.000Z\",\"basket_id\":\"SAL-2-218733\",\"payment_method\":null,\"payment_reference\":null,\"paid_at\":null,\"salary_currency\":\"AED\"}","timestamp":"2026-04-08T09:42:43.794Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:42:43.799Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:42:44.780Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-2-363796","timestamp":"2026-04-08T09:42:44.793Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-2-363796","timestamp":"2026-04-08T09:42:44.793Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:42:44.794Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: SAL-2-363796","timestamp":"2026-04-08T09:42:44.794Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:45:37.040Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:45:37.062Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:45:37.133Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:45:37.134Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:45:37.137Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:45:37.139Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:45:37.142Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:45:37.143Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:45:37.145Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T09:45:37.176Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:45:37.179Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:45:37.182Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:45:37.182Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T09:45:38.031Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T09:45:38.033Z"}
+{"level":"info","message":"Found 1 active outsourced employees","timestamp":"2026-04-08T09:45:38.040Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T09:45:38.048Z"}
+{"level":"info","message":"Monthly invoice generation completed: 1 invoices generated, 0 errors","timestamp":"2026-04-08T09:45:38.051Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:45:51.847Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:45:51.871Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:45:51.992Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:45:51.992Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:45:51.995Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:45:51.996Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:45:51.999Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:45:52.000Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:45:52.002Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:45:52.035Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:45:52.038Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:45:52.041Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:45:52.042Z"}
+{"level":"info","message":"RAW DATABASE INVOICE DATA: {\"id\":1,\"client_id\":\"5\",\"employee_id\":\"1\",\"invoice_date\":\"2026-04-30T19:00:00.000Z\",\"due_date\":\"2026-05-30T19:00:00.000Z\",\"invoice_amount\":\"500.00\",\"invoice\":\"salary_invoice_1_2026_05.pdf\",\"currency\":\"AED\",\"payment_status\":\"pending\",\"created_at\":\"2026-04-08T09:45:38.034Z\",\"updated_at\":\"2026-04-08T09:45:38.034Z\",\"is_payment_due\":true,\"invoice_type\":\"SALARY\",\"billing_month\":\"2026-04-30T19:00:00.000Z\",\"basket_id\":\"SAL-1-5-538041\",\"payment_method\":null,\"payment_reference\":null,\"paid_at\":null,\"salary_currency\":\"AED\"}","timestamp":"2026-04-08T09:46:15.671Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T09:46:15.674Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T09:46:17.136Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-1-5-538041","timestamp":"2026-04-08T09:46:17.145Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-1-5-538041","timestamp":"2026-04-08T09:46:17.146Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T09:46:17.146Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: SAL-1-5-538041","timestamp":"2026-04-08T09:46:17.147Z"}
+{"level":"info","message":"Notification created: payment_success for cpta@gmail.com","timestamp":"2026-04-08T09:53:16.275Z"}
+{"level":"info","message":"Notification created: payment_success for talent@esparkconsultants.com","timestamp":"2026-04-08T09:53:16.277Z"}
+{"level":"info","message":"Payment success notifications created for invoice 1","timestamp":"2026-04-08T09:53:16.278Z"}
+{"level":"info","message":"[EMAIL] Payment success email sent to cpta@gmail.com","timestamp":"2026-04-08T09:53:24.879Z"}
+{"level":"info","message":"Payment successful for invoice 1, transaction: 2b8dfaf5-b53e-d041-cdcc-a27317a23c24","timestamp":"2026-04-08T09:53:24.881Z"}
+{"level":"info","message":"PayFast webhook processed successfully for basket_id: SAL-1-5-538041","timestamp":"2026-04-08T09:53:24.888Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T09:53:28.364Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T09:53:28.365Z"}
+{"BillNumber":"","CustomerId":"","PaymentName":"Card","PaymentType":"","Rdv_Message_Key":"","Recurring_txn":"false","Response_Key":"CF0B16DD1AE4D03CF15D107A2C56BF0D","additional_fee":"","additional_value":"","basket_id":["SAL-1-5-538041","SAL-1-5-538041"],"discounted_amount":"","err_code":"000","err_msg":"MIGS(PAY) transaction completed.","issuer_name":"","level":"info","merchant_amount":"500.00","message":"Query:","order_date":"2026-04-08","timestamp":"2026-04-08T09:53:28.366Z","transaction_amount":"39361.07","transaction_currency":"PKR","transaction_id":"2b8dfaf5-b53e-d041-cdcc-a27317a23c24","validation_hash":"28d0a2ee9899ea28ed1b3db323251be5be189831afe89f660dafe48c596856a6"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T09:53:28.366Z"}
+{"BillNumber":"","CustomerId":"","PaymentName":"Card","PaymentType":"","Rdv_Message_Key":"","Recurring_txn":"false","Response_Key":"CF0B16DD1AE4D03CF15D107A2C56BF0D","additional_fee":"","additional_value":"","basket_id":["SAL-1-5-538041","SAL-1-5-538041"],"discounted_amount":"","err_code":"000","err_msg":"MIGS(PAY) transaction completed.","issuer_name":"","level":"info","merchant_amount":"500.00","message":"PayFast success redirect payload","order_date":"2026-04-08","timestamp":"2026-04-08T09:53:28.368Z","transaction_amount":"39361.07","transaction_currency":"PKR","transaction_id":"2b8dfaf5-b53e-d041-cdcc-a27317a23c24","validation_hash":"28d0a2ee9899ea28ed1b3db323251be5be189831afe89f660dafe48c596856a6"}
+{"basketId":"SAL-1-5-538041","err_code":"000","level":"info","message":"PayFast success redirect received","timestamp":"2026-04-08T09:53:28.369Z","transaction_amount":"39361.07","transaction_id":"2b8dfaf5-b53e-d041-cdcc-a27317a23c24"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:57:52.787Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:57:52.829Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:57:52.908Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:57:52.908Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:57:52.923Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:57:52.925Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:57:52.930Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:57:52.930Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:57:52.933Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:57:53.003Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:57:53.008Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:57:53.012Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:57:53.013Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:58:04.829Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:58:04.859Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:58:04.923Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:58:04.924Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:58:04.927Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:58:04.928Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:58:04.931Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:58:04.932Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:58:04.933Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:58:04.965Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:58:04.968Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:58:04.972Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:58:04.972Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T09:58:21.690Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T09:58:21.720Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T09:58:21.802Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T09:58:21.803Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T09:58:21.806Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T09:58:21.807Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T09:58:21.812Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T09:58:21.813Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T09:58:21.814Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T09:58:21.854Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T09:58:21.859Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T09:58:21.866Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T09:58:21.866Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T10:31:54.980Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T10:31:55.040Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T10:31:55.169Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T10:31:55.171Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T10:31:55.192Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T10:31:55.194Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T10:31:55.207Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T10:31:55.208Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T10:31:55.211Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T10:31:55.369Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T10:31:55.372Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T10:31:55.375Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T10:31:55.375Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T10:32:07.069Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T10:32:07.091Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T10:32:07.193Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T10:32:07.193Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T10:32:07.196Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T10:32:07.197Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T10:32:07.200Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T10:32:07.200Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T10:32:07.202Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T10:32:07.230Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T10:32:07.233Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T10:32:07.237Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T10:32:07.237Z"}
+{"level":"info","message":"Aslam Khan is added successfully","timestamp":"2026-04-08T11:21:06.281Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:22:20.945Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:22:21.005Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:22:21.274Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:22:21.276Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:22:21.290Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:22:21.293Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:22:21.302Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:22:21.303Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:22:21.306Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T11:22:21.511Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:22:21.515Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:22:21.518Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:22:21.519Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:22.039Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:22:35.608Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:22:35.642Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:22:35.722Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:22:35.723Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:22:35.726Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:22:35.727Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:22:35.731Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:22:35.732Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:22:35.733Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T11:22:35.770Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:22:35.774Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:22:35.778Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:22:35.779Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:36.042Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:22:36.046Z"}
+{"level":"info","message":"Found 3 active outsourced employees","timestamp":"2026-04-08T11:22:36.081Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T11:22:36.117Z"}
+{"level":"info","message":"Generated invoice 2 for Aslam Khan","timestamp":"2026-04-08T11:22:36.127Z"}
+{"level":"info","message":"Generated invoice 3 for Aslam Khan","timestamp":"2026-04-08T11:22:36.138Z"}
+{"level":"info","message":"Monthly invoice generation completed: 3 invoices generated, 0 errors","timestamp":"2026-04-08T11:22:36.143Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:37.024Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:22:37.026Z"}
+{"level":"warn","message":"Salary invoices already generated for 2026-04-30","timestamp":"2026-04-08T11:22:37.028Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:38.039Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:22:38.041Z"}
+{"level":"warn","message":"Salary invoices already generated for 2026-04-30","timestamp":"2026-04-08T11:22:38.045Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:39.038Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:22:39.040Z"}
+{"level":"warn","message":"Salary invoices already generated for 2026-04-30","timestamp":"2026-04-08T11:22:39.044Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:40.039Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:22:40.041Z"}
+{"level":"warn","message":"Salary invoices already generated for 2026-04-30","timestamp":"2026-04-08T11:22:40.045Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:22:41.038Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:22:41.039Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:23:16.216Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:23:16.238Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:23:16.300Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:23:16.300Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:23:16.303Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:23:16.304Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:23:16.307Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:23:16.307Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:23:16.309Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:23:16.341Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:23:16.345Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:23:16.350Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:23:16.350Z"}
+{"code":"08P01","file":"postgres.c","length":137,"level":"error","line":"1736","message":"Bulk payment error: bind message supplies 3 parameters, but prepared statement \"\" requires 2","name":"error","routine":"exec_bind_message","severity":"ERROR","stack":"error: bind message supplies 3 parameters, but prepared statement \"\" requires 2\n    at C:\\Users\\eSpark\\Documents\\internal-dashboard-nodejs\\node_modules\\pg\\lib\\client.js:545:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async bulkPayment (file:///C:/Users/eSpark/Documents/internal-dashboard-nodejs/src/controllers/client/payments/bulkPayment.js:52:28)","timestamp":"2026-04-08T11:25:17.789Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:30:02.223Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:30:02.296Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:30:02.467Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:30:02.468Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:30:02.482Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:30:02.487Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:30:02.502Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:30:02.502Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:30:02.505Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:30:02.700Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:30:02.705Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:30:02.709Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:30:02.710Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:30:08.239Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:30:08.306Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:30:08.443Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:30:08.445Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:30:08.449Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:30:08.450Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:30:08.457Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:30:08.460Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:30:08.463Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:30:08.538Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:30:08.548Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:30:08.559Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:30:08.560Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:33:01.067Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:33:01.135Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:33:01.287Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:33:01.289Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:33:01.294Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:33:01.296Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:33:01.307Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:33:01.307Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:33:01.311Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:33:01.446Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:33:01.464Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:33:01.471Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:33:01.471Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:37:05.132Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:37:05.170Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:37:05.280Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:37:05.282Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:37:05.287Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:37:05.289Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:37:05.296Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:37:05.298Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:37:05.302Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:37:05.366Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:37:05.371Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:37:05.378Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:37:05.378Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:37:12.015Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:37:12.071Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:37:12.154Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:37:12.155Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:37:12.158Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:37:12.160Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:37:12.168Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:37:12.169Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:37:12.175Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:37:12.241Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:37:12.249Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:37:12.260Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:37:12.262Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:37:56.914Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:37:56.941Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:37:56.999Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:37:57.000Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:37:57.004Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:37:57.005Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:37:57.009Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:37:57.009Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:37:57.010Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:37:57.051Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:37:57.059Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:37:57.069Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:37:57.070Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:39:31.814Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:39:31.838Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:39:31.904Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:39:31.905Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:39:31.908Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:39:31.909Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:39:31.913Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:39:31.914Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:39:31.916Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:39:31.952Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:39:31.957Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:39:31.961Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:39:31.961Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:43:06.639Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:43:06.664Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:43:06.736Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:43:06.737Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:43:06.740Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:43:06.742Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:43:06.747Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:43:06.747Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:43:06.750Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:43:06.788Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:43:06.794Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:43:06.799Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:43:06.799Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:45:42.256Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:45:42.324Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:45:42.445Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:45:42.446Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:45:42.451Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:45:42.453Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:45:42.458Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:45:42.459Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:45:42.462Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:45:42.518Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:45:42.523Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:45:42.528Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:45:42.529Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:47:25.036Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:47:25.063Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:47:25.198Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:47:25.201Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:47:25.208Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:47:25.210Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:47:25.219Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:47:25.219Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:47:25.223Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:47:25.284Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:47:25.290Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:47:25.297Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:47:25.297Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:47:33.329Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:47:33.354Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:47:33.544Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:47:33.545Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:47:33.552Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:47:33.554Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:47:33.563Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:47:33.565Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:47:33.570Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:47:33.637Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:47:33.643Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:47:33.648Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:47:33.649Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T11:47:39.060Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T11:47:40.562Z"}
+{"level":"info","message":"Bulk payment initiated for 2 invoices, basket_id: BULK-5-859021","timestamp":"2026-04-08T11:47:40.628Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T11:47:42.859Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T11:47:42.860Z"}
+{"Rdv_Message_Key":"","Response_Key":"8C188A006C59373C4915CB1A96978E26","additional_value":"","basket_id":["BULK-5-859021","BULK-5-859021"],"err_code":"001","err_msg":"Token could not be verified","level":"info","message":"Query:","metaData":"","order_date":"2026-04-08","timestamp":"2026-04-08T11:47:42.861Z","transaction_amount":"1000.00","transaction_id":"","validation_hash":"7fdf9f3fa8393414d68ddf931a32410108ff4041cca063d584709a1fbc5e93cb"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T11:47:42.861Z"}
+{"level":"info","message":"RAW PayFast payload","timestamp":"2026-04-08T11:47:42.862Z"}
+{"basket_id":"BULK-5-859021","err_code":"001","err_msg":"Token could not be verified","level":"error","message":"PayFast failure redirect received","timestamp":"2026-04-08T11:47:42.862Z","transaction_amount":"1000.00","transaction_id":""}
+{"0":{"amount":"1000.00","bank_code":null,"client_email":"cpta@gmail.com","client_id":"5","company_name":"My Company xyz","completed_at":null,"created_at":"2026-04-08T11:47:38.987Z","currency":"AED","error_code":null,"error_message":null,"first_name":"Test","id":106,"initiated_at":"2026-04-08T11:47:38.987Z","instrument_id":null,"instrument_token":null,"invoice_id":null,"invoice_type":"SALARY","last_name":"Client","payfast_basket_id":"BULK-5-859021","payfast_transaction_id":null,"payment_method":null,"status":"PENDING","updated_at":"2026-04-08T11:47:38.987Z","validation_hash":null},"level":"info","message":"Transaction query result","timestamp":"2026-04-08T11:47:42.867Z"}
+{"level":"info","message":"Notification created: payment_failed for cpta@gmail.com","timestamp":"2026-04-08T11:47:42.875Z"}
+{"level":"info","message":"Payment failure notifications created","timestamp":"2026-04-08T11:47:42.876Z"}
+{"level":"info","message":"[EMAIL] Payment failure email sent to cpta@gmail.com","timestamp":"2026-04-08T11:47:51.169Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T11:48:05.688Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T11:48:06.858Z"}
+{"level":"info","message":"Bulk payment initiated for 2 invoices, basket_id: BULK-5-885683","timestamp":"2026-04-08T11:48:06.871Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T11:48:08.265Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T11:48:08.267Z"}
+{"Rdv_Message_Key":"","Response_Key":"6FB03DC8F21E06B36049461DC745D809","additional_value":"","basket_id":["BULK-5-885683","BULK-5-885683"],"err_code":"001","err_msg":"Token could not be verified","level":"info","message":"Query:","metaData":"","order_date":"2026-04-08","timestamp":"2026-04-08T11:48:08.268Z","transaction_amount":"1000.00","transaction_id":"","validation_hash":"d41f85aab9fa4d0df14621d059ee025b7120de38675ad45363f02f5c0d64b5dd"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T11:48:08.269Z"}
+{"level":"info","message":"RAW PayFast payload","timestamp":"2026-04-08T11:48:08.271Z"}
+{"basket_id":"BULK-5-885683","err_code":"001","err_msg":"Token could not be verified","level":"error","message":"PayFast failure redirect received","timestamp":"2026-04-08T11:48:08.274Z","transaction_amount":"1000.00","transaction_id":""}
+{"0":{"amount":"1000.00","bank_code":null,"client_email":"cpta@gmail.com","client_id":"5","company_name":"My Company xyz","completed_at":null,"created_at":"2026-04-08T11:48:05.676Z","currency":"AED","error_code":null,"error_message":null,"first_name":"Test","id":107,"initiated_at":"2026-04-08T11:48:05.676Z","instrument_id":null,"instrument_token":null,"invoice_id":null,"invoice_type":"SALARY","last_name":"Client","payfast_basket_id":"BULK-5-885683","payfast_transaction_id":null,"payment_method":null,"status":"PENDING","updated_at":"2026-04-08T11:48:05.676Z","validation_hash":null},"level":"info","message":"Transaction query result","timestamp":"2026-04-08T11:48:08.283Z"}
+{"level":"info","message":"Notification created: payment_failed for cpta@gmail.com","timestamp":"2026-04-08T11:48:08.297Z"}
+{"level":"info","message":"Payment failure notifications created","timestamp":"2026-04-08T11:48:08.299Z"}
+{"level":"info","message":"[EMAIL] Payment failure email sent to cpta@gmail.com","timestamp":"2026-04-08T11:48:16.146Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:50:13.708Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:50:13.737Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:50:13.818Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:50:13.820Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:50:13.826Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:50:13.828Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:50:13.836Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:50:13.837Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:50:13.840Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T11:50:13.909Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:50:13.917Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:50:13.925Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:50:13.925Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T11:50:14.033Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T11:50:14.132Z"}
+{"level":"info","message":"Found 2 active outsourced employees","timestamp":"2026-04-08T11:50:14.159Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T11:50:14.176Z"}
+{"level":"info","message":"Generated invoice 2 for Aslam Khan","timestamp":"2026-04-08T11:50:14.186Z"}
+{"level":"info","message":"Monthly invoice generation completed: 2 invoices generated, 0 errors","timestamp":"2026-04-08T11:50:14.224Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:50:27.050Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:50:27.074Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:50:27.143Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:50:27.144Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:50:27.147Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:50:27.149Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:50:27.153Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:50:27.153Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:50:27.154Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:50:27.187Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:50:27.190Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:50:27.194Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:50:27.194Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T11:51:22.321Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T11:51:23.544Z"}
+{"level":"info","message":"Bulk payment initiated for 2 invoices, basket_id: BULK-5-082318","timestamp":"2026-04-08T11:51:23.561Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T11:51:24.883Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T11:51:24.884Z"}
+{"Rdv_Message_Key":"","Response_Key":"6551C17DCB7FC79A7030316F1298E87E","additional_value":"","basket_id":["BULK-5-082318","BULK-5-082318"],"err_code":"001","err_msg":"Token could not be verified","level":"info","message":"Query:","metaData":"","order_date":"2026-04-08","timestamp":"2026-04-08T11:51:24.887Z","transaction_amount":"1000.00","transaction_id":"","validation_hash":"d451dbbe44073950cbfa6623da0718770968c79942b7ca608901d7c6609e24ac"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T11:51:24.888Z"}
+{"level":"info","message":"RAW PayFast payload","timestamp":"2026-04-08T11:51:24.890Z"}
+{"basket_id":"BULK-5-082318","err_code":"001","err_msg":"Token could not be verified","level":"error","message":"PayFast failure redirect received","timestamp":"2026-04-08T11:51:24.892Z","transaction_amount":"1000.00","transaction_id":""}
+{"0":{"amount":"1000.00","bank_code":null,"client_email":"cpta@gmail.com","client_id":"5","company_name":"My Company xyz","completed_at":null,"created_at":"2026-04-08T11:51:22.314Z","currency":"AED","error_code":null,"error_message":null,"first_name":"Test","id":108,"initiated_at":"2026-04-08T11:51:22.314Z","instrument_id":null,"instrument_token":null,"invoice_id":null,"invoice_type":"SALARY","last_name":"Client","payfast_basket_id":"BULK-5-082318","payfast_transaction_id":null,"payment_method":null,"status":"PENDING","updated_at":"2026-04-08T11:51:22.314Z","validation_hash":null},"level":"info","message":"Transaction query result","timestamp":"2026-04-08T11:51:24.905Z"}
+{"level":"info","message":"Notification created: payment_failed for cpta@gmail.com","timestamp":"2026-04-08T11:51:24.928Z"}
+{"level":"info","message":"Payment failure notifications created","timestamp":"2026-04-08T11:51:24.930Z"}
+{"level":"info","message":"[EMAIL] Payment failure email sent to cpta@gmail.com","timestamp":"2026-04-08T11:51:33.084Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T11:52:30.432Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T11:52:31.438Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-1-5-014160","timestamp":"2026-04-08T11:52:31.446Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-1-5-014160","timestamp":"2026-04-08T11:52:31.447Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T11:52:31.448Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: SAL-1-5-014160","timestamp":"2026-04-08T11:52:31.448Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T11:54:33.476Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T11:54:33.555Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T11:54:33.706Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T11:54:33.708Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T11:54:33.723Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T11:54:33.726Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T11:54:33.735Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T11:54:33.736Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T11:54:33.739Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T11:54:33.824Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T11:54:33.830Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T11:54:33.839Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T11:54:33.840Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T11:55:38.343Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T11:55:39.593Z"}
+{"level":"info","message":"Bulk payment initiated for 2 invoices, basket_id: BULK-5-338319","timestamp":"2026-04-08T11:55:39.605Z"}
+{"level":"info","message":"Notification created: bulk_payment_success for cpta@gmail.com","timestamp":"2026-04-08T11:56:39.086Z"}
+{"level":"info","message":"Notification created: bulk_payment_success for talent@esparkconsultants.com","timestamp":"2026-04-08T11:56:39.091Z"}
+{"level":"info","message":"Bulk payment notifications created: 2 invoices, PKR 1000.00","timestamp":"2026-04-08T11:56:39.092Z"}
+{"level":"info","message":"Bulk payment successful for 2 invoices, transaction: ed51df5d-6666-6832-3787-6fcc185dce80","timestamp":"2026-04-08T11:56:39.095Z"}
+{"level":"info","message":"PayFast webhook processed successfully for basket_id: BULK-5-338319","timestamp":"2026-04-08T11:56:39.100Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T11:56:50.934Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T11:56:50.935Z"}
+{"BillNumber":"","CustomerId":"","PaymentName":"Card","PaymentType":"","Rdv_Message_Key":"","Recurring_txn":"false","Response_Key":"CF0342C9E7B46D604031A21EDD682854","additional_fee":"","additional_value":"","basket_id":["BULK-5-338319","BULK-5-338319"],"discounted_amount":"","err_code":"000","err_msg":"MIGS(PAY) transaction completed.","issuer_name":"","level":"info","merchant_amount":"1000.00","message":"Query:","order_date":"2026-04-08","timestamp":"2026-04-08T11:56:50.936Z","transaction_amount":"78722.14","transaction_currency":"PKR","transaction_id":"ed51df5d-6666-6832-3787-6fcc185dce80","validation_hash":"787f2507e03fefe15bd23d7bf0941342d40e2c2ff406944f2d2c1a101681ea40"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T11:56:50.937Z"}
+{"BillNumber":"","CustomerId":"","PaymentName":"Card","PaymentType":"","Rdv_Message_Key":"","Recurring_txn":"false","Response_Key":"CF0342C9E7B46D604031A21EDD682854","additional_fee":"","additional_value":"","basket_id":["BULK-5-338319","BULK-5-338319"],"discounted_amount":"","err_code":"000","err_msg":"MIGS(PAY) transaction completed.","issuer_name":"","level":"info","merchant_amount":"1000.00","message":"PayFast success redirect payload","order_date":"2026-04-08","timestamp":"2026-04-08T11:56:50.938Z","transaction_amount":"78722.14","transaction_currency":"PKR","transaction_id":"ed51df5d-6666-6832-3787-6fcc185dce80","validation_hash":"787f2507e03fefe15bd23d7bf0941342d40e2c2ff406944f2d2c1a101681ea40"}
+{"basketId":"BULK-5-338319","err_code":"000","level":"info","message":"PayFast success redirect received","timestamp":"2026-04-08T11:56:50.939Z","transaction_amount":"78722.14","transaction_id":"ed51df5d-6666-6832-3787-6fcc185dce80"}
+{"level":"info","message":"Notification created: payment_success for cpta@gmail.com","timestamp":"2026-04-08T11:56:51.019Z"}
+{"level":"info","message":"Notification created: payment_success for talent@esparkconsultants.com","timestamp":"2026-04-08T11:56:51.021Z"}
+{"level":"info","message":"Payment success notifications created for invoice null","timestamp":"2026-04-08T11:56:51.022Z"}
+{"level":"info","message":"[EMAIL] Payment success email sent to cpta@gmail.com","timestamp":"2026-04-08T11:56:59.265Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T12:01:56.567Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T12:01:56.602Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T12:01:56.702Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T12:01:56.703Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T12:01:56.708Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T12:01:56.709Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T12:01:56.715Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T12:01:56.716Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T12:01:56.720Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T12:01:56.759Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T12:01:56.764Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T12:01:56.769Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T12:01:56.770Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T12:01:57.029Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T12:01:57.030Z"}
+{"level":"info","message":"Found 2 active outsourced employees","timestamp":"2026-04-08T12:01:57.060Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T12:01:57.073Z"}
+{"level":"info","message":"Generated invoice 2 for Aslam Khan","timestamp":"2026-04-08T12:01:57.080Z"}
+{"level":"info","message":"Monthly invoice generation completed: 2 invoices generated, 0 errors","timestamp":"2026-04-08T12:01:57.083Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T12:02:08.506Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T12:02:08.535Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T12:02:08.597Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T12:02:08.598Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T12:02:08.601Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T12:02:08.602Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T12:02:08.605Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T12:02:08.606Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T12:02:08.607Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T12:02:08.637Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T12:02:08.642Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T12:02:08.645Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T12:02:08.645Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T12:03:08.345Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T12:03:08.372Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T12:03:08.541Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T12:03:08.542Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T12:03:08.546Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T12:03:08.547Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T12:03:08.551Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T12:03:08.552Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T12:03:08.554Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T12:03:08.595Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T12:03:08.599Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T12:03:08.602Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T12:03:08.603Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T12:32:10.695Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T12:32:10.768Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T12:32:10.840Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T12:32:10.841Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T12:32:10.852Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T12:32:10.854Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T12:32:10.858Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T12:32:10.859Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T12:32:10.860Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * * *","timestamp":"2026-04-08T12:32:10.894Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T12:32:10.897Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T12:32:10.902Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T12:32:10.902Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-08T12:32:11.019Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-08T12:32:11.021Z"}
+{"level":"info","message":"Found 1 active outsourced employees","timestamp":"2026-04-08T12:32:11.034Z"}
+{"level":"info","message":"Generated invoice 1 for Ather Khan","timestamp":"2026-04-08T12:32:11.044Z"}
+{"level":"info","message":"Monthly invoice generation completed: 1 invoices generated, 0 errors","timestamp":"2026-04-08T12:32:11.046Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-08T12:32:29.019Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-08T12:32:29.046Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-08T12:32:29.126Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-08T12:32:29.127Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-08T12:32:29.130Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-08T12:32:29.131Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-08T12:32:29.134Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-08T12:32:29.135Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-08T12:32:29.137Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-08T12:32:29.171Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-08T12:32:29.175Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-08T12:32:29.179Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-08T12:32:29.180Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-08T12:33:11.073Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-08T12:33:12.562Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=SAL-1-5-531035","timestamp":"2026-04-08T12:33:12.580Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=SAL-1-5-531035","timestamp":"2026-04-08T12:33:12.581Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://651d-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-08T12:33:12.582Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: SAL-1-5-531035","timestamp":"2026-04-08T12:33:12.582Z"}
+{"level":"info","message":"Notification created: payment_success for cpta@gmail.com","timestamp":"2026-04-08T12:34:11.430Z"}
+{"level":"info","message":"Notification created: payment_success for talent@esparkconsultants.com","timestamp":"2026-04-08T12:34:11.435Z"}
+{"level":"info","message":"Payment success notifications created for invoice 1","timestamp":"2026-04-08T12:34:11.440Z"}
+{"level":"info","message":"[EMAIL] Payment success email sent to cpta@gmail.com","timestamp":"2026-04-08T12:34:19.860Z"}
+{"level":"info","message":"Payment successful for invoice 1, transaction: 2c33bda0-66a0-d30a-ba44-fbdbd80ad5ae","timestamp":"2026-04-08T12:34:19.862Z"}
+{"level":"info","message":"PayFast webhook processed successfully for basket_id: SAL-1-5-531035","timestamp":"2026-04-08T12:34:19.883Z"}
+{"level":"info","message":"Redirect URL:","timestamp":"2026-04-08T12:34:23.634Z"}
+{"level":"info","message":"Redirect method:","timestamp":"2026-04-08T12:34:23.635Z"}
+{"BillNumber":"","CustomerId":"","PaymentName":"Card","PaymentType":"","Rdv_Message_Key":"","Recurring_txn":"false","Response_Key":"CEA7FEE07A9E98068A7930AC229B85DA","additional_fee":"","additional_value":"","basket_id":["SAL-1-5-531035","SAL-1-5-531035"],"discounted_amount":"","err_code":"000","err_msg":"MIGS(PAY) transaction completed.","issuer_name":"","level":"info","merchant_amount":"1000.00","message":"Query:","order_date":"2026-04-08","timestamp":"2026-04-08T12:34:23.637Z","transaction_amount":"78722.14","transaction_currency":"PKR","transaction_id":"2c33bda0-66a0-d30a-ba44-fbdbd80ad5ae","validation_hash":"b52149357547e3dcdc0df4ba2fadb278bc8c88ac29c27a2bf43aba41cc42ea7a"}
+{"level":"info","message":"Body:","timestamp":"2026-04-08T12:34:23.639Z"}
+{"BillNumber":"","CustomerId":"","PaymentName":"Card","PaymentType":"","Rdv_Message_Key":"","Recurring_txn":"false","Response_Key":"CEA7FEE07A9E98068A7930AC229B85DA","additional_fee":"","additional_value":"","basket_id":["SAL-1-5-531035","SAL-1-5-531035"],"discounted_amount":"","err_code":"000","err_msg":"MIGS(PAY) transaction completed.","issuer_name":"","level":"info","merchant_amount":"1000.00","message":"PayFast success redirect payload","order_date":"2026-04-08","timestamp":"2026-04-08T12:34:23.641Z","transaction_amount":"78722.14","transaction_currency":"PKR","transaction_id":"2c33bda0-66a0-d30a-ba44-fbdbd80ad5ae","validation_hash":"b52149357547e3dcdc0df4ba2fadb278bc8c88ac29c27a2bf43aba41cc42ea7a"}
+{"basketId":"SAL-1-5-531035","err_code":"000","level":"info","message":"PayFast success redirect received","timestamp":"2026-04-08T12:34:23.643Z","transaction_amount":"78722.14","transaction_id":"2c33bda0-66a0-d30a-ba44-fbdbd80ad5ae"}

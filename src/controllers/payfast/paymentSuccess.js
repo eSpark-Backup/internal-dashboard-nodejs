@@ -217,11 +217,11 @@ const handlePaymentSuccess = async (req, res) => {
         <div class="success-container">
           <div class="success-icon">✓</div>
           <h1>Payment Successful!</h1>
-          <div class="amount">PKR ${transaction.amount.toLocaleString()}</div>
+          <div class="amount">${transaction.currency || "PKR"} ${transaction.amount.toLocaleString()}</div>
           <div class="details">
             <p><strong>Transaction ID:</strong> ${transaction_id}</p>
             <p><strong>Reference:</strong> ${basketId}</p>
-            <p><strong>Amount:</strong> PKR ${transaction.amount.toLocaleString()}</p>
+            <p><strong>Amount:</strong> ${transaction.currency || "PKR"} ${transaction.amount.toLocaleString()}</p>
             <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
           </div>
           <p>Your payment has been processed successfully.</p>

@@ -41,16 +41,15 @@ const bulkPayment = async (req, res) => {
         : "eSparkTalentAPI_other_payment";
 
     // Fetch all invoices
-    const placeholders = invoiceIds.map((_, i) => `$${i + 2}`).join(",");
     const invoicesQuery = `
-      SELECT id, client_id, invoice_amount, payment_status, is_payment_due
-      FROM ${tableName}
-      WHERE id IN (${placeholders}) AND client_id = $1
+      SELECT i.id, i.invoice_amount, i.payment_status, i.is_payment_due, i.currency
+      FROM ${tableName} i
+      WHERE i.id = ANY($1) AND i.client_id = $2
     `;
 
     const invoicesResult = await client.query(invoicesQuery, [
+      invoiceIds,
       clientId,
-      ...invoiceIds,
     ]);
 
     if (invoicesResult.rows.length === 0) {
@@ -73,6 +72,19 @@ const bulkPayment = async (req, res) => {
     const invalidInvoices = invoicesResult.rows.filter(
       (inv) => inv.payment_status === "paid" || !inv.is_payment_due,
     );
+
+    // Validate uniform currency
+    const currencies = [
+      ...new Set(invoicesResult.rows.map((inv) => inv.currency)),
+    ];
+    if (currencies.length > 1) {
+      await client.query("ROLLBACK");
+      return res.status(400).json({
+        success: false,
+        message: "All selected invoices must have the same currency.",
+      });
+    }
+    const selectedCurrency = currencies[0];
 
     if (invalidInvoices.length > 0) {
       await client.query("ROLLBACK");
@@ -163,6 +175,7 @@ const bulkPayment = async (req, res) => {
     const accessToken = await payfastService.getAccessToken(
       basketId,
       totalAmount.toFixed(2),
+      selectedCurrency,
     );
 
     // Get client details
@@ -199,7 +212,7 @@ const bulkPayment = async (req, res) => {
       invoiceType,
       clientId,
       totalAmount,
-      payfastConfig.currency,
+      selectedCurrency,
       "PENDING",
       basketId,
     ]);
@@ -237,7 +250,7 @@ const bulkPayment = async (req, res) => {
       BASKET_ID: basketId,
       ORDER_DATE: currentDate,
       CHECKOUT_URL: payfastConfig.checkoutUrl,
-      CURRENCY_CODE: payfastConfig.currency,
+      CURRENCY_CODE: selectedCurrency,
       TRAN_TYPE: payfastConfig.tranType,
       CUSTOMER_NAME: `${clientData.first_name} ${clientData.last_name}`,
       MERCHANT_CUSTOMER_ID: clientId.toString(),

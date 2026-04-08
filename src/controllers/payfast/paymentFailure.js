@@ -203,7 +203,7 @@ const handlePaymentFailure = async (req, res) => {
         <div class="failure-container">
           <div class="failure-icon">✗</div>
           <h1>Payment Failed</h1>
-          <div class="amount">PKR ${transaction.amount.toLocaleString()}</div>
+          <div class="amount">${transaction.currency || "PKR"} ${transaction.amount.toLocaleString()}</div>
 
           <div class="error-details">
             <h3>Payment Error</h3>

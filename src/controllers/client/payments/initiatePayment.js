@@ -41,10 +41,11 @@ const initiatePayment = async (req, res) => {
         : "eSparkTalentAPI_other_payment";
 
     const invoiceQuery = `
-      SELECT id, client_id, invoice_amount, payment_status, basket_id, is_payment_due
-      FROM ${tableName}
-      WHERE id = $1 AND client_id = $2
-    `;
+  SELECT i.*, oe.salary_currency 
+  FROM ${tableName} i
+  LEFT JOIN eSparkTalentAPI_outsource_employees oe ON i.employee_id = oe.employee_id
+  WHERE i.id = $1 AND i.client_id = $2
+`;
 
     const invoiceResult = await client.query(invoiceQuery, [
       invoiceId,
@@ -60,6 +61,7 @@ const initiatePayment = async (req, res) => {
     }
 
     const invoice = invoiceResult.rows[0];
+    const selectedCurrency = invoice.salary_currency || "PKR"; // Fallback to PKR if null
 
     // Validate invoice is unpaid
     if (invoice.payment_status === "paid") {
@@ -121,7 +123,11 @@ const initiatePayment = async (req, res) => {
     }
 
     // Get access token from PayFast
-    const accessToken = await payfastService.getAccessToken(basketId, amount);
+    const accessToken = await payfastService.getAccessToken(
+      basketId,
+      amount,
+      selectedCurrency,
+    );
 
     // Get client details
     const clientQuery = `
@@ -157,7 +163,7 @@ const initiatePayment = async (req, res) => {
       invoiceType,
       clientId,
       amount,
-      payfastConfig.currency,
+      selectedCurrency,
       "PENDING",
       basketId,
     ]);
@@ -212,7 +218,7 @@ const initiatePayment = async (req, res) => {
       BASKET_ID: basketId,
       ORDER_DATE: currentDate,
       CHECKOUT_URL: payfastConfig.checkoutUrl,
-      CURRENCY_CODE: payfastConfig.currency,
+      CURRENCY_CODE: selectedCurrency,
       TRAN_TYPE: payfastConfig.tranType,
       CUSTOMER_NAME: `${clientData.first_name} ${clientData.last_name}`,
       MERCHANT_CUSTOMER_ID: clientId.toString(),
