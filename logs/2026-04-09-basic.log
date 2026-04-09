@@ -1,0 +1,47 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-09T07:16:15.528Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-09T07:16:15.598Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-09T07:16:15.754Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-09T07:16:15.755Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-09T07:16:15.810Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-09T07:16:15.811Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-09T07:16:15.863Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-09T07:16:15.863Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-09T07:16:15.868Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-09T07:16:16.123Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-09T07:16:16.128Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-09T07:16:16.131Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-09T07:16:16.132Z"}
+{"level":"error","message":"Error deleting employee invoice: error: invalid input syntax for type integer: \"ather_khan\"","timestamp":"2026-04-09T07:31:28.471Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-09T07:44:21.155Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-09T07:44:21.244Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-09T07:44:21.364Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-09T07:44:21.365Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-09T07:44:21.373Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-09T07:44:21.375Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-09T07:44:21.381Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-09T07:44:29.630Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-09T07:44:29.664Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-09T07:44:29.761Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-09T07:44:29.762Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-09T07:44:29.768Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-09T07:44:29.770Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-09T07:44:29.778Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-09T07:44:29.779Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-09T07:44:29.781Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-09T07:44:29.827Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-09T07:44:29.834Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-09T07:44:29.839Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-09T07:44:29.840Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-09T07:44:34.074Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-09T07:44:34.113Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-09T07:44:34.216Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-09T07:44:34.217Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-09T07:44:34.220Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-09T07:44:34.222Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-09T07:44:34.225Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-09T07:44:34.226Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-09T07:44:34.228Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-09T07:44:34.266Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-09T07:44:34.270Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-09T07:44:34.274Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-09T07:44:34.274Z"}
