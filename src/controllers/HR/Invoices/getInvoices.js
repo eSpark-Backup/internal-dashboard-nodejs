@@ -12,12 +12,23 @@ const VALID_SORT_FIELDS = new Set([
   "paid_at",
 ]);
 
+const parseBooleanQuery = (value) => {
+  if (value === undefined) return null;
+  const normalized = String(value).trim().toLowerCase();
+  if (normalized === "true") return true;
+  if (normalized === "false") return false;
+  return undefined;
+};
+
 const getInvoices = async (req, res) => {
   const talentEmail = process.env.TALENT_EMAIL || "";
   const {
     client_id,
     payment_status,
     invoice_type,
+    is_overdue,
+    is_payment_due,
+    payment_method,
     start_date,
     end_date,
     q,
@@ -35,6 +46,9 @@ const getInvoices = async (req, res) => {
   const startDate = start_date || null;
   const endDate = end_date || null;
   const searchTerm = q ? `%${q}%` : null;
+  const isOverdue = parseBooleanQuery(is_overdue);
+  const isPaymentDue = parseBooleanQuery(is_payment_due);
+  const paymentMethod = payment_method ? payment_method.trim() : null;
 
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_LIMIT) {
     return res.status(400).json({
@@ -66,6 +80,18 @@ const getInvoices = async (req, res) => {
     });
   }
 
+  if (isOverdue === undefined) {
+    return res.status(400).json({
+      message: "is_overdue must be true or false",
+    });
+  }
+
+  if (isPaymentDue === undefined) {
+    return res.status(400).json({
+      message: "is_payment_due must be true or false",
+    });
+  }
+
   if (start_date && Number.isNaN(Date.parse(start_date))) {
     return res.status(400).json({ message: "start_date must be a valid date" });
   }
@@ -92,6 +118,9 @@ const getInvoices = async (req, res) => {
       clientId || null,
       payment_status || null,
       invoice_type || null,
+      isOverdue,
+      isPaymentDue,
+      paymentMethod || null,
       startDate,
       endDate,
       searchTerm,
@@ -136,12 +165,15 @@ const getInvoices = async (req, res) => {
         AND ($2::bigint IS NULL OR ei.client_id = $2)
         AND ($3::text IS NULL OR ei.payment_status = $3)
         AND ($4::text IS NULL OR ei.invoice_type = $4)
-        AND ($5::date IS NULL OR ei.invoice_date >= $5)
-        AND ($6::date IS NULL OR ei.invoice_date <= $6)
-        AND ($7::text IS NULL OR (
-          (COALESCE(e.first_name, '') || ' ' || COALESCE(e.last_name, '')) ILIKE $7
-          OR ei.payment_reference ILIKE $7
-          OR c.company_name ILIKE $7
+        AND ($5::boolean IS NULL OR ((ei.payment_status != 'paid' AND ei.due_date < CURRENT_DATE) = $5))
+        AND ($6::boolean IS NULL OR ei.is_payment_due = $6)
+        AND ($7::text IS NULL OR LOWER(ei.payment_method) = LOWER($7))
+        AND ($8::date IS NULL OR ei.invoice_date >= $8)
+        AND ($9::date IS NULL OR ei.invoice_date <= $9)
+        AND ($10::text IS NULL OR (
+          (COALESCE(e.first_name, '') || ' ' || COALESCE(e.last_name, '')) ILIKE $10
+          OR ei.payment_reference ILIKE $10
+          OR c.company_name ILIKE $10
         ))
     `;
 
@@ -182,11 +214,14 @@ const getInvoices = async (req, res) => {
       WHERE c.email != $1
         AND ($2::bigint IS NULL OR op.client_id = $2)
         AND ($3::text IS NULL OR op.payment_status = $3)
-        AND ($5::date IS NULL OR op.invoice_date >= $5)
-        AND ($6::date IS NULL OR op.invoice_date <= $6)
-        AND ($7::text IS NULL OR (
-          op.payment_reference ILIKE $7
-          OR c.company_name ILIKE $7
+        AND ($5::boolean IS NULL OR ((op.payment_status != 'paid' AND op.due_date < CURRENT_DATE) = $5))
+        AND ($6::boolean IS NULL OR op.is_payment_due = $6)
+        AND ($7::text IS NULL OR LOWER(op.payment_method) = LOWER($7))
+        AND ($8::date IS NULL OR op.invoice_date >= $8)
+        AND ($9::date IS NULL OR op.invoice_date <= $9)
+        AND ($10::text IS NULL OR (
+          op.payment_reference ILIKE $10
+          OR c.company_name ILIKE $10
         ))
     `;
 
@@ -222,8 +257,8 @@ const getInvoices = async (req, res) => {
         can_pay
       FROM filtered_invoices
       ORDER BY ${orderBy} ${orderDirection}, id DESC
-      LIMIT $8
-      OFFSET $9
+      LIMIT $11
+      OFFSET $12
     `;
 
     const statsQuery = `

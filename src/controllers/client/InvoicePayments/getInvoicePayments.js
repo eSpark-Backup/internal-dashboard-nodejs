@@ -12,6 +12,14 @@ const VALID_SORT_FIELDS = new Set([
   "paid_at",
 ]);
 
+const parseBooleanQuery = (value) => {
+  if (value === undefined) return null;
+  const normalized = String(value).trim().toLowerCase();
+  if (normalized === "true") return true;
+  if (normalized === "false") return false;
+  return undefined;
+};
+
 const getInvoicePayments = async (req, res) => {
   const email = req.user?.email;
   if (!email) {
@@ -26,6 +34,9 @@ const getInvoicePayments = async (req, res) => {
     sort_by,
     sort_order,
     invoice_type,
+    is_overdue,
+    is_payment_due,
+    payment_method,
     limit: limitQuery,
     page: pageQuery,
     offset: offsetQuery,
@@ -34,6 +45,10 @@ const getInvoicePayments = async (req, res) => {
   const limit = limitQuery ? Number(limitQuery) : DEFAULT_LIMIT;
   const page = pageQuery ? Number(pageQuery) : undefined;
   const offset = offsetQuery ? Number(offsetQuery) : undefined;
+
+  const isOverdue = parseBooleanQuery(is_overdue);
+  const isPaymentDue = parseBooleanQuery(is_payment_due);
+  const paymentMethod = payment_method ? payment_method.trim() : null;
 
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_LIMIT) {
     return res.status(400).json({
@@ -50,6 +65,18 @@ const getInvoicePayments = async (req, res) => {
   if (offset !== undefined && (!Number.isInteger(offset) || offset < 0)) {
     return res.status(400).json({
       message: "offset must be a non-negative integer",
+    });
+  }
+
+  if (isOverdue === undefined) {
+    return res.status(400).json({
+      message: "is_overdue must be true or false",
+    });
+  }
+
+  if (isPaymentDue === undefined) {
+    return res.status(400).json({
+      message: "is_payment_due must be true or false",
     });
   }
 
@@ -84,6 +111,9 @@ const getInvoicePayments = async (req, res) => {
       payment_status || null,
       invoice_type || null,
       searchTerm,
+      isOverdue,
+      isPaymentDue,
+      paymentMethod || null,
     ];
 
     const employeeInvoiceQuery = `
@@ -117,6 +147,9 @@ const getInvoicePayments = async (req, res) => {
       WHERE ei.client_id = $1
         AND ($2::text IS NULL OR ei.payment_status = $2)
         AND ($3::text IS NULL OR ei.invoice_type = $3)
+        AND ($5::boolean IS NULL OR ((ei.payment_status != 'paid' AND ei.due_date < CURRENT_DATE) = $5))
+        AND ($6::boolean IS NULL OR ei.is_payment_due = $6)
+        AND ($7::text IS NULL OR LOWER(ei.payment_method) = LOWER($7))
         AND ($4::text IS NULL OR (
           (COALESCE(e.first_name, '') || ' ' || COALESCE(e.last_name, '')) ILIKE $4
           OR ei.payment_reference ILIKE $4
@@ -152,6 +185,9 @@ const getInvoicePayments = async (req, res) => {
       FROM eSparkTalentAPI_other_payment op
       WHERE op.client_id = $1
         AND ($2::text IS NULL OR op.payment_status = $2)
+        AND ($5::boolean IS NULL OR ((op.payment_status != 'paid' AND op.due_date < CURRENT_DATE) = $5))
+        AND ($6::boolean IS NULL OR op.is_payment_due = $6)
+        AND ($7::text IS NULL OR LOWER(op.payment_method) = LOWER($7))
         AND ($4::text IS NULL OR (
           op.payment_reference ILIKE $4
         ))
@@ -183,8 +219,8 @@ const getInvoicePayments = async (req, res) => {
         can_pay
       FROM filtered_invoices
       ORDER BY ${orderBy} ${orderDirection}, id DESC
-      LIMIT $5
-      OFFSET $6
+      LIMIT $8
+      OFFSET $9
     `;
 
     const statsQuery = `
