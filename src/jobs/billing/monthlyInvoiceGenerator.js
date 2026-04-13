@@ -219,13 +219,23 @@ const generateMonthlyInvoices = async () => {
         } else {
           invoiceAmount = salaryAmount;
           const joiningDate = new Date(employee.joining_date);
+          const billingMonthDate = new Date(
+            currentYear,
+            currentMonthNumber - 1,
+            1,
+          );
+
           const isFirstMonth =
-            joiningDate.getMonth() === now.getMonth() &&
-            joiningDate.getFullYear() === now.getFullYear();
+            joiningDate.getMonth() === billingMonthDate.getMonth() &&
+            joiningDate.getFullYear() === billingMonthDate.getFullYear();
 
           if (isFirstMonth && joiningDate.getDate() > 1) {
             // Prorate salary based on days worked
-            const totalDaysInMonth = lastDayOfMonth;
+            const totalDaysInMonth = new Date(
+              billingMonthDate.getFullYear(),
+              billingMonthDate.getMonth() + 1,
+              0,
+            ).getDate();
             const daysWorked = totalDaysInMonth - joiningDate.getDate() + 1;
             invoiceAmount = (salaryAmount / totalDaysInMonth) * daysWorked;
             logger.info(

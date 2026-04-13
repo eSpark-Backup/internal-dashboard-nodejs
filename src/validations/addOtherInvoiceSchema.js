@@ -34,10 +34,12 @@ export const updateOtherInvoiceSchema = yup.object({
     due_date: yup.date().optional(),
     invoice_amount: yup.number().optional(),
     currency: yup.string().optional(),
-    payment_status: yup.string().oneOf(["pending", "processing", "paid"]).optional(),
+    payment_status: yup
+      .string()
+      .oneOf(["pending", "processing", "paid"])
+      .optional(),
   }),
-})
-
+});
 
 export const downloadOtherInvoiceSchema = yup.object({
   query: yup.object({
@@ -45,10 +47,28 @@ export const downloadOtherInvoiceSchema = yup.object({
   }),
 });
 
-
 export const getClientInvoicePaymentsSchema = yup.object({
   query: yup.object({
-    payment_status: yup.string().oneOf(["pending", "processing", "paid"]).optional(),
+    payment_status: yup
+      .string()
+      .oneOf(["pending", "processing", "paid"])
+      .optional(),
+    q: yup.string().optional(),
+    sort_by: yup
+      .string()
+      .oneOf([
+        "invoice_date",
+        "invoice_amount",
+        "billing_month",
+        "paid_at",
+        "due_date",
+      ])
+      .optional(),
+    sort_order: yup.string().oneOf(["asc", "desc", "ASC", "DESC"]).optional(),
+    invoice_type: yup.string().oneOf(["SALARY", "CUSTOM"]).optional(),
+    limit: yup.number().integer().min(1).max(100).optional(),
+    page: yup.number().integer().min(1).optional(),
+    offset: yup.number().integer().min(0).optional(),
   }),
 });
 
@@ -57,7 +77,13 @@ export const updateInvoicePaymentStatusSchema = yup.object({
     id: yup.string().required("ID is required"),
   }),
   body: yup.object({
-    category: yup.string().oneOf(["employee_invoice", "other_payment"]).required("Category is required"),
-    payment_status: yup.string().oneOf(["pending", "processing", "paid"]).required("Payment status is required"),
+    category: yup
+      .string()
+      .oneOf(["employee_invoice", "other_payment"])
+      .required("Category is required"),
+    payment_status: yup
+      .string()
+      .oneOf(["pending", "processing", "paid"])
+      .required("Payment status is required"),
   }),
 });

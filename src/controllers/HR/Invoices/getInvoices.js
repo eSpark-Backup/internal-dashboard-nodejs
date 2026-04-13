@@ -1,189 +1,292 @@
 import pool from "../../../config/db.js";
 import { logger } from "../../../helpers/logger.js";
 
+const DEFAULT_LIMIT = 10;
+const MAX_LIMIT = 100;
+const DEFAULT_PAGE = 1;
+const VALID_SORT_FIELDS = new Set([
+  "invoice_date",
+  "due_date",
+  "invoice_amount",
+  "billing_month",
+  "paid_at",
+]);
+
 const getInvoices = async (req, res) => {
-  const excludedEmail = process.env.TALENT_EMAIL;
-  const { client_id, payment_status, invoice_type, start_date, end_date } =
-    req.query || {};
+  const talentEmail = process.env.TALENT_EMAIL || "";
+  const {
+    client_id,
+    payment_status,
+    invoice_type,
+    start_date,
+    end_date,
+    q,
+    sort_by,
+    sort_order,
+    limit: limitQuery,
+    page: pageQuery,
+    offset: offsetQuery,
+  } = req.query || {};
+
+  const limit = limitQuery ? Number(limitQuery) : DEFAULT_LIMIT;
+  const page = pageQuery ? Number(pageQuery) : undefined;
+  const offset = offsetQuery ? Number(offsetQuery) : undefined;
+  const clientId = client_id !== undefined ? Number(client_id) : undefined;
+  const startDate = start_date || null;
+  const endDate = end_date || null;
+  const searchTerm = q ? `%${q}%` : null;
+
+  if (!Number.isInteger(limit) || limit < 1 || limit > MAX_LIMIT) {
+    return res.status(400).json({
+      message: "limit must be an integer between 1 and 100",
+    });
+  }
+
+  if (page !== undefined && (!Number.isInteger(page) || page < 1)) {
+    return res.status(400).json({
+      message: "page must be an integer greater than or equal to 1",
+    });
+  }
+
+  if (offset !== undefined && (!Number.isInteger(offset) || offset < 0)) {
+    return res.status(400).json({
+      message: "offset must be a non-negative integer",
+    });
+  }
+
+  if (client_id !== undefined && (Number.isNaN(clientId) || clientId < 1)) {
+    return res
+      .status(400)
+      .json({ message: "client_id must be a valid integer" });
+  }
+
+  if (invoice_type && !["SALARY", "CUSTOM"].includes(invoice_type)) {
+    return res.status(400).json({
+      message: "invoice_type must be either SALARY or CUSTOM",
+    });
+  }
+
+  if (start_date && Number.isNaN(Date.parse(start_date))) {
+    return res.status(400).json({ message: "start_date must be a valid date" });
+  }
+
+  if (end_date && Number.isNaN(Date.parse(end_date))) {
+    return res.status(400).json({ message: "end_date must be a valid date" });
+  }
+
+  const currentPage =
+    page !== undefined
+      ? page
+      : offset !== undefined
+        ? Math.floor(offset / limit) + 1
+        : DEFAULT_PAGE;
+
+  const computedOffset = (currentPage - 1) * limit;
+  const orderDirection =
+    String(sort_order || "desc").toUpperCase() === "ASC" ? "ASC" : "DESC";
+  const orderBy = VALID_SORT_FIELDS.has(sort_by) ? sort_by : "created_at";
 
   try {
-    // If no filters provided, return client list as before
-    if (
-      !client_id &&
-      !payment_status &&
-      !invoice_type &&
-      !start_date &&
-      !end_date
-    ) {
-      const Invoices = await pool.query(
-        `
-                SELECT 
-                    c.id,
-                    c.company_name,
-                    c.client_id,
-                    c.email,
-                    eu.is_active
-                FROM eSparkTalentAPI_client AS c
-                LEFT JOIN eSparkTalentAPI_end_user AS eu
-                    ON c.email = eu.email
-                WHERE c.email != $1
-            `,
-        [excludedEmail],
-      );
+    const queryParams = [
+      talentEmail,
+      clientId || null,
+      payment_status || null,
+      invoice_type || null,
+      startDate,
+      endDate,
+      searchTerm,
+    ];
 
-      return res.status(200).json(Invoices.rows);
-    }
+    const employeeInvoiceQuery = `
+      SELECT
+        ei.id,
+        'employee_invoice' AS type,
+        ei.client_id,
+        ei.employee_id,
+        COALESCE(e.first_name, '') || ' ' || COALESCE(e.last_name, '') AS employee_name,
+        e.employee_id AS employee_code,
+        ei.invoice_date,
+        ei.due_date,
+        ei.billing_month,
+        ei.invoice_amount,
+        ei.currency,
+        ei.payment_status,
+        ei.is_payment_due,
+        ei.invoice_type,
+        ei.basket_id,
+        ei.payment_method,
+        ei.payment_reference,
+        ei.paid_at,
+        c.company_name,
+        c.email AS client_email,
+        c.first_name || ' ' || c.last_name AS client_name,
+        CASE
+          WHEN ei.payment_status != 'paid' AND ei.due_date < CURRENT_DATE THEN TRUE
+          ELSE FALSE
+        END AS is_overdue,
+        CASE
+          WHEN ei.payment_status != 'paid' AND ei.is_payment_due = TRUE THEN TRUE
+          ELSE FALSE
+        END AS can_pay,
+        ei.created_at
+      FROM eSparkTalentAPI_employee_invoice ei
+      LEFT JOIN eSparkTalentAPI_client c ON ei.client_id = c.id
+      LEFT JOIN eSparkTalentAPI_employee e ON ei.employee_id = e.id
+      WHERE c.email != $1
+        AND ($2::bigint IS NULL OR ei.client_id = $2)
+        AND ($3::text IS NULL OR ei.payment_status = $3)
+        AND ($4::text IS NULL OR ei.invoice_type = $4)
+        AND ($5::date IS NULL OR ei.invoice_date >= $5)
+        AND ($6::date IS NULL OR ei.invoice_date <= $6)
+        AND ($7::text IS NULL OR (
+          (COALESCE(e.first_name, '') || ' ' || COALESCE(e.last_name, '')) ILIKE $7
+          OR ei.payment_reference ILIKE $7
+          OR c.company_name ILIKE $7
+        ))
+    `;
 
-    // Build dynamic query for filtered invoice data
-    const conditions = ["c.email != $1"];
-    const params = [excludedEmail];
-    let paramCount = 1;
+    const otherPaymentQuery = `
+      SELECT
+        op.id,
+        'other_payment' AS type,
+        op.client_id,
+        NULL AS employee_id,
+        NULL AS employee_name,
+        NULL AS employee_code,
+        op.invoice_date,
+        op.due_date,
+        NULL::date AS billing_month,
+        op.invoice_amount,
+        op.currency,
+        op.payment_status,
+        op.is_payment_due,
+        'CUSTOM' AS invoice_type,
+        op.basket_id,
+        op.payment_method,
+        op.payment_reference,
+        op.paid_at,
+        c.company_name,
+        c.email AS client_email,
+        c.first_name || ' ' || c.last_name AS client_name,
+        CASE
+          WHEN op.payment_status != 'paid' AND op.due_date < CURRENT_DATE THEN TRUE
+          ELSE FALSE
+        END AS is_overdue,
+        CASE
+          WHEN op.payment_status != 'paid' AND op.is_payment_due = TRUE THEN TRUE
+          ELSE FALSE
+        END AS can_pay,
+        op.created_at
+      FROM eSparkTalentAPI_other_payment op
+      LEFT JOIN eSparkTalentAPI_client c ON op.client_id = c.id
+      WHERE c.email != $1
+        AND ($2::bigint IS NULL OR op.client_id = $2)
+        AND ($3::text IS NULL OR op.payment_status = $3)
+        AND ($5::date IS NULL OR op.invoice_date >= $5)
+        AND ($6::date IS NULL OR op.invoice_date <= $6)
+        AND ($7::text IS NULL OR (
+          op.payment_reference ILIKE $7
+          OR c.company_name ILIKE $7
+        ))
+    `;
 
-    if (client_id) {
-      paramCount++;
-      conditions.push(`ei.client_id = $${paramCount}`);
-      params.push(client_id);
-    }
+    const dataQuery = `
+      WITH filtered_invoices AS (
+        ${employeeInvoiceQuery}
+        UNION ALL
+        ${otherPaymentQuery}
+      )
+      SELECT
+        id,
+        type,
+        client_id,
+        employee_id,
+        employee_name,
+        employee_code,
+        TO_CHAR(invoice_date, 'YYYY-MM-DD') AS invoice_date,
+        TO_CHAR(due_date, 'YYYY-MM-DD') AS due_date,
+        TO_CHAR(billing_month, 'YYYY-MM-DD') AS billing_month,
+        invoice_amount,
+        currency,
+        payment_status,
+        is_payment_due,
+        invoice_type,
+        basket_id,
+        payment_method,
+        payment_reference,
+        TO_CHAR(paid_at, 'YYYY-MM-DD HH24:MI:SS') AS paid_at,
+        company_name,
+        client_email,
+        client_name,
+        is_overdue,
+        can_pay
+      FROM filtered_invoices
+      ORDER BY ${orderBy} ${orderDirection}, id DESC
+      LIMIT $8
+      OFFSET $9
+    `;
 
-    if (payment_status) {
-      paramCount++;
-      conditions.push(`ei.payment_status = $${paramCount}`);
-      params.push(payment_status);
-    }
+    const statsQuery = `
+      WITH filtered_invoices AS (
+        ${employeeInvoiceQuery}
+        UNION ALL
+        ${otherPaymentQuery}
+      )
+      SELECT
+        COUNT(*)::int AS total,
+        COUNT(*) FILTER (WHERE payment_status != 'paid')::int AS unpaid_count,
+        COUNT(*) FILTER (WHERE payment_status = 'paid')::int AS paid_count,
+        COUNT(*) FILTER (WHERE is_overdue)::int AS overdue_count,
+        COALESCE(SUM(invoice_amount) FILTER (WHERE payment_status != 'paid'), 0)::numeric AS total_unpaid_amount
+      FROM filtered_invoices
+    `;
 
-    if (start_date) {
-      paramCount++;
-      conditions.push(`ei.invoice_date >= $${paramCount}`);
-      params.push(start_date);
-    }
+    const [dataResult, statsResult] = await Promise.all([
+      pool.query(dataQuery, [...queryParams, limit, computedOffset]),
+      pool.query(statsQuery, queryParams),
+    ]);
 
-    if (end_date) {
-      paramCount++;
-      conditions.push(`ei.invoice_date <= $${paramCount}`);
-      params.push(end_date);
-    }
+    const stats = statsResult.rows[0] || {
+      total: 0,
+      unpaid_count: 0,
+      paid_count: 0,
+      overdue_count: 0,
+      total_unpaid_amount: 0,
+    };
 
-    const whereClause = conditions.join(" AND ");
-
-    let employeeInvoices = [];
-    let customInvoices = [];
-
-    // Fetch employee invoices (salary)
-    if (!invoice_type || invoice_type === "SALARY") {
-      const employeeInvoicesQuery = `
-                SELECT 
-                    ei.id,
-                    ei.client_id,
-                    ei.employee_id,
-                    TO_CHAR(ei.invoice_date, 'YYYY-MM-DD') as invoice_date,
-                    TO_CHAR(ei.due_date, 'YYYY-MM-DD') as due_date,
-                    TO_CHAR(ei.billing_month, 'YYYY-MM-DD') as billing_month,
-                    ei.invoice_amount,
-                    ei.currency,
-                    ei.payment_status,
-                    ei.is_payment_due,
-                    ei.invoice_type,
-                    ei.basket_id,
-                    ei.payment_method,
-                    ei.payment_reference,
-                    TO_CHAR(ei.paid_at, 'YYYY-MM-DD HH24:MI:SS') as paid_at,
-                    c.company_name,
-                    c.email as client_email,
-                    c.first_name || ' ' || c.last_name as client_name,
-                    e.first_name || ' ' || e.last_name as employee_name,
-                    e.employee_id as employee_code,
-                    e.email as employee_email,
-                    CASE 
-                        WHEN ei.payment_status != 'paid' AND ei.due_date < CURRENT_DATE THEN true
-                        ELSE false
-                    END as is_overdue
-                FROM eSparkTalentAPI_employee_invoice ei
-                LEFT JOIN eSparkTalentAPI_client c ON ei.client_id = c.id
-                LEFT JOIN eSparkTalentAPI_employee e ON ei.employee_id = e.id
-                WHERE ${whereClause}
-                ORDER BY ei.created_at DESC
-            `;
-
-      const employeeResult = await pool.query(employeeInvoicesQuery, params);
-      employeeInvoices = employeeResult.rows;
-    }
-
-    // Fetch custom invoices (other payments)
-    if (!invoice_type || invoice_type === "CUSTOM") {
-      const customInvoicesQuery = `
-                SELECT 
-                    op.id,
-                    op.client_id,
-                    op.invoice_reference,
-                    TO_CHAR(op.invoice_date, 'YYYY-MM-DD') as invoice_date,
-                    TO_CHAR(op.due_date, 'YYYY-MM-DD') as due_date,
-                    op.invoice_amount,
-                    op.currency,
-                    op.payment_status,
-                    op.is_payment_due,
-                    op.basket_id,
-                    op.payment_method,
-                    op.payment_reference,
-                    TO_CHAR(op.paid_at, 'YYYY-MM-DD HH24:MI:SS') as paid_at,
-                    c.company_name,
-                    c.email as client_email,
-                    c.first_name || ' ' || c.last_name as client_name,
-                    CASE 
-                        WHEN op.payment_status != 'paid' AND op.due_date < CURRENT_DATE THEN true
-                        ELSE false
-                    END as is_overdue
-                FROM eSparkTalentAPI_other_payment op
-                LEFT JOIN eSparkTalentAPI_client c ON op.client_id = c.id
-                WHERE ${whereClause}
-                ORDER BY op.created_at DESC
-            `;
-
-      const customResult = await pool.query(customInvoicesQuery, params);
-      customInvoices = customResult.rows;
-    }
-
-    // Calculate statistics
-    const allInvoices = [...employeeInvoices, ...customInvoices];
-
-    const totalAmount = allInvoices.reduce(
-      (sum, inv) => sum + parseFloat(inv.invoice_amount || 0),
-      0,
-    );
-
-    const totalPaid = allInvoices
-      .filter((inv) => inv.payment_status === "paid")
-      .reduce((sum, inv) => sum + parseFloat(inv.invoice_amount || 0), 0);
-
-    const totalUnpaid = allInvoices
-      .filter((inv) => inv.payment_status !== "paid")
-      .reduce((sum, inv) => sum + parseFloat(inv.invoice_amount || 0), 0);
-
-    const paidCount = allInvoices.filter(
-      (inv) => inv.payment_status === "paid",
-    ).length;
-    const unpaidCount = allInvoices.filter(
-      (inv) => inv.payment_status !== "paid",
-    ).length;
-    const overdueCount = allInvoices.filter(
-      (inv) => inv.is_overdue === true,
-    ).length;
+    const rows = dataResult.rows.map((row) => ({
+      ...row,
+      invoice_amount:
+        row.invoice_amount !== null ? Number(row.invoice_amount) : null,
+    }));
 
     return res.status(200).json({
-      employee_invoices: employeeInvoices,
-      other_payments: customInvoices,
+      employee_invoices: rows.filter(
+        (item) => item.type === "employee_invoice",
+      ),
+      other_payments: rows.filter((item) => item.type === "other_payment"),
       statistics: {
-        total_amount: parseFloat(totalAmount.toFixed(2)),
-        total_paid: parseFloat(totalPaid.toFixed(2)),
-        total_unpaid: parseFloat(totalUnpaid.toFixed(2)),
-        paid_count: paidCount,
-        unpaid_count: unpaidCount,
-        overdue_count: overdueCount,
-        total_invoices: allInvoices.length,
+        total_invoices: stats.total,
+        unpaid_count: stats.unpaid_count,
+        paid_count: stats.paid_count,
+        overdue_count: stats.overdue_count,
+        total_unpaid_amount: Number(stats.total_unpaid_amount),
+      },
+      pagination: {
+        total: stats.total,
+        total_pages: Math.max(1, Math.ceil(stats.total / limit)),
+        current_page: currentPage,
+        per_page: rows.length,
+        next_page:
+          currentPage < Math.max(1, Math.ceil(stats.total / limit))
+            ? currentPage + 1
+            : null,
+        prev_page: currentPage > 1 ? currentPage - 1 : null,
       },
     });
   } catch (err) {
-    logger.error(`Error fetching Invoices: ${err.message}`);
-    return res.status(400).json({ error: err.message });
+    logger.error(`Error fetching invoices: ${err}`);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 

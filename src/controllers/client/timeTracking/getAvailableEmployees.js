@@ -18,8 +18,14 @@ const getAvailableEmployees = async (req, res) => {
 
         const result = await pool.query(`
             SELECT 
-            e.email as employee_id,
-            CONCAT(e.first_name, ' ', e.last_name) AS name
+                e.email as employee_id,
+                CONCAT(e.first_name, ' ', e.last_name) AS name,
+                oe.job_title,
+                oe.country,
+                oe.role_type,
+                oe.employment_term,
+                TO_CHAR(oe.joining_date, 'YYYY-MM-DD') as joining_date,
+                oe.status
             FROM eSparkTalentAPI_outsource_employees AS oe
             LEFT JOIN eSparkTalentAPI_employee AS e
                 ON oe.employee_id = e.id

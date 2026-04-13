@@ -29,6 +29,7 @@ const getEmployees = async (req, res) => {
         emp.last_name,
         emp.image,
         emp.job_title,
+        emp.role,
         emp.company AS default_company,
         out.client_id,
         client.company_name
@@ -62,6 +63,7 @@ const getEmployees = async (req, res) => {
           employee_id: row.employee_id,
           name: fullName,
           image_path: signedImageUrl,
+          role: row.role,
           designation: row.job_title,
           company: row.company_name || row.default_company,
           active: !!row.client_id,
