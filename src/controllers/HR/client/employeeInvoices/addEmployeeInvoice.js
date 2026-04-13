@@ -108,6 +108,38 @@ const addEmployeeInvoice = async (req, res) => {
 
     await client.query("BEGIN");
 
+    const invoiceDateValue = new Date(invoice_date);
+    const invoiceMonth = invoiceDateValue.getMonth() + 1;
+    const invoiceYear = invoiceDateValue.getFullYear();
+
+    const salaryInvoiceCheck = await client.query(
+      `SELECT id
+       FROM eSparkTalentAPI_employee_invoice
+       WHERE employee_id = $1
+         AND client_id = $2
+         AND invoice_type = 'SALARY'
+         AND (
+           (billing_month IS NOT NULL AND EXTRACT(MONTH FROM billing_month) = $3 AND EXTRACT(YEAR FROM billing_month) = $4)
+           OR (billing_month IS NULL AND EXTRACT(MONTH FROM invoice_date) = $3 AND EXTRACT(YEAR FROM invoice_date) = $4)
+         )
+       LIMIT 1`,
+      [
+        employeeResult.rows[0].id,
+        clientResult.rows[0].id,
+        invoiceMonth,
+        invoiceYear,
+      ],
+    );
+
+    if (salaryInvoiceCheck.rows.length > 0) {
+      await client.query("ROLLBACK");
+      await cleanupFiles([{ localPath: invoice?.path, s3Path: invoiceUrl }]);
+      return res.status(400).json({
+        message:
+          "A salary invoice already exists for this employee and month. Custom invoice creation is blocked for the same month.",
+      });
+    }
+
     const invoiceResult = await client.query(
       `INSERT INTO eSparkTalentAPI_employee_invoice 
    (client_id, employee_id, invoice_date, due_date, currency, invoice_amount, invoice, payment_status, invoice_type, is_payment_due) 

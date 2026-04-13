@@ -116,26 +116,8 @@ const generateMonthlyInvoices = async () => {
     // const currentYear = now.getFullYear();
     // const currentMonthNumber = now.getMonth() + 1;
 
-    // Check if invoices already generated for this month
-    const existingInvoicesCheck = await client.query(
-      `SELECT COUNT(*) as count 
-       FROM eSparkTalentAPI_employee_invoice 
-       WHERE billing_month = $1 AND invoice_type = 'SALARY'`,
-      [currentMonth],
-    );
-
-    if (parseInt(existingInvoicesCheck.rows[0].count) > 0) {
-      logger.warn(
-        `Salary invoices already generated for ${currentMonth.toISOString().split("T")[0]}`,
-      );
-      await client.query("ROLLBACK");
-      return {
-        success: false,
-        message: "Invoices already generated for this month",
-      };
-    }
-
-    // Get all active outsourced employees with their client and salary info
+    // Fetch active outsourced employees with their client and salary info.
+    // Duplicate protection is handled individually per employee below.
     const employeesQuery = `
       SELECT 
         oe.id as outsource_id,
@@ -179,6 +161,33 @@ const generateMonthlyInvoices = async () => {
     // Generate invoice for each employee
     for (const employee of employees) {
       try {
+        const existingInvoiceCheck = await client.query(
+          `
+  SELECT invoice_type
+  FROM eSparkTalentAPI_employee_invoice
+  WHERE employee_id = $1
+    AND client_id = $2
+    AND (
+      (billing_month IS NOT NULL AND EXTRACT(MONTH FROM billing_month) = $3 AND EXTRACT(YEAR FROM billing_month) = $4)
+      OR (billing_month IS NULL AND EXTRACT(MONTH FROM invoice_date) = $3 AND EXTRACT(YEAR FROM invoice_date) = $4)
+    )
+  LIMIT 1
+  `,
+          [
+            employee.employee_id,
+            employee.client_id,
+            currentMonthNumber,
+            currentYear,
+          ],
+        );
+
+        if (existingInvoiceCheck.rows.length > 0) {
+          logger.info(
+            `Skipping SALARY invoice for employee ${employee.employee_id} because ${existingInvoiceCheck.rows[0].invoice_type} invoice already exists for this client and month`,
+          );
+          continue;
+        }
+
         // Calculate invoice dates
         const invoiceDate = now;
         const dueDay = employee.invoice_due_date || 31;
