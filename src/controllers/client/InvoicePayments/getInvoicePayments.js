@@ -34,6 +34,8 @@ const getInvoicePayments = async (req, res) => {
     sort_by,
     sort_order,
     invoice_type,
+    start_date,
+    end_date,
     is_overdue,
     is_payment_due,
     payment_method,
@@ -49,6 +51,8 @@ const getInvoicePayments = async (req, res) => {
   const isOverdue = parseBooleanQuery(is_overdue);
   const isPaymentDue = parseBooleanQuery(is_payment_due);
   const paymentMethod = payment_method ? payment_method.trim() : null;
+  const startDate = start_date || null;
+  const endDate = end_date || null;
 
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_LIMIT) {
     return res.status(400).json({
@@ -78,6 +82,14 @@ const getInvoicePayments = async (req, res) => {
     return res.status(400).json({
       message: "is_payment_due must be true or false",
     });
+  }
+
+  if (start_date && Number.isNaN(Date.parse(start_date))) {
+    return res.status(400).json({ message: "start_date must be a valid date" });
+  }
+
+  if (end_date && Number.isNaN(Date.parse(end_date))) {
+    return res.status(400).json({ message: "end_date must be a valid date" });
   }
 
   const currentPage =
@@ -114,6 +126,8 @@ const getInvoicePayments = async (req, res) => {
       isOverdue,
       isPaymentDue,
       paymentMethod || null,
+      startDate,
+      endDate,
     ];
 
     const employeeInvoiceQuery = `
@@ -150,6 +164,8 @@ const getInvoicePayments = async (req, res) => {
         AND ($5::boolean IS NULL OR ((ei.payment_status != 'paid' AND ei.due_date < CURRENT_DATE) = $5))
         AND ($6::boolean IS NULL OR ei.is_payment_due = $6)
         AND ($7::text IS NULL OR LOWER(ei.payment_method) = LOWER($7))
+        AND ($8::date IS NULL OR ei.invoice_date >= $8)
+        AND ($9::date IS NULL OR ei.invoice_date <= $9)  
         AND ($4::text IS NULL OR (
           (COALESCE(e.first_name, '') || ' ' || COALESCE(e.last_name, '')) ILIKE $4
           OR ei.payment_reference ILIKE $4
@@ -188,6 +204,8 @@ const getInvoicePayments = async (req, res) => {
         AND ($5::boolean IS NULL OR ((op.payment_status != 'paid' AND op.due_date < CURRENT_DATE) = $5))
         AND ($6::boolean IS NULL OR op.is_payment_due = $6)
         AND ($7::text IS NULL OR LOWER(op.payment_method) = LOWER($7))
+        AND ($8::date IS NULL OR op.invoice_date >= $8)
+        AND ($9::date IS NULL OR op.invoice_date <= $9)
         AND ($4::text IS NULL OR (
           op.payment_reference ILIKE $4
         ))
@@ -219,8 +237,8 @@ const getInvoicePayments = async (req, res) => {
         can_pay
       FROM filtered_invoices
       ORDER BY ${orderBy} ${orderDirection}, id DESC
-      LIMIT $8
-      OFFSET $9
+      LIMIT $10
+      OFFSET $11
     `;
 
     const statsQuery = `
@@ -282,6 +300,10 @@ const getInvoicePayments = async (req, res) => {
             ? currentPage + 1
             : null,
         prev_page: currentPage > 1 ? currentPage - 1 : null,
+        from: computedOffset + 1,
+        to: Math.min(computedOffset + limit, stats.total),
+        first_page: 1,
+        last_page: Math.max(1, Math.ceil(stats.total / limit)),
       },
     });
   } catch (error) {

@@ -317,6 +317,10 @@ const getInvoices = async (req, res) => {
             ? currentPage + 1
             : null,
         prev_page: currentPage > 1 ? currentPage - 1 : null,
+        from: computedOffset + 1,
+        to: Math.min(computedOffset + rows.length, stats.total),
+        first_page: 1,
+        last_page: Math.max(1, Math.ceil(stats.total / limit)),
       },
     });
   } catch (err) {
