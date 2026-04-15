@@ -14,7 +14,10 @@ export const addEmployeeInvoiceSchema = yup.object({
 export const getEmployeeInvoicesSchema = yup.object({
     query: yup.object({
         client_id: yup.string().email().required("Client ID is required"),
-        tab: yup.string().oneOf(["pending", "processing", "paid"]).optional(),
+        tab: yup
+          .string()
+          .oneOf(["pending", "processing", "paid", "under_review"])
+          .optional(),
     }),
 });
 

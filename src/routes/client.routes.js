@@ -25,9 +25,11 @@ import updateClientPassword from "../controllers/client/clientCompany/updateClie
 import {
   getClientInvoicePaymentsSchema,
   updateInvoicePaymentStatusSchema,
+  manualInvoicePaymentSchema,
 } from "../validations/addOtherInvoiceSchema.js";
 import getInvoicePayments from "../controllers/client/InvoicePayments/getInvoicePayments.js";
 import updateInvoicePaymentStatus from "../controllers/client/InvoicePayments/updateInvoicePaymentStatus.js";
+import manualPayment from "../controllers/client/InvoicePayments/manualPayment.js";
 import {
   getClientPunchRequestSchema,
   updateClientPunchRequestSchema,
@@ -159,6 +161,14 @@ router.patch(
   authenticateJWT,
   validateSchema(updateInvoicePaymentStatusSchema),
   updateInvoicePaymentStatus,
+);
+
+// Submit manual payment request
+router.post(
+  "/invoices/:id/manual-payment",
+  authenticateJWT,
+  validateSchema(manualInvoicePaymentSchema),
+  manualPayment,
 );
 
 // Get Clock In Out
