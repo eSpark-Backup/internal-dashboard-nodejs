@@ -5,7 +5,7 @@ const getHRPermissions = async (userEmail) => {
   const permRes = await pool.query(
     `SELECT employee_perms, client_perms, leaves_perms, invoices_perms, policies_perms, guides_perms 
      FROM eSparkTalentAPI_account_n_persmission WHERE email = $1`,
-    [userEmail]
+    [userEmail],
   );
   return permRes.rows[0] || null;
 };
@@ -44,7 +44,7 @@ const getNotifications = async (req, res) => {
 
     const userRes = await pool.query(
       `SELECT role FROM eSparkTalentAPI_end_user WHERE email = $1`,
-      [userEmail]
+      [userEmail],
     );
 
     if (userRes.rows.length === 0) {
@@ -77,7 +77,7 @@ const getNotifications = async (req, res) => {
 
       const clientRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_client WHERE id = ANY($1::int[])`,
-        [ids]
+        [ids],
       );
 
       const map = new Map();
@@ -89,7 +89,7 @@ const getNotifications = async (req, res) => {
       type,
       description,
       dateObj,
-      notificationType = null
+      notificationType = null,
     ) => {
       if (
         isHR &&
@@ -118,18 +118,18 @@ const getNotifications = async (req, res) => {
         await Promise.all([
           pool.query(
             `${baseNotiQuery} AND notification_type NOT IN ('employee_contract', 'offshore_contracts')`,
-            [userEmail, fiveDaysAgo]
+            [userEmail, fiveDaysAgo],
           ),
           // Company contracts
           pool.query(
             `${baseNotiQuery} AND notification_type = 'employee_contract' AND created_at >= $2 ORDER BY created_at DESC`,
-            [userEmail, fiveDaysAgo]
+            [userEmail, fiveDaysAgo],
           ),
 
           // Client contracts
           pool.query(
             `${baseNotiQuery} AND notification_type = 'offshore_contracts' AND created_at >= $2 ORDER BY created_at DESC`,
-            [userEmail, fiveDaysAgo]
+            [userEmail, fiveDaysAgo],
           ),
 
           // Policies (employee only)
@@ -139,7 +139,7 @@ const getNotifications = async (req, res) => {
       WHERE employee = true AND created_at >= $1
       ORDER BY created_at DESC
     `,
-            [fiveDaysAgo]
+            [fiveDaysAgo],
           ),
 
           // Guides (employee only)
@@ -149,12 +149,12 @@ const getNotifications = async (req, res) => {
       WHERE employee = true AND created_at >= $1
       ORDER BY created_at DESC
     `,
-            [fiveDaysAgo]
+            [fiveDaysAgo],
           ),
         ]);
 
       logger.info(
-        `Fetched general notifications: ${notificationsData.rows.length}`
+        `Fetched general notifications: ${notificationsData.rows.length}`,
       );
       logger.info(`Fetched company contracts: ${empContract.rows.length}`);
       logger.info(`Fetched client contracts: ${offContract.rows.length}`);
@@ -164,14 +164,14 @@ const getNotifications = async (req, res) => {
       notificationsData.rows.forEach((n) => {
         logger.info(
           `Adding general notification: ${notificationFormatType(
-            n.notification_type
-          )}`
+            n.notification_type,
+          )}`,
         );
         pushNotification(
           notificationFormatType(n.notification_type),
           n.description,
           n.updated_at,
-          n.notification_type
+          n.notification_type,
         );
       });
 
@@ -182,7 +182,7 @@ const getNotifications = async (req, res) => {
           "Company Contracts",
           `${empContract.rows.length} new contract has been added to company contracts.`,
           empContract.rows[0].updated_at,
-          "employee_contract"
+          "employee_contract",
         );
       }
       // Client Contracts
@@ -192,7 +192,7 @@ const getNotifications = async (req, res) => {
           "Client Contracts",
           `${offContract.rows.length} new contract has been added to client contracts.`,
           offContract.rows[0].created_at,
-          "offshore_contracts"
+          "offshore_contracts",
         );
       }
 
@@ -206,7 +206,7 @@ const getNotifications = async (req, res) => {
           "Policy",
           description,
           policies.rows[0].created_at,
-          "policy"
+          "policy",
         );
       }
 
@@ -220,7 +220,7 @@ const getNotifications = async (req, res) => {
           "Guide",
           description,
           guides.rows[0].created_at,
-          "guide"
+          "guide",
         );
       }
     } else if (role === "client") {
@@ -246,7 +246,7 @@ const getNotifications = async (req, res) => {
         'other_payment', 'employee_invoice'
       )
     `,
-          [userEmail, fiveDaysAgo]
+          [userEmail, fiveDaysAgo],
         ),
 
         //  Interview schedules (added)
@@ -256,7 +256,7 @@ const getNotifications = async (req, res) => {
       WHERE email = $1 AND notification_type = 'interview_schedule' AND status = 'added'
       ORDER BY created_at DESC
     `,
-          [userEmail]
+          [userEmail],
         ),
 
         //  Onboarding (added)
@@ -266,7 +266,7 @@ const getNotifications = async (req, res) => {
       WHERE email = $1 AND notification_type = 'onboarding' AND status = 'added'
       ORDER BY created_at DESC
     `,
-          [userEmail]
+          [userEmail],
         ),
 
         //  Invoices (added)
@@ -277,7 +277,7 @@ const getNotifications = async (req, res) => {
       AND notification_type IN ('employee_invoice', 'other_payment')
       ORDER BY created_at DESC
     `,
-          [userEmail]
+          [userEmail],
         ),
 
         // Client Contracts
@@ -287,7 +287,7 @@ const getNotifications = async (req, res) => {
       WHERE email = $1 AND notification_type = 'client_contract'
       AND created_at >= $2 ORDER BY created_at DESC
     `,
-          [userEmail, fiveDaysAgo]
+          [userEmail, fiveDaysAgo],
         ),
 
         //  Offshore Contracts
@@ -297,7 +297,7 @@ const getNotifications = async (req, res) => {
       WHERE email = $1 AND notification_type = 'offshore_contracts'
       AND created_at >= $2 ORDER BY created_at DESC
     `,
-          [userEmail, fiveDaysAgo]
+          [userEmail, fiveDaysAgo],
         ),
 
         //  Policies (for clients)
@@ -307,7 +307,7 @@ const getNotifications = async (req, res) => {
       WHERE client = true AND created_at >= $1
       ORDER BY created_at DESC
     `,
-          [fiveDaysAgo]
+          [fiveDaysAgo],
         ),
 
         //  Guides (for clients)
@@ -317,7 +317,7 @@ const getNotifications = async (req, res) => {
       WHERE client = true AND created_at >= $1
       ORDER BY created_at DESC
     `,
-          [fiveDaysAgo]
+          [fiveDaysAgo],
         ),
 
         // Punch Requests (for clients)
@@ -327,7 +327,7 @@ const getNotifications = async (req, res) => {
       WHERE email = $1 AND notification_type = 'punch_request' AND status = 'added'
       ORDER BY created_at DESC
     `,
-          [userEmail]
+          [userEmail],
         ),
 
         // Leave Requests (for clients)
@@ -337,7 +337,7 @@ const getNotifications = async (req, res) => {
       WHERE email = $1 AND notification_type = 'leave_request' AND status = 'added'
       ORDER BY created_at DESC
     `,
-          [userEmail]
+          [userEmail],
         ),
       ]);
 
@@ -349,7 +349,7 @@ const getNotifications = async (req, res) => {
           type,
           n.description,
           n.updated_at,
-          n.notification_type
+          n.notification_type,
         );
       });
 
@@ -361,7 +361,7 @@ const getNotifications = async (req, res) => {
           "Company Contracts",
           msg,
           cltContract.rows[0].created_at,
-          "client_contract"
+          "client_contract",
         );
       }
 
@@ -373,7 +373,7 @@ const getNotifications = async (req, res) => {
           "Employee Contracts",
           msg,
           offContract.rows[0].created_at,
-          "offshore_contracts"
+          "offshore_contracts",
         );
       }
 
@@ -387,7 +387,7 @@ const getNotifications = async (req, res) => {
           "Policy",
           description,
           policies.rows[0].created_at,
-          "policy"
+          "policy",
         );
       }
 
@@ -401,7 +401,7 @@ const getNotifications = async (req, res) => {
           "Guide",
           description,
           guides.rows[0].created_at,
-          "guide"
+          "guide",
         );
       }
 
@@ -413,7 +413,7 @@ const getNotifications = async (req, res) => {
           "Interview Schedule",
           msg,
           intSch.rows[0].created_at,
-          "interview_schedule"
+          "interview_schedule",
         );
       }
 
@@ -429,7 +429,7 @@ const getNotifications = async (req, res) => {
           "Onboarding",
           description,
           onboard.rows[0].created_at,
-          "onboarding"
+          "onboarding",
         );
       }
 
@@ -445,7 +445,7 @@ const getNotifications = async (req, res) => {
           "Invoice",
           description,
           invoice.rows[0].created_at,
-          "employee_invoice"
+          "employee_invoice",
         );
       }
       // Punch Requests
@@ -460,7 +460,7 @@ const getNotifications = async (req, res) => {
           "Punch Request",
           description,
           punchReq.rows[0].created_at,
-          "punch_request"
+          "punch_request",
         );
       }
 
@@ -476,68 +476,84 @@ const getNotifications = async (req, res) => {
           "Leave Request",
           description,
           leaveReq.rows[0].created_at,
-          "leave_request"
+          "leave_request",
         );
       }
     } else {
-      const [hireReq, shortInt, rejInt, empInvoice, otherInv, wfhReq] =
-        await Promise.all([
-          pool.query(
-            `
+      const [
+        hireReq,
+        shortInt,
+        rejInt,
+        manualPaymentReq,
+        empInvoice,
+        otherInv,
+        wfhReq,
+      ] = await Promise.all([
+        pool.query(
+          `
       SELECT * FROM eSparkTalentAPI_notifications
       WHERE email = $1 AND notification_type = 'hiring_request' AND status = 'added' AND created_at >= $2
       ORDER BY created_at DESC
     `,
-            [talentEmail, fiveDaysAgo]
-          ),
+          [talentEmail, fiveDaysAgo],
+        ),
 
-          pool.query(
-            `
+        pool.query(
+          `
       SELECT * FROM eSparkTalentAPI_notifications
       WHERE email = $1 AND notification_type = 'interview_schedule' AND status = 'short_list' AND updated_at >= $2
       ORDER BY updated_at DESC
     `,
-            [talentEmail, fiveDaysAgo]
-          ),
+          [talentEmail, fiveDaysAgo],
+        ),
 
-          pool.query(
-            `
+        pool.query(
+          `
       SELECT * FROM eSparkTalentAPI_notifications
       WHERE email = $1 AND notification_type = 'interview_schedule' AND status = 'rejected' AND updated_at >= $2
       ORDER BY updated_at DESC
     `,
-            [talentEmail, fiveDaysAgo]
-          ),
+          [talentEmail, fiveDaysAgo],
+        ),
 
-          pool.query(
-            `
+        pool.query(
+          `
+      SELECT * FROM eSparkTalentAPI_notifications
+      WHERE email = $1 AND notification_type = 'manual_payment_request' AND status = 'pending' AND updated_at >= $2
+      ORDER BY updated_at DESC
+    `,
+          [talentEmail, fiveDaysAgo],
+        ),
+
+        pool.query(
+          `
       SELECT * FROM eSparkTalentAPI_notifications
       WHERE (status = 'processing' OR status = 'paid')
       AND notification_type = 'employee_invoice' AND email = $1 AND updated_at >= $2
       ORDER BY updated_at DESC
     `,
-            [talentEmail, fiveDaysAgo]
-          ),
+          [talentEmail, fiveDaysAgo],
+        ),
 
-          pool.query(
-            `
+        pool.query(
+          `
       SELECT * FROM eSparkTalentAPI_notifications
       WHERE (status = 'processing' OR status = 'paid')
       AND notification_type = 'other_payment' AND email = $1 AND updated_at >= $2
       ORDER BY updated_at DESC
     `,
-            [talentEmail, fiveDaysAgo]
-          ),
+          [talentEmail, fiveDaysAgo],
+        ),
 
-          pool.query(
-            `
+        pool.query(
+          `
       SELECT * FROM eSparkTalentAPI_notifications
       WHERE status = 'added' AND notification_type = 'wfh_request' AND email = $1 AND updated_at >= $2
       ORDER BY updated_at DESC
     `,
-            [talentEmail, fiveDaysAgo]
-          ),
-        ]);
+          [talentEmail, fiveDaysAgo],
+        ),
+      ]);
 
       // HIRING REQUESTS
 
@@ -545,15 +561,15 @@ const getNotifications = async (req, res) => {
       logger.info(
         `Processing ${
           hireReq.rows.length
-        } hiring_request notifications with refIds: ${hiringRefIds.join(", ")}`
+        } hiring_request notifications with refIds: ${hiringRefIds.join(", ")}`,
       );
 
       const hiringReqRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_hiring_request WHERE id = ANY($1::int[])`,
-        [hiringRefIds]
+        [hiringRefIds],
       );
       logger.info(
-        `Retrieved ${hiringReqRes.rows.length} hiring_request records from DB`
+        `Retrieved ${hiringReqRes.rows.length} hiring_request records from DB`,
       );
 
       const hiringReqMap = new Map();
@@ -562,7 +578,7 @@ const getNotifications = async (req, res) => {
         ...new Set(hiringReqRes.rows.map((r) => r.client_id)),
       ];
       logger.info(
-        `Unique client IDs in hiring requests: ${hiringClientIds.join(", ")}`
+        `Unique client IDs in hiring requests: ${hiringClientIds.join(", ")}`,
       );
 
       const hiringClientMap = await getClientsByIds(hiringClientIds);
@@ -571,7 +587,7 @@ const getNotifications = async (req, res) => {
         const hiring = hiringReqMap.get(hr.ref_id);
         if (!hiring) {
           logger.warn(
-            `Skipping: No hiring_request found for ref_id: ${hr.ref_id}`
+            `Skipping: No hiring_request found for ref_id: ${hr.ref_id}`,
           );
           continue;
         }
@@ -579,12 +595,12 @@ const getNotifications = async (req, res) => {
         const client = hiringClientMap.get(hiring.client_id);
         if (!client) {
           logger.warn(
-            `Skipping: No client found for client_id: ${hiring.client_id}`
+            `Skipping: No client found for client_id: ${hiring.client_id}`,
           );
           continue;
         }
         logger.info(
-          `Added Hiring Request notification for client ${client.company_name}`
+          `Added Hiring Request notification for client ${client.company_name}`,
         );
 
         if (isHR && !shouldShowNotification("hiring_request", hrPermissions)) {
@@ -602,9 +618,32 @@ const getNotifications = async (req, res) => {
         });
       }
 
+      if (manualPaymentReq?.rows?.length > 0) {
+        logger.info(
+          `Found ${manualPaymentReq.rows.length} manual_payment_request notifications`,
+        );
+
+        for (const req of manualPaymentReq.rows) {
+          if (
+            isHR &&
+            !shouldShowNotification("manual_payment_request", hrPermissions)
+          ) {
+            logger.info(`Skipping NOTIFICATION - HR lacks read permission`);
+            continue;
+          }
+
+          notiArray.push({
+            type: "Manual Payment Request",
+            description: `Manual payment request for invoice #${req.ref_id} requires a review.`,
+            date: req.updated_at.toISOString().split("T")[0],
+            time: req.updated_at.toTimeString().split(" ")[0],
+          });
+        }
+      }
+
       // INTERVIEW SHORTLIST
       logger.info(
-        `Found ${shortInt.rows.length} interview_schedule (short_list) notifications`
+        `Found ${shortInt.rows.length} interview_schedule (short_list) notifications`,
       );
       const interviewShortRefIds = shortInt.rows.map((st) => st.ref_id);
       if (interviewShortRefIds.length === 0) {
@@ -613,27 +652,27 @@ const getNotifications = async (req, res) => {
 
       const interviewShortSchedulesRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_interview_schedule WHERE id = ANY($1::int[])`,
-        [interviewShortRefIds]
+        [interviewShortRefIds],
       );
       logger.info(
-        `Retrieved ${interviewShortSchedulesRes.rows.length} interview_schedule records from DB`
+        `Retrieved ${interviewShortSchedulesRes.rows.length} interview_schedule records from DB`,
       );
 
       const interviewShortScheduleMap = new Map();
       interviewShortSchedulesRes.rows.forEach((row) =>
-        interviewShortScheduleMap.set(row.id, row)
+        interviewShortScheduleMap.set(row.id, row),
       );
       const interviewShortClientIds = [
         ...new Set(interviewShortSchedulesRes.rows.map((s) => s.client_id)),
       ];
       logger.info(
         `Unique client IDs for interview_shortlist: ${interviewShortClientIds.join(
-          ", "
-        )}`
+          ", ",
+        )}`,
       );
 
       const interviewShortClientMap = await getClientsByIds(
-        interviewShortClientIds
+        interviewShortClientIds,
       );
 
       for (const st of shortInt.rows) {
@@ -646,12 +685,12 @@ const getNotifications = async (req, res) => {
         const client = interviewShortClientMap.get(schedule.client_id);
         if (!client) {
           logger.warn(
-            `Skipping: No client found for schedule.client_id: ${schedule.client_id}`
+            `Skipping: No client found for schedule.client_id: ${schedule.client_id}`,
           );
           continue;
         }
         logger.info(
-          `Added Interview Shortlist notification for ${schedule.employee_name} under ${client.company_name}`
+          `Added Interview Shortlist notification for ${schedule.employee_name} under ${client.company_name}`,
         );
 
         if (
@@ -674,7 +713,7 @@ const getNotifications = async (req, res) => {
 
       // INTERVIEW REJECT
       logger.info(
-        `Found ${rejInt.rows.length} interview_schedule (rejected) notifications`
+        `Found ${rejInt.rows.length} interview_schedule (rejected) notifications`,
       );
 
       const rejectedInterviewRefIds = rejInt.rows.map((rj) => rj.ref_id);
@@ -683,10 +722,10 @@ const getNotifications = async (req, res) => {
       }
       const rejectedSchedulesRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_interview_schedule WHERE id = ANY($1::int[])`,
-        [rejectedInterviewRefIds]
+        [rejectedInterviewRefIds],
       );
       logger.info(
-        `Retrieved ${rejectedSchedulesRes.rows.length} interview_schedule (rejected) records from DB`
+        `Retrieved ${rejectedSchedulesRes.rows.length} interview_schedule (rejected) records from DB`,
       );
 
       const scheduleMap = new Map();
@@ -696,19 +735,19 @@ const getNotifications = async (req, res) => {
       ];
       logger.info(
         `Unique client IDs for interview rejects: ${interviewRejectClientIds.join(
-          ", "
-        )}`
+          ", ",
+        )}`,
       );
 
       const interviewRejectClientMap = await getClientsByIds(
-        interviewRejectClientIds
+        interviewRejectClientIds,
       );
 
       for (const rj of rejInt.rows) {
         const schedule = scheduleMap.get(rj.ref_id);
         if (!schedule) {
           logger.warn(
-            `Skipping: No schedule found for rejected ref_id: ${rj.ref_id}`
+            `Skipping: No schedule found for rejected ref_id: ${rj.ref_id}`,
           );
           continue;
         }
@@ -716,13 +755,13 @@ const getNotifications = async (req, res) => {
         const client = interviewRejectClientMap.get(schedule.client_id);
         if (!client) {
           logger.warn(
-            `Skipping: No client found for schedule.client_id: ${schedule.client_id}`
+            `Skipping: No client found for schedule.client_id: ${schedule.client_id}`,
           );
           continue;
         }
 
         logger.info(
-          `Added Interview Reject notification for ${schedule.employee_name} by ${client.company_name}`
+          `Added Interview Reject notification for ${schedule.employee_name} by ${client.company_name}`,
         );
 
         if (
@@ -750,10 +789,10 @@ const getNotifications = async (req, res) => {
       }
       const invoiceRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_employee_invoice WHERE id = ANY($1::int[])`,
-        [empInvoiceIds]
+        [empInvoiceIds],
       );
       logger.info(
-        `Retrieved ${invoiceRes.rows.length} employee_invoice records from DB`
+        `Retrieved ${invoiceRes.rows.length} employee_invoice records from DB`,
       );
 
       const invoiceMap = new Map();
@@ -764,8 +803,8 @@ const getNotifications = async (req, res) => {
       ];
       logger.info(
         `Unique client IDs for employee_invoice: ${empInvoiceClientIds.join(
-          ", "
-        )}`
+          ", ",
+        )}`,
       );
 
       const empInvoiceClientMap = await getClientsByIds(empInvoiceClientIds);
@@ -774,7 +813,7 @@ const getNotifications = async (req, res) => {
         const invoice = invoiceMap.get(inv.ref_id);
         if (!invoice) {
           logger.warn(
-            `Skipping: No employee_invoice found for ref_id: ${inv.ref_id}`
+            `Skipping: No employee_invoice found for ref_id: ${inv.ref_id}`,
           );
           continue;
         }
@@ -782,13 +821,13 @@ const getNotifications = async (req, res) => {
         const client = empInvoiceClientMap.get(invoice.client_id);
         if (!client) {
           logger.warn(
-            `Skipping: No client found for client_id: ${invoice.client_id}`
+            `Skipping: No client found for client_id: ${invoice.client_id}`,
           );
           continue;
         }
 
         logger.info(
-          `Added Employee Invoice notification for ${client.company_name} with status ${inv.status}`
+          `Added Employee Invoice notification for ${client.company_name} with status ${inv.status}`,
         );
 
         if (
@@ -818,10 +857,10 @@ const getNotifications = async (req, res) => {
       }
       const otherPaymentsRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_other_payment WHERE id = ANY($1::int[])`,
-        [otherPaymentRefIds]
+        [otherPaymentRefIds],
       );
       logger.info(
-        `Retrieved ${otherPaymentsRes.rows.length} other_payment records from DB`
+        `Retrieved ${otherPaymentsRes.rows.length} other_payment records from DB`,
       );
 
       const paymentMap = new Map();
@@ -831,18 +870,18 @@ const getNotifications = async (req, res) => {
       ];
       logger.info(
         `Unique client IDs for other_payment: ${otherPaymentClientIds.join(
-          ", "
-        )}`
+          ", ",
+        )}`,
       );
 
       const otherPaymentClientMap = await getClientsByIds(
-        otherPaymentClientIds
+        otherPaymentClientIds,
       );
       for (const inv of otherInv.rows) {
         const payment = paymentMap.get(inv.ref_id);
         if (!payment) {
           logger.warn(
-            `Skipping: No other_payment found for ref_id: ${inv.ref_id}`
+            `Skipping: No other_payment found for ref_id: ${inv.ref_id}`,
           );
           continue;
         }
@@ -850,12 +889,12 @@ const getNotifications = async (req, res) => {
         const client = otherPaymentClientMap.get(payment.client_id);
         if (!client) {
           logger.warn(
-            `Skipping: No client found for client_id: ${payment.client_id}`
+            `Skipping: No client found for client_id: ${payment.client_id}`,
           );
           continue;
         }
         logger.info(
-          `Added Other Payment notification for ${client.company_name} with status ${inv.status}`
+          `Added Other Payment notification for ${client.company_name} with status ${inv.status}`,
         );
 
         if (isHR && !shouldShowNotification("other_payment", hrPermissions)) {
@@ -881,10 +920,10 @@ const getNotifications = async (req, res) => {
       }
       const wfhRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_wfh_request WHERE id = ANY($1::int[])`,
-        [wfhRefIds]
+        [wfhRefIds],
       );
       logger.info(
-        `Retrieved ${wfhRes.rows.length} wfh_request records from DB`
+        `Retrieved ${wfhRes.rows.length} wfh_request records from DB`,
       );
 
       const wfhMap = new Map();
@@ -892,15 +931,15 @@ const getNotifications = async (req, res) => {
 
       const employeeIds = [...new Set(wfhRes.rows.map((w) => w.employee_id))];
       logger.info(
-        `Unique employee IDs for wfh_request: ${employeeIds.join(", ")}`
+        `Unique employee IDs for wfh_request: ${employeeIds.join(", ")}`,
       );
 
       const empRes = await pool.query(
         `SELECT * FROM eSparkTalentAPI_employee WHERE id = ANY($1::int[])`,
-        [employeeIds]
+        [employeeIds],
       );
       logger.info(
-        `Retrieved ${empRes.rows.length} employee records for WFH notifications`
+        `Retrieved ${empRes.rows.length} employee records for WFH notifications`,
       );
 
       const empMap = new Map();
@@ -910,7 +949,7 @@ const getNotifications = async (req, res) => {
         const wfh = wfhMap.get(inv.ref_id);
         if (!wfh) {
           logger.warn(
-            `Skipping: No WFH request found for ref_id: ${inv.ref_id}`
+            `Skipping: No WFH request found for ref_id: ${inv.ref_id}`,
           );
           continue;
         }
@@ -918,13 +957,13 @@ const getNotifications = async (req, res) => {
         const emp = empMap.get(wfh.employee_id);
         if (!emp) {
           logger.warn(
-            `Skipping: No employee found for employee_id: ${wfh.employee_id}`
+            `Skipping: No employee found for employee_id: ${wfh.employee_id}`,
           );
           continue;
         }
 
         logger.info(
-          `Added WFH Request notification by ${emp.first_name} ${emp.last_name}`
+          `Added WFH Request notification by ${emp.first_name} ${emp.last_name}`,
         );
 
         if (isHR && !shouldShowNotification("wfh_request", hrPermissions)) {

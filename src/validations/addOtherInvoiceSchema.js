@@ -14,7 +14,32 @@ export const addOtherInvoiceSchema = yup.object({
 export const getOtherInvoicesSchema = yup.object({
   query: yup.object({
     client_id: yup.string().email().required("Client ID is required"),
-    tab: yup.string().oneOf(["pending", "processing", "paid"]).optional(),
+    tab: yup
+      .string()
+      .oneOf(["pending", "processing", "paid", "under_review"])
+      .optional(),
+  }),
+});
+
+export const manualInvoicePaymentSchema = yup.object({
+  params: yup.object({
+    id: yup.string().required("ID is required"),
+  }),
+  body: yup.object({
+    payment_reference: yup.string().optional(),
+  }),
+});
+
+export const manualInvoicePaymentReviewSchema = yup.object({
+  params: yup.object({
+    id: yup.string().required("ID is required"),
+  }),
+  body: yup.object({
+    action: yup
+      .string()
+      .oneOf(["approve", "reject"])
+      .required("Action is required"),
+    reason: yup.string().optional(),
   }),
 });
 
@@ -36,7 +61,7 @@ export const updateOtherInvoiceSchema = yup.object({
     currency: yup.string().optional(),
     payment_status: yup
       .string()
-      .oneOf(["pending", "processing", "paid"])
+      .oneOf(["pending", "processing", "paid", "under_review"])
       .optional(),
   }),
 });
@@ -51,7 +76,7 @@ export const getClientInvoicePaymentsSchema = yup.object({
   query: yup.object({
     payment_status: yup
       .string()
-      .oneOf(["pending", "processing", "paid"])
+      .oneOf(["pending", "processing", "paid", "under_review"])
       .optional(),
     q: yup.string().optional(),
     sort_by: yup

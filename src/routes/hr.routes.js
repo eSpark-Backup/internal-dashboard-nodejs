@@ -204,6 +204,7 @@ import {
   deleteOtherInvoiceSchema,
   downloadOtherInvoiceSchema,
   getOtherInvoicesSchema,
+  manualInvoicePaymentReviewSchema,
   updateOtherInvoiceSchema,
 } from "../validations/addOtherInvoiceSchema.js";
 import addOtherInvoice from "../controllers/HR/client/otherInvoices/addOtherInvoice.js";
@@ -211,6 +212,7 @@ import getOtherInvoices from "../controllers/HR/client/otherInvoices/getOtherInv
 import deleteOtherInvoice from "../controllers/HR/client/otherInvoices/deleteOtherInvoice.js";
 import updateOtherInvoice from "../controllers/HR/client/otherInvoices/updateOtherInvoice.js";
 import downloadOtherInvoice from "../controllers/HR/client/otherInvoices/downloadOtherInvoice.js";
+import manualPaymentReview from "../controllers/HR/Invoices/manualPaymentReview.js";
 import {
   addOutsourceEmployeeSchema,
   getOutsourceEligibleEmployeesSchema,
@@ -979,6 +981,14 @@ router.get(
   "/hr_invoices",
   authenticateJWT,
   getInvoices
+);
+
+// Manual payment review
+router.patch(
+  "/invoices/:id/manual-payment-review",
+  authenticateJWT,
+  validateSchema(manualInvoicePaymentReviewSchema),
+  manualPaymentReview,
 );
 
 // Add Outsource Employee

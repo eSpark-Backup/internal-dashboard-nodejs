@@ -158,7 +158,7 @@ const handleSinglePayment = async (client, basketId, paymentData) => {
 
   // Check employee_invoice first
   const salaryInvoiceQuery = `
-    SELECT id, client_id, invoice_amount, payment_status
+    SELECT id, client_id, invoice_amount, payment_status, payment_method
     FROM eSparkTalentAPI_employee_invoice
     WHERE basket_id = $1
   `;
@@ -171,7 +171,7 @@ const handleSinglePayment = async (client, basketId, paymentData) => {
   } else {
     // Check other_payment
     const customInvoiceQuery = `
-      SELECT id, client_id, invoice_amount, payment_status
+      SELECT id, client_id, invoice_amount, payment_status, payment_method
       FROM eSparkTalentAPI_other_payment
       WHERE basket_id = $1
     `;
@@ -186,6 +186,13 @@ const handleSinglePayment = async (client, basketId, paymentData) => {
 
   if (!invoice) {
     throw new Error(`Invoice not found for basket_id: ${basketId}`);
+  }
+
+  if (invoice.payment_method === "MANUAL") {
+    logger.info(
+      `Invoice ${invoice.id} is marked MANUAL - skipping PayFast webhook processing`,
+    );
+    return;
   }
 
   // Check if already paid (prevent double processing)
