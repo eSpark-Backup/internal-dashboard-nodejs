@@ -1,0 +1,22 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-15T08:46:45.245Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-15T08:46:45.293Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-15T08:46:45.443Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-15T08:46:45.444Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-15T08:46:45.448Z"}
+{"count":12,"level":"info","message":"Found migration files","timestamp":"2026-04-15T08:46:45.450Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-15T08:46:45.460Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-15T08:46:45.461Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-15T08:46:45.465Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-15T08:46:45.721Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-15T08:46:45.729Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-15T08:46:45.738Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-15T08:46:45.738Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-15T08:49:25.904Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-15T08:49:27.547Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://693b-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/success?basket_id=CUSTOM_BASKET_1_840222","timestamp":"2026-04-15T08:49:27.566Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://693b-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payment/failure?basket_id=CUSTOM_BASKET_1_840222","timestamp":"2026-04-15T08:49:27.567Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://693b-2400-adc1-10e-4000-5162-3f9b-2222-a8a.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-15T08:49:27.568Z"}
+{"level":"info","message":"Payment initiated for invoice 16, basket_id: CUSTOM_BASKET_1_840222","timestamp":"2026-04-15T08:49:27.568Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-15T08:57:14.769Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-15T08:57:15.913Z"}
+{"level":"info","message":"Bulk payment initiated for 2 invoices, basket_id: BULK-5-434761","timestamp":"2026-04-15T08:57:15.963Z"}
