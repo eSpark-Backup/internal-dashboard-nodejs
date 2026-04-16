@@ -228,31 +228,31 @@ const addEmployee = async (req, res) => {
       ]
     );
 
-    const clientResult = await client.query(
-      `SELECT id FROM eSparkTalentAPI_client WHERE email = $1`,
-      [talentEmail]
-    );
+    // const clientResult = await client.query(
+    //   `SELECT id FROM eSparkTalentAPI_client WHERE email = $1`,
+    //   [talentEmail]
+    // );
 
-    if (clientResult.rows.length === 0) {
-      await client.query("ROLLBACK");
-      await cleanupFiles([
-        { localPath: imageFile?.path, s3Key: imageS3Key },
-        { localPath: resumeFile?.path, s3Key: resumeS3Key },
-      ]);
-      return res.status(400).json({
-        error: "Failed to add employee.",
-      });
-    }
+    // if (clientResult.rows.length === 0) {
+    //   await client.query("ROLLBACK");
+    //   await cleanupFiles([
+    //     { localPath: imageFile?.path, s3Key: imageS3Key },
+    //     { localPath: resumeFile?.path, s3Key: resumeS3Key },
+    //   ]);
+    //   return res.status(400).json({
+    //     error: "Failed to add employee.",
+    //   });
+    // }
 
-    const clientId = clientResult.rows[0].id;
+    // const clientId = clientResult.rows[0].id;
 
-    await client.query(
-      `INSERT INTO eSparkTalentAPI_outsource_employees (
-        client_id, employee_id, job_title, country, role_type,
-        employment_term, joining_date, salary
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-      [clientId, emp.id, job_title, "Pakistan", role, "", joining_date, 0]
-    );
+    // await client.query(
+    //   `INSERT INTO eSparkTalentAPI_outsource_employees (
+    //     client_id, employee_id, job_title, country, role_type,
+    //     employment_term, joining_date, salary
+    //   ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    //   [clientId, emp.id, job_title, "Pakistan", role, "", joining_date, 0]
+    // );
 
     let imageUrl = null;
     if (imageS3Key) {

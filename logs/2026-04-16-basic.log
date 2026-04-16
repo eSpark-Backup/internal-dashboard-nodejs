@@ -1,0 +1,136 @@
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-16T08:27:57.823Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-16T08:27:57.987Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-16T08:27:58.147Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-16T08:27:58.166Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-16T08:27:58.230Z"}
+{"count":13,"level":"info","message":"Found migration files","timestamp":"2026-04-16T08:27:58.251Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-16T08:27:58.299Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-16T08:27:58.300Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-16T08:27:58.304Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-16T08:27:58.387Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-16T08:27:58.394Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-16T08:27:58.401Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-16T08:27:58.402Z"}
+{"level":"info","message":"Shakeel Khan is added successfully","timestamp":"2026-04-16T08:29:40.890Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T08:34:04.296Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T08:34:05.584Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-1-444242","timestamp":"2026-04-16T08:34:05.632Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-1-444242","timestamp":"2026-04-16T08:34:05.632Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T08:34:05.633Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: CUS-1-444242","timestamp":"2026-04-16T08:34:05.633Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T08:34:28.024Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T08:34:29.061Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-1-468017","timestamp":"2026-04-16T08:34:29.070Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-1-468017","timestamp":"2026-04-16T08:34:29.070Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T08:34:29.071Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: CUS-1-468017","timestamp":"2026-04-16T08:34:29.071Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-16T08:42:06.245Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-16T08:42:06.298Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-16T08:42:06.435Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-16T08:42:06.437Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-16T08:42:06.475Z"}
+{"count":13,"level":"info","message":"Found migration files","timestamp":"2026-04-16T08:42:06.479Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-16T08:42:06.515Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-16T08:42:06.516Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-16T08:42:06.520Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-16T08:42:06.746Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-16T08:42:06.754Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-16T08:42:06.766Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-16T08:42:06.766Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T08:42:11.546Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T08:42:12.997Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-1-931517","timestamp":"2026-04-16T08:42:13.007Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-1-931517","timestamp":"2026-04-16T08:42:13.008Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T08:42:13.008Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: CUS-1-931517","timestamp":"2026-04-16T08:42:13.009Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T08:44:46.516Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T08:44:47.743Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-1-086512","timestamp":"2026-04-16T08:44:47.755Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-1-086512","timestamp":"2026-04-16T08:44:47.755Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T08:44:47.756Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: CUS-1-086512","timestamp":"2026-04-16T08:44:47.757Z"}
+{"level":"info","message":"Shakeel Khan is added successfully","timestamp":"2026-04-16T08:47:37.216Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T08:50:29.720Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T08:50:30.924Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-1-429717","timestamp":"2026-04-16T08:50:30.933Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-1-429717","timestamp":"2026-04-16T08:50:30.934Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T08:50:30.934Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: CUS-1-429717","timestamp":"2026-04-16T08:50:30.934Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T08:50:50.931Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T08:50:52.135Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-2-450927","timestamp":"2026-04-16T08:50:52.140Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-2-450927","timestamp":"2026-04-16T08:50:52.140Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T08:50:52.141Z"}
+{"level":"info","message":"Payment initiated for invoice 2, basket_id: CUS-2-450927","timestamp":"2026-04-16T08:50:52.141Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-16T08:51:07.964Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-16T08:51:07.991Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-16T08:51:08.075Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-16T08:51:08.076Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-16T08:51:08.079Z"}
+{"count":13,"level":"info","message":"Found migration files","timestamp":"2026-04-16T08:51:08.081Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-16T08:51:08.084Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-16T08:51:08.085Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-16T08:51:08.087Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-16T08:51:08.119Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-16T08:51:08.123Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-16T08:51:08.127Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-16T08:51:08.127Z"}
+{"level":"info","message":"Shakeel Khan is added successfully","timestamp":"2026-04-16T08:52:01.842Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-16T09:06:15.711Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-16T09:06:15.764Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-16T09:06:15.861Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-16T09:06:15.863Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-16T09:06:15.869Z"}
+{"count":13,"level":"info","message":"Found migration files","timestamp":"2026-04-16T09:06:15.871Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-16T09:06:15.878Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-16T09:06:15.879Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-16T09:06:15.883Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-16T09:06:15.948Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-16T09:06:15.956Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-16T09:06:15.964Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-16T09:06:15.965Z"}
+{"level":"info","message":"Shakeel Khan is added successfully","timestamp":"2026-04-16T09:06:53.525Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T09:09:26.390Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T09:09:27.825Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=CUS-1-566365","timestamp":"2026-04-16T09:09:27.838Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=CUS-1-566365","timestamp":"2026-04-16T09:09:27.839Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T09:09:27.840Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: CUS-1-566365","timestamp":"2026-04-16T09:09:27.840Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-16T09:11:10.380Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-16T09:11:10.409Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-16T09:11:10.513Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-16T09:11:10.514Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-16T09:11:10.518Z"}
+{"count":13,"level":"info","message":"Found migration files","timestamp":"2026-04-16T09:11:10.519Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-16T09:11:10.524Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-16T09:11:10.525Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-16T09:11:10.529Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: * * * * *","timestamp":"2026-04-16T09:11:10.581Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-16T09:11:10.586Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-16T09:11:10.592Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-16T09:11:10.593Z"}
+{"level":"info","message":"📅 Running monthly invoice generation cron...","timestamp":"2026-04-16T09:12:00.025Z"}
+{"level":"info","message":"Starting monthly invoice generation...","timestamp":"2026-04-16T09:12:00.102Z"}
+{"level":"info","message":"Found 1 active outsourced employees","timestamp":"2026-04-16T09:12:00.117Z"}
+{"level":"info","message":"Prorated salary for Shakeel Khan: 183.33","timestamp":"2026-04-16T09:12:00.127Z"}
+{"level":"info","message":"Generated invoice 1 for Shakeel Khan","timestamp":"2026-04-16T09:12:00.146Z"}
+{"level":"info","message":"Monthly invoice generation completed: 1 invoices generated, 0 errors","timestamp":"2026-04-16T09:12:00.152Z"}
+{"level":"info","message":"API docs exposed at /api-docs","timestamp":"2026-04-16T09:12:37.283Z"}
+{"level":"info","message":"Attempting database connection (attempt 1/5)","timestamp":"2026-04-16T09:12:37.312Z"}
+{"level":"info","message":"Successfully connected to database","timestamp":"2026-04-16T09:12:37.492Z"}
+{"level":"info","message":"Initializing migrations table","timestamp":"2026-04-16T09:12:37.493Z"}
+{"level":"info","message":"Migrations table initialized successfully","timestamp":"2026-04-16T09:12:37.496Z"}
+{"count":13,"level":"info","message":"Found migration files","timestamp":"2026-04-16T09:12:37.498Z"}
+{"level":"info","message":"All migrations completed successfully","timestamp":"2026-04-16T09:12:37.502Z"}
+{"level":"info","message":"Closing database pool","timestamp":"2026-04-16T09:12:37.503Z"}
+{"level":"info","message":"🚀 Initializing cron jobs...","timestamp":"2026-04-16T09:12:37.506Z"}
+{"level":"info","message":"✅ Monthly invoice generation scheduled: 0 2 1 * *","timestamp":"2026-04-16T09:12:37.544Z"}
+{"level":"info","message":"✅ Invoice reminder scheduled: 0 9 * * *","timestamp":"2026-04-16T09:12:37.547Z"}
+{"level":"info","message":"✅ Overdue checker scheduled: 0 10 * * *","timestamp":"2026-04-16T09:12:37.550Z"}
+{"level":"info","message":"✅ All cron jobs initialized successfully","timestamp":"2026-04-16T09:12:37.551Z"}
+{"level":"info","message":"PayFast token request payload:","timestamp":"2026-04-16T09:13:09.751Z"}
+{"level":"info","message":"New PayFast access token generated successfully","timestamp":"2026-04-16T09:13:10.863Z"}
+{"level":"info","message":"PayFast SUCCESS_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/success?basket_id=SAL-1-4-720128","timestamp":"2026-04-16T09:13:10.874Z"}
+{"level":"info","message":"PayFast FAILURE_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payment/failure?basket_id=SAL-1-4-720128","timestamp":"2026-04-16T09:13:10.875Z"}
+{"level":"info","message":"PayFast CHECKOUT_URL: https://0948-2400-adc1-10e-4000-c855-f977-4345-5b49.ngrok-free.app/api/payfast/webhook","timestamp":"2026-04-16T09:13:10.875Z"}
+{"level":"info","message":"Payment initiated for invoice 1, basket_id: SAL-1-4-720128","timestamp":"2026-04-16T09:13:10.876Z"}
